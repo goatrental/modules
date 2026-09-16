@@ -1,0 +1,101 @@
+<odoo>
+
+<!-- ========= BODY CLASS =========
+     Add .vet-body to <body> so all theme rules apply. -->
+<template id="vet_body_class" name="Elite Vet Body Class"
+          inherit_id="website.layout" active="True">
+    <xpath expr="//body" position="attributes">
+        <attribute name="t-attf-class" add="vet-body" separator=" "/>
+    </xpath>
+</template>
+
+<!-- ========= CUSTOM HEADER =========
+     Targets //header directly (from web.frontend_layout) with position=inside.
+     The post_copy hook disables website.template_header_default. -->
+<template id="vet_header" name="Elite Vet Header"
+          inherit_id="website.layout" active="True" customize_show="True">
+    <xpath expr="//header" position="replace">
+      <header id="top" data-anchor="true" data-name="Header" data-extra-items-toggle-aria-label="Extra items button" class="o_header_standard o_top_fixed_element">
+        <div class="vet-nav-inner">
+            <a href="/" class="vet-nav-brand">
+                <img src="/theme_elite_vet/static/src/img/logo.jpeg" alt="Elite Vet" class="vet-nav-logo"/>
+                <span class="vet-nav-brand-text">
+                    <span class="vet-nav-brand-name">Elite <span style="color:#5ba8a0;">Vet</span></span>
+                    <span class="vet-nav-brand-sub">Veterinární klinika</span>
+                </span>
+            </a>
+            <div class="vet-nav-links">
+                <t t-foreach="website.menu_id.child_id" t-as="submenu">
+                    <a t-att-href="submenu.url" t-out="submenu.name"/>
+                </t>
+            </div>
+            <a href="tel:+420774633950" class="vet-nav-cta">Zavolejte nám</a>
+            <button class="vet-hamburger" id="vet-hamburger-btn" aria-label="Menu" type="button">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="3" y1="6" x2="21" y2="6"/>
+                    <line x1="3" y1="12" x2="21" y2="12"/>
+                    <line x1="3" y1="18" x2="21" y2="18"/>
+                </svg>
+            </button>
+        </div>
+        </header>
+    </xpath>
+</template>
+
+<!-- Mobile menu: sibling to header, injected after it. -->
+<template id="vet_mobile_menu" name="Elite Vet Mobile Menu"
+          inherit_id="website.layout" active="True">
+    <xpath expr="//header" position="after">
+        <div class="vet-mobile-menu" id="vet-mobile-menu">
+            <t t-foreach="website.menu_id.child_id" t-as="submenu">
+                <a t-att-href="submenu.url" t-out="submenu.name"/>
+            </t>
+            <a href="tel:+420774633950">Zavolejte nám</a>
+        </div>
+    </xpath>
+</template>
+
+<!-- ========= CUSTOM FOOTER =========
+     Targets //div[@id='footer'] with position=inside. post_copy disables
+     website.footer_custom. -->
+<template id="vet_footer" name="Elite Vet Footer"
+          inherit_id="website.layout" active="True" customize_show="True">
+<xpath expr="//div[@id='footer']" position="replace">
+      <div id="footer">
+        <div class="vet-footer-inner">
+            <div class="vet-footer-grid">
+                <div>
+                    <div class="vet-footer-brand-row">
+                        <img src="/theme_elite_vet/static/src/img/logo.jpeg" alt="Elite Vet" class="vet-footer-logo" loading="lazy"/>
+                        <span class="vet-footer-brand">Elite <span style="color:#5ba8a0;">Vet</span></span>
+                    </div>
+                    <p class="vet-footer-about">
+                        Moderní veterinární klinika v Karlových Varech. Pečujeme o vaše
+                        mazlíčky s láskou, odborností a nejnovějšími technologiemi.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="vet-footer-col-title">Navigace</h4>
+                    <ul class="vet-footer-col-list">
+                        <li><a href="#sluzby" class="vet-footer-link">Služby</a></li>
+                        <li><a href="#o-nas" class="vet-footer-link">O nás</a></li>
+                        <li><a href="#recenze" class="vet-footer-link">Recenze</a></li>
+                        <li><a href="#kariera" class="vet-footer-link">Kariéra</a></li>
+                        <li><a href="#kontakt" class="vet-footer-link">Kontakt</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="vet-footer-col-title">Kontakt</h4>
+                    <div class="vet-footer-contact">
+                        <p>Hybešova 167/18<br/>360 05 Karlovy Vary-Rybáře</p>
+                        <p>+420 774 633 950</p>
+                        <p>veterinaKV@seznam.cz</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+    </xpath>
+</template>
+
+</odoo>

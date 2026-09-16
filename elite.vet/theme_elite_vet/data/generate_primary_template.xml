@@ -1,0 +1,7 @@
+<odoo>
+
+<template id="vet_primary_template" name="Elite Vet" primary="True" inherit_id="website.layout">
+    <true/>
+</template>
+
+</odoo>

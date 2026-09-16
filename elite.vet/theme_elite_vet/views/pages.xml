@@ -1,0 +1,27 @@
+<odoo>
+<data>
+
+<template id="vet_homepage" name="Elite Vet Homepage">
+    <t t-call="website.layout">
+        <t t-set="additional_title">Elite Vet | Veterinární klinika Karlovy Vary</t>
+        <t t-set="meta_description">Moderní veterinární klinika v Karlových Varech. Komplexní péče pro psy, kočky i exoty, moderní diagnostika, chirurgie, pohotovost. Hybešova 167/18, Rybáře.</t>
+
+        <div id="wrap" class="oe_structure vet-page">
+            <t t-call="theme_elite_vet.s_vet_hero"/>
+            <t t-call="theme_elite_vet.s_vet_services"/>
+            <t t-call="theme_elite_vet.s_vet_about"/>
+            <t t-call="theme_elite_vet.s_vet_testimonials"/>
+            <t t-call="theme_elite_vet.s_vet_careers"/>
+            <t t-call="theme_elite_vet.s_vet_contact"/>
+        </div>
+    </t>
+</template>
+
+<record id="vet_homepage_page" model="theme.website.page">
+    <field name="url">/</field>
+    <field name="view_id" ref="vet_homepage"/>
+    <field name="is_published" eval="True"/>
+</record>
+
+</data>
+</odoo>

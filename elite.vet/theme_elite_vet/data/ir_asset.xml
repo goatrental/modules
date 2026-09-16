@@ -1,0 +1,51 @@
+<odoo>
+
+    <!-- Primary Variables (loaded first) -->
+    <record id="asset_primary_variables" model="theme.ir.asset">
+        <field name="key">theme_elite_vet_primary_variables</field>
+        <field name="name">theme_elite_vet primary variables</field>
+        <field name="bundle">web._assets_primary_variables</field>
+        <field name="path">theme_elite_vet/static/src/scss/primary_variables.scss</field>
+    </record>
+
+    <!-- Bootstrap Overrides -->
+    <record id="asset_bootstrap_overridden" model="theme.ir.asset">
+        <field name="key">theme_elite_vet_bootstrap_overridden</field>
+        <field name="name">theme_elite_vet bootstrap overridden</field>
+        <field name="bundle">web._assets_frontend_helpers</field>
+        <field name="path">theme_elite_vet/static/src/scss/bootstrap_overridden.scss</field>
+    </record>
+
+    <!-- Main Theme Styles -->
+    <record id="asset_theme" model="theme.ir.asset">
+        <field name="key">theme_elite_vet_theme</field>
+        <field name="name">theme_elite_vet theme styles</field>
+        <field name="bundle">web.assets_frontend</field>
+        <field name="path">theme_elite_vet/static/src/scss/theme.scss</field>
+    </record>
+
+    <!-- Header Styles -->
+    <record id="asset_header" model="theme.ir.asset">
+        <field name="key">theme_elite_vet_header</field>
+        <field name="name">theme_elite_vet header styles</field>
+        <field name="bundle">web.assets_frontend</field>
+        <field name="path">theme_elite_vet/static/src/scss/header.scss</field>
+    </record>
+
+    <!-- Footer Styles -->
+    <record id="asset_footer" model="theme.ir.asset">
+        <field name="key">theme_elite_vet_footer</field>
+        <field name="name">theme_elite_vet footer styles</field>
+        <field name="bundle">web.assets_frontend</field>
+        <field name="path">theme_elite_vet/static/src/scss/footer.scss</field>
+    </record>
+
+    <!-- Responsive Styles (loaded last) -->
+    <record id="asset_responsive" model="theme.ir.asset">
+        <field name="key">theme_elite_vet_responsive</field>
+        <field name="name">theme_elite_vet responsive styles</field>
+        <field name="bundle">web.assets_frontend</field>
+        <field name="path">theme_elite_vet/static/src/scss/responsive.scss</field>
+    </record>
+
+</odoo>

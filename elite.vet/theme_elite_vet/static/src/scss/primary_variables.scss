@@ -1,0 +1,26 @@
+// Elite Vet palette — navy primary, teal accent.
+// Fonts: system-ui stack applied via theme.scss (no Google Fonts, no @import).
+$o-website-values-palettes: (
+    'elite-vet': (
+        'o-color-1': #1a2744,
+        'o-color-2': #ffffff,
+        'o-color-3': #f7f9fb,
+        'o-color-4': #5ba8a0,
+        'o-color-5': #111b30,
+        'menu': 2,
+        'footer': 1,
+        'copyright': 1,
+        'o-cc1-bg': 'o-color-1',
+        'o-cc1-text': #ffffff,
+        'o-cc2-bg': 'o-color-2',
+        'o-cc2-text': 'o-color-1',
+        'o-cc3-bg': 'o-color-3',
+        'o-cc3-text': 'o-color-1',
+        'o-cc4-bg': 'o-color-4',
+        'o-cc4-text': #ffffff,
+        'o-cc5-bg': 'o-color-5',
+        'o-cc5-text': #ffffff,
+        'o-cc2-btn-primary': 'o-color-4',
+        'o-cc2-btn-primary-text': #ffffff,
+    ),
+) !default;

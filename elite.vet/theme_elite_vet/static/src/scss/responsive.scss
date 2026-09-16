@@ -1,0 +1,58 @@
+// Elite Vet — responsive breakpoints (loaded last).
+// Double class prefix (body.vet-body.vet-body) raises specificity so these
+// rules win over theme.scss base values regardless of bundle source order —
+// theme.ir.asset sequence is not always honored by the compiled bundle.
+
+body.vet-body.vet-body {
+  @media (min-width: 640px) {
+    .vet-container { padding-inline: 1.5rem; }
+    .vet-section { padding-block: 6rem; }
+    .vet-hero__inner { padding: 4rem 1.5rem; }
+    .vet-hero__feature { padding: 1rem; gap: 1rem; }
+    .vet-hero__card { padding: 2rem; gap: 1.25rem; }
+    .vet-hero__lead { margin-top: 1.5rem; font-size: 1.125rem; }
+    .vet-hero__title { font-size: 2.25rem; }
+    .vet-hero__cta { flex-direction: row; gap: 1rem; margin-top: 2.5rem; }
+    .vet-hero__stats { gap: 2rem; margin-top: 3rem; }
+    .vet-service { padding: 2rem; }
+    .vet-team-card { gap: 1.25rem; padding: 1.25rem; }
+    .vet-testimonial { min-width: 21.25rem; padding: 2rem; }
+    .vet-testimonial__text { font-size: 1.125rem; }
+    .vet-contact__hours { padding: 2rem; }
+    .vet-contact__map { min-height: 20rem; }
+    .vet-careers__visual { padding: 2.5rem; }
+    .vet-careers__cta { flex-direction: row; }
+    .vet-about__features { grid-template-columns: repeat(2, 1fr); }
+    .vet-footer-inner { padding: 4rem 1.5rem; }
+    .vet-footer-bottom { flex-direction: row; }
+    .vet-btn { padding: 1rem 2rem; font-size: 1rem; }
+
+    .vet-nav-brand-sub { display: block; }
+  }
+
+  @media (min-width: 768px) {
+    .vet-hero__inner { flex-direction: row; padding: 9rem 1.5rem; gap: 4rem; }
+    .vet-hero__text { text-align: left; }
+    .vet-hero__title { font-size: 3rem; }
+    .vet-hero__lead { font-size: 1.25rem; margin-inline: 0; }
+    .vet-hero__cta { justify-content: flex-start; }
+    .vet-hero__stats { justify-content: flex-start; }
+    .vet-hero__stat-value { font-size: 1.875rem; }
+    .vet-section-title { font-size: 2.25rem; }
+    .vet-services__grid { grid-template-columns: repeat(2, 1fr); }
+    .vet-footer-grid { grid-template-columns: 2fr 1fr 1fr; }
+
+    .vet-nav-inner { padding: 0 1.5rem; height: 5rem; }
+    .vet-nav-links { display: flex; }
+    .vet-nav-cta { display: inline-flex; }
+    .vet-hamburger { display: none; }
+  }
+
+  @media (min-width: 1024px) {
+    .vet-hero__title { font-size: 3.75rem; }
+    .vet-services__grid { grid-template-columns: repeat(3, 1fr); }
+    .vet-about__grid { grid-template-columns: 1fr 1fr; gap: 4rem; }
+    .vet-careers__grid { grid-template-columns: 1fr 1fr; gap: 4rem; }
+    .vet-contact__grid { grid-template-columns: repeat(3, 1fr); }
+  }
+}

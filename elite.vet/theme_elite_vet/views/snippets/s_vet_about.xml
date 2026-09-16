@@ -1,0 +1,68 @@
+<odoo>
+
+<template id="s_vet_about" name="Vet About">
+<section id="o-nas" class="vet-section vet-section--muted" data-snippet="s_vet_about" data-name="Vet About">
+        <div class="vet-container">
+            <div class="vet-about__grid">
+                <div>
+                    <div class="vet-eyebrow">O nás</div>
+                    <h2 class="vet-section-title">Spokojený tým pro <span class="vet-highlight">spokojené mazlíčky</span></h2>
+                    <p class="vet-section-lead" style="text-align:left;">Naším cílem je nabídnout pacientům odbornou a komplexní péči, ale zároveň zachovat psychické a fyzické zdraví našich zaměstnanců. Věříme, že spokojený tým dělá nejlepší práci.</p>
+                    <p class="vet-section-lead" style="text-align:left; margin-top:1rem;">Každé zvíře si u nás zaslouží individuální přístup, trpělivost a laskavé zacházení. Používáme moderní diagnostické a léčebné postupy.</p>
+                    <div class="vet-about__features">
+                        <div class="vet-about__feature">
+                            <div class="vet-about__feature-check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#5ba8a0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+                            <span class="vet-about__feature-label">Moderní vybavení</span>
+                        </div>
+                        <div class="vet-about__feature">
+                            <div class="vet-about__feature-check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#5ba8a0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+                            <span class="vet-about__feature-label">Šetrné zacházení</span>
+                        </div>
+                        <div class="vet-about__feature">
+                            <div class="vet-about__feature-check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#5ba8a0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+                            <span class="vet-about__feature-label">Individuální přístup</span>
+                        </div>
+                        <div class="vet-about__feature">
+                            <div class="vet-about__feature-check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#5ba8a0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+                            <span class="vet-about__feature-label">Pohotovostní služba</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="vet-about__team">
+                    <div class="vet-team-card">
+                        <div class="vet-team-card__avatar">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                        </div>
+                        <div class="vet-team-card__body">
+                            <h3 class="vet-team-card__name">MVDr. Anna Nováková</h3>
+                            <p class="vet-team-card__role">Vedoucí veterinární lékařka</p>
+                            <p class="vet-team-card__meta">Chirurgie, interní medicína · 12 let praxe</p>
+                        </div>
+                    </div>
+                    <div class="vet-team-card">
+                        <div class="vet-team-card__avatar">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                        </div>
+                        <div class="vet-team-card__body">
+                            <h3 class="vet-team-card__name">MVDr. Tomáš Dvořák</h3>
+                            <p class="vet-team-card__role">Veterinární lékař</p>
+                            <p class="vet-team-card__meta">Diagnostika, dermatologie · 8 let praxe</p>
+                        </div>
+                    </div>
+                    <div class="vet-team-card">
+                        <div class="vet-team-card__avatar">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                        </div>
+                        <div class="vet-team-card__body">
+                            <h3 class="vet-team-card__name">Bc. Petra Svobodová</h3>
+                            <p class="vet-team-card__role">Veterinární technik</p>
+                            <p class="vet-team-card__meta">Anestezie, pooperační péče · 6 let praxe</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+
+</odoo>

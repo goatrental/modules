@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 120" width="200" height="120">
+  <rect width="200" height="120" fill="#1a2744"/>
+  <!-- Section header -->
+  <rect x="60" y="6" width="26" height="2.5" rx="0.5" fill="#5ba8a0"/>
+  <rect x="40" y="11" width="120" height="5" rx="1" fill="#fff"/>
+  <!-- 4 testimonial cards -->
+  <g>
+    <rect x="6" y="24" width="44" height="68" rx="3" fill="#fff" fill-opacity="0.06" stroke="#5ba8a0" stroke-width="0.3" stroke-opacity="0.3"/>
+    <!-- Stars -->
+    <g fill="#5ba8a0">
+      <circle cx="14" cy="30" r="1.5"/><circle cx="20" cy="30" r="1.5"/><circle cx="26" cy="30" r="1.5"/><circle cx="32" cy="30" r="1.5"/><circle cx="38" cy="30" r="1.5"/>
+    </g>
+    <rect x="10" y="36" width="36" height="1.5" fill="#fff" fill-opacity="0.6"/>
+    <rect x="10" y="40" width="34" height="1.5" fill="#fff" fill-opacity="0.4"/>
+    <rect x="10" y="44" width="30" height="1.5" fill="#fff" fill-opacity="0.3"/>
+    <!-- Avatar -->
+    <circle cx="16" cy="60" r="5" fill="#5ba8a0" fill-opacity="0.2"/>
+    <text x="16" y="62" font-family="Arial,sans-serif" font-size="5" font-weight="700" fill="#5ba8a0" text-anchor="middle">A</text>
+    <rect x="24" y="57" width="20" height="2" fill="#fff"/>
+    <rect x="24" y="61" width="16" height="1.5" fill="#5ba8a0" fill-opacity="0.5"/>
+  </g>
+  <g>
+    <rect x="54" y="24" width="44" height="68" rx="3" fill="#fff" fill-opacity="0.06" stroke="#5ba8a0" stroke-width="0.3" stroke-opacity="0.3"/>
+    <g fill="#5ba8a0">
+      <circle cx="62" cy="30" r="1.5"/><circle cx="68" cy="30" r="1.5"/><circle cx="74" cy="30" r="1.5"/><circle cx="80" cy="30" r="1.5"/><circle cx="86" cy="30" r="1.5"/>
+    </g>
+    <rect x="58" y="36" width="36" height="1.5" fill="#fff" fill-opacity="0.6"/>
+    <rect x="58" y="40" width="34" height="1.5" fill="#fff" fill-opacity="0.4"/>
+    <rect x="58" y="44" width="28" height="1.5" fill="#fff" fill-opacity="0.3"/>
+    <circle cx="64" cy="60" r="5" fill="#5ba8a0" fill-opacity="0.2"/>
+    <text x="64" y="62" font-family="Arial,sans-serif" font-size="5" font-weight="700" fill="#5ba8a0" text-anchor="middle">M</text>
+    <rect x="72" y="57" width="20" height="2" fill="#fff"/>
+    <rect x="72" y="61" width="16" height="1.5" fill="#5ba8a0" fill-opacity="0.5"/>
+  </g>
+  <g>
+    <rect x="102" y="24" width="44" height="68" rx="3" fill="#fff" fill-opacity="0.06" stroke="#5ba8a0" stroke-width="0.3" stroke-opacity="0.3"/>
+    <g fill="#5ba8a0">
+      <circle cx="110" cy="30" r="1.5"/><circle cx="116" cy="30" r="1.5"/><circle cx="122" cy="30" r="1.5"/><circle cx="128" cy="30" r="1.5"/><circle cx="134" cy="30" r="1.5"/>
+    </g>
+    <rect x="106" y="36" width="36" height="1.5" fill="#fff" fill-opacity="0.6"/>
+    <rect x="106" y="40" width="32" height="1.5" fill="#fff" fill-opacity="0.4"/>
+    <rect x="106" y="44" width="30" height="1.5" fill="#fff" fill-opacity="0.3"/>
+    <circle cx="112" cy="60" r="5" fill="#5ba8a0" fill-opacity="0.2"/>
+    <text x="112" y="62" font-family="Arial,sans-serif" font-size="5" font-weight="700" fill="#5ba8a0" text-anchor="middle">P</text>
+    <rect x="120" y="57" width="20" height="2" fill="#fff"/>
+    <rect x="120" y="61" width="16" height="1.5" fill="#5ba8a0" fill-opacity="0.5"/>
+  </g>
+  <g>
+    <rect x="150" y="24" width="44" height="68" rx="3" fill="#fff" fill-opacity="0.06" stroke="#5ba8a0" stroke-width="0.3" stroke-opacity="0.3"/>
+    <g fill="#5ba8a0">
+      <circle cx="158" cy="30" r="1.5"/><circle cx="164" cy="30" r="1.5"/><circle cx="170" cy="30" r="1.5"/><circle cx="176" cy="30" r="1.5"/><circle cx="182" cy="30" r="1.5"/>
+    </g>
+    <rect x="154" y="36" width="36" height="1.5" fill="#fff" fill-opacity="0.6"/>
+    <rect x="154" y="40" width="34" height="1.5" fill="#fff" fill-opacity="0.4"/>
+    <rect x="154" y="44" width="28" height="1.5" fill="#fff" fill-opacity="0.3"/>
+    <circle cx="160" cy="60" r="5" fill="#5ba8a0" fill-opacity="0.2"/>
+    <text x="160" y="62" font-family="Arial,sans-serif" font-size="5" font-weight="700" fill="#5ba8a0" text-anchor="middle">J</text>
+    <rect x="168" y="57" width="20" height="2" fill="#fff"/>
+    <rect x="168" y="61" width="16" height="1.5" fill="#5ba8a0" fill-opacity="0.5"/>
+  </g>
+  <!-- Google rating pill -->
+  <rect x="70" y="100" width="60" height="10" rx="5" fill="#5ba8a0" fill-opacity="0.15"/>
+  <rect x="78" y="103" width="44" height="4" rx="1" fill="#5ba8a0" fill-opacity="0.5"/>
+</svg>

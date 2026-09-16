@@ -1,0 +1,85 @@
+<odoo>
+
+<template id="s_vet_contact" name="Vet Contact">
+<section id="kontakt" class="vet-section vet-section--muted" data-snippet="s_vet_contact" data-name="Vet Contact">
+        <div class="vet-container">
+            <div class="vet-section-header">
+                <div class="vet-eyebrow">Kontakt</div>
+                <h2 class="vet-section-title">Navštivte nás</h2>
+                <p class="vet-section-lead">Objednejte se telefonicky nebo e-mailem.</p>
+            </div>
+            <div class="vet-contact__grid">
+                <div class="vet-contact__info">
+                    <div class="vet-contact__card">
+                        <div class="vet-contact__card-row">
+                            <div class="vet-contact__card-icon">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                            </div>
+                            <div>
+                                <h3 class="vet-contact__card-title">Adresa</h3>
+                                <p class="vet-contact__card-text">Hybešova 167/18, Rybáře<br/>360 05 Karlovy Vary</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="vet-contact__card">
+                        <div class="vet-contact__card-row">
+                            <div class="vet-contact__card-icon">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                            </div>
+                            <div>
+                                <h3 class="vet-contact__card-title">Telefon</h3>
+                                <a href="tel:+420774633950" class="vet-contact__card-link">+420 774 633 950</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="vet-contact__card">
+                        <div class="vet-contact__card-row">
+                            <div class="vet-contact__card-icon">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                            </div>
+                            <div>
+                                <h3 class="vet-contact__card-title">Email</h3>
+                                <a href="mailto:veterinaKV@seznam.cz" class="vet-contact__card-link">veterinaKV@seznam.cz</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="vet-contact__hours">
+                    <h3 class="vet-contact__hours-title">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        Ordinační hodiny
+                    </h3>
+                    <div class="vet-contact__hours-list">
+                        <div class="vet-contact__hours-row"><span class="vet-contact__hours-day">Pondělí</span><span class="vet-contact__hours-time">8:00 – 17:00</span></div>
+                        <div class="vet-contact__hours-row"><span class="vet-contact__hours-day">Úterý</span><span class="vet-contact__hours-time">8:00 – 17:00</span></div>
+                        <div class="vet-contact__hours-row"><span class="vet-contact__hours-day">Středa</span><span class="vet-contact__hours-time">8:00 – 17:00</span></div>
+                        <div class="vet-contact__hours-row"><span class="vet-contact__hours-day">Čtvrtek</span><span class="vet-contact__hours-time">8:00 – 17:00</span></div>
+                        <div class="vet-contact__hours-row"><span class="vet-contact__hours-day">Pátek</span><span class="vet-contact__hours-time">8:00 – 14:00</span></div>
+                        <div class="vet-contact__hours-row"><span class="vet-contact__hours-day">Sobota – Neděle</span><span class="vet-contact__hours-time vet-contact__hours-time--closed">Zavřeno</span></div>
+                    </div>
+                    <a href="tel:+420774633950" class="vet-contact__hours-cta">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                        Zavolejte nám
+                    </a>
+                </div>
+                <div class="vet-contact__map">
+                    <div class="vet-contact__map-inner">
+                        <div>
+                            <div class="vet-contact__map-icon">
+                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                            </div>
+                            <p class="vet-contact__map-title">Hybešova 167/18</p>
+                            <p class="vet-contact__map-sub">Rybáře, 360 05 Karlovy Vary</p>
+                            <a href="https://maps.google.com/?q=Hybe%C5%A1ova+167/18+Karlovy+Vary" target="_blank" rel="noopener noreferrer" class="vet-contact__map-link">
+                                Otevřít v mapách
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+
+</odoo>

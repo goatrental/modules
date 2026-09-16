@@ -1,0 +1,86 @@
+// Elite Vet — header / navbar rules (scoped under body.vet-body).
+// The template lives in views/layout.xml (vet_header).
+
+body.vet-body {
+  #wrapwrap > header {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 50;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--vet-border);
+  }
+
+  .vet-nav-inner {
+    max-width: var(--vet-max-width);
+    margin-inline: auto;
+    padding: 0 1rem;
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .vet-nav-brand { display: flex; align-items: center; gap: 0.75rem; }
+  .vet-nav-logo {
+    width: 40px; height: 40px; border-radius: var(--vet-radius);
+    object-fit: cover;
+  }
+  .vet-nav-brand-text { display: flex; flex-direction: column; line-height: 1.1; }
+  .vet-nav-brand-name {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--vet-primary);
+    letter-spacing: -0.025em;
+  }
+  .vet-nav-brand-sub {
+    font-size: 0.75rem;
+    color: var(--vet-text-secondary);
+    display: none;
+  }
+  .vet-nav-links { display: none; align-items: center; gap: 2rem; }
+  .vet-nav-links a {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--vet-text-secondary);
+    transition: color 0.2s ease;
+  }
+  .vet-nav-links a:hover { color: var(--vet-accent); }
+
+  .vet-nav-cta {
+    display: none;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.625rem 1.25rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    background: var(--vet-accent);
+    color: #fff;
+    box-shadow: var(--vet-shadow-lg);
+    transition: all 0.2s ease;
+  }
+  .vet-nav-cta:hover { background: var(--vet-accent-dark); color: #fff; }
+
+  .vet-hamburger {
+    background: transparent; border: 0; padding: 0.5rem;
+    color: var(--vet-primary); cursor: pointer;
+  }
+
+  .vet-mobile-menu {
+    display: none;
+    flex-direction: column;
+    gap: 1rem;
+    background: #fff;
+    border-top: 1px solid var(--vet-border);
+    padding: 1.5rem;
+  }
+  .vet-mobile-menu.vet-mobile-open { display: flex; }
+  .vet-mobile-menu a {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--vet-fg);
+    transition: color 0.2s ease;
+  }
+  .vet-mobile-menu a:hover { color: var(--vet-accent); }
+}

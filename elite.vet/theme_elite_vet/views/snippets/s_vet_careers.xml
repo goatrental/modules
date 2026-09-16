@@ -1,0 +1,69 @@
+<odoo>
+
+<template id="s_vet_careers" name="Vet Careers">
+<section id="kariera" class="vet-section vet-section--white" data-snippet="s_vet_careers" data-name="Vet Careers">
+        <div class="vet-container">
+            <div class="vet-careers__grid">
+                <div>
+                    <div class="vet-eyebrow">Kariéra</div>
+                    <h2 class="vet-section-title">Nabídka práce: <span class="vet-highlight">Veterinární lékař/ka</span></h2>
+                    <p class="vet-section-lead" style="text-align:left;">Elite péče začíná u spokojeného týmu. Naším cílem je nabídnout pacientům odbornou a komplexní péči, ale zároveň zachovat psychické a fyzické zdraví našich zaměstnanců.</p>
+                    <div class="vet-careers__list">
+                        <h3 class="vet-careers__list-title">Hledáme:</h3>
+                        <div class="vet-careers__list-item">
+                            <div class="vet-careers__list-check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#5ba8a0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+                            <span class="vet-careers__list-label">Lékaře / lékařky s praxí</span>
+                        </div>
+                        <div class="vet-careers__list-item">
+                            <div class="vet-careers__list-check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#5ba8a0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+                            <span class="vet-careers__list-label">Specialisty</span>
+                        </div>
+                        <div class="vet-careers__list-item">
+                            <div class="vet-careers__list-check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#5ba8a0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+                            <span class="vet-careers__list-label">Absolventy</span>
+                        </div>
+                    </div>
+                    <div class="vet-careers__cta">
+                        <a href="mailto:veterinaKV@seznam.cz?subject=Z%C3%A1jem%20o%20pozici%20veterin%C3%A1rn%C3%ADho%20l%C3%A9ka%C5%99e" class="vet-btn vet-btn--primary">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                            Poslat životopis
+                        </a>
+                        <a href="tel:+420774633950" class="vet-btn vet-btn--outline">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                            +420 774 633 950
+                        </a>
+                    </div>
+                </div>
+                <div class="vet-careers__visual">
+                    <div class="vet-hero__deco-1"></div>
+                    <div class="vet-hero__deco-2"></div>
+                    <div class="vet-careers__visual-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg>
+                    </div>
+                    <h3 class="vet-careers__visual-title">Přidejte se k nám</h3>
+                    <p class="vet-careers__visual-lead">Nabízíme přátelské pracovní prostředí, moderní vybavení, možnost dalšího vzdělávání a férové finanční ohodnocení.</p>
+                    <div class="vet-careers__benefits">
+                        <div class="vet-careers__benefit">
+                            <div class="vet-careers__benefit-check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+                            <span class="vet-careers__benefit-label">Moderní vybavení a přístroje</span>
+                        </div>
+                        <div class="vet-careers__benefit">
+                            <div class="vet-careers__benefit-check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+                            <span class="vet-careers__benefit-label">Přátelský kolektiv</span>
+                        </div>
+                        <div class="vet-careers__benefit">
+                            <div class="vet-careers__benefit-check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+                            <span class="vet-careers__benefit-label">Možnost specializace</span>
+                        </div>
+                        <div class="vet-careers__benefit">
+                            <div class="vet-careers__benefit-check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+                            <span class="vet-careers__benefit-label">Flexibilní pracovní doba</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+
+</odoo>
