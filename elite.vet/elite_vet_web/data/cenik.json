@@ -1,0 +1,34 @@
+{
+ "price_title": {
+  "en_US": "Price list of treatments",
+  "cs_CZ": "Ceník ošetření",
+  "de_DE": "Preisliste der Behandlungen",
+  "ru_RU": "Прайс-лист процедур"
+ },
+ "price_lead": {
+  "en_US": "Overview of the most common procedures. Prices are indicative — we will always inform you of the final amount in advance, before the treatment.",
+  "cs_CZ": "Přehled nejčastějších úkonů. Ceny jsou orientační — konečnou částku vám vždy řekneme předem, ještě před ošetřením.",
+  "de_DE": "Überblick über die häufigsten Eingriffe. Die Preise sind Richtwerte — den endgültigen Betrag nennen wir Ihnen immer vorab, noch vor der Behandlung.",
+  "ru_RU": "Обзор самых частых процедур. Цены ориентировочные — окончательную сумму мы всегда сообщим заранее, до начала лечения."
+ },
+ "poznamka_odstavce": [
+  {
+   "en_US": "The stated prices include basic treatment and commonly used materials. The final price may vary depending on the vaccine used, medications, additional materials, or necessary procedures.",
+   "cs_CZ": "V uvedených cenách je zahrnuto základní ošetření a běžně použitý materiál. Konečná cena se může lišit podle použité vakcíny, léků, dalšího materiálu nebo nutných zákroků.",
+   "de_DE": "In den genannten Preisen sind die Grundbehandlung und üblicherweise verwendetes Material enthalten. Der Endpreis kann sich je nach verwendetem Impfstoff, Medikamenten, weiterem Material oder notwendigen Eingriffen unterscheiden.",
+   "ru_RU": "В указанные цены включены базовое лечение и обычно используемые материалы. Итоговая цена может отличаться в зависимости от применённой вакцины, лекарств, дополнительных материалов или необходимых процедур."
+  },
+  {
+   "en_US": "We will be happy to provide you with additional prices before the treatment or we can provide them to you by phone or email.",
+   "cs_CZ": "Další ceny Vám rádi sdělíme před ošetřením nebo Vám je poskytneme telefonicky či e-mailem.",
+   "de_DE": "Weitere Preise nennen wir Ihnen gerne vor der Behandlung oder teilen sie Ihnen telefonisch bzw. per E-Mail mit.",
+   "ru_RU": "Остальные цены мы с радостью сообщим перед лечением или передадим по телефону либо электронной почте."
+  }
+ ],
+ "badge": {
+  "en_US": "PRICE LIST",
+  "cs_CZ": "CENÍK",
+  "de_DE": "PREISLISTE",
+  "ru_RU": "ПРАЙС-ЛИСТ"
+ }
+}

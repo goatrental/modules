@@ -15,6 +15,8 @@
             <t t-set="ev_jazyk_ru" t-value="('%s' % url_for(request.httprequest.path, lang_code='ru_RU')) or '/'"/>
             <t t-set="ev_web" t-value="request.env['elite.vet.setting'].sudo().nastaveni() if 'elite.vet.setting' in request.env else None"/>
             <t t-set="ev_ceny" t-value="request.env['elite.vet.price.item'].sudo().search([]) if 'elite.vet.price.item' in request.env else []"/>
+            <t t-set="ev_bez_sekce" t-value="ev_ceny.filtered(lambda z: not z.category_id) if ev_ceny else []"/>
+            <t t-set="ev_sekce" t-value="request.env['elite.vet.price.category'].sudo().search([]) if 'elite.vet.price.category' in request.env else []"/>
             <t t-set="no_header" t-value="true"/>
             <t t-set="no_footer" t-value="true"/>
             <t t-set="additional_title">Price list | Elite Vet Karlovy Vary</t>
@@ -246,10 +248,26 @@
                 .vet-page .ev-cenhero-lead { margin-top: 14px; color: var(--ev-text-secondary); font-size: 17px; line-height: 1.6; }
 
                 /* ============ CENIK — TABULKA ============ */
-                .ev-cen { background: var(--ev-muted); padding: 0 0 88px; }
+                /* Horni mezeru drive drzela hlavicka stranky; ted ji ma cela sekcni cast. */
+                .ev-cen { background: linear-gradient(180deg, #ffffff 0%, var(--ev-muted) 260px); padding: 128px 0 88px; }
                 .ev-cen .ev-container { max-width: 820px; }
+                /* ====== SEKCE CENIKU ====== */
+                /* Vsechny sekce stejne: hlavicka uprostred, uzsi nez tabulka pod ni. */
+                .ev-cen-sekce + .ev-cen-sekce { margin-top: 72px; }
+                .ev-cen-card + .ev-cen-sekce { margin-top: 72px; }
+                .ev-cen-sekce-head { max-width: 780px; margin: 0 auto 26px; text-align: center; }
+                .vet-page .ev-cen-sekce-head h1,
+                .vet-page .ev-cen-sekce-head h2 { margin-top: 18px; font-size: clamp(30px, 4.2vw, 44px); line-height: 1.1; color: var(--ev-primary); }
+                .ev-cen-sekce-head .ev-cenhero-lead { margin-top: 14px; color: var(--ev-text-secondary); font-size: 17px; line-height: 1.6; white-space: pre-line; }
+                /* Kratka cara pod hlavickou opticky spoji nadpis s tabulkou pod nim. */
+                .ev-cen-sekce-head::after { content: ""; display: block; width: 56px; height: 2px; border-radius: 9999px; background: rgba(43,120,112,.28); margin: 22px auto 0; }
+                .ev-cen-foto { display: block; width: 100%; height: auto; max-width: 100%; border-radius: 20px; margin-bottom: 18px; box-shadow: 0 18px 48px rgba(26,39,68,.10); }
+                /* Komentar patri k tabulce nad nim, proto uzsi mezera nez pred dalsi sekci */
+                .ev-cen-sekce > .ev-cen-note { margin-top: 14px; }
                 .ev-cen-card { background: #fff; border: 1px solid var(--ev-border); border-radius: 20px; overflow: hidden; box-shadow: 0 18px 48px rgba(26,39,68,.10); }
                 .ev-cen-row { display: flex; align-items: center; gap: 16px; padding: 17px 24px; transition: background-color .2s; }
+                /* Ceny se ctou po sloupci, proto cislice stejne siroke */
+                .ev-cen-price { font-variant-numeric: tabular-nums; }
                 .ev-cen-row + .ev-cen-row { border-top: 1px solid var(--ev-border); }
                 .ev-cen-row:hover { background: var(--ev-muted); }
                 .ev-cen-ic { width: 44px; height: 44px; border-radius: 13px; background: var(--ev-accent-light); color: var(--ev-accent); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
@@ -278,7 +296,13 @@
                 @media (max-width: 768px) {
                     .ev-cenhero { padding: 104px 0 32px; }
                     .vet-page .ev-cenhero-lead { font-size: 15.5px; }
-                    .ev-cen { padding: 0 0 64px; }
+                    .ev-cen { padding: 104px 0 64px; }
+                    .ev-cen-sekce + .ev-cen-sekce,
+                    .ev-cen-card + .ev-cen-sekce { margin-top: 52px; }
+                    .ev-cen-sekce-head { margin-bottom: 20px; }
+                    .ev-cen-sekce-head .ev-cenhero-lead { font-size: 15.5px; }
+                    .ev-cen-sekce-head::after { width: 46px; margin-top: 18px; }
+                    .ev-cen-foto { border-radius: 16px; margin-bottom: 14px; }
                     .ev-cen-card { border-radius: 16px; }
                     .ev-cen-row { padding: 14px 16px; gap: 12px; }
                     .ev-cen-ic { width: 38px; height: 38px; border-radius: 11px; }
@@ -389,66 +413,41 @@
                 </div>
 
                 <!-- =========================== HERO =========================== -->
-                <section class="ev-cenhero o_colored_level">
-                    <div class="ev-container">
-                        <span class="ev-cenhero-badge">
-                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/>
-                                <line x1="7" y1="7" x2="7.01" y2="7"/>
-                            </svg>
-                            PRICE LIST
-                        </span>
-                        <h1>Price list of treatments</h1>
-                        <p class="ev-cenhero-lead">Overview of the most common procedures. Prices are indicative — we will always inform you of the final amount in advance, before the treatment.</p>
-                    </div>
-                </section>
 
                 <!-- =========================== TABULKA CEN =========================== -->
                 <section class="ev-cen o_colored_level">
                     <div class="ev-container">
                         <!-- Ukony z adminu (Web kliniky -> Cenik). Kdyz klinika zadny nezada,
                              karta se vubec nevykresli a stranka nezustane s prazdnym ramem. -->
-                        <div t-if="ev_ceny" class="ev-cen-card">
-                            <t t-foreach="ev_ceny" t-as="ev_c">
-                                <div class="ev-cen-row">
-                                    <span class="ev-cen-ic">
-                                        <img t-if="ev_c.icon_id and ev_c.icon_id.image"
-                                             t-attf-src="/web/image/elite.vet.team.icon/#{ev_c.icon_id.id}/image/26x26"
-                                             width="26" height="26" alt="" loading="lazy" decoding="async"/>
-                                        <svg t-else="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                                            <t t-if="ev_c.icon_code == 'kocka'"><path d="M12 5c.67 0 1.35.09 2 .26 1.78-2 5.03-2.84 6.42-2.26 1.4.58-.42 7-.42 7 .57 1.07 1 2.24 1 3.44C21 17.9 16.97 21 12 21s-9-3.1-9-7.56c0-1.25.5-2.4 1-3.44 0 0-1.89-6.42-.5-7 1.39-.58 4.72.23 6.5 2.23A9.04 9.04 0 0 1 12 5z"/><path d="M8 14v.5"/><path d="M16 14v.5"/><path d="M11.25 16.25h1.5L12 17z"/></t>
-                                            <t t-elif="ev_c.icon_code == 'pes'"><path d="M11.25 16.25h1.5L12 17z"/><path d="M16 14v.5"/><path d="M4.42 11.247A13.152 13.152 0 0 0 4 14.556C4 18.728 7.582 21 12 21s8-2.272 8-6.444a11.702 11.702 0 0 0-.493-3.309"/><path d="M8 14v.5"/><path d="M8.5 8.5c-.384 1.05-1.083 2.028-2.344 2.5-1.931.722-3.576-.297-3.656-1-.113-.994 1.177-6.53 4-7 1.923-.321 3.651.845 3.651 2.235A7.497 7.497 0 0 1 14 5.277c0-1.39 1.844-2.598 3.767-2.277 2.823.47 4.113 6.006 4 7-.08.703-1.725 1.722-3.656 1-1.261-.472-1.96-1.45-2.344-2.5"/></t>
-                                            <t t-elif="ev_c.icon_code == 'kralik'"><path d="M13 16a3 3 0 0 1 2.24 5"/><path d="M18 12h.01"/><path d="M18 21h-8a4 4 0 0 1-4-4 7 7 0 0 1 7-7h.2L9.6 6.4a1 1 0 1 1 2.8-2.8L15.8 7h.2c3.3 0 6 2.7 6 6v1a2 2 0 0 1-2 2h-1a3 3 0 0 0-3 3"/><path d="M20 8.54V4a2 2 0 1 0-4 0v3"/><path d="M7.612 12.524a3 3 0 1 0-1.6 4.3"/></t>
-                                            <t t-elif="ev_c.icon_code == 'nuzky'"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><line x1="20" y1="4" x2="8.12" y2="15.88"/><line x1="14.47" y1="14.48" x2="20" y2="20"/><line x1="8.12" y1="8.12" x2="12" y2="12"/></t>
-                                            <t t-elif="ev_c.icon_code == 'kapka'"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></t>
-                                            <t t-else=""><path d="M4.8 2.3A.3.3 0 1 0 5 2H4a2 2 0 0 0-2 2v5a6 6 0 0 0 6 6 6 6 0 0 0 6-6V4a2 2 0 0 0-2-2h-1a.2.2 0 1 0 .3.3"/><path d="M8 15v1a6 6 0 0 0 6 6 6 6 0 0 0 6-6v-4"/><circle cx="20" cy="10" r="2"/></t>
-                                        </svg>
-                                    </span>
-                                    <span class="ev-cen-name">
-                                        <span t-field="ev_c.name"></span>
-                                        <small t-if="ev_c.note" class="ev-cen-pozn" t-field="ev_c.note"></small>
-                                    </span>
-                                    <span class="ev-cen-price">
-                                        <span t-if="ev_c.price_from" class="ev-cen-from">from</span>
-                                        <span class="ev-cen-num" t-field="ev_c.price"></span>
-                                    </span>
-                                </div>
+                        <!-- Ukony, ktere do zadne sekce nepatri. Pojistka, aby po
+                             prepnuti na sekce nic nezmizelo. -->
+                        <div t-if="ev_bez_sekce" class="ev-cen-card">
+                            <t t-foreach="ev_bez_sekce" t-as="ev_c">
+                                <t t-call="elite_vet_web.cenik_radek"/>
                             </t>
                         </div>
 
-                        <!-- ====== POZNAMKA K CENAM ====== -->
-                        <div class="ev-cen-note">
-                            <svg class="ev-cen-note-ic" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                                <circle cx="12" cy="12" r="10"/>
-                                <line x1="12" y1="16" x2="12" y2="12"/>
-                                <line x1="12" y1="8" x2="12.01" y2="8"/>
-                            </svg>
-                            <div>
-                                <p>The stated prices include basic treatment and commonly used materials. The final price may vary depending on the vaccine used, medications, additional materials, or necessary procedures.</p>
-                                <p>We will be happy to provide you with additional prices before the treatment or we can provide them to you by phone or email.</p>
+                        <!-- Sekce z adminu (Cenik -> Sekce). Vsechny stejne: stitek,
+                             nadpis a popisek uprostred, pod tim obrazek, tabulka
+                             a komentar. Nadpis prvni sekce je h1, dalsi h2 — stranka
+                             ma mit jen jeden hlavni nadpis, vypadaji ale stejne. -->
+                        <t t-foreach="ev_sekce" t-as="ev_sk">
+                            <div class="ev-cen-sekce">
+                                <div class="ev-cen-sekce-head">
+                                    <span t-if="ev_sk.badge" class="ev-cenhero-badge">
+                                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/>
+                                            <line x1="7" y1="7" x2="7.01" y2="7"/>
+                                        </svg>
+                                        <span t-field="ev_sk.badge"></span>
+                                    </span>
+                                    <h1 t-if="not ev_sk_index" t-field="ev_sk.name"></h1>
+                                    <h2 t-else="" t-field="ev_sk.name"></h2>
+                                    <p t-if="ev_sk.description" class="ev-cenhero-lead" t-field="ev_sk.description"></p>
+                                </div>
+                                <t t-call="elite_vet_web.cenik_sekce_telo"/>
                             </div>
-                        </div>
-
+                        </t>
                         <!-- ====== KONTAKT ====== -->
                         <div class="ev-cen-cta">
                             <a t-attf-href="tel:#{ev_web.phone or '+420722599699'}" class="ev-cen-btn ev-cen-btn--prim">
@@ -494,4 +493,55 @@
         <field name="website_indexed" eval="True"/>
     </record>
 
+
+    <!-- Jeden radek ceniku. Vlastni sablona proto, ze se vypisuje na dvou
+         mistech: u ukonu bez skupiny a uvnitr kazde skupiny. Ocekava ev_c. -->
+    <template id="cenik_radek" name="Elite Vet - řádek ceníku">
+        <div class="ev-cen-row">
+            <span class="ev-cen-ic">
+                <img t-if="ev_c.icon_id and ev_c.icon_id.image"
+                     t-attf-src="/web/image/elite.vet.team.icon/#{ev_c.icon_id.id}/image/26x26"
+                     width="26" height="26" alt="" loading="lazy" decoding="async"/>
+                <svg t-else="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <t t-if="ev_c.icon_code == 'kocka'"><path d="M12 5c.67 0 1.35.09 2 .26 1.78-2 5.03-2.84 6.42-2.26 1.4.58-.42 7-.42 7 .57 1.07 1 2.24 1 3.44C21 17.9 16.97 21 12 21s-9-3.1-9-7.56c0-1.25.5-2.4 1-3.44 0 0-1.89-6.42-.5-7 1.39-.58 4.72.23 6.5 2.23A9.04 9.04 0 0 1 12 5z"/><path d="M8 14v.5"/><path d="M16 14v.5"/><path d="M11.25 16.25h1.5L12 17z"/></t>
+                    <t t-elif="ev_c.icon_code == 'pes'"><path d="M11.25 16.25h1.5L12 17z"/><path d="M16 14v.5"/><path d="M4.42 11.247A13.152 13.152 0 0 0 4 14.556C4 18.728 7.582 21 12 21s8-2.272 8-6.444a11.702 11.702 0 0 0-.493-3.309"/><path d="M8 14v.5"/><path d="M8.5 8.5c-.384 1.05-1.083 2.028-2.344 2.5-1.931.722-3.576-.297-3.656-1-.113-.994 1.177-6.53 4-7 1.923-.321 3.651.845 3.651 2.235A7.497 7.497 0 0 1 14 5.277c0-1.39 1.844-2.598 3.767-2.277 2.823.47 4.113 6.006 4 7-.08.703-1.725 1.722-3.656 1-1.261-.472-1.96-1.45-2.344-2.5"/></t>
+                    <t t-elif="ev_c.icon_code == 'kralik'"><path d="M13 16a3 3 0 0 1 2.24 5"/><path d="M18 12h.01"/><path d="M18 21h-8a4 4 0 0 1-4-4 7 7 0 0 1 7-7h.2L9.6 6.4a1 1 0 1 1 2.8-2.8L15.8 7h.2c3.3 0 6 2.7 6 6v1a2 2 0 0 1-2 2h-1a3 3 0 0 0-3 3"/><path d="M20 8.54V4a2 2 0 1 0-4 0v3"/><path d="M7.612 12.524a3 3 0 1 0-1.6 4.3"/></t>
+                    <t t-elif="ev_c.icon_code == 'nuzky'"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><line x1="20" y1="4" x2="8.12" y2="15.88"/><line x1="14.47" y1="14.48" x2="20" y2="20"/><line x1="8.12" y1="8.12" x2="12" y2="12"/></t>
+                    <t t-elif="ev_c.icon_code == 'kapka'"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></t>
+                    <t t-else=""><path d="M4.8 2.3A.3.3 0 1 0 5 2H4a2 2 0 0 0-2 2v5a6 6 0 0 0 6 6 6 6 0 0 0 6-6V4a2 2 0 0 0-2-2h-1a.2.2 0 1 0 .3.3"/><path d="M8 15v1a6 6 0 0 0 6 6 6 6 0 0 0 6-6v-4"/><circle cx="20" cy="10" r="2"/></t>
+                </svg>
+            </span>
+            <span class="ev-cen-name">
+                <span t-field="ev_c.name"></span>
+                <small t-if="ev_c.note" class="ev-cen-pozn" t-field="ev_c.note"></small>
+            </span>
+            <span class="ev-cen-price">
+                <span t-if="ev_c.price_from" class="ev-cen-from">from</span>
+                <span class="ev-cen-num" t-field="ev_c.price"></span>
+            </span>
+        </div>
+    </template>
+
+
+    <!-- Obrazek, tabulka ukonu a komentar jedne sekce. Vlastni sablona proto,
+         ze prvni sekce ma nadpis uz v hlavicce stranky, dalsi ho maji u sebe.
+         Ocekava ev_sk. -->
+    <template id="cenik_sekce_telo" name="Elite Vet - tělo sekce ceníku">
+        <img t-if="ev_sk.image" class="ev-cen-foto"
+             t-attf-src="/web/image/elite.vet.price.category/#{ev_sk.id}/image/1200x800"
+             t-att-alt="ev_sk.image_alt or ev_sk.name" loading="lazy" decoding="async"/>
+        <div t-if="ev_sk.item_ids" class="ev-cen-card">
+            <t t-foreach="ev_sk.item_ids" t-as="ev_c">
+                <t t-call="elite_vet_web.cenik_radek"/>
+            </t>
+        </div>
+        <div t-if="ev_sk.comment" class="ev-cen-note">
+            <svg class="ev-cen-note-ic" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"/>
+                <line x1="12" y1="16" x2="12" y2="12"/>
+                <line x1="12" y1="8" x2="12.01" y2="8"/>
+            </svg>
+            <div t-field="ev_sk.comment"></div>
+        </div>
+    </template>
 </odoo>

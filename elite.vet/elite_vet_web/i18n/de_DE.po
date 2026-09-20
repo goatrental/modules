@@ -374,6 +374,7 @@ msgstr "Ihre Lieblinge in den besten Händen!"
 
 #. module: elite_vet_web
 #: model_terms:ir.ui.view,arch_db:elite_vet_web.cenik
+#: model_terms:ir.ui.view,arch_db:elite_vet_web.cenik_radek
 msgid "from"
 msgstr "ab"
 

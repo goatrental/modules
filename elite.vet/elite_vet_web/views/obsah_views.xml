@@ -192,24 +192,101 @@
             <p>Ceník se ukazuje na stránce /cenik. Bez jediného úkonu stránka nic nevypíše.</p>
         </field>
     </record>
-
+    <!-- Seznam schvalne NENI editable: inline editace znamena, ze klik na radek
+         jen rozedituje bunku a formular sekce se nikdy neotevre. -->
     <record id="view_price_category_list" model="ir.ui.view">
         <field name="name">elite.vet.price.category.list</field>
         <field name="model">elite.vet.price.category</field>
         <field name="arch" type="xml">
-            <list string="Skupiny ceníku" editable="bottom">
+            <list string="Sekce ceníku">
                 <field name="sequence" widget="handle"/>
                 <field name="name"/>
+                <field name="badge" optional="show"/>
+                <field name="description" optional="show"/>
                 <field name="pocet_ukonu"/>
                 <field name="active" widget="boolean_toggle" optional="show"/>
             </list>
         </field>
     </record>
 
+    <!-- Jeden formular na celou sekci: co je na nem shora dolu, to je i na
+         strance shora dolu. Klinika tak nemusi hledat, kde se co meni. -->
+    <record id="view_price_category_form" model="ir.ui.view">
+        <field name="name">elite.vet.price.category.form</field>
+        <field name="model">elite.vet.price.category</field>
+        <field name="arch" type="xml">
+            <form string="Sekce ceníku">
+                <sheet>
+                    <div class="alert alert-info" role="status">
+                        Tenhle formulář je jedna sekce na stránce <b>/cenik</b>, odshora dolů
+                        přesně tak, jak ji uvidí návštěvník: štítek, nadpis, popisek, obrázek,
+                        tabulka úkonů a komentář pod ní. Další sekce se zakládá tlačítkem
+                        <b>Nové</b>.
+                    </div>
+                    <field name="image" widget="image" class="oe_avatar"
+                           options="{'size': [280, 200]}"/>
+                    <div class="oe_title">
+                        <label for="badge" string="Štítek nad nadpisem"/>
+                        <h3><field name="badge" placeholder="CENÍK"/></h3>
+                        <label for="name" string="Nadpis"/>
+                        <h1><field name="name" placeholder="Ceník ošetření"/></h1>
+                    </div>
+                    <group>
+                        <group string="Popisek pod nadpisem">
+                            <field name="description" nolabel="1" colspan="2"
+                                   placeholder="Přehled nejčastějších úkonů. Ceny jsou orientační…"/>
+                        </group>
+                        <group string="Zobrazení">
+                            <field name="sequence"/>
+                            <field name="active" widget="boolean_toggle"/>
+                            <field name="pocet_ukonu"/>
+                            <field name="image_alt" placeholder="Ordinace Elite Vet"
+                                   invisible="not image"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Úkony a ceny">
+                            <field name="item_ids">
+                                <list string="Úkony" editable="bottom">
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="name"/>
+                                    <field name="icon_code"/>
+                                    <field name="icon_id" options="{'no_create': True}"/>
+                                    <field name="price_from" widget="boolean_toggle"/>
+                                    <field name="price"/>
+                                    <field name="note" optional="show"/>
+                                </list>
+                            </field>
+                            <div class="text-muted mt-2">
+                                Pořadí se mění přetažením za tečky vlevo. „Cena od“ přidá
+                                před částku slovo <b>od</b>. Ikona: buď vyber kreslenou, nebo
+                                nahraj vlastní v aplikaci Náš tým → Ikony.
+                            </div>
+                        </page>
+                        <page string="Komentář pod sekcí">
+                            <field name="comment" nolabel="1"
+                                   placeholder="Text, který se ukáže v rámečku pod tabulkou úkonů."/>
+                            <div class="text-muted mt-2">
+                                Rámeček se objeví hned pod tabulkou téhle sekce. Prázdný
+                                komentář znamená, že tam žádný rámeček nebude. Text jde
+                                přeložit: přepni jazyk vpravo nahoře a přepiš ho.
+                            </div>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
     <record id="action_price_category" model="ir.actions.act_window">
-        <field name="name">Skupiny ceníku</field>
+        <field name="name">Ceník</field>
         <field name="res_model">elite.vet.price.category</field>
         <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Založte první sekci</p>
+            <p>Sekce je celý blok na stránce /cenik — štítek, nadpis, popisek, obrázek,
+               úkony a komentář pod nimi.</p>
+        </field>
     </record>
 
     <!-- ============ NASTAVENÍ ============ -->
@@ -427,12 +504,12 @@
     <!-- Cenik ma vlastni stranku, takze i vlastni aplikaci. -->
     <menuitem id="menu_price_root" name="Ceník" sequence="52"
               groups="elite_vet_calendar.group_calendar_manager"/>
-    <menuitem id="menu_price_item" name="Úkony a ceny" parent="menu_price_root"
-              action="action_price_item" sequence="10"/>
-    <menuitem id="menu_price_category" name="Skupiny" parent="menu_price_root"
-              action="action_price_category" sequence="20"/>
+    <!-- Cely cenik ma jedinou polozku. Stitek, nadpis, popisek, obrazek, ukony
+         i komentar jsou uvnitr sekce, takze klinika ma jedno misto na vsechno. -->
+    <menuitem id="menu_price_category" name="Sekce" parent="menu_price_root"
+              action="action_price_category" sequence="10"/>
 
-    <!-- Udaje spolecne vsem strankam (telefony, adresa, pohotovost) maji vlastni
+<!-- Udaje spolecne vsem strankam (telefony, adresa, pohotovost) maji vlastni
          aplikaci — nepatri jedne strance, propisuji se do vsech. -->
     <menuitem id="menu_nastaveni_root" name="Nastavení kontaktu" sequence="55"
               groups="elite_vet_calendar.group_calendar_manager"/>

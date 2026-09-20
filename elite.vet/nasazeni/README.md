@@ -96,7 +96,7 @@ stránkách — každá aplikace obsahuje jen to, co se té stránky týká:
 | **Hlavní stránka** | bloky stránky, služby, koho přijímáme, galerie, ordinační hodiny, kontaktní karty |
 | **Rozpis služeb** | rozpis, lékařky, typy směn, specializace, ikony |
 | **Náš tým** | členové týmu, sekce, specializace, ikony, popisky podrobností |
-| **Ceník** | úkony a ceny, skupiny |
+| **Ceník** | sekce — každá má štítek, nadpis, popisek, obrázek, úkony a komentář |
 | **Rezervace** | nastavení rezervace, časté dotazy |
 | **Nastavení kontaktu** | telefony, adresa, sítě, pohotovost — propisuje se do všech stránek |
 
@@ -145,7 +145,7 @@ docker compose exec -i odoo odoo shell -c /etc/odoo/odoo.conf -d DATABAZE \
     --no-http < nasazeni/test-vseho.py
 ```
 
-Na lokále hlásí **139 z 139 kontrol**. Skript po sobě uklízí, ale sahá do ostrých
+Na lokále hlásí **159 z 159 kontrol**. Skript po sobě uklízí, ale sahá do ostrých
 dat — pouštěj ho až po záloze.
 
 Druhá kontrola se dívá na to, co člověk opravdu vidí — titulek v záložce,
@@ -212,6 +212,11 @@ anglicky.
 **Nikdy nezakládej `en_US.po`.** To není jeden z jazyků, ale zdroj. Zápisem do
 něj se přepíše originál a čeština, která vlastní překlad nemá, zdědí angličtinu.
 Přesně tohle jednou shodilo celý rozpis do angličtiny.
+
+**Ceník se při upgradu převede na sekce.** Nadpis stránky, popisek a spodní
+rámeček dosud ležely natvrdo v šabloně. Migrace z nich udělá první sekci a zařadí
+do ní všechny úkony, ve všech čtyřech jazycích — stránka vypadá stejně jako před
+nasazením. Když už nějaká sekce s úkony existuje, migrace nedělá nic.
 
 **Smazání položky menu si vyžádá restart.** Když v Web → Upravit → Menu smažeš
 položku, Odoo si drží starou nabídku v paměti a stránky začnou vracet 500.

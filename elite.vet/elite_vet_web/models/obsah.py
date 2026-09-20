@@ -139,13 +139,36 @@ class EliteVetFaq(models.Model):
 
 
 class EliteVetPriceCategory(models.Model):
-    """Skupina ukonu v ceniku, napriklad Prevence nebo Chirurgie."""
+    """Jedna sekce stranky /cenik.
+
+    Sekce je cely blok, tak jak ho clovek vidi na strance: stitek, nadpis,
+    popisek, obrazek, tabulka ukonu a komentar pod ni. Zamerne je to jeden
+    zaznam s jednim formularem — klinika ma jedno misto, kde meni vsechno.
+    """
 
     _name = "elite.vet.price.category"
-    _description = "Elite Vet - skupina ceníku"
+    _description = "Elite Vet - sekce ceníku"
     _order = "sequence, id"
 
-    name = fields.Char("Název skupiny", required=True, translate=True)
+    badge = fields.Char(
+        "Štítek", translate=True,
+        help="Malý nápis v rámečku nad nadpisem, například „CENÍK“. "
+             "Nechat prázdné je v pořádku.")
+    name = fields.Char(
+        "Nadpis", required=True, translate=True,
+        help="Velký nadpis sekce. U první sekce je to zároveň nadpis stránky.")
+    description = fields.Text(
+        "Popisek pod nadpisem", translate=True,
+        help="Jedna dvě věty pod nadpisem. Nechat prázdné je v pořádku.")
+    image = fields.Image(
+        "Obrázek", max_width=1600, max_height=1200,
+        help="Nepovinná fotka nad tabulkou úkonů. Bez ní se nic nevykreslí.")
+    image_alt = fields.Char(
+        "Popis obrázku", translate=True,
+        help="Co je na fotce. Čte to Google a hlasové čtečky.")
+    comment = fields.Html(
+        "Komentář pod sekcí", translate=True, sanitize=False,
+        help="Rámeček s doplňující informací pod tabulkou. Může mít víc odstavců.")
     sequence = fields.Integer("Pořadí", default=10)
     active = fields.Boolean("Aktivní", default=True)
     item_ids = fields.One2many("elite.vet.price.item", "category_id", string="Úkony")
@@ -155,7 +178,6 @@ class EliteVetPriceCategory(models.Model):
     def _compute_pocet_ukonu(self):
         for zaznam in self:
             zaznam.pocet_ukonu = len(zaznam.item_ids)
-
 
 class EliteVetPriceItem(models.Model):
     """Jeden radek ceniku."""

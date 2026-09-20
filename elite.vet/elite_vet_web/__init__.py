@@ -136,6 +136,7 @@ def _pri_instalaci(env):
     _priradit_stranky_k_webu(env)
     _nastav_homepage(env)
     _nastav_seo(env)
+    _nastav_cenik(env)
     _seed_sluzby(env)
     seed_galerie(env)
     seed_obsah(env)
@@ -251,3 +252,74 @@ def _nastav_seo(env):
                     stranka.with_context(lang=jazyk)[pole] = text
             zapsano += 1
     _logger.info("SEO: doplneno %s hodnot na strankach.", zapsano)
+
+
+
+def _nastav_cenik(env):
+    """Udela z dnesniho ceniku prvni sekci, aby stranka vypadala stejne.
+
+    Stitek, nadpis, popisek i spodni ramecek driv lezely natvrdo v sablone nebo
+    v poli nastaveni — klinika je nemohla zmenit z jednoho mista. Ted je to
+    jedna sekce se vsim, co k ni patri, vcetne ukonu.
+
+    Texty se neberou z hlavy: jsou to tytez vety, co uz na strance jsou, i s
+    preklady z i18n/*.po. Vytazene lezi v data/cenik.json.
+
+    Kdyz uz nejaka sekce s ukony existuje, nedela se nic.
+    """
+    import json
+    import os
+
+    Sekce = env["elite.vet.price.category"].sudo()
+    Ukon = env["elite.vet.price.item"].sudo()
+
+    bez_sekce = Ukon.search([("category_id", "=", False)])
+    if not bez_sekce:
+        return                      # uz je vsechno zarazene, neni co prevadet
+
+    cesta = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data", "cenik.json")
+    if not os.path.exists(cesta):
+        _logger.warning("Ceník: soubor %s nenalezen, preskakuji.", cesta)
+        return
+    with open(cesta, encoding="utf-8") as soubor:
+        data = json.load(soubor)
+
+    PORADI = ["en_US", "cs_CZ", "de_DE", "ru_RU"]
+
+    def text(klic, jazyk):
+        return (data.get(klic) or {}).get(jazyk)
+
+    # Sekce vznika ve zdrojovem jazyce, preklady se dopisuji hned po nem.
+    # Komentar musi byt uz v create: je to Html pole prekladane po terminech
+    # a kdyz se doplni az potom, prvni zapis v cizim jazyce prepise zdroj.
+    odstavce = data.get("poznamka_odstavce") or []
+
+    def ramecek(jazyk):
+        return "".join("<p>%s</p>" % (o.get(jazyk) or o.get("en_US") or "")
+                       for o in odstavce)
+
+    sekce = Sekce.with_context(lang="en_US").create({
+        "name": text("price_title", "en_US") or "Price list",
+        "badge": text("badge", "en_US") or "PRICE LIST",
+        "description": text("price_lead", "en_US") or "",
+        "comment": ramecek("en_US"),
+        "sequence": 5,
+    })
+    for jazyk in PORADI[1:]:
+        for pole, klic in (("name", "price_title"), ("badge", "badge"),
+                           ("description", "price_lead")):
+            hodnota = text(klic, jazyk)
+            if hodnota:
+                sekce.with_context(lang=jazyk)[pole] = hodnota
+
+    # Spodni ramecek byl slozeny ze dvou odstavcu; stava se komentarem sekce.
+    for jazyk in PORADI[1:]:
+        if ramecek(jazyk):
+            sekce.with_context(lang=jazyk).comment = ramecek(jazyk)
+
+    bez_sekce.write({"category_id": sekce.id})
+    _logger.info("Ceník: zalozena prvni sekce s %s úkony.", len(bez_sekce))
+
+    # Poznamky z mezikroku uz nemaji kam patrit — jejich text je v komentari.
+    if "elite.vet.price.note" in env:
+        env["elite.vet.price.note"].sudo().search([]).unlink()

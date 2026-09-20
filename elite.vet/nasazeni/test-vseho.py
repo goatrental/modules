@@ -55,7 +55,7 @@ APLIKACE = {
                       "elite.vet.team.specialization", "elite.vet.team.icon"],
     "Náš tým": ["elite.vet.team.member", "elite.vet.team.section",
                 "elite.vet.team.fact.label"],
-    "Ceník": ["elite.vet.price.item", "elite.vet.price.category"],
+    "Ceník": ["elite.vet.price.category"],
     "Rezervace": ["elite.vet.setting", "elite.vet.faq"],
 }
 Menu = env["ir.ui.menu"].with_context(lang="cs_CZ")
@@ -263,6 +263,96 @@ krok("i s cenou", "1 Kč" in html)
 novy_ukon.unlink()
 env.cr.commit()
 krok("po smazani zmizel", "ZKOUSKA ukon" not in stahni("/cenik"))
+
+print("\n===== 10b. SEKCE CENIKU =====")
+# Cely cenik je vypis sekci. Jedna sekce = stitek, nadpis, popisek, obrazek,
+# tabulka ukonu a komentar pod ni — vsechno na jednom formulari v adminu.
+# Prvni sekce dela zaroven hlavicku stranky.
+Sekce = env["elite.vet.price.category"]
+Ukon = env["elite.vet.price.item"]
+
+def telo(html):
+    """Stranka bez <style>, aby nazev tridy v CSS neplatil jako vyskyt na strance."""
+    return html.split("</style>")[-1]
+
+cenik = stahni("/cenik")
+prvni = Sekce.search([], limit=1)
+krok("prvni sekce dela hlavicku stranky",
+     bool(prvni) and (prvni.with_context(lang="cs_CZ").name or "") in cenik)
+krok("stitek sekce je na strance",
+     bool(prvni.badge) and (prvni.with_context(lang="cs_CZ").badge or "") in cenik)
+krok("nadpis je prelozeny do nemciny",
+     (prvni.with_context(lang="de_DE").name or "") in stahni("/cenik", "de-DE,de"))
+krok("stitek je prelozeny do rustiny",
+     (prvni.with_context(lang="ru_RU").badge or "") in stahni("/cenik", "ru-RU,ru"))
+krok("zadny ukon nezustal mimo sekce",
+     Ukon.search_count([("category_id", "=", False)]) == 0)
+
+radku_pred = cenik.count('class="ev-cen-row"')
+ramecku_pred = telo(cenik).count('class="ev-cen-note"')
+
+# cela nova sekce: stitek, nadpis, popisek, ukon, komentar
+nova = Sekce.create({"name": "ZKOUSKA sekce", "sequence": 90})
+nova.with_context(lang="cs_CZ").badge = "ZKOUSKA stitek"
+nova.with_context(lang="cs_CZ").description = "ZKOUSKA popisek sekce."
+nova.with_context(lang="cs_CZ").comment = "<p>ZKOUSKA komentar pod sekci.</p>"
+presunuty = Ukon.search([], limit=1)
+puvodni_sekce = presunuty.category_id
+presunuty.category_id = nova.id
+env.cr.commit()
+
+html = stahni("/cenik")
+krok("stitek nove sekce", "ZKOUSKA stitek" in html)
+krok("nadpis nove sekce", "ZKOUSKA sekce" in html)
+krok("popisek pod nadpisem", "ZKOUSKA popisek sekce" in html
+     and html.index("ZKOUSKA sekce") < html.index("ZKOUSKA popisek sekce"))
+krok("komentar je pod tabulkou", "ZKOUSKA komentar" in html
+     and html.index("ZKOUSKA popisek sekce") < html.index("ZKOUSKA komentar"))
+krok("rozdelenim se zadny ukon neztratil",
+     html.count('class="ev-cen-row"') == radku_pred,
+     "pred %s, po %s" % (radku_pred, html.count('class="ev-cen-row"')))
+krok("komentarovy ramecek pribyl",
+     telo(html).count('class="ev-cen-note"') == ramecku_pred + 1)
+
+# obrazek sekce
+PNG = "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg=="
+nova.image = PNG
+nova.with_context(lang="cs_CZ").image_alt = "ZKOUSKA fotka"
+env.cr.commit()
+s_obrazkem = stahni("/cenik")
+krok("nahrany obrazek se vykresli",
+     "ev-cen-foto" in telo(s_obrazkem) and "ZKOUSKA fotka" in s_obrazkem)
+nova.image = False
+env.cr.commit()
+krok("smazany obrazek ze stranky zmizel", "ev-cen-foto" not in telo(stahni("/cenik")))
+
+# prazdny komentar nesmi nechat prazdny ramecek
+nova.with_context(lang="cs_CZ").comment = False
+env.cr.commit()
+krok("prazdny komentar = zadny ramecek",
+     telo(stahni("/cenik")).count('class="ev-cen-note"') == ramecku_pred)
+
+# klinika se do sekce musi dostat i bez vyvojarskeho rezimu
+seznam = env.ref("elite_vet_web.view_price_category_list")
+krok("seznam sekci neni inline editovatelny", "editable=" not in seznam.arch)
+formular = env.ref("elite_vet_web.view_price_category_form", raise_if_not_found=False)
+krok("sekce ma vlastni formular", bool(formular))
+krok("na jednom formulari je vsech sest casti",
+     bool(formular) and all(('name="%s"' % p) in formular.arch for p in
+                            ("badge", "name", "description", "image", "item_ids", "comment")))
+polozky_ceniku = env.ref("elite_vet_web.menu_price_root").child_id
+krok("cenik ma v nabidce jedinou polozku", len(polozky_ceniku) == 1,
+     ", ".join(polozky_ceniku.mapped("name")))
+
+presunuty.category_id = puvodni_sekce.id if puvodni_sekce else False
+nova.unlink()
+env.cr.commit()
+po = stahni("/cenik")
+krok("zkusebni sekce uklizena", "ZKOUSKA" not in po)
+krok("cenik je zpatky jak byl",
+     po.count('class="ev-cen-row"') == radku_pred
+     and telo(po).count('class="ev-cen-note"') == ramecku_pred)
+
 
 print("\n===== 11. BLOKY STRANKY =====")
 Blok = env["elite.vet.page.section"].with_context(active_test=False)
