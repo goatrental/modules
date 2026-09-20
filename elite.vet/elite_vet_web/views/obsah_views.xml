@@ -451,6 +451,8 @@
                     <group string="Hláška, dokud se rezervace načítá">
                         <field name="booking_loading_title" placeholder="Načítáme rezervační systém…"/>
                         <field name="booking_loading_note" placeholder="Chvilku to trvá, děkujeme za trpělivost."/>
+                        <field name="booking_loading_middle"
+                               placeholder="Delší text, který se ukáže níž ve volném místě rámečku."/>
                         <div colspan="2" class="text-muted">
                             Text leží pod rámečkem a zmizí sám, jakmile se rezervace vykreslí.
                             Ukazuje se i na stránce rozpisu služeb.

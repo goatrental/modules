@@ -189,6 +189,8 @@
             .rs-rez-nacitani { position: absolute; inset: 0; z-index: 0; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; padding-top: 90px; gap: 22px; color: var(--ev-primary); font-size: 19px; font-weight: 700; letter-spacing: .01em; text-align: center; }
             .rs-rez-spinner { width: 58px; height: 58px; border-radius: 50%; border: 5px solid var(--ev-border); border-top-color: var(--ev-accent); animation: rsCtaToci .85s linear infinite; }
             .rs-rez-nacitani-podtext { font-size: 14px; font-weight: 500; color: var(--ev-text-secondary); margin-top: -10px; }
+            /* Treti hlaska zabere zbytek vysky ramecku a vycentruje se v nem. */
+            .rs-rez-nacitani-zprava { flex: 1 1 auto; min-height: 0; display: flex; align-items: center; justify-content: center; max-width: 520px; padding: 0 24px 56px; font-size: 15px; font-weight: 500; line-height: 1.65; color: var(--ev-text-secondary); white-space: pre-line; }
             @media (prefers-reduced-motion: reduce) { .rs-rez-spinner { animation: none; } }
             .rs-rez-frame iframe { display: block; width: 100%; height: 820px; border: 0; position: relative; z-index: 1; background: transparent; }
             .rs-rez-back { margin-top: 34px; display: flex; justify-content: center; }
@@ -197,6 +199,7 @@
                 .rs-rez-nacitani { padding-top: 64px; gap: 18px; font-size: 17px; }
                 .rs-rez-spinner { width: 50px; height: 50px; border-width: 4px; }
                 .rs-rez-nacitani-podtext { font-size: 13px; }
+                .rs-rez-nacitani-zprava { font-size: 13.5px; padding: 0 18px 40px; }
                 .rs-rez-frame { border-radius: 16px; }
                 .rs-rez-frame iframe { height: 760px; }
                 .rs-rez-back { margin-top: 26px; }
@@ -679,6 +682,7 @@
                             <span class="rs-rez-spinner"></span>
                             <span t-out="ev_web.booking_loading_title or 'Načítáme rezervační systém…'"></span>
                             <span class="rs-rez-nacitani-podtext" t-out="ev_web.booking_loading_note or ''"></span>
+                            <span t-if="ev_web.booking_loading_middle" class="rs-rez-nacitani-zprava" t-out="ev_web.booking_loading_middle"></span>
                         </div>
                         <iframe t-att-src="ev_web.booking_url or 'https://reservation.winvet.cz/booking/f5832eae07850edb2b5a1167843ef423'"
                                 title="Elite Vet booking system" scrolling="no" loading="eager"></iframe>

@@ -245,6 +245,12 @@ class EliteVetSetting(models.Model):
         "Hláška při načítání", translate=True,
         help="Ukaze se pod rámečkem, dokud se rezervační systém nenačte.")
     booking_loading_note = fields.Char("Druhý řádek hlášky", translate=True)
+    # Treti hlaska lezi niz, v prazdnem miste pod prvnimi dvema, a je v nem
+    # vycentrovana. Je na delsi text — proto Text, ne Char.
+    booking_loading_middle = fields.Text(
+        "Text uprostřed rámečku", translate=True,
+        help="Delší text ve volném místě pod hláškou o načítání. "
+             "Prázdné pole znamená, že tam nic nebude.")
     schedule_link_lead = fields.Char(
         "Text nad odkazem na rozpis", translate=True,
         help="Věta nad tlačítkem pod rezervačním systémem.")

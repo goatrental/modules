@@ -252,6 +252,36 @@ krok("texty vraceny", "ZKOUSKA" not in stahni("/rezervacni-system"))
 krok("nemcina zustala nedotcena",
      "Reservierungssystem" in stahni("/rezervacni-system", "de-DE,de"))
 
+print("\n===== 9c. TRETI HLASKA POD REZERVACI =====")
+# Treti hlaska lezi v prazdnem miste pod prvnimi dvema a je v nem vycentrovana.
+# Ukazuje se na obou strankach, kde rezervacni system visi.
+puvodni_treti = nastaveni.with_context(lang="cs_CZ").booking_loading_middle
+nastaveni.with_context(lang="cs_CZ").booking_loading_middle = "ZKOUSKA treti hlaska."
+env.cr.commit()
+for cesta in ("/rezervacni-system", "/rozpis-lekaru"):
+    html = stahni(cesta)
+    krok("%s: treti hlaska je na strance" % cesta, "ZKOUSKA treti hlaska" in html)
+    krok("%s: lezi pod druhou hlaskou" % cesta,
+         "nacitani-podtext" in html
+         and html.index("nacitani-podtext") < html.index("ZKOUSKA treti hlaska"))
+
+nastaveni.with_context(lang="de_DE").booking_loading_middle = "ZKOUSKA dritte Meldung."
+env.cr.commit()
+krok("hlaska jde prelozit",
+     "ZKOUSKA dritte Meldung" in stahni("/rezervacni-system", "de-DE,de"))
+
+nastaveni.with_context(lang="cs_CZ").booking_loading_middle = False
+nastaveni.with_context(lang="de_DE").booking_loading_middle = False
+env.cr.commit()
+krok("prazdne pole = zadny text navic",
+     "nacitani-zprava" not in stahni("/rezervacni-system").split("</style>")[-1])
+
+nastaveni.with_context(lang="cs_CZ").booking_loading_middle = puvodni_treti or False
+env.cr.commit()
+krok("hlaska vracena do puvodniho stavu",
+     (nastaveni.with_context(lang="cs_CZ").booking_loading_middle or "") == (puvodni_treti or ""))
+
+
 print("\n===== 10. CENIK =====")
 Cena = env["elite.vet.price.item"]
 novy_ukon = Cena.create({"name": "ZKOUSKA ukon", "price": "1 Kč", "icon_code": "kocka",

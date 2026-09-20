@@ -904,12 +904,15 @@
                 .evrez .evrez-inner iframe{position:relative;z-index:1;background:transparent}
                 .evrez-spinner{width:58px;height:58px;border-radius:50%;border:5px solid #e2e8f0;border-top-color:#2b7870;animation:evrezToci .85s linear infinite}
                 .evrez-nacitani-podtext{font-size:14px;font-weight:500;color:#64748b;margin-top:-10px}
+                /* Treti hlaska zabere zbytek vysky ramecku a vycentruje se v nem. */
+                .evrez-nacitani-zprava{flex:1 1 auto;min-height:0;display:flex;align-items:center;justify-content:center;max-width:520px;padding:0 24px 56px;font-size:15px;font-weight:500;line-height:1.65;color:#64748b;white-space:pre-line}
                 @keyframes evrezToci{to{transform:rotate(360deg)}}
                 @media (prefers-reduced-motion:reduce){.evrez-spinner{animation:none}}
                 @media (max-width:900px){
                   .evrez .evrez-nacitani{padding-top:64px;gap:18px;font-size:17px}
                   .evrez-spinner{width:50px;height:50px;border-width:4px}
                   .evrez-nacitani-podtext{font-size:13px}
+                  .evrez-nacitani-zprava{font-size:13.5px;padding:0 18px 40px}
                 }
 
                 /* ====== ODKAZ NA ROZPIS SLUZEB pod rezervaci ====== */
@@ -1041,6 +1044,7 @@
                         <span class="evrez-spinner"></span>
                         <span t-out="ev_web.booking_loading_title or 'Načítáme rezervační systém…'"></span>
                         <span class="evrez-nacitani-podtext" t-out="ev_web.booking_loading_note or ''"></span>
+                        <span t-if="ev_web.booking_loading_middle" class="evrez-nacitani-zprava" t-out="ev_web.booking_loading_middle"></span>
                       </div>
                       <!-- Zamerne BEZ loading="lazy": rezervace je hlavni obsah stranky,
                            nema smysl s ni cekat, az k ni nekdo doscrolluje. -->
