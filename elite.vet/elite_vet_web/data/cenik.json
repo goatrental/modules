@@ -36,5 +36,261 @@
   "cs_CZ": "Ošetření",
   "de_DE": "Behandlungen",
   "ru_RU": "Процедуры"
- }
+ },
+ "sekce": [
+  {
+   "typ": "hlavicka",
+   "poradi": 5,
+   "nazev": {
+    "en_US": "Price list of treatments",
+    "cs_CZ": "Ceník ošetření",
+    "de_DE": "Preisliste der Behandlungen",
+    "ru_RU": "Прайс-лист процедур"
+   },
+   "stitek": {
+    "en_US": "Ceník",
+    "cs_CZ": "Ceník",
+    "de_DE": "Ceník",
+    "ru_RU": "Ceník"
+   },
+   "popisek": {
+    "en_US": "Overview of the most common procedures. Prices are indicative — we will always inform you of the final amount in advance, before the treatment.",
+    "cs_CZ": "Přehled nejčastějších úkonů. Ceny jsou orientační — konečnou částku vám vždy řekneme předem, ještě před ošetřením.",
+    "de_DE": "Überblick über die häufigsten Eingriffe. Die Preise sind Richtwerte — den endgültigen Betrag nennen wir Ihnen immer vorab, noch vor der Behandlung.",
+    "ru_RU": "Обзор самых частых процедур. Цены ориентировочные — окончательную сумму мы всегда сообщим заранее, до начала лечения."
+   },
+   "komentar": {},
+   "ukony": []
+  },
+  {
+   "typ": "sekce",
+   "poradi": 6,
+   "nazev": {
+    "en_US": "Treatments",
+    "cs_CZ": "Vyšetření",
+    "de_DE": "Behandlungen",
+    "ru_RU": "Процедуры"
+   },
+   "stitek": {},
+   "popisek": {},
+   "komentar": {
+    "en_US": "<p>The stated prices include basic treatment and commonly used materials. The final price may vary depending on the vaccine used, medications, additional materials, or necessary procedures.</p><p>We will be happy to provide you with additional prices before the treatment or we can provide them to you by phone or email.</p>",
+    "cs_CZ": "<p data-oe-version=\"1.2\">V uvedených cenách je zahrnuto základní ošetření a běžně použitý materiál. Konečná cena se může lišit podle použité vakcíny, léků, dalšího materiálu nebo nutných zákroků.</p><p>Další ceny Vám rádi sdělíme před ošetřením nebo Vám je poskytneme telefonicky či e-mailem.</p><p><br></p>",
+    "de_DE": "<p>In den genannten Preisen sind die Grundbehandlung und üblicherweise verwendetes Material enthalten. Der Endpreis kann sich je nach verwendetem Impfstoff, Medikamenten, weiterem Material oder notwendigen Eingriffen unterscheiden.</p><p>Weitere Preise nennen wir Ihnen gerne vor der Behandlung oder teilen sie Ihnen telefonisch bzw. per E-Mail mit.</p>",
+    "ru_RU": "<p>В указанные цены включены базовое лечение и обычно используемые материалы. Итоговая цена может отличаться в зависимости от применённой вакцины, лекарств, дополнительных материалов или необходимых процедур.</p><p>Остальные цены мы с радостью сообщим перед лечением или передадим по телефону либо электронной почте.</p>"
+   },
+   "ukony": [
+    {
+     "poradi": 10,
+     "nazev": {
+      "en_US": "Vaccination cat",
+      "cs_CZ": "Vakcinace kočka",
+      "de_DE": "Impfung Katze",
+      "ru_RU": "Вакцинация кошка"
+     },
+     "cena": {
+      "en_US": "990 Kč",
+      "cs_CZ": "990 Kč",
+      "de_DE": "990 Kč",
+      "ru_RU": "990 Kč"
+     },
+     "cena_od": true,
+     "poznamka": {},
+     "ikona_kod": "kocka",
+     "ikona_xmlid": false
+    },
+    {
+     "poradi": 11,
+     "nazev": {
+      "en_US": "Vaccination dog",
+      "cs_CZ": "Vakcinace pes",
+      "de_DE": "Impfung Hund",
+      "ru_RU": "Вакцинация собака"
+     },
+     "cena": {
+      "en_US": "700 Kč",
+      "cs_CZ": "700 Kč",
+      "de_DE": "700 Kč",
+      "ru_RU": "700 Kč"
+     },
+     "cena_od": true,
+     "poznamka": {},
+     "ikona_kod": "pes",
+     "ikona_xmlid": false
+    },
+    {
+     "poradi": 12,
+     "nazev": {
+      "en_US": "Rabbit vaccination",
+      "cs_CZ": "Vakcinace králík",
+      "de_DE": "Impfung Kaninchen",
+      "ru_RU": "Вакцинация кролик"
+     },
+     "cena": {
+      "en_US": "650 Kč",
+      "cs_CZ": "650 Kč",
+      "de_DE": "650 Kč",
+      "ru_RU": "650 Kč"
+     },
+     "cena_od": true,
+     "poznamka": {},
+     "ikona_kod": "kralik",
+     "ikona_xmlid": false
+    },
+    {
+     "poradi": 13,
+     "nazev": {
+      "en_US": "Nail trimming",
+      "cs_CZ": "Stříhání drápků",
+      "de_DE": "Krallenschneiden",
+      "ru_RU": "Стрижка когтей"
+     },
+     "cena": {
+      "en_US": "129 Kč",
+      "cs_CZ": "129 Kč",
+      "de_DE": "129 Kč",
+      "ru_RU": "129 Kč"
+     },
+     "cena_od": true,
+     "poznamka": {},
+     "ikona_kod": "nuzky",
+     "ikona_xmlid": false
+    },
+    {
+     "poradi": 14,
+     "nazev": {
+      "en_US": "Expression of anal glands",
+      "cs_CZ": "Vymačkání análních žlázek",
+      "de_DE": "Ausdrücken der Analdrüsen",
+      "ru_RU": "Чистка параанальных желёз"
+     },
+     "cena": {
+      "en_US": "129 Kč",
+      "cs_CZ": "129 Kč",
+      "de_DE": "129 Kč",
+      "ru_RU": "129 Kč"
+     },
+     "cena_od": true,
+     "poznamka": {},
+     "ikona_kod": "kapka",
+     "ikona_xmlid": false
+    },
+    {
+     "poradi": 15,
+     "nazev": {
+      "en_US": "Clinical examination",
+      "cs_CZ": "Klinické vyšetření",
+      "de_DE": "Klinische Untersuchung",
+      "ru_RU": "Клинический осмотр"
+     },
+     "cena": {
+      "en_US": "590 Kč",
+      "cs_CZ": "590 Kč",
+      "de_DE": "590 Kč",
+      "ru_RU": "590 Kč"
+     },
+     "cena_od": true,
+     "poznamka": {},
+     "ikona_kod": "stetoskop",
+     "ikona_xmlid": false
+    }
+   ]
+  },
+  {
+   "typ": "sekce",
+   "poradi": 10,
+   "nazev": {
+    "en_US": "Víkendové a pohotovostní příplatky",
+    "cs_CZ": "Víkendové a pohotovostní příplatky",
+    "de_DE": "Víkendové a pohotovostní příplatky",
+    "ru_RU": "Víkendové a pohotovostní příplatky"
+   },
+   "stitek": {},
+   "popisek": {},
+   "komentar": {
+    "en_US": "<p data-oe-version=\"1.2\"><strong>Mimo ordinační dobu se k pohotovostnímu poplatku připočítává čas práce lékaře a sestry</strong> podle jejich skutečného zapojení do péče. Uvedené příplatky se účtují nad rámec ceny vyšetření, zákroků, léčiv a použitého materiálu.</p><p>Tyto příplatky nám umožňují zajistit a odpovídajícím způsobem odměnit odborný tým při víkendové a mimořádné péči o vaše mazlíčky. Děkujeme za pochopení.</p><p>Ošetření mimo ordinační dobu je možné pouze po předchozí telefonické domluvě a potvrzení dostupnosti týmu na čísle 722 599 699. Nejedná se o nepřetržitý provoz.</p>",
+    "cs_CZ": "<p data-oe-version=\"1.2\"><strong>Mimo ordinační dobu se k pohotovostnímu poplatku připočítává čas práce lékaře a sestry</strong> podle jejich skutečného zapojení do péče. Uvedené příplatky se účtují nad rámec ceny vyšetření, zákroků, léčiv a použitého materiálu.</p><p>Tyto příplatky nám umožňují zajistit a odpovídajícím způsobem odměnit odborný tým při víkendové a mimořádné péči o vaše mazlíčky. Děkujeme za pochopení.</p><p>Ošetření mimo ordinační dobu je možné pouze po předchozí telefonické domluvě a potvrzení dostupnosti týmu na čísle 722 599 699. Nejedná se o nepřetržitý provoz.</p>",
+    "de_DE": "<p data-oe-version=\"1.2\"><strong>Mimo ordinační dobu se k pohotovostnímu poplatku připočítává čas práce lékaře a sestry</strong> podle jejich skutečného zapojení do péče. Uvedené příplatky se účtují nad rámec ceny vyšetření, zákroků, léčiv a použitého materiálu.</p><p>Tyto příplatky nám umožňují zajistit a odpovídajícím způsobem odměnit odborný tým při víkendové a mimořádné péči o vaše mazlíčky. Děkujeme za pochopení.</p><p>Ošetření mimo ordinační dobu je možné pouze po předchozí telefonické domluvě a potvrzení dostupnosti týmu na čísle 722 599 699. Nejedná se o nepřetržitý provoz.</p>",
+    "ru_RU": "<p data-oe-version=\"1.2\"><strong>Mimo ordinační dobu se k pohotovostnímu poplatku připočítává čas práce lékaře a sestry</strong> podle jejich skutečného zapojení do péče. Uvedené příplatky se účtují nad rámec ceny vyšetření, zákroků, léčiv a použitého materiálu.</p><p>Tyto příplatky nám umožňují zajistit a odpovídajícím způsobem odměnit odborný tým při víkendové a mimořádné péči o vaše mazlíčky. Děkujeme za pochopení.</p><p>Ošetření mimo ordinační dobu je možné pouze po předchozí telefonické domluvě a potvrzení dostupnosti týmu na čísle 722 599 699. Nejedná se o nepřetržitý provoz.</p>"
+   },
+   "ukony": [
+    {
+     "poradi": 10,
+     "nazev": {
+      "en_US": "Víkendová pohotovost - objednaný pacient",
+      "cs_CZ": "Víkendová pohotovost - objednaný pacient",
+      "de_DE": "Víkendová pohotovost - objednaný pacient",
+      "ru_RU": "Víkendová pohotovost - objednaný pacient"
+     },
+     "cena": {
+      "en_US": "200 Kč",
+      "cs_CZ": "200 Kč",
+      "de_DE": "200 Kč",
+      "ru_RU": "200 Kč"
+     },
+     "cena_od": true,
+     "poznamka": {},
+     "ikona_kod": false,
+     "ikona_xmlid": "elite_vet_team.icon_shield"
+    },
+    {
+     "poradi": 11,
+     "nazev": {
+      "en_US": "Pohotovost všední den - mimo ordinační dobu",
+      "cs_CZ": "Pohotovost všední den - mimo ordinační dobu",
+      "de_DE": "Pohotovost všední den - mimo ordinační dobu",
+      "ru_RU": "Pohotovost všední den - mimo ordinační dobu"
+     },
+     "cena": {
+      "en_US": "2000 Kč",
+      "cs_CZ": "2000 Kč",
+      "de_DE": "2000 Kč",
+      "ru_RU": "2000 Kč"
+     },
+     "cena_od": true,
+     "poznamka": {},
+     "ikona_kod": false,
+     "ikona_xmlid": "elite_vet_team.icon_emergency"
+    },
+    {
+     "poradi": 12,
+     "nazev": {
+      "en_US": "Víkendová pohotovost - akutní/neobjednaný pacient",
+      "cs_CZ": "Víkendová pohotovost - akutní/neobjednaný pacient",
+      "de_DE": "Víkendová pohotovost - akutní/neobjednaný pacient",
+      "ru_RU": "Víkendová pohotovost - akutní/neobjednaný pacient"
+     },
+     "cena": {
+      "en_US": "1000 Kč",
+      "cs_CZ": "1000 Kč",
+      "de_DE": "1000 Kč",
+      "ru_RU": "1000 Kč"
+     },
+     "cena_od": true,
+     "poznamka": {},
+     "ikona_kod": false,
+     "ikona_xmlid": "elite_vet_team.icon_emergency"
+    },
+    {
+     "poradi": 13,
+     "nazev": {
+      "en_US": "Víkendová pohotovost - ošetření mimo ordinační hodiny",
+      "cs_CZ": "Víkendová pohotovost - ošetření mimo ordinační hodiny",
+      "de_DE": "Víkendová pohotovost - ošetření mimo ordinační hodiny",
+      "ru_RU": "Víkendová pohotovost - ošetření mimo ordinační hodiny"
+     },
+     "cena": {
+      "en_US": "2000 Kč",
+      "cs_CZ": "2000 Kč",
+      "de_DE": "2000 Kč",
+      "ru_RU": "2000 Kč"
+     },
+     "cena_od": true,
+     "poznamka": {},
+     "ikona_kod": false,
+     "ikona_xmlid": "elite_vet_team.icon_emergency"
+    }
+   ]
+  }
+ ]
 }

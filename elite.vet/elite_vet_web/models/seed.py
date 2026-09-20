@@ -104,18 +104,8 @@ def seed_obsah(env):
             _zapis_preklady(zaznam, "name", radek["otazka"])
             _zapis_preklady(zaznam, "answer", radek["odpoved"])
 
-    Cena = env["elite.vet.price.item"]
-    if not Cena.search_count([]):
-        for radek in obsah["cenik"]:
-            zaznam = Cena.create({
-                "name": radek["nazev"].get("en_US", ""),
-                "price": radek["cena"],
-                "price_from": True,
-                "icon_code": radek["ikona"],
-                "sequence": radek["poradi"],
-            })
-            _zapis_preklady(zaznam, "name", radek["nazev"])
-
+    # Ukony ceniku zaklada _nastav_cenik z data/cenik.json — i se sekcemi,
+    # do kterych patri. Tady uz by vznikly podruhe, a jeste bez sekce.
     Nastaveni = env["elite.vet.setting"]
     if not Nastaveni.search_count([]):
         Nastaveni.create(obsah["nastaveni"])

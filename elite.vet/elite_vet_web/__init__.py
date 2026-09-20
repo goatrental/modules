@@ -255,82 +255,102 @@ def _nastav_seo(env):
 
 
 
-def _nastav_cenik(env):
-    """Prevede dnesni cenik na hlavicku stranky a sekci s ukony.
-
-    Stitek, nadpis a popisek driv lezely natvrdo v sablone a spodni ramecek
-    taky — klinika je nemohla zmenit. Ted jsou to zaznamy: jedna hlavicka
-    (velky nadpis na stred) a pod ni sekce s tabulkou ukonu a komentarem.
-    Velky nadpis zamerne nema tabulku primo pod sebou.
-
-    Texty se neberou z hlavy: jsou to tytez vety, co uz na strance jsou, i s
-    preklady z i18n/*.po. Vytazene lezi v data/cenik.json.
-
-    Kdyz uz je nejaky ukon zarazeny do sekce, nedela se nic.
-    """
+def _nacti_cenik():
+    """Vrati obsah data/cenik.json, nebo prazdno, kdyz soubor chybi."""
     import json
     import os
 
-    Sekce = env["elite.vet.price.category"].sudo()
-    Ukon = env["elite.vet.price.item"].sudo()
-
-    bez_sekce = Ukon.search([("category_id", "=", False)])
-    if not bez_sekce:
-        return                      # uz je vsechno zarazene, neni co prevadet
-
     cesta = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data", "cenik.json")
     if not os.path.exists(cesta):
-        _logger.warning("Ceník: soubor %s nenalezen, preskakuji.", cesta)
-        return
+        _logger.warning("Ceník: soubor %s nenalezen.", cesta)
+        return {}
     with open(cesta, encoding="utf-8") as soubor:
-        data = json.load(soubor)
+        return json.load(soubor)
 
-    PORADI = ["en_US", "cs_CZ", "de_DE", "ru_RU"]
 
-    def text(klic, jazyk):
-        return (data.get(klic) or {}).get(jazyk)
+def _zapis_jazyky(zaznam, pole, hodnoty):
+    """Zapise zdroj a pak jednotlive preklady.
 
-    odstavce = data.get("poznamka_odstavce") or []
+    en_US je zdroj, ne jeden z jazyku — kdyz se zapise az po ostatnich,
+    prepise je. U Html poli prekladanych po terminech musi zdroj vzniknout
+    uz pri create, jinak prvni zapis v cizim jazyce zdroj prepise.
+    """
+    if not hodnoty:
+        return
+    for jazyk in ("en_US", "cs_CZ", "de_DE", "ru_RU"):
+        text = hodnoty.get(jazyk)
+        if text:
+            zaznam.with_context(lang=jazyk)[pole] = text
 
-    def ramecek(jazyk):
-        return "".join("<p>%s</p>" % (o.get(jazyk) or o.get("en_US") or "")
-                       for o in odstavce)
 
-    # 1) hlavicka stranky — velky nadpis, zadne ukony
-    if not Sekce.search_count([("typ", "=", "hlavicka")]):
-        hlavicka = Sekce.with_context(lang="en_US").create({
-            "typ": "hlavicka",
-            "name": text("price_title", "en_US") or "Price list",
-            "badge": text("badge", "en_US") or "PRICE LIST",
-            "description": text("price_lead", "en_US") or "",
-            "sequence": 1,
+def _nastav_cenik(env):
+    """Zalozi cely cenik: hlavicku stranky, sekce a ukony v nich.
+
+    Obsah ceniku zije v databazi, ne v sablone, takze se musi nekde vzit —
+    lezi v data/cenik.json presne tak, jak si ho klinika nastavila, vcetne
+    vsech jazyku, ve kterych uz text ma.
+
+    Zaklada se jen jednou. Kdyz uz nejaka sekce existuje, nedela se nic —
+    upgrade tak nikdy neprepise to, co klinika mezitim zmenila.
+    """
+    Sekce = env["elite.vet.price.category"].sudo()
+    Ukon = env["elite.vet.price.item"].sudo()
+    if Sekce.search_count([]):
+        return
+
+    sekce_data = (_nacti_cenik().get("sekce") or [])
+    if not sekce_data:
+        return
+
+    # Ukony, ktere uz v databazi jsou (ze starsi instalace), nechceme mit
+    # dvakrat — zaradi se do prvni sekce, ktera nejakou tabulku ma.
+    stavajici = Ukon.search([("category_id", "=", False)])
+
+    prvni_s_ukony = False
+    for radek in sekce_data:
+        nazev = radek.get("nazev") or {}
+        sekce = Sekce.with_context(lang="en_US").create({
+            "typ": radek.get("typ") or "sekce",
+            "name": nazev.get("en_US") or nazev.get("cs_CZ") or "Ceník",
+            "sequence": radek.get("poradi") or 10,
+            # komentar musi byt uz tady, je to Html prekladane po terminech
+            "comment": (radek.get("komentar") or {}).get("en_US") or False,
         })
-        for jazyk in PORADI[1:]:
-            for pole, klic in (("name", "price_title"), ("badge", "badge"),
-                               ("description", "price_lead")):
-                hodnota = text(klic, jazyk)
-                if hodnota:
-                    hlavicka.with_context(lang=jazyk)[pole] = hodnota
+        _zapis_jazyky(sekce, "name", nazev)
+        _zapis_jazyky(sekce, "badge", radek.get("stitek"))
+        _zapis_jazyky(sekce, "description", radek.get("popisek"))
+        _zapis_jazyky(sekce, "comment", radek.get("komentar"))
 
-    # 2) sekce s ukony. Komentar musi byt uz v create: je to Html pole
-    #    prekladane po terminech a kdyz se doplni az potom, prvni zapis
-    #    v cizim jazyce prepise zdroj a cestina se rozlije do vsech jazyku.
-    sekce = Sekce.with_context(lang="en_US").create({
-        "typ": "sekce",
-        "name": text("sekce_nazev", "en_US") or "Treatments",
-        "comment": ramecek("en_US"),
-        "sequence": 10,
-    })
-    for jazyk in PORADI[1:]:
-        nazev = text("sekce_nazev", jazyk)
-        if nazev:
-            sekce.with_context(lang=jazyk).name = nazev
-        if ramecek(jazyk):
-            sekce.with_context(lang=jazyk).comment = ramecek(jazyk)
+        for polozka in radek.get("ukony") or []:
+            jmeno = polozka.get("nazev") or {}
+            cena = polozka.get("cena") or {}
+            hodnoty = {
+                "category_id": sekce.id,
+                "name": jmeno.get("en_US") or jmeno.get("cs_CZ") or "",
+                "price": cena.get("en_US") or cena.get("cs_CZ") or "",
+                "price_from": bool(polozka.get("cena_od")),
+                "sequence": polozka.get("poradi") or 10,
+            }
+            if polozka.get("ikona_kod"):
+                hodnoty["icon_code"] = polozka["ikona_kod"]
+            # ikona se hleda podle externiho ID: cislo zaznamu je na kazde
+            # instalaci jine, xmlid je vsude stejne
+            if polozka.get("ikona_xmlid"):
+                ikona = env.ref(polozka["ikona_xmlid"], raise_if_not_found=False)
+                if ikona:
+                    hodnoty["icon_id"] = ikona.id
+                else:
+                    _logger.warning("Ceník: ikona %s nenalezena, úkon zůstane bez ní.",
+                                    polozka["ikona_xmlid"])
+            ukon = Ukon.with_context(lang="en_US").create(hodnoty)
+            _zapis_jazyky(ukon, "name", jmeno)
+            _zapis_jazyky(ukon, "price", cena)
+            _zapis_jazyky(ukon, "note", polozka.get("poznamka"))
 
-    bez_sekce.write({"category_id": sekce.id})
-    _logger.info("Ceník: zalozena hlavicka a sekce s %s úkony.", len(bez_sekce))
+        if radek.get("ukony") and not prvni_s_ukony:
+            prvni_s_ukony = sekce
 
-    # Poznamky z mezikroku uz nemaji kam patrit — jejich text je v komentari.
-    if "elite.vet.price.note" in env:
-        env["elite.vet.price.note"].sudo().search([]).unlink()
+    if stavajici and prvni_s_ukony:
+        stavajici.write({"category_id": prvni_s_ukony.id})
+
+    _logger.info("Ceník: zalozeno %s bloku.", len(sekce_data))

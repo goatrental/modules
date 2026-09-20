@@ -202,6 +202,23 @@ ne z `<t t-set="meta_description">` v šabloně — ten tiše ignoruje. Proto ho
 zapisuje instalační hook, ve všech čtyřech jazycích, a **už vyplněné pole
 nikdy nepřepíše** — co si klinika napsala sama, zůstane.
 
+## Ceník se nasadí i s obsahem
+
+Sekce ceníku, úkony a ceny **jsou součástí modulu** (`elite_vet_web/data/cenik.json`),
+takže po instalaci vznikne přesně to, co je vidět na lokále — hlavička stránky,
+sekce a jejich úkony včetně ikon. Ikony se hledají podle externího ID, ne podle
+čísla záznamu: to je na každé instalaci jiné.
+
+Zakládá se to **jen při první instalaci**. Když už v databázi nějaká sekce je,
+hook nedělá nic — upgrade tedy nikdy nepřepíše to, co klinika mezitím změnila.
+
+**Co je zatím jen česky.** Sekce „Víkendové a pohotovostní příplatky" a její
+úkony mají ve všech jazycích český text — německý, anglický i ruský návštěvník
+je uvidí česky, dokud je někdo nepřeloží. Přeloží se v adminu: Ceník → Sekce,
+přepnout jazyk vpravo nahoře a přepsat. Totéž štítek „Ceník" v hlavičce.
+Skript `kontrola-stranek.js` to hlásí jako 3 problémy na /cenik — je to tohle,
+ne chyba modulu.
+
 ## Na co si dát pozor později
 
 **Změna textu v šabloně mění zdroj.** Šablony jsou anglicky právě proto, aby se
