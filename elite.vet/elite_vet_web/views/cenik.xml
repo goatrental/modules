@@ -17,6 +17,7 @@
             <t t-set="ev_ceny" t-value="request.env['elite.vet.price.item'].sudo().search([]) if 'elite.vet.price.item' in request.env else []"/>
             <t t-set="ev_bez_sekce" t-value="ev_ceny.filtered(lambda z: not z.category_id) if ev_ceny else []"/>
             <t t-set="ev_sekce" t-value="request.env['elite.vet.price.category'].sudo().search([]) if 'elite.vet.price.category' in request.env else []"/>
+            <t t-set="ev_hlavicka" t-value="ev_sekce.filtered(lambda s: s.typ == 'hlavicka')"/>
             <t t-set="no_header" t-value="true"/>
             <t t-set="no_footer" t-value="true"/>
             <t t-set="additional_title">Price list | Elite Vet Karlovy Vary</t>
@@ -441,7 +442,7 @@
                              a komentar. Nadpis prvni sekce je h1, dalsi h2 — stranka
                              ma mit jen jeden hlavni nadpis, vypadaji ale stejne. -->
                         <t t-foreach="ev_sekce" t-as="ev_sk">
-                            <div t-attf-class="ev-cen-sekce#{'' if ev_sk_index else ' ev-cen-sekce--hlavni'}">
+                            <div t-attf-class="ev-cen-sekce#{' ev-cen-sekce--hlavni' if ev_sk.typ == 'hlavicka' else ''}">
                                 <div class="ev-cen-sekce-head">
                                     <span t-if="ev_sk.badge" class="ev-cenhero-badge">
                                         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
@@ -450,7 +451,7 @@
                                         </svg>
                                         <span t-field="ev_sk.badge"></span>
                                     </span>
-                                    <h1 t-if="not ev_sk_index" t-field="ev_sk.name"></h1>
+                                    <h1 t-if="ev_sk.typ == 'hlavicka' or (not ev_sk_index and not ev_hlavicka)" t-field="ev_sk.name"></h1>
                                     <h2 t-else="" t-field="ev_sk.name"></h2>
                                     <p t-if="ev_sk.description" class="ev-cenhero-lead" t-field="ev_sk.description"></p>
                                 </div>

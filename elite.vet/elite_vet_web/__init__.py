@@ -256,16 +256,17 @@ def _nastav_seo(env):
 
 
 def _nastav_cenik(env):
-    """Udela z dnesniho ceniku prvni sekci, aby stranka vypadala stejne.
+    """Prevede dnesni cenik na hlavicku stranky a sekci s ukony.
 
-    Stitek, nadpis, popisek i spodni ramecek driv lezely natvrdo v sablone nebo
-    v poli nastaveni — klinika je nemohla zmenit z jednoho mista. Ted je to
-    jedna sekce se vsim, co k ni patri, vcetne ukonu.
+    Stitek, nadpis a popisek driv lezely natvrdo v sablone a spodni ramecek
+    taky — klinika je nemohla zmenit. Ted jsou to zaznamy: jedna hlavicka
+    (velky nadpis na stred) a pod ni sekce s tabulkou ukonu a komentarem.
+    Velky nadpis zamerne nema tabulku primo pod sebou.
 
     Texty se neberou z hlavy: jsou to tytez vety, co uz na strance jsou, i s
     preklady z i18n/*.po. Vytazene lezi v data/cenik.json.
 
-    Kdyz uz nejaka sekce s ukony existuje, nedela se nic.
+    Kdyz uz je nejaky ukon zarazeny do sekce, nedela se nic.
     """
     import json
     import os
@@ -289,36 +290,46 @@ def _nastav_cenik(env):
     def text(klic, jazyk):
         return (data.get(klic) or {}).get(jazyk)
 
-    # Sekce vznika ve zdrojovem jazyce, preklady se dopisuji hned po nem.
-    # Komentar musi byt uz v create: je to Html pole prekladane po terminech
-    # a kdyz se doplni az potom, prvni zapis v cizim jazyce prepise zdroj.
     odstavce = data.get("poznamka_odstavce") or []
 
     def ramecek(jazyk):
         return "".join("<p>%s</p>" % (o.get(jazyk) or o.get("en_US") or "")
                        for o in odstavce)
 
+    # 1) hlavicka stranky — velky nadpis, zadne ukony
+    if not Sekce.search_count([("typ", "=", "hlavicka")]):
+        hlavicka = Sekce.with_context(lang="en_US").create({
+            "typ": "hlavicka",
+            "name": text("price_title", "en_US") or "Price list",
+            "badge": text("badge", "en_US") or "PRICE LIST",
+            "description": text("price_lead", "en_US") or "",
+            "sequence": 1,
+        })
+        for jazyk in PORADI[1:]:
+            for pole, klic in (("name", "price_title"), ("badge", "badge"),
+                               ("description", "price_lead")):
+                hodnota = text(klic, jazyk)
+                if hodnota:
+                    hlavicka.with_context(lang=jazyk)[pole] = hodnota
+
+    # 2) sekce s ukony. Komentar musi byt uz v create: je to Html pole
+    #    prekladane po terminech a kdyz se doplni az potom, prvni zapis
+    #    v cizim jazyce prepise zdroj a cestina se rozlije do vsech jazyku.
     sekce = Sekce.with_context(lang="en_US").create({
-        "name": text("price_title", "en_US") or "Price list",
-        "badge": text("badge", "en_US") or "PRICE LIST",
-        "description": text("price_lead", "en_US") or "",
+        "typ": "sekce",
+        "name": text("sekce_nazev", "en_US") or "Treatments",
         "comment": ramecek("en_US"),
-        "sequence": 5,
+        "sequence": 10,
     })
     for jazyk in PORADI[1:]:
-        for pole, klic in (("name", "price_title"), ("badge", "badge"),
-                           ("description", "price_lead")):
-            hodnota = text(klic, jazyk)
-            if hodnota:
-                sekce.with_context(lang=jazyk)[pole] = hodnota
-
-    # Spodni ramecek byl slozeny ze dvou odstavcu; stava se komentarem sekce.
-    for jazyk in PORADI[1:]:
+        nazev = text("sekce_nazev", jazyk)
+        if nazev:
+            sekce.with_context(lang=jazyk).name = nazev
         if ramecek(jazyk):
             sekce.with_context(lang=jazyk).comment = ramecek(jazyk)
 
     bez_sekce.write({"category_id": sekce.id})
-    _logger.info("Ceník: zalozena prvni sekce s %s úkony.", len(bez_sekce))
+    _logger.info("Ceník: zalozena hlavicka a sekce s %s úkony.", len(bez_sekce))
 
     # Poznamky z mezikroku uz nemaji kam patrit — jejich text je v komentari.
     if "elite.vet.price.note" in env:

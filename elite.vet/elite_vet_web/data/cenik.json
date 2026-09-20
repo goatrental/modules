@@ -30,5 +30,11 @@
   "cs_CZ": "CENÍK",
   "de_DE": "PREISLISTE",
   "ru_RU": "ПРАЙС-ЛИСТ"
+ },
+ "sekce_nazev": {
+  "en_US": "Treatments",
+  "cs_CZ": "Ošetření",
+  "de_DE": "Behandlungen",
+  "ru_RU": "Процедуры"
  }
 }

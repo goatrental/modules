@@ -279,12 +279,20 @@ cenik = stahni("/cenik")
 prvni = Sekce.search([], limit=1)
 krok("prvni sekce dela hlavicku stranky",
      bool(prvni) and (prvni.with_context(lang="cs_CZ").name or "") in cenik)
-krok("stitek sekce je na strance",
-     bool(prvni.badge) and (prvni.with_context(lang="cs_CZ").badge or "") in cenik)
+# Stitek je nepovinny, takze si ho zkouska nastavi sama a zase ho vrati.
+puvodni_stitek = prvni.with_context(lang="cs_CZ").badge
+prvni.with_context(lang="cs_CZ").badge = "ZKOUSKA stitek hlavicky"
+env.cr.commit()
+krok("stitek se ukaze na strance", "ZKOUSKA stitek hlavicky" in stahni("/cenik"))
+prvni.with_context(lang="cs_CZ").badge = puvodni_stitek or False
+env.cr.commit()
+krok("prazdny stitek se nevykresli",
+     bool(puvodni_stitek) or "ZKOUSKA stitek" not in stahni("/cenik"))
 krok("nadpis je prelozeny do nemciny",
      (prvni.with_context(lang="de_DE").name or "") in stahni("/cenik", "de-DE,de"))
 krok("stitek je prelozeny do rustiny",
-     (prvni.with_context(lang="ru_RU").badge or "") in stahni("/cenik", "ru-RU,ru"))
+     not prvni.badge
+     or (prvni.with_context(lang="ru_RU").badge or "") in stahni("/cenik", "ru-RU,ru"))
 krok("zadny ukon nezustal mimo sekce",
      Ukon.search_count([("category_id", "=", False)]) == 0)
 

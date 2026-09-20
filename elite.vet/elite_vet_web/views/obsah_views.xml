@@ -201,6 +201,7 @@
             <list string="Sekce ceníku">
                 <field name="sequence" widget="handle"/>
                 <field name="name"/>
+                <field name="typ"/>
                 <field name="badge" optional="show"/>
                 <field name="description" optional="show"/>
                 <field name="pocet_ukonu"/>
@@ -221,7 +222,8 @@
                         Tenhle formulář je jedna sekce na stránce <b>/cenik</b>, odshora dolů
                         přesně tak, jak ji uvidí návštěvník: štítek, nadpis, popisek, obrázek,
                         tabulka úkonů a komentář pod ní. Další sekce se zakládá tlačítkem
-                        <b>Nové</b>.
+                        <b>Nové</b>. <b>Hlavička stránky</b> je ta velká nahoře, dělá se jen
+                        jedna a úkony pod ni nepatří — ty patří do sekcí pod ní.
                     </div>
                     <field name="image" widget="image" class="oe_avatar"
                            options="{'size': [280, 200]}"/>
@@ -237,6 +239,7 @@
                                    placeholder="Přehled nejčastějších úkonů. Ceny jsou orientační…"/>
                         </group>
                         <group string="Zobrazení">
+                            <field name="typ" widget="radio"/>
                             <field name="sequence"/>
                             <field name="active" widget="boolean_toggle"/>
                             <field name="pocet_ukonu"/>

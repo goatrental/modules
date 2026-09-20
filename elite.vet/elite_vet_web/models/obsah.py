@@ -150,6 +150,14 @@ class EliteVetPriceCategory(models.Model):
     _description = "Elite Vet - sekce ceníku"
     _order = "sequence, id"
 
+    # Hlavicka stranky a bezna sekce se lisi jen podobou: hlavicka ma velky
+    # nadpis na stred a stoji na strance jednou nahore, sekce mensi nadpis vlevo
+    # s linkou. Zamerne je to pole, ne poradi — poradi se da prehodit omylem.
+    typ = fields.Selection(
+        selection=[("hlavicka", "Hlavička stránky"), ("sekce", "Sekce")],
+        string="Typ", default="sekce", required=True,
+        help="Hlavička stojí nahoře a má velký nadpis na střed. Sekce má menší "
+             "nadpis vlevo a linku vedle něj. Hlavička se dělá jen jedna.")
     badge = fields.Char(
         "Štítek", translate=True,
         help="Malý nápis v rámečku nad nadpisem, například „CENÍK“. "
