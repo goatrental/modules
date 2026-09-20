@@ -261,9 +261,13 @@ env.cr.commit()
 for cesta in ("/rezervacni-system", "/rozpis-lekaru"):
     html = stahni(cesta)
     krok("%s: treti hlaska je na strance" % cesta, "ZKOUSKA treti hlaska" in html)
-    krok("%s: lezi pod druhou hlaskou" % cesta,
-         "nacitani-podtext" in html
-         and html.index("nacitani-podtext") < html.index("ZKOUSKA treti hlaska"))
+    # Vychozi misto textu je POD rameckem rezervace: bez skriptu je stranka
+    # spravne. Skript ho na dobu nacitani presune dovnitr a pak vrati zpatky.
+    krok("%s: text lezi pod rameckem rezervace" % cesta,
+         "zprava-misto" in html
+         and html.index("zprava-misto") < html.index("ZKOUSKA treti hlaska"))
+    krok("%s: presun ma zaskok, kdyby load nedorazil" % cesta,
+         "setTimeout(dolu,20000)" in html)
 
 nastaveni.with_context(lang="de_DE").booking_loading_middle = "ZKOUSKA dritte Meldung."
 env.cr.commit()
@@ -640,8 +644,12 @@ stranka.video_url = puvodni["video_url"] or False
 stranka.with_context(lang="cs_CZ").body = puvodni["body"] or False
 env.cr.commit()
 po = stahni("/o-nas")
-krok("zkusebni obsah uklizen",
-     "ZKOUSKA" not in po and "youtube-nocookie" not in po)
+# Po uklidu smi zustat jen to, co si klinika nastavila sama — treba vlastni
+# video. Kontroluje se proto zkusebni obsah, ne pritomnost prehravace.
+krok("zkusebni obsah uklizen", "ZKOUSKA" not in po)
+krok("video vraceno do puvodniho stavu",
+     (stranka.video_url or "") == (puvodni["video_url"] or ""),
+     stranka.video_url or "prazdne")
 
 # stranka nesmi viset na cizich webech
 krok("stranka patri jednomu webu", bool(env.ref("elite_vet_web.o_nas_page").website_id))

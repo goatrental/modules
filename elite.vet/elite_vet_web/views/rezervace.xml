@@ -905,14 +905,17 @@
                 .evrez-spinner{width:58px;height:58px;border-radius:50%;border:5px solid #e2e8f0;border-top-color:#2b7870;animation:evrezToci .85s linear infinite}
                 .evrez-nacitani-podtext{font-size:14px;font-weight:500;color:#64748b;margin-top:-10px}
                 /* Treti hlaska zabere zbytek vysky ramecku a vycentruje se v nem. */
-                .evrez-nacitani-zprava{flex:1 1 auto;min-height:0;display:flex;align-items:center;justify-content:center;max-width:520px;padding:0 24px 56px;font-size:15px;font-weight:500;line-height:1.65;color:#64748b;white-space:pre-line}
+                /* Text pod rezervaci — zustava videt i po nacteni WinVetu. */
+                /* Behem nacitani sedi uprostred prazdneho ramecku, pak klesne pod nej. */
+                .evrez-zprava--nacitani{flex:1 1 auto;min-height:0;display:flex;align-items:center;justify-content:center;max-width:520px;margin:0;padding:0 24px 56px;font-size:15px;color:#64748b}
+                .evrez-zprava{max-width:680px;margin:26px auto 0;padding:0 24px;text-align:center;font-size:15.5px;line-height:1.7;color:#64748b;white-space:pre-line}
                 @keyframes evrezToci{to{transform:rotate(360deg)}}
                 @media (prefers-reduced-motion:reduce){.evrez-spinner{animation:none}}
                 @media (max-width:900px){
                   .evrez .evrez-nacitani{padding-top:64px;gap:18px;font-size:17px}
                   .evrez-spinner{width:50px;height:50px;border-width:4px}
                   .evrez-nacitani-podtext{font-size:13px}
-                  .evrez-nacitani-zprava{font-size:13.5px;padding:0 18px 40px}
+                  .evrez-zprava{margin-top:20px;font-size:14.5px;padding:0 18px}
                 }
 
                 /* ====== ODKAZ NA ROZPIS SLUZEB pod rezervaci ====== */
@@ -1044,13 +1047,19 @@
                         <span class="evrez-spinner"></span>
                         <span t-out="ev_web.booking_loading_title or 'Načítáme rezervační systém…'"></span>
                         <span class="evrez-nacitani-podtext" t-out="ev_web.booking_loading_note or ''"></span>
-                        <span t-if="ev_web.booking_loading_middle" class="evrez-nacitani-zprava" t-out="ev_web.booking_loading_middle"></span>
                       </div>
                       <!-- Zamerne BEZ loading="lazy": rezervace je hlavni obsah stranky,
                            nema smysl s ni cekat, az k ni nekdo doscrolluje. -->
                       <iframe t-att-src="ev_web.booking_url or 'https://reservation.winvet.cz/booking/f5832eae07850edb2b5a1167843ef423'" title="Elite Vet booking system" scrolling="no" loading="eager"></iframe>
                     </div>
                   </div>
+                </div>
+                <!-- Text pod rezervaci. Zamerne NENI v hlasce o nacitani: ta lezi pod
+                     iframem a zmizi, jakmile se WinVet vykresli. Tenhle ma zustat. -->
+                <!-- Vychozi misto textu je tady, pod rameckem. Skript nize ho na dobu
+                     nacitani presune dovnitr a po nacteni WinVetu vrati zpatky. -->
+                <div class="evrez-zprava-misto">
+                    <p t-if="ev_web.booking_loading_middle" class="evrez-zprava" t-out="ev_web.booking_loading_middle"></p>
                 </div>
                 <!-- Kdo si neni jisty, ke kteremu lekari se objednat, se odsud dostane
                      na rozpis sluzeb. url_for doplni jazykovou predponu, bez ni by klik
@@ -1096,6 +1105,19 @@
                 <div class="ev-footer-credit">Created <a href="https://www.michalvarys.eu/chytil-jste-se-do-site" target="_blank" rel="noopener">Michal Varys</a> · runs on <a href="https://www.varyshop.cz/jak-vypada-nas-system" target="_blank" rel="noopener">Varyshop</a></div>
 
             </div>
+        <script>(function(){
+        var misto=document.querySelector(".evrez-zprava-misto");
+        var zprava=document.querySelector(".evrez-zprava");
+        var nacitani=document.querySelector(".evrez-nacitani");
+        var ram=document.querySelector(".evrez-inner iframe");
+        if(!misto||!zprava||!nacitani||!ram){return;}
+        function dolu(){if(zprava.parentNode!==misto){misto.appendChild(zprava);}
+        zprava.classList.remove("evrez-zprava--nacitani");}
+        nacitani.appendChild(zprava);
+        zprava.classList.add("evrez-zprava--nacitani");
+        ram.addEventListener("load",dolu);
+        window.setTimeout(dolu,20000);
+        })();</script>
         </t>
     </template>
 
