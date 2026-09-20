@@ -252,15 +252,22 @@
                 .ev-cen { background: linear-gradient(180deg, #ffffff 0%, var(--ev-muted) 260px); padding: 128px 0 88px; }
                 .ev-cen .ev-container { max-width: 820px; }
                 /* ====== SEKCE CENIKU ====== */
-                /* Vsechny sekce stejne: hlavicka uprostred, uzsi nez tabulka pod ni. */
-                .ev-cen-sekce + .ev-cen-sekce { margin-top: 72px; }
-                .ev-cen-card + .ev-cen-sekce { margin-top: 72px; }
-                .ev-cen-sekce-head { max-width: 780px; margin: 0 auto 26px; text-align: center; }
-                .vet-page .ev-cen-sekce-head h1,
-                .vet-page .ev-cen-sekce-head h2 { margin-top: 18px; font-size: clamp(30px, 4.2vw, 44px); line-height: 1.1; color: var(--ev-primary); }
-                .ev-cen-sekce-head .ev-cenhero-lead { margin-top: 14px; color: var(--ev-text-secondary); font-size: 17px; line-height: 1.6; white-space: pre-line; }
-                /* Kratka cara pod hlavickou opticky spoji nadpis s tabulkou pod nim. */
-                .ev-cen-sekce-head::after { content: ""; display: block; width: 56px; height: 2px; border-radius: 9999px; background: rgba(43,120,112,.28); margin: 22px auto 0; }
+                .ev-cen-sekce + .ev-cen-sekce { margin-top: 56px; }
+                .ev-cen-card + .ev-cen-sekce { margin-top: 56px; }
+
+                /* Hlavicka sekce: nadpis vlevo a vedle nej tenka linka az k okraji,
+                   ktera nadpis opticky ukotvi k tabulce pod nim. */
+                .ev-cen-sekce-head { margin-bottom: 20px; }
+                .vet-page .ev-cen-sekce-head h2 { display: flex; align-items: center; gap: 14px; font-size: clamp(20px, 2.4vw, 25px); line-height: 1.2; color: var(--ev-primary); letter-spacing: -.01em; }
+                .vet-page .ev-cen-sekce-head h2::after { content: ""; flex: 1; height: 1px; background: var(--ev-border); }
+                .ev-cen-sekce-head .ev-cenhero-badge { margin-bottom: 12px; }
+                .ev-cen-sekce-head .ev-cenhero-lead { margin-top: 10px; color: var(--ev-text-secondary); font-size: 16px; line-height: 1.65; max-width: 780px; white-space: pre-line; }
+
+                /* Prvni sekce je zaroven hlavicka stranky: velky nadpis na stred. */
+                .ev-cen-sekce--hlavni .ev-cen-sekce-head { max-width: 780px; margin: 0 auto 26px; text-align: center; }
+                .vet-page .ev-cen-sekce--hlavni .ev-cen-sekce-head h1 { margin-top: 18px; font-size: clamp(30px, 4.2vw, 44px); line-height: 1.1; color: var(--ev-primary); }
+                .ev-cen-sekce--hlavni .ev-cen-sekce-head .ev-cenhero-lead { margin: 14px auto 0; font-size: 17px; }
+
                 .ev-cen-foto { display: block; width: 100%; height: auto; max-width: 100%; border-radius: 20px; margin-bottom: 18px; box-shadow: 0 18px 48px rgba(26,39,68,.10); }
                 /* Komentar patri k tabulce nad nim, proto uzsi mezera nez pred dalsi sekci */
                 .ev-cen-sekce > .ev-cen-note { margin-top: 14px; }
@@ -298,10 +305,12 @@
                     .vet-page .ev-cenhero-lead { font-size: 15.5px; }
                     .ev-cen { padding: 104px 0 64px; }
                     .ev-cen-sekce + .ev-cen-sekce,
-                    .ev-cen-card + .ev-cen-sekce { margin-top: 52px; }
-                    .ev-cen-sekce-head { margin-bottom: 20px; }
-                    .ev-cen-sekce-head .ev-cenhero-lead { font-size: 15.5px; }
-                    .ev-cen-sekce-head::after { width: 46px; margin-top: 18px; }
+                    .ev-cen-card + .ev-cen-sekce { margin-top: 42px; }
+                    .ev-cen-sekce-head { margin-bottom: 16px; }
+                    .vet-page .ev-cen-sekce-head h2 { gap: 11px; }
+                    .ev-cen-sekce-head .ev-cenhero-lead { font-size: 14.5px; }
+                    .ev-cen-sekce--hlavni .ev-cen-sekce-head { margin-bottom: 20px; }
+                    .ev-cen-sekce--hlavni .ev-cen-sekce-head .ev-cenhero-lead { font-size: 15.5px; }
                     .ev-cen-foto { border-radius: 16px; margin-bottom: 14px; }
                     .ev-cen-card { border-radius: 16px; }
                     .ev-cen-row { padding: 14px 16px; gap: 12px; }
@@ -432,7 +441,7 @@
                              a komentar. Nadpis prvni sekce je h1, dalsi h2 — stranka
                              ma mit jen jeden hlavni nadpis, vypadaji ale stejne. -->
                         <t t-foreach="ev_sekce" t-as="ev_sk">
-                            <div class="ev-cen-sekce">
+                            <div t-attf-class="ev-cen-sekce#{'' if ev_sk_index else ' ev-cen-sekce--hlavni'}">
                                 <div class="ev-cen-sekce-head">
                                     <span t-if="ev_sk.badge" class="ev-cenhero-badge">
                                         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
