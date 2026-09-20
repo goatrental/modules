@@ -1024,7 +1024,7 @@
                                 </svg>
                                 <t t-foreach="ev_hodiny" t-as="ev_h"><t t-if="ev_h_index"> · </t><span t-out="ev_h.dny()"></span> <span t-field="ev_h.time_text"></span></t>
                             </span>
-                            <a t-att-href="ev_web.map_url or 'https://www.google.com/maps/place/ELITE+Veterin%C3%A1rn%C3%AD+Klinika/@50.2324691,12.8591764,17z/data=!4m6!3m5!1s0x47a0994d82cd5559:0xe9031539fb1b184c!8m2!3d50.2324692!4d12.8640473!16s%2Fg%2F11zf3w1c3h?entry=ttu&amp;g_ep=EgoyMDI2MDkxNi4wIKXMDSoASAFQAw%3D%3D'" target="_blank" rel="noopener noreferrer" class="ev-rezhero-chip">
+                            <a t-att-href="ev_web.map_url or 'https://www.google.com/maps/place/ELITE+Veterin%C3%A1rn%C3%AD+Klinika/@50.2324691,12.8591764,17z/data=!4m6!3m5!1s0x47a0994d82cd5559:0xe9031539fb1b184c!8m2!3d50.2324692!4d12.8640473!16s%2Fg%2F11zf3w1c3h'" target="_blank" rel="noopener noreferrer" class="ev-rezhero-chip">
                                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                     <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
                                     <circle cx="12" cy="10" r="3"/>
