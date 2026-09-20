@@ -234,6 +234,12 @@
                     .ev-call-panel { min-width: 230px; max-width: calc(100vw - 32px); }
                 }
 
+                /* Kratka stranka nesmi nechat paticku uprostred obrazovky: obsah
+                   se roztahne a paticka klesne na spodni hranu. */
+                .vet-page { display: flex; flex-direction: column; min-height: 100vh; min-height: 100svh; }
+                .vet-page > .ev-onas { flex: 1 0 auto; }
+                .vet-page > .ev-footer-credit { flex-shrink: 0; }
+
                 /* ============ O NAS ============ */
                 .ev-onas { background: linear-gradient(180deg, #ffffff 0%, var(--ev-muted) 260px); padding: 128px 0 88px; }
                 .ev-onas-head { max-width: 780px; margin: 0 auto 26px; text-align: center; }
