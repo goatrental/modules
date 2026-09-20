@@ -35,7 +35,7 @@
   {
    "poradi": 10,
    "ikona": "adresa",
-   "odkaz": "https://maps.google.com/?q=Hybesova+167/18+Karlovy+Vary",
+   "odkaz": "https://www.google.com/maps/place/ELITE+Veterin%C3%A1rn%C3%AD+Klinika/@50.2324691,12.8591764,17z/data=!4m6!3m5!1s0x47a0994d82cd5559:0xe9031539fb1b184c!8m2!3d50.2324692!4d12.8640473!16s%2Fg%2F11zf3w1c3h",
    "nadpis": {
     "en_US": "ADDRESS",
     "cs_CZ": "Adresa",
@@ -346,7 +346,7 @@
   "email": "info@elite-vet.cz",
   "address_line1": "Hybešova 167/18, Rybáře",
   "address_line2": "360 05 Karlovy Vary",
-  "map_url": "https://maps.google.com/?q=Hybesova+167/18+Karlovy+Vary",
+  "map_url": "https://www.google.com/maps/place/ELITE+Veterin%C3%A1rn%C3%AD+Klinika/@50.2324691,12.8591764,17z/data=!4m6!3m5!1s0x47a0994d82cd5559:0xe9031539fb1b184c!8m2!3d50.2324692!4d12.8640473!16s%2Fg%2F11zf3w1c3h",
   "booking_url": "https://reservation.winvet.cz/booking/f5832eae07850edb2b5a1167843ef423",
   "instagram_url": "",
   "facebook_url": ""

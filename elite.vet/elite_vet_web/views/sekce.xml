@@ -408,7 +408,7 @@
                             </a>
                         </div>
 
-                        <a t-att-href="ev_web.map_url or 'https://maps.google.com/?q=Hybesova+167/18+Karlovy+Vary'" target="_blank" rel="noopener noreferrer" class="ev-map" id="mapa">
+                        <a t-att-href="ev_web.map_url or 'https://www.google.com/maps/place/ELITE+Veterin%C3%A1rn%C3%AD+Klinika/@50.2324691,12.8591764,17z/data=!4m6!3m5!1s0x47a0994d82cd5559:0xe9031539fb1b184c!8m2!3d50.2324692!4d12.8640473!16s%2Fg%2F11zf3w1c3h'" target="_blank" rel="noopener noreferrer" class="ev-map" id="mapa">
                             <div class="ev-map-static"></div>
                             <div class="ev-map-pin">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
