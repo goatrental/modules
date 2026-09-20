@@ -92,6 +92,7 @@ msgstr "Umfassende Pflege für Ihre Haustiere"
 
 #. module: elite_vet_web
 #: model_terms:ir.ui.view,arch_db:elite_vet_web.cenik
+#: model_terms:ir.ui.view,arch_db:elite_vet_web.o_nas
 #: model_terms:ir.ui.view,arch_db:elite_vet_web.homepage
 #: model_terms:ir.ui.view,arch_db:elite_vet_web.sekce_kontakt
 msgid "Contact"
@@ -104,6 +105,7 @@ msgstr "Kontakt<br/>"
 
 #. module: elite_vet_web
 #: model_terms:ir.ui.view,arch_db:elite_vet_web.cenik
+#: model_terms:ir.ui.view,arch_db:elite_vet_web.o_nas
 #: model_terms:ir.ui.view,arch_db:elite_vet_web.homepage
 #: model_terms:ir.ui.view,arch_db:elite_vet_web.rezervace
 msgid "Created"
@@ -186,6 +188,7 @@ msgstr "Lernen Sie unser Team kennen<br/>"
 
 #. module: elite_vet_web
 #: model_terms:ir.ui.view,arch_db:elite_vet_web.cenik
+#: model_terms:ir.ui.view,arch_db:elite_vet_web.o_nas
 #: model_terms:ir.ui.view,arch_db:elite_vet_web.homepage
 #: model_terms:ir.ui.view,arch_db:elite_vet_web.rezervace
 msgid "Menu"
@@ -374,12 +377,14 @@ msgstr "Ihre Lieblinge in den besten Händen!"
 
 #. module: elite_vet_web
 #: model_terms:ir.ui.view,arch_db:elite_vet_web.cenik
+#: model_terms:ir.ui.view,arch_db:elite_vet_web.o_nas
 #: model_terms:ir.ui.view,arch_db:elite_vet_web.cenik_radek
 msgid "from"
 msgstr "ab"
 
 #. module: elite_vet_web
 #: model_terms:ir.ui.view,arch_db:elite_vet_web.cenik
+#: model_terms:ir.ui.view,arch_db:elite_vet_web.o_nas
 #: model_terms:ir.ui.view,arch_db:elite_vet_web.homepage
 #: model_terms:ir.ui.view,arch_db:elite_vet_web.rezervace
 msgid "· runs on"

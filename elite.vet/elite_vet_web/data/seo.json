@@ -73,5 +73,20 @@
    "de_DE": "Das Team, das die Tierklinik Elite Vet in Karlovy Vary eröffnet — Tierärztinnen, tiermedizinische Fachangestellte, Kundenservice und Management. Ausbildung, Praxis, Spezialisierung und Sprachen des gesamten Teams.",
    "ru_RU": "Команда, которая открывает ветеринарную клинику Elite Vet в Карловых Варах — ветеринарные врачи, медсёстры, клиентский сервис и менеджмент. Образование, опыт, специализация и языки всей команды."
   }
+ },
+ {
+  "stranka": "elite_vet_web.o_nas_page",
+  "title": {
+   "en_US": "About us | Elite Vet Karlovy Vary",
+   "cs_CZ": "O nás | Elite Vet Karlovy Vary",
+   "de_DE": "Über uns | Elite Vet Karlovy Vary",
+   "ru_RU": "О нас | Elite Vet Карловы Вары"
+  },
+  "description": {
+   "en_US": "The Elite Vet veterinary clinic in Karlovy Vary — who we are, how the clinic came about and what we offer. Modern equipment, gentle handling and extended opening hours.",
+   "cs_CZ": "Veterinární klinika Elite Vet v Karlových Varech — kdo jsme, jak klinika vznikla a co nabízíme. Moderní vybavení, šetrný přístup a rozšířená provozní doba.",
+   "de_DE": "Tierklinik Elite Vet in Karlovy Vary — wer wir sind, wie die Klinik entstanden ist und was wir bieten. Moderne Ausstattung, schonender Umgang und erweiterte Öffnungszeiten.",
+   "ru_RU": "Ветеринарная клиника Elite Vet в Карловых Варах — кто мы, как появилась клиника и что предлагаем. Современное оборудование, бережный подход и расширенные часы работы."
+  }
  }
 ]

@@ -5,7 +5,7 @@ const http = require('http');
 const https = require('https');
 
 const ZAKLAD = process.argv[2] || 'http://localhost:8076';
-const STRANKY = ['/', '/rezervacni-system', '/cenik', '/rozpis-lekaru', '/nas-tym'];
+const STRANKY = ['/', '/rezervacni-system', '/cenik', '/rozpis-lekaru', '/nas-tym', '/o-nas'];
 const JAZYKY = [
   { kod: 'cs', prefix: '', hlavicka: 'cs-CZ,cs', ocekavany: 'cs-CZ' },
   { kod: 'de', prefix: '/de', hlavicka: 'de-DE,de', ocekavany: 'de-DE' },

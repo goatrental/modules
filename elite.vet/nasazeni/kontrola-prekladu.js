@@ -9,7 +9,7 @@ const http = require('http');
 const https = require('https');
 const ZAKLAD = new URL(process.argv[2] || 'http://localhost:8076');
 
-const STRANKY = ['/', '/rezervacni-system', '/cenik', '/rozpis-lekaru', '/nas-tym'];
+const STRANKY = ['/', '/rezervacni-system', '/cenik', '/rozpis-lekaru', '/nas-tym', '/o-nas'];
 const JAZYKY = [
     { kod: 'cs', pred: '', hlavicka: 'cs-CZ,cs', ocekavany: 'cs-CZ' },
     { kod: 'de', pred: '/de', hlavicka: 'de-DE,de', ocekavany: 'de-DE' },

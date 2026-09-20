@@ -98,6 +98,7 @@ stránkách — každá aplikace obsahuje jen to, co se té stránky týká:
 | **Náš tým** | členové týmu, sekce, specializace, ikony, popisky podrobností |
 | **Ceník** | sekce — každá má štítek, nadpis, popisek, obrázek, úkony a komentář |
 | **Rezervace** | nastavení rezervace, časté dotazy |
+| **O nás** | text stránky /o-nas, obrázek a video z YouTube |
 | **Nastavení kontaktu** | telefony, adresa, sítě, pohotovost — propisuje se do všech stránek |
 
 Projdi je a ověř, že je všechno na svém místě. Nabídka aplikací se kešuje
@@ -123,6 +124,7 @@ Položky menu jsou taky data, a překládají se v administraci:
 | Rezervační systém | Terminbuchung | Booking | Запись на приём |
 | Rozpis služeb | Dienstplan | Duty schedule | График работы |
 | Ceník | Preisliste | Price list | Прайс-лист |
+| O nás | Über uns | About us | О нас |
 
 Pozor: **do angličtiny se zapisuje jako první**, protože je to zdrojový slot.
 Čeština se pak musí vyplnit zvlášť, jinak zdědí angličtinu.
@@ -145,7 +147,7 @@ docker compose exec -i odoo odoo shell -c /etc/odoo/odoo.conf -d DATABAZE \
     --no-http < nasazeni/test-vseho.py
 ```
 
-Na lokále hlásí **159 z 159 kontrol**. Skript po sobě uklízí, ale sahá do ostrých
+Na lokále hlásí **178 ze 178 kontrol**. Skript po sobě uklízí, ale sahá do ostrých
 dat — pouštěj ho až po záloze.
 
 Druhá kontrola se dívá na to, co člověk opravdu vidí — titulek v záložce,

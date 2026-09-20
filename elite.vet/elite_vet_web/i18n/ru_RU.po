@@ -92,6 +92,7 @@ msgstr "Комплексный уход за вашими питомцами"
 
 #. module: elite_vet_web
 #: model_terms:ir.ui.view,arch_db:elite_vet_web.cenik
+#: model_terms:ir.ui.view,arch_db:elite_vet_web.o_nas
 #: model_terms:ir.ui.view,arch_db:elite_vet_web.homepage
 #: model_terms:ir.ui.view,arch_db:elite_vet_web.sekce_kontakt
 msgid "Contact"
@@ -104,6 +105,7 @@ msgstr "Контакты<br/>"
 
 #. module: elite_vet_web
 #: model_terms:ir.ui.view,arch_db:elite_vet_web.cenik
+#: model_terms:ir.ui.view,arch_db:elite_vet_web.o_nas
 #: model_terms:ir.ui.view,arch_db:elite_vet_web.homepage
 #: model_terms:ir.ui.view,arch_db:elite_vet_web.rezervace
 msgid "Created"
@@ -186,6 +188,7 @@ msgstr "Познакомьтесь с командой<br/>"
 
 #. module: elite_vet_web
 #: model_terms:ir.ui.view,arch_db:elite_vet_web.cenik
+#: model_terms:ir.ui.view,arch_db:elite_vet_web.o_nas
 #: model_terms:ir.ui.view,arch_db:elite_vet_web.homepage
 #: model_terms:ir.ui.view,arch_db:elite_vet_web.rezervace
 msgid "Menu"
@@ -374,12 +377,14 @@ msgstr "Ваши питомцы в лучших руках!"
 
 #. module: elite_vet_web
 #: model_terms:ir.ui.view,arch_db:elite_vet_web.cenik
+#: model_terms:ir.ui.view,arch_db:elite_vet_web.o_nas
 #: model_terms:ir.ui.view,arch_db:elite_vet_web.cenik_radek
 msgid "from"
 msgstr "от"
 
 #. module: elite_vet_web
 #: model_terms:ir.ui.view,arch_db:elite_vet_web.cenik
+#: model_terms:ir.ui.view,arch_db:elite_vet_web.o_nas
 #: model_terms:ir.ui.view,arch_db:elite_vet_web.homepage
 #: model_terms:ir.ui.view,arch_db:elite_vet_web.rezervace
 msgid "· runs on"
