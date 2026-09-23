@@ -97,9 +97,11 @@ pred = Sluzba.search_count([])
 nova = Sluzba.create({"name": "ZKOUSKA sluzba", "description": "Docasny zaznam z testu",
                       "icon_code": "prevence", "sequence": 999})
 env.cr.commit()
+# Domovska stranka je staticka, seznam sluzeb ji uz neplni. Overuje se
+# proto zalozeni zaznamu, ne jeho vykresleni.
 html = stahni("/")
-krok("pridana sluzba je na strance", "ZKOUSKA sluzba" in html)
-krok("sluzba je v mrizce i v mobilnim seznamu", html.count("ZKOUSKA sluzba") >= 2,
+krok("sluzba se zalozila", bool(nova) and nova.name == "ZKOUSKA sluzba")
+krok("staticka stranka se pridanim sluzby nezmenila", "ZKOUSKA sluzba" not in html,
      "nalezeno %sx" % html.count("ZKOUSKA sluzba"))
 nova.active = False
 env.cr.commit()
@@ -117,7 +119,7 @@ nova_fotka = Foto.create({"name": "ZKOUSKA fotka", "image": vzor.image, "sequenc
 env.cr.commit()
 html = stahni("/")
 strany_po = (pocet_fotek + 1 + 2) // 3
-krok("fotka pribyla do pasu", html.count('class="ev-gal-item"') == pocet_fotek + 1,
+krok("staticka stranka se pridanim fotky nezmenila", "ZKOUSKA fotka" not in html,
      "v pasu %s" % html.count('class="ev-gal-item"'))
 krok("pocet stran se prepocital na %s" % strany_po,
      ('id="ev-gal-s%s"' % strany_po) in html)
@@ -133,7 +135,8 @@ print("\n===== 5. KOHO PRIJIMAME =====")
 Druh = env["elite.vet.species"]
 novy_druh = Druh.create({"name": "ZKOUSKA druh", "icon_code": "pes", "sequence": 999})
 env.cr.commit()
-krok("novy druh je na strance", "ZKOUSKA druh" in stahni("/"))
+# Druhy zvirat uz nevykresluje zadna stranka — zustavaji jako ciselnik.
+krok("druh se zalozil", bool(novy_druh) and novy_druh.name == "ZKOUSKA druh")
 novy_druh.unlink()
 env.cr.commit()
 krok("po smazani zmizel", "ZKOUSKA druh" not in stahni("/"))
@@ -147,10 +150,10 @@ for jazyk in puvodni_cas:
     radek.with_context(lang=jazyk).time_short = "5–21"
 env.cr.commit()
 domu, rozpis, rezervace = stahni("/"), stahni("/rozpis-lekaru"), stahni("/rezervacni-system")
-krok("doba se zmenila v letaku", "5–21" in domu)
-krok("doba se zmenila v kontaktech", "5:55 – 21:11" in domu)
-krok("doba se zmenila v karte O klinice", domu.count("5:55 – 21:11") >= 2,
-     "nalezeno %sx" % domu.count("5:55 – 21:11"))
+# Hodiny uz domovskou stranku neplni, zato dal ridi rozpis a rezervaci.
+krok("doba se zmenila v rozpisu", "5:55 – 21:11" in rozpis or "5–21" in rozpis)
+krok("doba se zmenila v rezervaci", "5:55 – 21:11" in rezervace)
+krok("staticka domovska stranka se nezmenila", "5:55 – 21:11" not in domu)
 krok("doba se zmenila na rozpisu", "5:55 – 21:11" in rozpis)
 krok("doba se zmenila na rezervaci", "5:55 – 21:11" in rezervace)
 for jazyk, hodnota in puvodni_cas.items():
@@ -221,21 +224,34 @@ PUVODNI = {
     "en-US,en": ["Call SOON", "emergency line", "opening hours"],
     "ru-RU,ru": ["Позвонить скоро", "линию", "часы"],
 }
+# Vetu pod hodinami kreslila sablona sekce Kontakt; ta je na domovske
+# strance nove staticka, takze uz se tam neprojevi. Bublina a plovouci
+# kolecko ale zustavaji dynamicke, takze u nich prelozeny text platit ma.
 for jazyk, vety in PUVODNI.items():
     html = stahni("/", jazyk)
-    chybejici = [v for v in vety if v not in html]
-    krok("prazdna pole, %s: puvodni prelozene vety zustaly %s"
-         % (jazyk[:2], chybejici or ""), not chybejici)
+    krok("prazdna pole, %s: tlacitko ma prelozeny popis" % jazyk[:2],
+         vety[0] in html, vety[0])
 
 nastaveni.write({"emergency_off_button": "ZKOUSKA tlacitko",
                  "emergency_off_text": "ZKOUSKA bublina, momentalne mimo provoz.",
                  "emergency_off_note": "ZKOUSKA poznamka pod hodinami."})
 env.cr.commit()
 html = stahni("/")
-krok("napis na tlacitku se prepsal",
-     "ZKOUSKA tlacitko" in html and "Volat již brzy" not in html)
-krok("text v bubline se prepsal", "ZKOUSKA bublina" in html)
-krok("veta pod ordinacnimi hodinami se prepsala", "ZKOUSKA poznamka" in html)
+# Sekce Kontakt je na domovske strance staticka, takze se do ni texty
+# pohotovosti uz nepropisuji. Pole v adminu ale musi zustat — ridi vetu
+# pod hodinami tam, kde ji sablona dal kresli.
+krok("pole textu pohotovosti se ulozila",
+     nastaveni.emergency_off_button == "ZKOUSKA tlacitko"
+     and "ZKOUSKA bublina" in (nastaveni.emergency_off_text or "")
+     and "ZKOUSKA poznamka" in (nastaveni.emergency_off_note or ""))
+# Mlcet ma stranka az ve schovanem rezimu, ne v rezimu "uz brzy".
+nastaveni.emergency_mode = "hidden"
+env.cr.commit()
+schovana = telo(stahni("/"))
+krok("ve schovanem rezimu neni po pohotovosti stopa",
+     "24/7" not in schovana and "ev-fab247-wrap" not in schovana)
+nastaveni.emergency_mode = "soon"
+env.cr.commit()
 
 nastaveni.emergency_mode = "live"
 env.cr.commit()
@@ -417,22 +433,29 @@ krok("cenik je zpatky jak byl",
      and telo(po).count('class="ev-cen-note"') == ramecku_pred)
 
 
-print("\n===== 11. BLOKY STRANKY =====")
-Blok = env["elite.vet.page.section"].with_context(active_test=False)
-tym = Blok.search([("qweb_template", "=", "elite_vet_web.sekce_tym")])
-puvodni_poradi = tym.sequence
-tym.active = False
-env.cr.commit()
-krok("vypnuty blok ze stranky zmizi", 'id="tym"' not in stahni("/"))
-tym.write({"active": True, "sequence": 5})
-env.cr.commit()
+print("\n===== 11. STRANKA ZE STAVEBNICH BLOKU =====")
+# Domovska stranka uz nevznika smyckou pres seznam v adminu. Zonu, ve ktere
+# se obsah generuje (t-foreach i t-call), Odoo neoznaci jako editovatelnou
+# a sekce v ni nejde mazat ani prehazovat — overeno v prohlizeci. Bloky proto
+# lezi v zone primo.
 html = stahni("/")
-krok("blok je zpatky", 'id="tym"' in html)
-krok("presunuty blok je vyse nez leták", html.index('id="tym"') < html.index('id="odpocet"'))
-tym.sequence = puvodni_poradi
-env.cr.commit()
-html = stahni("/")
-krok("poradi vraceno", html.index('id="odpocet"') < html.index('id="tym"'))
+krok("stranka ma editovatelnou zonu",
+     'id="oe_structure_homepage"' in html and "oe_structure" in html)
+
+BLOKY = ("s_vet_letak", "s_vet_note", "s_vet_objednat", "s_vet_o_klinice", "s_vet_sluzby", "s_vet_tym", "s_vet_kontakt")
+for blok in BLOKY:
+    krok("blok %s je na strance" % blok, 'class="%s' % blok in html)
+
+poradi = [html.index('class="%s' % b) for b in BLOKY]
+krok("bloky jdou po sobe jako na ostrem webu", poradi == sorted(poradi))
+
+# Sablony zustavaji v modulu, aby slo smazany blok vratit z panelu.
+Pohled = env["ir.ui.view"].sudo()
+chybejici = [b for b in BLOKY
+             if not Pohled.search_count([("key", "=", "elite_vet_theme." + b)])]
+krok("vsechny bloky jsou i v panelu %s" % (chybejici or ""), not chybejici)
+krok("bloky jsou zaregistrovane v editoru",
+     bool(Pohled.search_count([("key", "=", "elite_vet_theme.ev_snippets_registry")])))
 
 print("\n===== 12. REZERVACE A ROZPIS =====")
 rezervace = stahni("/rezervacni-system")
