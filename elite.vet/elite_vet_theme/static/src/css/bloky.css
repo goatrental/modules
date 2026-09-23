@@ -466,3 +466,28 @@ body.editor_enable details:not(.ev-call):not(.ev-burger):not(.ev-lang)::details-
     .ev-gal-arr--next { right: 14px; }
     .ev-gal-radio:focus-visible ~ .ev-gal-nav .ev-gal-arr { outline: 2px solid var(--ev-accent); outline-offset: 2px; }
 }
+
+/* ---- oznamovaci pruh ---- */
+/* Barva se prepina tridou z bociniho panelu. Pouzivaji se promenne, aby se
+   dalo prebarvit na jednom miste. */
+.ev-oznam { --oznam-pozadi: #e8f1fb; --oznam-text: #1a2744; --oznam-cara: #3b82f6;
+            background: var(--oznam-pozadi); color: var(--oznam-text);
+            border-top: 3px solid var(--oznam-cara); border-bottom: 3px solid var(--oznam-cara); }
+.ev-oznam-in { max-width: 1200px; margin: 0 auto; padding: 16px 24px;
+               display: flex; align-items: center; gap: 14px; }
+.ev-oznam-ikona { flex-shrink: 0; color: var(--oznam-cara); }
+.ev-oznam-text { font-size: 15.5px; line-height: 1.6; }
+.ev-oznam-text p { margin: 0; }
+.ev-oznam-text p + p { margin-top: 6px; }
+.ev-oznam-text a { color: var(--oznam-cara); font-weight: 700; }
+
+.ev-oznam--info { --oznam-pozadi: #e8f1fb; --oznam-cara: #3b82f6; }
+.ev-oznam--uspech { --oznam-pozadi: #e0f2f0; --oznam-cara: #2b7870; }
+.ev-oznam--pozor { --oznam-pozadi: #fef3e2; --oznam-cara: #f59e0b; }
+.ev-oznam--dulezite { --oznam-pozadi: #fdeaea; --oznam-cara: #dc2626; }
+.ev-oznam--tmavy { --oznam-pozadi: #1a2744; --oznam-text: #e2e8f0; --oznam-cara: #5eead4; }
+
+@media (max-width: 560px) {
+    .ev-oznam-in { padding: 14px 16px; gap: 10px; align-items: flex-start; }
+    .ev-oznam-text { font-size: 14.5px; }
+}

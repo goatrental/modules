@@ -18,6 +18,7 @@
     "data": [
         "views/layout.xml",
         "views/bloky.xml",
+        "views/oznameni.xml",
         "views/snippets.xml",
     ],
     # Styl bloku se nacita na vsech strankach. Inline <style> uvnitr

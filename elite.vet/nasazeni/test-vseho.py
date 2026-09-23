@@ -446,8 +446,10 @@ BLOKY = ("s_vet_letak", "s_vet_note", "s_vet_objednat", "s_vet_o_klinice", "s_ve
 for blok in BLOKY:
     krok("blok %s je na strance" % blok, 'class="%s' % blok in html)
 
-poradi = [html.index('class="%s' % b) for b in BLOKY]
-krok("bloky jdou po sobe jako na ostrem webu", poradi == sorted(poradi))
+# Poradi se zamerne nekontroluje: bloky jdou v editoru prehazovat a jakmile
+# klinika stranku ulozi, plati jeji poradi, ne to z modulu.
+krok("stranka obsahuje vsechny bloky",
+     all('class="%s' % b in html for b in BLOKY))
 
 # Sablony zustavaji v modulu, aby slo smazany blok vratit z panelu.
 Pohled = env["ir.ui.view"].sudo()
@@ -457,6 +459,24 @@ krok("vsechny bloky jsou i v panelu %s" % (chybejici or ""), not chybejici)
 krok("bloky jsou zaregistrovane v editoru",
      bool(Pohled.search_count([("key", "=", "elite_vet_theme.ev_snippets_registry")])))
 
+# Oznamovaci pruh: blok do nej klinika pise aktuality a barvu prepina
+# v bocnim panelu. Volba je vlastni pohled dedici po website.snippet_options.
+krok("oznamovaci pruh je zaregistrovany",
+     bool(Pohled.search_count([("key", "=", "elite_vet_theme.s_vet_oznameni")])))
+volby = Pohled.search([("key", "=", "elite_vet_theme.snippet_options_vet_oznameni")])
+krok("prepinac barvy pruhu je v panelu voleb",
+     bool(volby) and volby.active and volby.inherit_id.key == "website.snippet_options")
+arch_voleb = volby.arch_db if volby else ""
+if isinstance(arch_voleb, dict):
+    arch_voleb = arch_voleb.get("en_US", "")
+chybejici_barvy = [b for b in ("ev-oznam--info", "ev-oznam--uspech", "ev-oznam--pozor",
+                               "ev-oznam--dulezite", "ev-oznam--tmavy")
+                   if b not in arch_voleb]
+krok("pruh nabizi vsechny barvy %s" % (chybejici_barvy or ""), not chybejici_barvy)
+
+# Spodni prouzek paticky na webu nikdy nebyl.
+krok("paticka nema spodni prouzek s jazyky",
+     "ev-footer-bottom" not in stahni("/"))
 print("\n===== 12. REZERVACE A ROZPIS =====")
 rezervace = stahni("/rezervacni-system")
 krok("kolecko nacitani je pod rameckem", "evrez-spinner" in rezervace)

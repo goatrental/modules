@@ -44,6 +44,8 @@
                    t-thumbnail="/elite_vet_theme/static/src/img/snippets/s_vet_kontakt.svg"/>
                 <t t-snippet="elite_vet_theme.s_vet_objednat" string="Tlačítko Objednat se"
                    t-thumbnail="/elite_vet_theme/static/src/img/snippets/s_vet_objednat.svg"/>
+                <t t-snippet="elite_vet_theme.s_vet_oznameni" string="Oznamovací pruh"
+                   t-thumbnail="/elite_vet_theme/static/src/img/snippets/s_vet_oznameni.svg"/>
                 <t t-snippet="elite_vet_theme.s_vet_note" string="Rámeček s poznámkou"
                    t-thumbnail="/elite_vet_theme/static/src/img/snippets/s_vet_note.svg"/>
             </snippets>

@@ -193,10 +193,6 @@
             .ev-footer-col a:hover { color: #5eead4; }
             .ev-footer-line { display: flex; align-items: flex-start; gap: 11px; font-size: 14.5px; line-height: 1.6; }
             .ev-footer-line svg { flex-shrink: 0; margin-top: 3px; color: #5eead4; }
-            .ev-footer-bottom { margin-top: 46px; border-top: 1px solid rgba(255,255,255,.12); padding: 18px 24px; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 18px; font-size: 13.5px; }
-            .ev-footer-bottom a { color: #94a3b8; transition: color .2s; }
-            .ev-footer-bottom a:hover { color: #5eead4; }
-            .ev-footer-bottom .is-active { color: #5eead4; font-weight: 700; }
             @media (max-width: 900px) {
                 .ev-footer-inner { grid-template-columns: 1fr 1fr; gap: 34px; }
                 .ev-footer-brand-col { grid-column: 1 / -1; }
@@ -247,13 +243,6 @@
                 </div>
             </div>
 
-            <div class="ev-footer-bottom">
-                <span>Copyright © Elite Vet</span>
-                <a data-no-post-process="1" t-att-href="('%s' % url_for(request.httprequest.path, lang_code='cs_CZ')) or '/'" t-attf-class="{{ 'is-active' if request.env.lang == 'cs_CZ' else '' }}">Čeština</a>
-                <a data-no-post-process="1" t-att-href="('%s' % url_for(request.httprequest.path, lang_code='de_DE')) or '/'" t-attf-class="{{ 'is-active' if request.env.lang == 'de_DE' else '' }}">Deutsch</a>
-                <a data-no-post-process="1" t-att-href="('%s' % url_for(request.httprequest.path, lang_code='en_US')) or '/'" t-attf-class="{{ 'is-active' if request.env.lang == 'en_US' else '' }}">English</a>
-                <a data-no-post-process="1" t-att-href="('%s' % url_for(request.httprequest.path, lang_code='ru_RU')) or '/'" t-attf-class="{{ 'is-active' if request.env.lang == 'ru_RU' else '' }}">Русский</a>
-            </div>
         </footer>
 
         <div class="ev-footer-credit">Created <a href="https://www.michalvarys.eu/chytil-jste-se-do-site" target="_blank" rel="noopener">Michal Varys</a> · runs on <a href="https://www.varyshop.cz/jak-vypada-nas-system" target="_blank" rel="noopener">Varyshop</a></div>
