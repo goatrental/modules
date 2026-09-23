@@ -17,6 +17,7 @@ msgstr ""
 #. module: elite_vet_theme
 #: model_terms:ir.ui.view,arch_db:elite_vet_theme.vet_header
 #: model_terms:ir.ui.view,arch_db:elite_vet_theme.vet_footer
+#: model_terms:ir.ui.view,arch_db:elite_vet_theme.s_vet_kontakt
 msgid "Contact"
 msgstr "Kontakt"
 
@@ -49,3 +50,348 @@ msgstr "Erstellt von"
 #: model_terms:ir.ui.view,arch_db:elite_vet_theme.vet_footer
 msgid "· runs on"
 msgstr "· läuft auf"
+
+#. module: elite_vet_theme
+#: model_terms:ir.ui.view,arch_db:elite_vet_theme.s_vet_letak
+msgid "Veterinary clinic Karlovy Vary — Elite Vet"
+msgstr "Tierklinik Karlovy Vary — Elite Vet"
+
+#. module: elite_vet_theme
+#: model_terms:ir.ui.view,arch_db:elite_vet_theme.s_vet_letak
+msgid "We look forward to seeing you!"
+msgstr "Wir freuen uns auf Sie!"
+
+#. module: elite_vet_theme
+#: model_terms:ir.ui.view,arch_db:elite_vet_theme.s_vet_letak
+msgid "Elite Veterinary Clinic"
+msgstr "Elite Tierklinik"
+
+#. module: elite_vet_theme
+#: model_terms:ir.ui.view,arch_db:elite_vet_theme.s_vet_letak
+msgid "<span class=\"ev-flyer2-open\">Open</span>"
+msgstr "<span class=\"ev-flyer2-open\">Geöffnet</span>"
+
+#. module: elite_vet_theme
+#: model_terms:ir.ui.view,arch_db:elite_vet_theme.s_vet_letak
+msgid "Every day!"
+msgstr "Jeden Tag!"
+
+#. module: elite_vet_theme
+#: model_terms:ir.ui.view,arch_db:elite_vet_theme.s_vet_letak
+msgid "<span class=\"ev-flyer2-date\">Sat – Sun 10–18</span>"
+msgstr "<span class=\"ev-flyer2-date\">Sa – So 10–18</span>"
+
+#. module: elite_vet_theme
+#: model_terms:ir.ui.view,arch_db:elite_vet_theme.s_vet_letak
+msgid "Your pets in the best hands!"
+msgstr "Ihre Lieblinge in den besten Händen!"
+
+#. module: elite_vet_theme
+#: model_terms:ir.ui.view,arch_db:elite_vet_theme.s_vet_letak
+msgid "Dogs and cat"
+msgstr "Hunde und Katze"
+
+#. module: elite_vet_theme
+#: model_terms:ir.ui.view,arch_db:elite_vet_theme.s_vet_objednat
+msgid "Book an appointment"
+msgstr "Termin vereinbaren"
+
+#. module: elite_vet_theme
+#: model_terms:ir.ui.view,arch_db:elite_vet_theme.s_vet_o_klinice
+msgid "About the clinic"
+msgstr "Über die Klinik"
+
+#. module: elite_vet_theme
+#: model_terms:ir.ui.view,arch_db:elite_vet_theme.s_vet_o_klinice
+msgid "We have built a modern clinic for <span class=\"ev-accent-text\">your pets</span>"
+msgstr "Wir haben eine moderne Klinik für <span class=\"ev-accent-text\">Ihre Lieblinge</span> gebaut"
+
+#. module: elite_vet_theme
+#: model_terms:ir.ui.view,arch_db:elite_vet_theme.s_vet_o_klinice
+msgid "We have built a modern veterinary clinic in Karlovy Vary for you — a long-term project with the goal of offering comprehensive veterinary care in the region, all in one place."
+msgstr "Wir haben für Sie eine moderne Tierklinik in Karlovy Vary gebaut — ein langfristiges Projekt mit dem Ziel, in der Region umfassende tierärztliche Versorgung an einem Ort anzubieten."
+
+#. module: elite_vet_theme
+#: model_terms:ir.ui.view,arch_db:elite_vet_theme.s_vet_o_klinice
+msgid "The clinic is equipped with modern diagnostic and treatment technology and from the outset offers extended opening hours including weekends. We will gradually extend our operation further."
+msgstr "Die Klinik ist mit moderner Diagnose- und Behandlungstechnik ausgestattet und bietet von Anfang an erweiterte Öffnungszeiten inklusive Wochenenden. Den Betrieb werden wir schrittweise weiter ausbauen."
+
+#. module: elite_vet_theme
+#: model_terms:ir.ui.view,arch_db:elite_vet_theme.s_vet_o_klinice
+msgid "Modern equipment"
+msgstr "Moderne Ausstattung"
+
+#. module: elite_vet_theme
+#: model_terms:ir.ui.view,arch_db:elite_vet_theme.s_vet_o_klinice
+msgid "Gentle handling"
+msgstr "Schonender Umgang"
+
+#. module: elite_vet_theme
+#: model_terms:ir.ui.view,arch_db:elite_vet_theme.s_vet_o_klinice
+msgid "Individual approach"
+msgstr "Individueller Ansatz"
+
+#. module: elite_vet_theme
+#: model_terms:ir.ui.view,arch_db:elite_vet_theme.s_vet_o_klinice
+msgid "Complex care"
+msgstr "Komplexe Versorgung"
+
+#. module: elite_vet_theme
+#: model_terms:ir.ui.view,arch_db:elite_vet_theme.s_vet_o_klinice
+msgid "Reception of the Elite Vet veterinary clinic in Karlovy Vary"
+msgstr "Rezeption der Tierklinik Elite Vet in Karlovy Vary"
+
+#. module: elite_vet_theme
+#: model_terms:ir.ui.view,arch_db:elite_vet_theme.s_vet_o_klinice
+msgid "We are here for you every day"
+msgstr "Wir sind jeden Tag für Sie da"
+
+#. module: elite_vet_theme
+#: model_terms:ir.ui.view,arch_db:elite_vet_theme.s_vet_o_klinice
+msgid "We are in full operation — <span>sat – sun</span> <span>10:00 – 18:00</span>. Book online or by phone at the reception."
+msgstr "Wir sind im vollen Betrieb — <span>sa – so</span> <span>10:00 – 18:00</span>. Termine online oder telefonisch an der Rezeption."
+
+#. module: elite_vet_theme
+#: model_terms:ir.ui.view,arch_db:elite_vet_theme.s_vet_o_klinice
+msgid "Call the reception<br/>"
+msgstr "Rezeption anrufen<br/>"
+
+#. module: elite_vet_theme
+#: model_terms:ir.ui.view,arch_db:elite_vet_theme.s_vet_o_klinice
+msgid "Previous photos"
+msgstr "Vorherige Fotos"
+
+#. module: elite_vet_theme
+#: model_terms:ir.ui.view,arch_db:elite_vet_theme.s_vet_o_klinice
+msgid "Next photos"
+msgstr "Weitere Fotos"
+
+#. module: elite_vet_theme
+#: model_terms:ir.ui.view,arch_db:elite_vet_theme.s_vet_o_klinice
+msgid "Swipe sideways to browse the photos"
+msgstr "Fotos zum Blättern zur Seite wischen"
+
+#. module: elite_vet_theme
+#: model_terms:ir.ui.view,arch_db:elite_vet_theme.s_vet_sluzby
+msgid "Our services"
+msgstr "Unsere Leistungen"
+
+#. module: elite_vet_theme
+#: model_terms:ir.ui.view,arch_db:elite_vet_theme.s_vet_sluzby
+msgid "Comprehensive care for your pets"
+msgstr "Umfassende Pflege für Ihre Haustiere"
+
+#. module: elite_vet_theme
+#: model_terms:ir.ui.view,arch_db:elite_vet_theme.s_vet_sluzby
+msgid "Dogs, cats and small mammals — comprehensive veterinary care in one place, with technology at a very high level. Our goal is to provide the widest possible range of care under one roof."
+msgstr "Hunde, Katzen und Kleinsäuger — umfassende tierärztliche Versorgung an einem Ort, mit Technik auf sehr hohem Niveau. Unser Ziel ist es, ein möglichst breites Leistungsspektrum unter einem Dach anzubieten."
+
+#. module: elite_vet_theme
+#: model_terms:ir.ui.view,arch_db:elite_vet_theme.s_vet_sluzby
+msgid "<span>Dogs</span>"
+msgstr "<span>Hunde</span>"
+
+#. module: elite_vet_theme
+#: model_terms:ir.ui.view,arch_db:elite_vet_theme.s_vet_sluzby
+msgid "<span>Cats</span>"
+msgstr "<span>Katzen</span>"
+
+#. module: elite_vet_theme
+#: model_terms:ir.ui.view,arch_db:elite_vet_theme.s_vet_sluzby
+msgid "<span>Small mammals</span>"
+msgstr "<span>Kleinsäuger</span>"
+
+#. module: elite_vet_theme
+#: model_terms:ir.ui.view,arch_db:elite_vet_theme.s_vet_sluzby
+msgid "Preventive care"
+msgstr "Präventivpflege"
+
+#. module: elite_vet_theme
+#: model_terms:ir.ui.view,arch_db:elite_vet_theme.s_vet_sluzby
+msgid "Regular check-ups, vaccinations and deworming. Prevention is the foundation of your pet's health."
+msgstr "Regelmäßige Untersuchungen, Impfungen und Entwurmung. Vorsorge ist die Grundlage der Gesundheit Ihres Tieres."
+
+#. module: elite_vet_theme
+#: model_terms:ir.ui.view,arch_db:elite_vet_theme.s_vet_sluzby
+msgid "Surgery"
+msgstr "Chirurgie"
+
+#. module: elite_vet_theme
+#: model_terms:ir.ui.view,arch_db:elite_vet_theme.s_vet_sluzby
+msgid "Neutering and abdominal procedures. A modern operating theatre with anaesthesia monitoring."
+msgstr "Kastrationen und abdominale Eingriffe. Moderner Operationssaal mit Anästhesie-Monitoring."
+
+#. module: elite_vet_theme
+#: model_terms:ir.ui.view,arch_db:elite_vet_theme.s_vet_sluzby
+msgid "Internal medicine"
+msgstr "Innere Medizin"
+
+#. module: elite_vet_theme
+#: model_terms:ir.ui.view,arch_db:elite_vet_theme.s_vet_sluzby
+msgid "Diagnosis and treatment of internal diseases, cardiology, endocrinology and gastroenterology."
+msgstr "Diagnose und Behandlung innerer Erkrankungen, Kardiologie, Endokrinologie und Gastroenterologie."
+
+#. module: elite_vet_theme
+#: model_terms:ir.ui.view,arch_db:elite_vet_theme.s_vet_sluzby
+msgid "Diagnostics"
+msgstr "Diagnostik"
+
+#. module: elite_vet_theme
+#: model_terms:ir.ui.view,arch_db:elite_vet_theme.s_vet_sluzby
+msgid "RTG, ultrasound, laboratory blood and urine tests. Fast and accurate diagnostics for proper treatment.​"
+msgstr "Röntgen, Ultraschall, Labortests von Blut und Urin. Schnelle und genaue Diagnostik für die richtige Behandlung.​"
+
+#. module: elite_vet_theme
+#: model_terms:ir.ui.view,arch_db:elite_vet_theme.s_vet_sluzby
+msgid "Dentistry"
+msgstr "Zahnheilkunde"
+
+#. module: elite_vet_theme
+#: model_terms:ir.ui.view,arch_db:elite_vet_theme.s_vet_sluzby
+msgid "Dental treatment, extractions, ultrasonic cleaning. Oral care for your pet's healthy teeth."
+msgstr "Zahnbehandlung, Extraktionen, Ultraschallreinigung. Mundpflege für gesunde Zähne Ihres Tieres."
+
+#. module: elite_vet_theme
+#: model_terms:ir.ui.view,arch_db:elite_vet_theme.s_vet_sluzby
+msgid "Ophthalmology"
+msgstr "Ophthalmologie"
+
+#. module: elite_vet_theme
+#: model_terms:ir.ui.view,arch_db:elite_vet_theme.s_vet_sluzby
+msgid "Examination and treatment of eye diseases in small animals, including diagnostics and surgical procedures."
+msgstr "Untersuchung und Behandlung von Augenerkrankungen bei Kleintieren, einschließlich Diagnostik und chirurgischer Eingriffe."
+
+#. module: elite_vet_theme
+#: model_terms:ir.ui.view,arch_db:elite_vet_theme.s_vet_sluzby
+msgid "Dermatology"
+msgstr "Dermatologie"
+
+#. module: elite_vet_theme
+#: model_terms:ir.ui.view,arch_db:elite_vet_theme.s_vet_sluzby
+msgid "Treatment of skin problems, allergies and parasitic diseases. Comprehensive care for skin and coat."
+msgstr "Behandlung von Hautproblemen, Allergien und Parasitenerkrankungen. Umfassende Pflege von Haut und Fell."
+
+#. module: elite_vet_theme
+#: model_terms:ir.ui.view,arch_db:elite_vet_theme.s_vet_sluzby
+msgid "Ultrasonography"
+msgstr "Ultraschall"
+
+#. module: elite_vet_theme
+#: model_terms:ir.ui.view,arch_db:elite_vet_theme.s_vet_sluzby
+msgid "We have doctors specialising in ultrasound diagnostics. We are developing this area further, including towards cardiology examinations."
+msgstr "Wir haben Ärzte mit Spezialisierung auf Ultraschalldiagnostik. Diesen Bereich bauen wir weiter aus, auch in Richtung kardiologischer Untersuchungen."
+
+#. module: elite_vet_theme
+#: model_terms:ir.ui.view,arch_db:elite_vet_theme.s_vet_sluzby
+msgid "<span class=\"ev-srv-title\">Preventive care</span>"
+msgstr "<span class=\"ev-srv-title\">Präventivpflege</span>"
+
+#. module: elite_vet_theme
+#: model_terms:ir.ui.view,arch_db:elite_vet_theme.s_vet_sluzby
+msgid "<span class=\"ev-srv-title\">Surgery</span>"
+msgstr "<span class=\"ev-srv-title\">Chirurgie</span>"
+
+#. module: elite_vet_theme
+#: model_terms:ir.ui.view,arch_db:elite_vet_theme.s_vet_sluzby
+msgid "<span class=\"ev-srv-title\">Internal medicine</span>"
+msgstr "<span class=\"ev-srv-title\">Innere Medizin</span>"
+
+#. module: elite_vet_theme
+#: model_terms:ir.ui.view,arch_db:elite_vet_theme.s_vet_sluzby
+msgid "<span class=\"ev-srv-title\">Diagnostics</span>"
+msgstr "<span class=\"ev-srv-title\">Diagnostik</span>"
+
+#. module: elite_vet_theme
+#: model_terms:ir.ui.view,arch_db:elite_vet_theme.s_vet_sluzby
+msgid "<span class=\"ev-srv-title\">Dentistry</span>"
+msgstr "<span class=\"ev-srv-title\">Zahnheilkunde</span>"
+
+#. module: elite_vet_theme
+#: model_terms:ir.ui.view,arch_db:elite_vet_theme.s_vet_sluzby
+msgid "<span class=\"ev-srv-title\">Ophthalmology</span>"
+msgstr "<span class=\"ev-srv-title\">Ophthalmologie</span>"
+
+#. module: elite_vet_theme
+#: model_terms:ir.ui.view,arch_db:elite_vet_theme.s_vet_sluzby
+msgid "<span class=\"ev-srv-title\">Dermatology</span>"
+msgstr "<span class=\"ev-srv-title\">Dermatologie</span>"
+
+#. module: elite_vet_theme
+#: model_terms:ir.ui.view,arch_db:elite_vet_theme.s_vet_sluzby
+msgid "<span class=\"ev-srv-title\">Ultrasonography</span>"
+msgstr "<span class=\"ev-srv-title\">Ultraschall</span>"
+
+#. module: elite_vet_theme
+#: model_terms:ir.ui.view,arch_db:elite_vet_theme.s_vet_tym
+msgid "OUR TEAM"
+msgstr "UNSER TEAM"
+
+#. module: elite_vet_theme
+#: model_terms:ir.ui.view,arch_db:elite_vet_theme.s_vet_tym
+msgid "Expert team for the health of your pets"
+msgstr "Expertenteam für die Gesundheit Ihrer Lieblinge"
+
+#. module: elite_vet_theme
+#: model_terms:ir.ui.view,arch_db:elite_vet_theme.s_vet_tym
+msgid "Behind Elite Vet is a team of experienced veterinarians and specialists. Get to know the people who are opening our clinic in Karlovy Vary."
+msgstr "Hinter Elite Vet steht ein Team erfahrener Tierärzte und Spezialisten. Lernen Sie die Menschen kennen, die unsere Klinik in Karlovy Vary eröffnen."
+
+#. module: elite_vet_theme
+#: model_terms:ir.ui.view,arch_db:elite_vet_theme.s_vet_tym
+msgid "Meet our team<br/>"
+msgstr "Lernen Sie unser Team kennen<br/>"
+
+#. module: elite_vet_theme
+#: model_terms:ir.ui.view,arch_db:elite_vet_theme.s_vet_kontakt
+msgid "Visit us"
+msgstr "Besuchen Sie uns"
+
+#. module: elite_vet_theme
+#: model_terms:ir.ui.view,arch_db:elite_vet_theme.s_vet_kontakt
+msgid "Book by phone or email."
+msgstr "Vereinbaren Sie einen Termin telefonisch oder per E-Mail."
+
+#. module: elite_vet_theme
+#: model_terms:ir.ui.view,arch_db:elite_vet_theme.s_vet_kontakt
+msgid "ADDRESS"
+msgstr "ADRESSE"
+
+#. module: elite_vet_theme
+#: model_terms:ir.ui.view,arch_db:elite_vet_theme.s_vet_kontakt
+msgid "Phone – Reception"
+msgstr "Telefon – Rezeption"
+
+#. module: elite_vet_theme
+#: model_terms:ir.ui.view,arch_db:elite_vet_theme.s_vet_kontakt
+msgid "Ordering, information, and frequently asked questions"
+msgstr "Terminvereinbarung, Auskünfte und häufige Fragen"
+
+#. module: elite_vet_theme
+#: model_terms:ir.ui.view,arch_db:elite_vet_theme.s_vet_kontakt
+msgid "Email"
+msgstr "E-Mail"
+
+#. module: elite_vet_theme
+#: model_terms:ir.ui.view,arch_db:elite_vet_theme.s_vet_kontakt
+msgid "Opening soon"
+msgstr "Wir eröffnen bald"
+
+#. module: elite_vet_theme
+#: model_terms:ir.ui.view,arch_db:elite_vet_theme.s_vet_kontakt
+msgid "Opening hours"
+msgstr "Öffnungszeiten"
+
+#. module: elite_vet_theme
+#: model_terms:ir.ui.view,arch_db:elite_vet_theme.s_vet_kontakt
+msgid "<span class=\"ev-hours-day\">Sat – Sun</span>\n                                <span class=\"ev-hours-time\">10:00 – 18:00</span>"
+msgstr "<span class=\"ev-hours-day\">Sa – So</span>\n                                        <span class=\"ev-hours-time\">10:00 – 18:00</span>"
+
+#. module: elite_vet_theme
+#: model_terms:ir.ui.view,arch_db:elite_vet_theme.s_vet_kontakt
+msgid "Treatment outside opening hours is possible only by prior telephone arrangement and confirmation that the team is available. This is not a round-the-clock service."
+msgstr "Eine Behandlung außerhalb der Öffnungszeiten ist nur nach vorheriger telefonischer Absprache und Bestätigung der Verfügbarkeit des Teams möglich. Es handelt sich nicht um einen durchgehenden Betrieb."
+
+#. module: elite_vet_theme
+#: model_terms:ir.ui.view,arch_db:elite_vet_theme.s_vet_kontakt
+msgid "Open in maps"
+msgstr "In Karten öffnen"

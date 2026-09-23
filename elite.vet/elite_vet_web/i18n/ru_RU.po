@@ -31,22 +31,26 @@ msgstr "Круглосуточная линия — скоро"
 
 #. module: elite_vet_web
 #: model_terms:ir.ui.view,arch_db:elite_vet_web.sekce_letak
+#: model_terms:ir.ui.view,arch_db:elite_vet_web.homepage
 msgid "<span class=\"ev-flyer2-open\">Open</span>"
 msgstr "<span class=\"ev-flyer2-open\">Открыто</span>"
 
 #. module: elite_vet_web
 #: model_terms:ir.ui.view,arch_db:elite_vet_web.sekce_o_klinice
+#: model_terms:ir.ui.view,arch_db:elite_vet_web.homepage
 msgid "About the clinic"
 msgstr "О клинике"
 
 #. module: elite_vet_web
 #: model_terms:ir.ui.view,arch_db:elite_vet_web.sekce_tym
+#: model_terms:ir.ui.view,arch_db:elite_vet_web.homepage
 msgid "Behind Elite Vet is a team of experienced veterinarians and specialists. Get to know the people who are opening our clinic in Karlovy Vary."
 msgstr "За Elite Vet стоит команда опытных ветеринаров и специалистов. Познакомьтесь с людьми, которые открывают нашу клинику в Карловых Варах."
 
 #. module: elite_vet_web
 #: model_terms:ir.ui.view,arch_db:elite_vet_web.sekce_kontakt
 #: model_terms:ir.ui.view,arch_db:elite_vet_web.sekce_objednat
+#: model_terms:ir.ui.view,arch_db:elite_vet_web.homepage
 msgid "Book an appointment"
 msgstr "Записаться на приём"
 
@@ -57,6 +61,7 @@ msgstr "Запись на приём | Elite Vet Карловы Вары"
 
 #. module: elite_vet_web
 #: model_terms:ir.ui.view,arch_db:elite_vet_web.sekce_kontakt
+#: model_terms:ir.ui.view,arch_db:elite_vet_web.homepage
 msgid "Book by phone or email."
 msgstr "Запишитесь по телефону или по электронной почте."
 
@@ -77,16 +82,19 @@ msgstr "Позвонить скоро"
 
 #. module: elite_vet_web
 #: model_terms:ir.ui.view,arch_db:elite_vet_web.sekce_o_klinice
+#: model_terms:ir.ui.view,arch_db:elite_vet_web.homepage
 msgid "Call the reception<br/>"
 msgstr "Позвонить на ресепшн<br/>"
 
 #. module: elite_vet_web
 #: model_terms:ir.ui.view,arch_db:elite_vet_web.sekce_o_klinice
+#: model_terms:ir.ui.view,arch_db:elite_vet_web.homepage
 msgid "Complex care"
 msgstr "Комплексный уход"
 
 #. module: elite_vet_web
 #: model_terms:ir.ui.view,arch_db:elite_vet_web.sekce_sluzby
+#: model_terms:ir.ui.view,arch_db:elite_vet_web.homepage
 msgid "Comprehensive care for your pets"
 msgstr "Комплексный уход за вашими питомцами"
 
@@ -113,11 +121,13 @@ msgstr "Создал"
 
 #. module: elite_vet_web
 #: model_terms:ir.ui.view,arch_db:elite_vet_web.sekce_letak
+#: model_terms:ir.ui.view,arch_db:elite_vet_web.homepage
 msgid "Dogs and cat"
 msgstr "Собаки и кошка"
 
 #. module: elite_vet_web
 #: model_terms:ir.ui.view,arch_db:elite_vet_web.sekce_sluzby
+#: model_terms:ir.ui.view,arch_db:elite_vet_web.homepage
 msgid "Dogs, cats and small mammals — comprehensive veterinary care in one place, with technology at a very high level. Our goal is to provide the widest possible range of care under one roof."
 msgstr "Собаки, кошки и мелкие млекопитающие — комплексная ветеринарная помощь в одном месте, с оборудованием очень высокого уровня. Наша цель — предоставлять максимально широкий спектр помощи под одной крышей."
 
@@ -133,16 +143,19 @@ msgstr "Ветеринарная клиника Elite Vet в Карловых В
 
 #. module: elite_vet_web
 #: model_terms:ir.ui.view,arch_db:elite_vet_web.sekce_letak
+#: model_terms:ir.ui.view,arch_db:elite_vet_web.homepage
 msgid "Elite Veterinary Clinic"
 msgstr "Elite ветеринарная клиника"
 
 #. module: elite_vet_web
 #: model_terms:ir.ui.view,arch_db:elite_vet_web.sekce_letak
+#: model_terms:ir.ui.view,arch_db:elite_vet_web.homepage
 msgid "Every day!"
 msgstr "Каждый день!"
 
 #. module: elite_vet_web
 #: model_terms:ir.ui.view,arch_db:elite_vet_web.sekce_tym
+#: model_terms:ir.ui.view,arch_db:elite_vet_web.homepage
 msgid "Expert team for the health of your pets"
 msgstr "Команда специалистов для здоровья ваших питомцев"
 
@@ -153,6 +166,7 @@ msgstr "Часто задаваемые вопросы"
 
 #. module: elite_vet_web
 #: model_terms:ir.ui.view,arch_db:elite_vet_web.sekce_o_klinice
+#: model_terms:ir.ui.view,arch_db:elite_vet_web.homepage
 msgid "Gentle handling"
 msgstr "Бережное обращение"
 
@@ -173,6 +187,7 @@ msgstr "Если с вашим питомцем что-то случится, э
 
 #. module: elite_vet_web
 #: model_terms:ir.ui.view,arch_db:elite_vet_web.sekce_o_klinice
+#: model_terms:ir.ui.view,arch_db:elite_vet_web.homepage
 msgid "Individual approach"
 msgstr "Индивидуальный подход"
 
@@ -183,6 +198,7 @@ msgstr "Выбор языка / Language"
 
 #. module: elite_vet_web
 #: model_terms:ir.ui.view,arch_db:elite_vet_web.sekce_tym
+#: model_terms:ir.ui.view,arch_db:elite_vet_web.homepage
 msgid "Meet our team<br/>"
 msgstr "Познакомьтесь с командой<br/>"
 
@@ -196,36 +212,43 @@ msgstr "Меню"
 
 #. module: elite_vet_web
 #: model_terms:ir.ui.view,arch_db:elite_vet_web.sekce_o_klinice
+#: model_terms:ir.ui.view,arch_db:elite_vet_web.homepage
 msgid "Modern equipment"
 msgstr "Современное оборудование"
 
 #. module: elite_vet_web
 #: model_terms:ir.ui.view,arch_db:elite_vet_web.sekce_o_klinice
+#: model_terms:ir.ui.view,arch_db:elite_vet_web.homepage
 msgid "Next photos"
 msgstr "Следующие фото"
 
 #. module: elite_vet_web
 #: model_terms:ir.ui.view,arch_db:elite_vet_web.sekce_tym
+#: model_terms:ir.ui.view,arch_db:elite_vet_web.homepage
 msgid "OUR TEAM"
 msgstr "НАША КОМАНДА"
 
 #. module: elite_vet_web
 #: model_terms:ir.ui.view,arch_db:elite_vet_web.sekce_kontakt
+#: model_terms:ir.ui.view,arch_db:elite_vet_web.homepage
 msgid "Open in maps"
 msgstr "Открыть на карте"
 
 #. module: elite_vet_web
 #: model_terms:ir.ui.view,arch_db:elite_vet_web.sekce_kontakt
+#: model_terms:ir.ui.view,arch_db:elite_vet_web.homepage
 msgid "Opening hours"
 msgstr "Часы работы"
 
 #. module: elite_vet_web
 #: model_terms:ir.ui.view,arch_db:elite_vet_web.sekce_kontakt
+#: model_terms:ir.ui.view,arch_db:elite_vet_web.homepage
 msgid "Opening soon"
 msgstr "Скоро открываемся"
 
 #. module: elite_vet_web
 #: model_terms:ir.ui.view,arch_db:elite_vet_web.sekce_sluzby
+#: model_terms:ir.ui.view,arch_db:elite_vet_web.homepage
 msgid "Our services"
 msgstr "Наши услуги"
 
@@ -246,6 +269,7 @@ msgstr "Пожалуйста, выберите язык"
 
 #. module: elite_vet_web
 #: model_terms:ir.ui.view,arch_db:elite_vet_web.sekce_o_klinice
+#: model_terms:ir.ui.view,arch_db:elite_vet_web.homepage
 msgid "Previous photos"
 msgstr "Предыдущие фото"
 
@@ -271,6 +295,7 @@ msgstr "СИСТЕМА РЕЗЕРВАЦИИ"
 
 #. module: elite_vet_web
 #: model_terms:ir.ui.view,arch_db:elite_vet_web.sekce_o_klinice
+#: model_terms:ir.ui.view,arch_db:elite_vet_web.homepage
 msgid "Reception of the Elite Vet veterinary clinic in Karlovy Vary"
 msgstr "Ресепшн ветеринарной клиники Elite Vet в Карловых Варах"
 
@@ -281,6 +306,7 @@ msgstr "Выберите бесплатную запись к нашим вра�
 
 #. module: elite_vet_web
 #: model_terms:ir.ui.view,arch_db:elite_vet_web.sekce_o_klinice
+#: model_terms:ir.ui.view,arch_db:elite_vet_web.homepage
 msgid "Swipe sideways to browse the photos"
 msgstr "Листайте фотографии пальцем в сторону"
 
@@ -312,11 +338,13 @@ msgstr "Ветеринарная клиника Карловы Вары — Elit
 
 #. module: elite_vet_web
 #: model_terms:ir.ui.view,arch_db:elite_vet_web.sekce_kontakt
+#: model_terms:ir.ui.view,arch_db:elite_vet_web.homepage
 msgid "Visit us"
 msgstr "Посетите нас"
 
 #. module: elite_vet_web
 #: model_terms:ir.ui.view,arch_db:elite_vet_web.sekce_o_klinice
+#: model_terms:ir.ui.view,arch_db:elite_vet_web.homepage
 msgid "We are here for you every day"
 msgstr "Мы работаем для вас каждый день"
 
@@ -327,16 +355,19 @@ msgstr "Клиника работает в полном режиме —"
 
 #. module: elite_vet_web
 #: model_terms:ir.ui.view,arch_db:elite_vet_web.sekce_o_klinice
+#: model_terms:ir.ui.view,arch_db:elite_vet_web.homepage
 msgid "We have built a modern clinic for <span class=\"ev-accent-text\">your pets</span>"
 msgstr "Мы построили современную клинику для <span class=\"ev-accent-text\">ваших питомцев</span>"
 
 #. module: elite_vet_web
 #: model_terms:ir.ui.view,arch_db:elite_vet_web.sekce_o_klinice
+#: model_terms:ir.ui.view,arch_db:elite_vet_web.homepage
 msgid "We have built a modern veterinary clinic in Karlovy Vary for you — a long-term project with the goal of offering comprehensive veterinary care in the region, all in one place."
 msgstr "Мы построили для вас современную ветеринарную клинику в Карловых Варах — долгосрочный проект с целью предложить в регионе комплексную ветеринарную помощь в одном месте."
 
 #. module: elite_vet_web
 #: model_terms:ir.ui.view,arch_db:elite_vet_web.sekce_letak
+#: model_terms:ir.ui.view,arch_db:elite_vet_web.homepage
 msgid "We look forward to seeing you!"
 msgstr "Ждём вас!"
 
@@ -372,6 +403,7 @@ msgstr "Написать письмо"
 
 #. module: elite_vet_web
 #: model_terms:ir.ui.view,arch_db:elite_vet_web.sekce_letak
+#: model_terms:ir.ui.view,arch_db:elite_vet_web.homepage
 msgid "Your pets in the best hands!"
 msgstr "Ваши питомцы в лучших руках!"
 
@@ -392,10 +424,197 @@ msgstr "· работает на"
 
 #. module: elite_vet_web
 #: model_terms:ir.ui.view,arch_db:elite_vet_web.sekce_kontakt
+#: model_terms:ir.ui.view,arch_db:elite_vet_web.homepage
 msgid "Treatment outside opening hours is possible only by prior telephone arrangement and confirmation that the team is available. This is not a round-the-clock service."
 msgstr "Приём вне часов работы возможен только по предварительной телефонной договорённости и подтверждению доступности команды. Это не круглосуточный режим работы."
 
 #. module: elite_vet_web
 #: model_terms:ir.ui.view,arch_db:elite_vet_web.sekce_o_klinice
+#: model_terms:ir.ui.view,arch_db:elite_vet_web.homepage
 msgid "The clinic is equipped with modern diagnostic and treatment technology and from the outset offers extended opening hours including weekends. We will gradually extend our operation further."
 msgstr "Клиника оснащена современными диагностическими и лечебными технологиями и с самого начала предлагает расширенные часы работы, включая выходные. Работу мы будем постепенно расширять."
+
+#. module: elite_vet_web
+#: model_terms:ir.ui.view,arch_db:elite_vet_web.homepage
+msgid "<span class=\"ev-flyer2-date\">Sat – Sun 10–18</span>"
+msgstr "<span class=\"ev-flyer2-date\">Сб – Вс 10–18</span>"
+
+#. module: elite_vet_web
+#: model_terms:ir.ui.view,arch_db:elite_vet_web.homepage
+msgid "Outside of office hours, the emergency fee includes the working time of the doctor and nurse based on their actual involvement in care. The mentioned surcharges are charged in addition to the cost of examinations, procedures, medications, and materials used."
+msgstr "Вне рабочего времени к плате за неотложную помощь добавляется время работы врача и медсестры в зависимости от их фактического участия в уходе. Указанные надбавки взимаются сверх стоимости обследования, процедур, лекарств и использованных материалов."
+
+#. module: elite_vet_web
+#: model_terms:ir.ui.view,arch_db:elite_vet_web.homepage
+msgid "<u><font style=\"color: rgb(74, 123, 140);\"><strong>These supplements</strong></font></u>"
+msgstr "<u><font style=\"color: rgb(74, 123, 140);\"><strong>Эти надбавки</strong></font></u>"
+
+#. module: elite_vet_web
+#: model_terms:ir.ui.view,arch_db:elite_vet_web.homepage
+msgid "allow us to ensure and appropriately reward the professional team during weekend and emergency care for your animals."
+msgstr "они позволяют нам обеспечить и соответствующим образом вознаградить профессиональную команду за уход за вашими животными в выходные и в экстренных ситуациях."
+
+#. module: elite_vet_web
+#: model_terms:ir.ui.view,arch_db:elite_vet_web.homepage
+msgid "We are in full operation — <span>sat – sun</span> <span>10:00 – 18:00</span>. Book online or by phone at the reception."
+msgstr "Клиника работает в полном режиме — <span>сб – вс</span> <span>10:00 – 18:00</span>. Записаться можно онлайн или по телефону на ресепшене."
+
+#. module: elite_vet_web
+#: model_terms:ir.ui.view,arch_db:elite_vet_web.homepage
+msgid "<span>Dogs</span>"
+msgstr "<span>Собаки</span>"
+
+#. module: elite_vet_web
+#: model_terms:ir.ui.view,arch_db:elite_vet_web.homepage
+msgid "<span>Cats</span>"
+msgstr "<span>Кошки</span>"
+
+#. module: elite_vet_web
+#: model_terms:ir.ui.view,arch_db:elite_vet_web.homepage
+msgid "<span>Small mammals</span>"
+msgstr "<span>Мелкие млекопитающие</span>"
+
+#. module: elite_vet_web
+#: model_terms:ir.ui.view,arch_db:elite_vet_web.homepage
+msgid "Preventive care"
+msgstr "Профилактический уход"
+
+#. module: elite_vet_web
+#: model_terms:ir.ui.view,arch_db:elite_vet_web.homepage
+msgid "Regular check-ups, vaccinations and deworming. Prevention is the foundation of your pet's health."
+msgstr "Регулярные осмотры, вакцинация и дегельминтизация. Профилактика — основа здоровья вашего питомца."
+
+#. module: elite_vet_web
+#: model_terms:ir.ui.view,arch_db:elite_vet_web.homepage
+msgid "Surgery"
+msgstr "Хирургия"
+
+#. module: elite_vet_web
+#: model_terms:ir.ui.view,arch_db:elite_vet_web.homepage
+msgid "Neutering and abdominal procedures. A modern operating theatre with anaesthesia monitoring."
+msgstr "Кастрация и абдоминальные вмешательства. Современная операционная с анестезиологическим мониторингом."
+
+#. module: elite_vet_web
+#: model_terms:ir.ui.view,arch_db:elite_vet_web.homepage
+msgid "Internal medicine"
+msgstr "Внутренние болезни"
+
+#. module: elite_vet_web
+#: model_terms:ir.ui.view,arch_db:elite_vet_web.homepage
+msgid "Diagnosis and treatment of internal diseases, cardiology, endocrinology and gastroenterology."
+msgstr "Диагностика и лечение внутренних заболеваний, кардиология, эндокринология и гастроэнтерология."
+
+#. module: elite_vet_web
+#: model_terms:ir.ui.view,arch_db:elite_vet_web.homepage
+msgid "Diagnostics"
+msgstr "Диагностика"
+
+#. module: elite_vet_web
+#: model_terms:ir.ui.view,arch_db:elite_vet_web.homepage
+msgid "RTG, ultrasound, laboratory blood and urine tests. Fast and accurate diagnostics for proper treatment.​"
+msgstr "Рентген, УЗИ, лабораторные анализы крови и мочи. Быстрая и точная диагностика для правильного лечения.​"
+
+#. module: elite_vet_web
+#: model_terms:ir.ui.view,arch_db:elite_vet_web.homepage
+msgid "Dentistry"
+msgstr "Стоматология"
+
+#. module: elite_vet_web
+#: model_terms:ir.ui.view,arch_db:elite_vet_web.homepage
+msgid "Dental treatment, extractions, ultrasonic cleaning. Oral care for your pet's healthy teeth."
+msgstr "Лечение зубов, удаления, ультразвуковая чистка. Уход за полостью рта для здоровых зубов вашего питомца."
+
+#. module: elite_vet_web
+#: model_terms:ir.ui.view,arch_db:elite_vet_web.homepage
+msgid "Ophthalmology"
+msgstr "Офтальмология"
+
+#. module: elite_vet_web
+#: model_terms:ir.ui.view,arch_db:elite_vet_web.homepage
+msgid "Examination and treatment of eye diseases in small animals, including diagnostics and surgical procedures."
+msgstr "Обследование и лечение глазных заболеваний у мелких животных, включая диагностику и хирургические вмешательства."
+
+#. module: elite_vet_web
+#: model_terms:ir.ui.view,arch_db:elite_vet_web.homepage
+msgid "Dermatology"
+msgstr "Дерматология"
+
+#. module: elite_vet_web
+#: model_terms:ir.ui.view,arch_db:elite_vet_web.homepage
+msgid "Treatment of skin problems, allergies and parasitic diseases. Comprehensive care for skin and coat."
+msgstr "Лечение кожных проблем, аллергий и паразитарных заболеваний. Комплексный уход за кожей и шерстью."
+
+#. module: elite_vet_web
+#: model_terms:ir.ui.view,arch_db:elite_vet_web.homepage
+msgid "Ultrasonography"
+msgstr "Ультрасонография"
+
+#. module: elite_vet_web
+#: model_terms:ir.ui.view,arch_db:elite_vet_web.homepage
+msgid "We have doctors specialising in ultrasound diagnostics. We are developing this area further, including towards cardiology examinations."
+msgstr "У нас есть врачи, специализирующиеся на ультразвуковой диагностике. Мы развиваем это направление дальше, в том числе в сторону кардиологических исследований."
+
+#. module: elite_vet_web
+#: model_terms:ir.ui.view,arch_db:elite_vet_web.homepage
+msgid "<span class=\"ev-srv-title\">Preventive care</span>"
+msgstr "<span class=\"ev-srv-title\">Профилактический уход</span>"
+
+#. module: elite_vet_web
+#: model_terms:ir.ui.view,arch_db:elite_vet_web.homepage
+msgid "<span class=\"ev-srv-title\">Surgery</span>"
+msgstr "<span class=\"ev-srv-title\">Хирургия</span>"
+
+#. module: elite_vet_web
+#: model_terms:ir.ui.view,arch_db:elite_vet_web.homepage
+msgid "<span class=\"ev-srv-title\">Internal medicine</span>"
+msgstr "<span class=\"ev-srv-title\">Внутренние болезни</span>"
+
+#. module: elite_vet_web
+#: model_terms:ir.ui.view,arch_db:elite_vet_web.homepage
+msgid "<span class=\"ev-srv-title\">Diagnostics</span>"
+msgstr "<span class=\"ev-srv-title\">Диагностика</span>"
+
+#. module: elite_vet_web
+#: model_terms:ir.ui.view,arch_db:elite_vet_web.homepage
+msgid "<span class=\"ev-srv-title\">Dentistry</span>"
+msgstr "<span class=\"ev-srv-title\">Стоматология</span>"
+
+#. module: elite_vet_web
+#: model_terms:ir.ui.view,arch_db:elite_vet_web.homepage
+msgid "<span class=\"ev-srv-title\">Ophthalmology</span>"
+msgstr "<span class=\"ev-srv-title\">Офтальмология</span>"
+
+#. module: elite_vet_web
+#: model_terms:ir.ui.view,arch_db:elite_vet_web.homepage
+msgid "<span class=\"ev-srv-title\">Dermatology</span>"
+msgstr "<span class=\"ev-srv-title\">Дерматология</span>"
+
+#. module: elite_vet_web
+#: model_terms:ir.ui.view,arch_db:elite_vet_web.homepage
+msgid "<span class=\"ev-srv-title\">Ultrasonography</span>"
+msgstr "<span class=\"ev-srv-title\">Ультрасонография</span>"
+
+#. module: elite_vet_web
+#: model_terms:ir.ui.view,arch_db:elite_vet_web.homepage
+msgid "ADDRESS"
+msgstr "АДРЕС"
+
+#. module: elite_vet_web
+#: model_terms:ir.ui.view,arch_db:elite_vet_web.homepage
+msgid "Phone – Reception"
+msgstr "Телефон – Ресепшн"
+
+#. module: elite_vet_web
+#: model_terms:ir.ui.view,arch_db:elite_vet_web.homepage
+msgid "Ordering, information, and frequently asked questions"
+msgstr "Запись, информация и частые вопросы"
+
+#. module: elite_vet_web
+#: model_terms:ir.ui.view,arch_db:elite_vet_web.homepage
+msgid "Email"
+msgstr "Эл. почта"
+
+#. module: elite_vet_web
+#: model_terms:ir.ui.view,arch_db:elite_vet_web.homepage
+msgid "<span class=\"ev-hours-day\">Sat – Sun</span>\n                                            <span class=\"ev-hours-time\">10:00 – 18:00</span>"
+msgstr "<span class=\"ev-hours-day\">Сб – Вс</span>\n                                        <span class=\"ev-hours-time\">10:00 – 18:00</span>"
