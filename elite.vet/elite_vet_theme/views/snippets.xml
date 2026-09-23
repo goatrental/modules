@@ -15,19 +15,35 @@
     -->
 
     <!-- Ramecek s poznamkou — napriklad o priplatcich mimo ordinacni dobu. -->
+    <!-- Korenem bloku musi byt <section>. Do volnych mist (oe_structure) pousti
+         Odoo jen sekce; s korenovym <div> zustane blok v panelu sedy. -->
     <template id="s_vet_note" name="Elite Vet: rámeček s poznámkou">
-        <div class="s_vet_note ev-hero-note">
-            <div class="ev-hero-note-in">
-                <p><strong>Nadpis poznámky</strong> — sem napište, co má návštěvník vědět.</p>
-                <p>Druhý řádek můžete smazat, nebo do něj vložit <a href="/cenik">odkaz</a>.</p>
+        <section class="s_vet_note">
+            <div class="ev-hero-note">
+                <div class="ev-hero-note-in">
+                    <p><strong>Nadpis poznámky</strong> — sem napište, co má návštěvník vědět.</p>
+                    <p>Druhý řádek můžete smazat, nebo do něj vložit <a href="/cenik">odkaz</a>.</p>
+                </div>
             </div>
-        </div>
+        </section>
     </template>
 
     <!-- Zarazeni do panelu bloku. -->
     <template id="ev_snippets_registry" name="Elite Vet Snippets" inherit_id="website.snippets">
         <xpath expr="//snippets[@id='snippet_content']" position="after">
             <snippets id="ev_snippets" string="Elite Vet">
+                <t t-snippet="elite_vet_theme.s_vet_letak" string="Leták s otevírací dobou"
+                   t-thumbnail="/elite_vet_theme/static/src/img/snippets/s_vet_letak.svg"/>
+                <t t-snippet="elite_vet_theme.s_vet_o_klinice" string="O klinice"
+                   t-thumbnail="/elite_vet_theme/static/src/img/snippets/s_vet_o_klinice.svg"/>
+                <t t-snippet="elite_vet_theme.s_vet_sluzby" string="Služby"
+                   t-thumbnail="/elite_vet_theme/static/src/img/snippets/s_vet_sluzby.svg"/>
+                <t t-snippet="elite_vet_theme.s_vet_tym" string="Pozvánka na tým"
+                   t-thumbnail="/elite_vet_theme/static/src/img/snippets/s_vet_tym.svg"/>
+                <t t-snippet="elite_vet_theme.s_vet_kontakt" string="Kontakt a hodiny"
+                   t-thumbnail="/elite_vet_theme/static/src/img/snippets/s_vet_kontakt.svg"/>
+                <t t-snippet="elite_vet_theme.s_vet_objednat" string="Tlačítko Objednat se"
+                   t-thumbnail="/elite_vet_theme/static/src/img/snippets/s_vet_objednat.svg"/>
                 <t t-snippet="elite_vet_theme.s_vet_note" string="Rámeček s poznámkou"
                    t-thumbnail="/elite_vet_theme/static/src/img/snippets/s_vet_note.svg"/>
             </snippets>

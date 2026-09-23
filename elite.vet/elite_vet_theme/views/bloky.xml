@@ -1,0 +1,652 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!--
+        Staticke varianty sekci domovske stranky. Obsah se po pretazeni
+        prepisuje primo v editoru a uklada se do stranky.
+
+        Datove verze techto sekci zustavaji v elite_vet_web — ty se ridi
+        seznamy v adminu. Tohle je varianta na rucni upravy.
+    -->
+
+    <!-- Elite Vet: leták s otevírací dobou -->
+    <template id="s_vet_letak" name="Elite Vet: leták s otevírací dobou">
+        <section class="s_vet_letak ev-cd">
+        <div class="ev-container ev-cd-inner">
+            <h1 class="ev-sr-only">Veterinární klinika Karlovy Vary — Elite Vet</h1>
+
+            <div class="ev-flyer2">
+                <div class="ev-flyer2-bg"></div>
+                <div class="ev-flyer2-veil"></div>
+                <div class="ev-flyer2-desk"></div>
+
+                <div class="ev-flyer2-deco ev-flyer2-paw1">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <ellipse cx="7" cy="7.5" rx="2.4" ry="3.1"></ellipse>
+                        <ellipse cx="12.6" cy="5.4" rx="2.3" ry="3"></ellipse>
+                        <ellipse cx="17.8" cy="8.2" rx="2.2" ry="2.8"></ellipse>
+                        <ellipse cx="20.4" cy="13.6" rx="1.9" ry="2.4"></ellipse>
+                        <path d="M12.4 11.4c3.1 0 5.6 2.3 5.6 5.1 0 2.3-1.9 3.9-4.3 3.9-1 0-1.6-.3-2.6-.3s-1.6.3-2.6.3c-2.4 0-4.3-1.6-4.3-3.9 0-2.8 2.5-5.1 5.6-5.1z"></path>
+                    </svg>
+                </div>
+                <div class="ev-flyer2-deco ev-flyer2-paw2">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <ellipse cx="7" cy="7.5" rx="2.4" ry="3.1"></ellipse>
+                        <ellipse cx="12.6" cy="5.4" rx="2.3" ry="3"></ellipse>
+                        <ellipse cx="17.8" cy="8.2" rx="2.2" ry="2.8"></ellipse>
+                        <ellipse cx="20.4" cy="13.6" rx="1.9" ry="2.4"></ellipse>
+                        <path d="M12.4 11.4c3.1 0 5.6 2.3 5.6 5.1 0 2.3-1.9 3.9-4.3 3.9-1 0-1.6-.3-2.6-.3s-1.6.3-2.6.3c-2.4 0-4.3-1.6-4.3-3.9 0-2.8 2.5-5.1 5.6-5.1z"></path>
+                    </svg>
+                </div>
+                <div class="ev-flyer2-deco ev-flyer2-heart1">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21.2l7.8-7.7 1-1.1a5.5 5.5 0 0 0 0-7.8z"></path>
+                    </svg>
+                </div>
+                <div class="ev-flyer2-deco ev-flyer2-heart2">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21.2l7.8-7.7 1-1.1a5.5 5.5 0 0 0 0-7.8z"></path>
+                    </svg>
+                </div>
+
+                <div class="ev-flyer2-hand ev-flyer2-hand-1">Těšíme se na vás!</div>
+
+                <div class="ev-flyer2-inner">
+                    <img src="/elite_vet_web/static/src/img/logo.jpeg" alt="Elite Vet" class="ev-flyer2-logo" loading="eager" decoding="async"/>
+                    <div class="ev-flyer2-brand">Elite veterinární klinika</div>
+
+                    <div class="ev-flyer2-title">
+                        <svg class="ev-flyer2-brush" viewBox="0 0 600 130" preserveAspectRatio="none" aria-hidden="true">
+                            <path d="M300 4 C 420 4, 520 8, 566 13 C 584 15, 594 24, 596 45 C 598 63, 598 78, 595 98 C 592 113, 580 119, 558 121 C 470 127, 330 128, 250 126 C 168 124, 78 120, 42 115 C 20 112, 6 103, 4 83 C 2 65, 2 47, 5 29 C 8 15, 20 10, 42 8 C 120 3, 220 4, 300 4 Z" fill="#16787b"></path>
+                        </svg>
+                        <span class="ev-flyer2-open">Otevřeno</span>
+                    </div>
+                    <div class="ev-flyer2-sub">Každý den!</div>
+
+                    <div class="ev-flyer2-pills">
+                        <div class="ev-flyer2-pill">
+                            <span class="ev-flyer2-ic">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="3" y="4" width="18" height="18" rx="2"></rect>
+                                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                                </svg>
+                            </span>
+                            <span class="ev-flyer2-date">Po – Pá 8:00 – 20:00</span>
+                        </div>
+                        <div class="ev-flyer2-pill">
+                            <span class="ev-flyer2-ic">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="9"></circle>
+                                    <polyline points="12 7 12 12 15.5 14"></polyline>
+                                </svg>
+                            </span>
+                            <span class="ev-flyer2-time">So – Ne 10:00 – 18:00</span>
+                        </div>
+                    </div>
+
+                    <div class="ev-flyer2-hand ev-flyer2-hand-2">Vaši mazlíčci v těch nejlepších rukou!</div>
+                </div>
+
+                <picture>
+                    <source media="(max-width: 820px)" srcset="/elite_vet_web/static/src/img/zvirata-440.png"/>
+                    <img class="ev-flyer2-pets" src="/elite_vet_web/static/src/img/zvirata.png" alt="Psi a kočka" loading="eager" decoding="async"/>
+                </picture>
+            </div>
+
+        </div>
+        
+        </section>
+    </template>
+
+    <!-- Elite Vet: tlačítko Objednat se -->
+    <template id="s_vet_objednat" name="Elite Vet: tlačítko Objednat se">
+        <section class="s_vet_objednat ev-where-sec">
+        <div class="ev-container ev-where-row">
+            <a href="/rezervacni-system" class="ev-cd-where">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="4" width="18" height="18" rx="2"></rect>
+                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                </svg>
+                Objednat se
+            </a>
+        </div>
+        
+        </section>
+    </template>
+
+    <!-- Elite Vet: o klinice -->
+    <template id="s_vet_o_klinice" name="Elite Vet: o klinice">
+        <section class="s_vet_o_klinice ev-about">
+        <div class="ev-container">
+            <div class="ev-about-grid">
+                <div>
+                    <div class="ev-badge">O klinice</div>
+                    <h2>Postavili jsme moderní kliniku pro <span class="ev-accent-text">vaše mazlíčky</span></h2>
+                    <p class="ev-about-lead">Vybudovali jsme pro vás moderní veterinární kliniku v Karlových Varech — dlouhodobý projekt s cílem nabídnout v regionu komplexní veterinární péči na jednom místě.</p>
+
+                    <p class="ev-about-lead">Klinika je vybavena moderními diagnostickými a léčebnými technologiemi a od začátku nabízí rozšířenou provozní dobu včetně víkendů. Provoz budeme dále postupně rozšiřovat.</p>
+                    <div class="ev-about-feats">
+                        <div class="ev-about-feat-item">
+                            <div class="ev-check-circle">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#5ba8a0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                            </div>
+                            Moderní vybavení
+                        </div>
+                        <div class="ev-about-feat-item">
+                            <div class="ev-check-circle">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#5ba8a0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                            </div>
+                            Šetrné zacházení
+                        </div>
+                        <div class="ev-about-feat-item">
+                            <div class="ev-check-circle">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#5ba8a0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                            </div>
+                            Individuální přístup
+                        </div>
+                        <div class="ev-about-feat-item">
+                            <div class="ev-check-circle">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#5ba8a0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                            </div>
+                            Komplexní péče
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ev-about-mission">
+                    <div class="ev-mission-card">
+                        <div class="ev-blob-1"></div>
+                        <div class="ev-blob-2"></div>
+                        <div class="ev-mission-foto">
+                            <img src="/elite_vet_web/static/src/img/galerie/15.jpg" alt="Recepce veterinární kliniky Elite Vet v Karlových Varech" loading="lazy" decoding="async"/>
+                        </div>
+                        <h3>Jsme tu pro vás každý den</h3>
+                        <p class="ev-mission-text">Plný provoz už běží — <span>po – pá</span> <span>8:00 – 20:00</span>, <span>so – ne</span> <span>10:00 – 18:00</span>. Objednat se můžete online nebo telefonicky na recepci.</p>
+                        <a class="ev-call ev-call--mission" href="tel:+420722599699">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                            </svg>
+                            Zavolat recepci<br/>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div id="galerie" class="ev-gal-inline">
+                <style>
+                    @media (min-width: 769px) {
+                            #ev-gal-s2:checked ~ .ev-gal-view .ev-gal-track { transform: translateX(calc(-100% - 18px)); }
+                            #ev-gal-s3:checked ~ .ev-gal-view .ev-gal-track { transform: translateX(calc(-200% - 36px)); }
+                            #ev-gal-s4:checked ~ .ev-gal-view .ev-gal-track { transform: translateX(calc(-300% - 54px)); }
+                            #ev-gal-s5:checked ~ .ev-gal-view .ev-gal-track { transform: translateX(calc(-366.667% - 66px)); }#ev-gal-s1:checked ~ .ev-gal-nav .ev-gal-next-2 { display: flex; }#ev-gal-s2:checked ~ .ev-gal-nav .ev-gal-next-3 { display: flex; }#ev-gal-s3:checked ~ .ev-gal-nav .ev-gal-next-4 { display: flex; }#ev-gal-s4:checked ~ .ev-gal-nav .ev-gal-next-5 { display: flex; }#ev-gal-s2:checked ~ .ev-gal-nav .ev-gal-prev-1 { display: flex; }#ev-gal-s3:checked ~ .ev-gal-nav .ev-gal-prev-2 { display: flex; }#ev-gal-s4:checked ~ .ev-gal-nav .ev-gal-prev-3 { display: flex; }#ev-gal-s5:checked ~ .ev-gal-nav .ev-gal-prev-4 { display: flex; }
+                    }
+                </style>
+                <div class="ev-gal-box">
+                        <input class="ev-gal-radio" type="radio" name="ev-gal-strana" id="ev-gal-s1" checked="checked"/>
+                        <input class="ev-gal-radio" type="radio" name="ev-gal-strana" id="ev-gal-s2"/>
+                        <input class="ev-gal-radio" type="radio" name="ev-gal-strana" id="ev-gal-s3"/>
+                        <input class="ev-gal-radio" type="radio" name="ev-gal-strana" id="ev-gal-s4"/>
+                        <input class="ev-gal-radio" type="radio" name="ev-gal-strana" id="ev-gal-s5"/>
+                    <div class="ev-gal-view">
+                        <div class="ev-gal-track">
+                                <div class="ev-gal-item">
+                                    <img loading="lazy" decoding="async" fetchpriority="low" width="500" height="667" src="/web/image/elite.vet.gallery.photo/1/image/500x667" alt="Elite Vet Karlovy Vary"/>
+                                </div>
+                                <div class="ev-gal-item">
+                                    <img loading="lazy" decoding="async" fetchpriority="low" width="500" height="667" src="/web/image/elite.vet.gallery.photo/2/image/500x667" alt="Elite Vet Karlovy Vary"/>
+                                </div>
+                                <div class="ev-gal-item">
+                                    <img loading="lazy" decoding="async" fetchpriority="low" width="500" height="667" src="/web/image/elite.vet.gallery.photo/3/image/500x667" alt="Elite Vet Karlovy Vary"/>
+                                </div>
+                                <div class="ev-gal-item">
+                                    <img loading="lazy" decoding="async" fetchpriority="low" width="500" height="667" src="/web/image/elite.vet.gallery.photo/4/image/500x667" alt="Elite Vet Karlovy Vary"/>
+                                </div>
+                                <div class="ev-gal-item">
+                                    <img loading="lazy" decoding="async" fetchpriority="low" width="500" height="667" src="/web/image/elite.vet.gallery.photo/5/image/500x667" alt="Elite Vet Karlovy Vary"/>
+                                </div>
+                                <div class="ev-gal-item">
+                                    <img loading="lazy" decoding="async" fetchpriority="low" width="500" height="667" src="/web/image/elite.vet.gallery.photo/6/image/500x667" alt="Elite Vet Karlovy Vary"/>
+                                </div>
+                                <div class="ev-gal-item">
+                                    <img loading="lazy" decoding="async" fetchpriority="low" width="500" height="667" src="/web/image/elite.vet.gallery.photo/7/image/500x667" alt="Elite Vet Karlovy Vary"/>
+                                </div>
+                                <div class="ev-gal-item">
+                                    <img loading="lazy" decoding="async" fetchpriority="low" width="500" height="667" src="/web/image/elite.vet.gallery.photo/8/image/500x667" alt="Elite Vet Karlovy Vary"/>
+                                </div>
+                                <div class="ev-gal-item">
+                                    <img loading="lazy" decoding="async" fetchpriority="low" width="500" height="667" src="/web/image/elite.vet.gallery.photo/9/image/500x667" alt="Elite Vet Karlovy Vary"/>
+                                </div>
+                                <div class="ev-gal-item">
+                                    <img loading="lazy" decoding="async" fetchpriority="low" width="500" height="667" src="/web/image/elite.vet.gallery.photo/10/image/500x667" alt="Elite Vet Karlovy Vary"/>
+                                </div>
+                                <div class="ev-gal-item">
+                                    <img loading="lazy" decoding="async" fetchpriority="low" width="500" height="667" src="/web/image/elite.vet.gallery.photo/11/image/500x667" alt="Elite Vet Karlovy Vary"/>
+                                </div>
+                                <div class="ev-gal-item">
+                                    <img loading="lazy" decoding="async" fetchpriority="low" width="500" height="667" src="/web/image/elite.vet.gallery.photo/12/image/500x667" alt="Elite Vet Karlovy Vary"/>
+                                </div>
+                                <div class="ev-gal-item">
+                                    <img loading="lazy" decoding="async" fetchpriority="low" width="500" height="667" src="/web/image/elite.vet.gallery.photo/13/image/500x667" alt="Elite Vet Karlovy Vary"/>
+                                </div>
+                                <div class="ev-gal-item">
+                                    <img loading="lazy" decoding="async" fetchpriority="low" width="500" height="667" src="/web/image/elite.vet.gallery.photo/14/image/500x667" alt="Elite Vet Karlovy Vary"/>
+                                </div>
+                        </div>
+                    </div>
+                    <div class="ev-gal-nav">
+                            <label class="ev-gal-arr ev-gal-arr--prev ev-gal-prev-1" aria-label="Předchozí fotky" for="ev-gal-s1"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg></label>
+                            <label class="ev-gal-arr ev-gal-arr--prev ev-gal-prev-2" aria-label="Předchozí fotky" for="ev-gal-s2"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg></label>
+                            <label class="ev-gal-arr ev-gal-arr--prev ev-gal-prev-3" aria-label="Předchozí fotky" for="ev-gal-s3"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg></label>
+                            <label class="ev-gal-arr ev-gal-arr--prev ev-gal-prev-4" aria-label="Předchozí fotky" for="ev-gal-s4"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg></label>
+                            <label aria-label="Další fotky" class="ev-gal-arr ev-gal-arr--next ev-gal-next-2" for="ev-gal-s2"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></label>
+                            <label aria-label="Další fotky" class="ev-gal-arr ev-gal-arr--next ev-gal-next-3" for="ev-gal-s3"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></label>
+                            <label aria-label="Další fotky" class="ev-gal-arr ev-gal-arr--next ev-gal-next-4" for="ev-gal-s4"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></label>
+                            <label aria-label="Další fotky" class="ev-gal-arr ev-gal-arr--next ev-gal-next-5" for="ev-gal-s5"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></label>
+                    </div>
+                </div>
+                <p class="ev-gal-hint">Fotky posunete prstem do strany</p>
+            </div>
+        </div>
+        
+        </section>
+    </template>
+
+    <!-- Elite Vet: služby -->
+    <template id="s_vet_sluzby" name="Elite Vet: služby">
+        <section class="s_vet_sluzby ev-services">
+        <div class="ev-container">
+            <div class="ev-section-head">
+                <div class="ev-badge">Naše služby</div>
+                <h2>Komplexní péče o vaše mazlíčky</h2>
+                <p>Psi, kočky a drobní savci — komplexní veterinární péče na jednom místě, s vybavením na velmi vysoké technologické úrovni. Naším cílem je poskytovat co nejširší péči pod jednou střechou.</p>
+            </div>
+
+            <div class="ev-species">
+                    <div class="ev-species-chip">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M11.25 16.25h1.5L12 17z"></path><path d="M16 14v.5"></path><path d="M4.42 11.247A13.152 13.152 0 0 0 4 14.556C4 18.728 7.582 21 12 21s8-2.272 8-6.444a11.702 11.702 0 0 0-.493-3.309"></path><path d="M8 14v.5"></path><path d="M8.5 8.5c-.384 1.05-1.083 2.028-2.344 2.5-1.931.722-3.576-.297-3.656-1-.113-.994 1.177-6.53 4-7 1.923-.321 3.651.845 3.651 2.235A7.497 7.497 0 0 1 14 5.277c0-1.39 1.844-2.598 3.767-2.277 2.823.47 4.113 6.006 4 7-.08.703-1.725 1.722-3.656 1-1.261-.472-1.96-1.45-2.344-2.5"></path>
+                        </svg>
+                        <span>Psi</span>
+                    </div>
+                    <div class="ev-species-chip">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 5c.67 0 1.35.09 2 .26 1.78-2 5.03-2.84 6.42-2.26 1.4.58-.42 7-.42 7 .57 1.07 1 2.24 1 3.44C21 17.9 16.97 21 12 21s-9-3.1-9-7.56c0-1.25.5-2.4 1-3.44 0 0-1.89-6.42-.5-7 1.39-.58 4.72.23 6.5 2.23A9.04 9.04 0 0 1 12 5z"></path><path d="M8 14v.5"></path><path d="M16 14v.5"></path><path d="M11.25 16.25h1.5L12 17z"></path>
+                        </svg>
+                        <span>Kočky</span>
+                    </div>
+                    <div class="ev-species-chip">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M13 16a3 3 0 0 1 2.24 5"></path><path d="M18 12h.01"></path><path d="M18 21h-8a4 4 0 0 1-4-4 7 7 0 0 1 7-7h.2L9.6 6.4a1 1 0 1 1 2.8-2.8L15.8 7h.2c3.3 0 6 2.7 6 6v1a2 2 0 0 1-2 2h-1a3 3 0 0 0-3 3"></path><path d="M20 8.54V4a2 2 0 1 0-4 0v3"></path><path d="M7.612 12.524a3 3 0 1 0-1.6 4.3"></path>
+                        </svg>
+                        <span>Drobní savci</span>
+                    </div>
+            </div>
+
+            <div class="ev-services-grid">
+                    <div class="ev-service-card">
+                        <div class="ev-service-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="28" height="28">
+        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline>
+        </svg>
+                        </div>
+                        <h3>Preventivní péče</h3>
+                        <p>Pravidelné prohlídky, vakcinace a odčervení. Prevence je základ zdraví vašeho mazlíčka.</p>
+                    </div>
+                    <div class="ev-service-card">
+                        <div class="ev-service-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="28" height="28">
+        <circle cx="12" cy="12" r="9"></circle><path d="M9 12h6M12 9v6"></path>
+        </svg>
+                        </div>
+                        <h3>Chirurgie</h3>
+                        <p>Kastrační a abdominální zákroky. Moderní operační sál s anesteziologickým monitoringem.</p>
+                    </div>
+                    <div class="ev-service-card">
+                        <div class="ev-service-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="28" height="28">
+        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+        </svg>
+                        </div>
+                        <h3>Interní medicína</h3>
+                        <p>Diagnostika a léčba vnitřních onemocnění, kardiologie, endokrinologie a gastroenterologie.</p>
+                    </div>
+                    <div class="ev-service-card">
+                        <div class="ev-service-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="28" height="28">
+        <circle cx="12" cy="12" r="3"></circle><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"></path>
+        </svg>
+                        </div>
+                        <h3>Diagnostika</h3>
+                        <p>RTG, ultrazvuk, laboratorní vyšetření krve a moči. Rychlá a přesná diagnostika pro správnou léčbu.​</p>
+                    </div>
+                    <div class="ev-service-card">
+                        <div class="ev-service-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="28" height="28">
+        <path d="M12 2C9.5 2 7 3 6 5C5 7 4.5 9.5 5 12C5.5 14.5 6.5 17 8 19C9 20.5 10.5 22 12 22C13.5 22 15 20.5 16 19C17.5 17 18.5 14.5 19 12C19.5 9.5 19 7 18 5C17 3 14.5 2 12 2Z"></path>
+        </svg>
+                        </div>
+                        <h3>Stomatologie</h3>
+                        <p>Ošetření zubů, extrakce, ultrazvukové čištění. Péče o dutinu ústní pro zdravý chrup vašeho mazlíčka.</p>
+                    </div>
+                    <div class="ev-service-card">
+                        <div class="ev-service-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="28" height="28">
+        <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"></path><circle cx="12" cy="12" r="3"></circle>
+        </svg>
+                        </div>
+                        <h3>Oftalmologie</h3>
+                        <p>Vyšetření a léčba očních onemocnění u malých zvířat, včetně diagnostiky a chirurgických zákroků.</p>
+                    </div>
+                    <div class="ev-service-card">
+                        <div class="ev-service-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="28" height="28">
+        <path d="M14 9V5a3 3 0 0 0-6 0v4"></path><rect x="5" y="9" width="14" height="12" rx="2"></rect><circle cx="12" cy="15" r="1"></circle>
+        </svg>
+                        </div>
+                        <h3>Dermatologie</h3>
+                        <p>Léčba kožních problémů, alergií a parazitárních onemocnění. Komplexní péče o kůži a srst.</p>
+                    </div>
+                    <div class="ev-service-card">
+                        <div class="ev-service-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="28" height="28">
+        <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+        </svg>
+                        </div>
+                        <h3>Ultrasonografie</h3>
+                        <p>Máme lékaře odborně zaměřené na ultrazvukovou diagnostiku. Tuto oblast dále rozvíjíme, a to i směrem ke kardiologickým vyšetřením.</p>
+                    </div>
+            </div>
+
+            <div class="ev-services-mobile-list">
+                    <details>
+                        <summary>
+                            <div class="ev-srv-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="22" height="22">
+        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline>
+        </svg>
+                            </div>
+                            <span class="ev-srv-title">Preventivní péče</span>
+                            <svg class="ev-srv-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                        </summary>
+                        <p class="ev-srv-body">Pravidelné prohlídky, vakcinace a odčervení. Prevence je základ zdraví vašeho mazlíčka.</p>
+                    </details>
+                    <details>
+                        <summary>
+                            <div class="ev-srv-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="22" height="22">
+        <circle cx="12" cy="12" r="9"></circle><path d="M9 12h6M12 9v6"></path>
+        </svg>
+                            </div>
+                            <span class="ev-srv-title">Chirurgie</span>
+                            <svg class="ev-srv-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                        </summary>
+                        <p class="ev-srv-body">Kastrační a abdominální zákroky. Moderní operační sál s anesteziologickým monitoringem.</p>
+                    </details>
+                    <details>
+                        <summary>
+                            <div class="ev-srv-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="22" height="22">
+        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+        </svg>
+                            </div>
+                            <span class="ev-srv-title">Interní medicína</span>
+                            <svg class="ev-srv-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                        </summary>
+                        <p class="ev-srv-body">Diagnostika a léčba vnitřních onemocnění, kardiologie, endokrinologie a gastroenterologie.</p>
+                    </details>
+                    <details>
+                        <summary>
+                            <div class="ev-srv-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="22" height="22">
+        <circle cx="12" cy="12" r="3"></circle><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"></path>
+        </svg>
+                            </div>
+                            <span class="ev-srv-title">Diagnostika</span>
+                            <svg class="ev-srv-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                        </summary>
+                        <p class="ev-srv-body">RTG, ultrazvuk, laboratorní vyšetření krve a moči. Rychlá a přesná diagnostika pro správnou léčbu.​</p>
+                    </details>
+                    <details>
+                        <summary>
+                            <div class="ev-srv-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="22" height="22">
+        <path d="M12 2C9.5 2 7 3 6 5C5 7 4.5 9.5 5 12C5.5 14.5 6.5 17 8 19C9 20.5 10.5 22 12 22C13.5 22 15 20.5 16 19C17.5 17 18.5 14.5 19 12C19.5 9.5 19 7 18 5C17 3 14.5 2 12 2Z"></path>
+        </svg>
+                            </div>
+                            <span class="ev-srv-title">Stomatologie</span>
+                            <svg class="ev-srv-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                        </summary>
+                        <p class="ev-srv-body">Ošetření zubů, extrakce, ultrazvukové čištění. Péče o dutinu ústní pro zdravý chrup vašeho mazlíčka.</p>
+                    </details>
+                    <details>
+                        <summary>
+                            <div class="ev-srv-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="22" height="22">
+        <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"></path><circle cx="12" cy="12" r="3"></circle>
+        </svg>
+                            </div>
+                            <span class="ev-srv-title">Oftalmologie</span>
+                            <svg class="ev-srv-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                        </summary>
+                        <p class="ev-srv-body">Vyšetření a léčba očních onemocnění u malých zvířat, včetně diagnostiky a chirurgických zákroků.</p>
+                    </details>
+                    <details>
+                        <summary>
+                            <div class="ev-srv-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="22" height="22">
+        <path d="M14 9V5a3 3 0 0 0-6 0v4"></path><rect x="5" y="9" width="14" height="12" rx="2"></rect><circle cx="12" cy="15" r="1"></circle>
+        </svg>
+                            </div>
+                            <span class="ev-srv-title">Dermatologie</span>
+                            <svg class="ev-srv-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                        </summary>
+                        <p class="ev-srv-body">Léčba kožních problémů, alergií a parazitárních onemocnění. Komplexní péče o kůži a srst.</p>
+                    </details>
+                    <details>
+                        <summary>
+                            <div class="ev-srv-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="22" height="22">
+        <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+        </svg>
+                            </div>
+                            <span class="ev-srv-title">Ultrasonografie</span>
+                            <svg class="ev-srv-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                        </summary>
+                        <p class="ev-srv-body">Máme lékaře odborně zaměřené na ultrazvukovou diagnostiku. Tuto oblast dále rozvíjíme, a to i směrem ke kardiologickým vyšetřením.</p>
+                    </details>
+            </div>
+        </div>
+        
+        </section>
+    </template>
+
+    <!-- Elite Vet: pozvánka na tým -->
+    <template id="s_vet_tym" name="Elite Vet: pozvánka na tým">
+        <section class="s_vet_tym ev-teamcta">
+        <div class="ev-container">
+            <div class="ev-teamcta-card">
+                <div class="ev-blob-1"></div>
+                <div class="ev-blob-2"></div>
+                <div class="ev-teamcta-icon">
+                    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                        <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                    </svg>
+                </div>
+                <div class="ev-teamcta-badge">Náš tým</div>
+                <h2>Odborný tým pro zdraví vašich mazlíčků</h2>
+                <p class="ev-teamcta-text">Za Elite Vet stojí tým zkušených veterinářů a specialistů. Poznejte lidi, kteří otevírají naši kliniku v Karlových Varech.</p>
+                <a href="/nas-tym" class="ev-teamcta-btn">
+                    Poznejte náš tým<br/>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </a>
+            </div>
+        </div>
+        
+        </section>
+    </template>
+
+    <!-- Elite Vet: kontakt a hodiny -->
+    <template id="s_vet_kontakt" name="Elite Vet: kontakt a hodiny">
+        <section class="s_vet_kontakt ev-contact">
+        <div class="ev-container">
+            <div class="ev-section-head">
+                <div class="ev-badge">Kontakt</div>
+                <h2>Navštivte nás</h2>
+                <p>Objednejte se telefonicky nebo e-mailem.</p>
+            </div>
+            <div class="ev-contact-grid">
+
+                <div class="ev-contact-stack">
+                        <div class="ev-contact-card">
+                            <div class="ev-contact-card-inner">
+                                <div class="ev-contact-card-icon">
+                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                            <circle cx="12" cy="10" r="3"></circle>
+                                    </svg>
+                                </div>
+                                <div class="ev-contact-card-body">
+                                    <h3>Adresa</h3>
+                                    <a class="ev-contact-link" href="https://www.google.com/maps/place/ELITE+Veterin%C3%A1rn%C3%AD+Klinika/@50.2324691,12.8591764,17z/data=!4m6!3m5!1s0x47a0994d82cd5559:0xe9031539fb1b184c!8m2!3d50.2324692!4d12.8640473!16s%2Fg%2F11zf3w1c3h" target="_blank" rel="noopener noreferrer">
+                                        <span>Hybešova 167/18, Rybáře</span>
+                                        <br/><span>360 05 Karlovy Vary</span>
+                                    </a>
+                                </div>
+                                <svg class="ev-contact-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                            </div>
+                        </div>
+                        <div class="ev-contact-card">
+                            <div class="ev-contact-card-inner">
+                                <div class="ev-contact-card-icon">
+                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                                    </svg>
+                                </div>
+                                <div class="ev-contact-card-body">
+                                    <h3>Telefon – Recepce</h3>
+                                    <a class="ev-contact-link" href="tel:+420722599699">
+                                        <span>+420 722 599 699</span>
+                                    </a>
+                                    <p class="ev-contact-role">Objednávání, informace a běžné dotazy</p>
+                                </div>
+                                <svg class="ev-contact-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                            </div>
+                        </div>
+                        <div class="ev-contact-card">
+                            <div class="ev-contact-card-inner">
+                                <div class="ev-contact-card-icon">
+                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                            <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                                            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                                    </svg>
+                                </div>
+                                <div class="ev-contact-card-body">
+                                    <h3>E-mail</h3>
+                                    <a class="ev-contact-link" href="mailto:info@elite-vet.cz">
+                                        <span>info@elite-vet.cz</span>
+                                    </a>
+                                </div>
+                                <svg class="ev-contact-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                            </div>
+                        </div>
+                </div>
+
+            <div class="ev-contact-bottom">
+                <div class="ev-hours">
+                    <h3 class="ev-hours-h3-desk">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                        Otevíráme brzy
+                    </h3>
+                    <h3 class="ev-hours-h3-mob">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                        Ordinační hodiny
+                    </h3>
+
+                    <div class="ev-hours-table">
+                            <div class="ev-hours-row">
+                                <span class="ev-hours-day">Po – Pá</span>
+                                <span class="ev-hours-time">8:00 – 20:00</span>
+                            </div>
+                            <div class="ev-hours-row">
+                                <span class="ev-hours-day">So – Ne</span>
+                                <span class="ev-hours-time">10:00 – 18:00</span>
+                            </div>
+                    </div>
+
+                    <p class="ev-hours-note">
+                        Ošetření mimo ordinační dobu je možné pouze po předchozí telefonické domluvě a potvrzení dostupnosti týmu. Nejedná se o nepřetržitý provoz.
+                    </p>
+                    <a href="/rezervacni-system" class="ev-call ev-call--full" style="margin-top: 22px;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="4" width="18" height="18" rx="2"></rect>
+                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                        </svg>
+                        Objednat se
+                    </a>
+                </div>
+
+                <a target="_blank" rel="noopener noreferrer" class="ev-map" id="mapa" href="https://www.google.com/maps/place/ELITE+Veterin%C3%A1rn%C3%AD+Klinika/@50.2324691,12.8591764,17z/data=!4m6!3m5!1s0x47a0994d82cd5559:0xe9031539fb1b184c!8m2!3d50.2324692!4d12.8640473!16s%2Fg%2F11zf3w1c3h">
+                    <div class="ev-map-static"></div>
+                    <div class="ev-map-pin">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                            <circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                    </div>
+                    <div class="ev-map-overlay">
+                        <p class="ev-map-addr">Hybešova 167/18</p>
+                        <p>Rybáře, 360 05 Karlovy Vary</p>
+                        <span class="ev-map-link">
+                            Otevřít v mapách
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                <polyline points="15 3 21 3 21 9"></polyline>
+                                <line x1="10" y1="14" x2="21" y2="3"></line>
+                            </svg>
+                        </span>
+                    </div>
+                </a>
+                </div>
+            </div>
+
+
+            <div class="ev-cd-social">
+                <a target="_blank" rel="noopener noreferrer" class="ev-cd-soc ev-cd-ig" aria-label="Instagram" href="https://www.instagram.com/elite.vet.kv/">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41 1.27-.06 1.65-.07 4.85-.07zm0 5.18a4.66 4.66 0 1 0 0 9.32 4.66 4.66 0 0 0 0-9.32zm0 7.69a3.03 3.03 0 1 1 0-6.06 3.03 3.03 0 0 1 0 6.06zm5.94-7.87a1.09 1.09 0 1 1-2.18 0 1.09 1.09 0 0 1 2.18 0z"></path></svg>
+                </a>
+                <a target="_blank" rel="noopener noreferrer" class="ev-cd-soc ev-cd-fb" aria-label="Facebook" href="https://www.facebook.com/profile.php?id=61563700208751">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5.02 3.66 9.18 8.44 9.94v-7.03H7.9v-2.91h2.54V9.85c0-2.52 1.49-3.91 3.77-3.91 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.78-1.63 1.57v1.89h2.78l-.44 2.91h-2.34V22c4.78-.76 8.44-4.92 8.44-9.94z"></path></svg>
+                </a>
+            </div>
+        </div>
+        
+        </section>
+    </template>
+
+</odoo>

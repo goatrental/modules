@@ -17,8 +17,16 @@
     "depends": ["website"],
     "data": [
         "views/layout.xml",
+        "views/bloky.xml",
         "views/snippets.xml",
     ],
+    # Styl bloku se nacita na vsech strankach. Inline <style> uvnitr
+    # domovske stranky by se na blok pretazeny jinam nevztahoval.
+    "assets": {
+        "web.assets_frontend": [
+            "elite_vet_theme/static/src/css/bloky.css",
+        ],
+    },
     "installable": True,
     "application": False,
 }
