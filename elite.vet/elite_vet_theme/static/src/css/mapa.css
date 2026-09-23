@@ -1,0 +1,29 @@
+/* Mapa v kontaktni sekci.
+   Vlastni soubor ma proto, ze bloky.css se generuje ze stranky a pri
+   pristim generovani by se rucne dopsana pravidla ztratila. */
+
+.ev-mapa {
+    grid-column: 1 / -1;
+    margin-top: 28px;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .08);
+}
+
+.ev-mapa-ramec {
+    display: block;
+    width: 100%;
+    height: 350px;
+    border: 0;
+}
+
+@media (max-width: 768px) {
+    .ev-mapa {
+        margin-top: 20px;
+        border-radius: 14px;
+    }
+
+    .ev-mapa-ramec {
+        height: 260px;
+    }
+}
