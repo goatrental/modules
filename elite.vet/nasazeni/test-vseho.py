@@ -187,7 +187,10 @@ viditelne = telo(stahni("/"))
 krok("schovana: kolecko 24/7 na strance neni", "ev-fab247-wrap" not in viditelne)
 krok("schovana: bublina 24/7 na strance neni", 'id="ev-coach"' not in viditelne)
 krok("schovana: v hodinach neni zminka o lince", "ev-hours-emergency" not in viditelne)
-krok("schovana: nikde nezustalo 24/7", "24/7" not in viditelne)
+# Zminka o 24/7 smi zustat, kdyz rika, ze pohotovost NEBEZI — presne to
+# si klinika do banneru napsala. Hlida se, ze ji stranka neslibuje.
+krok("schovana: stranka pohotovost neslibuje",
+     "ev-coach-call" not in viditelne and "ev-fab247" not in viditelne)
 
 nastaveni.emergency_mode = "soon"
 env.cr.commit()
@@ -248,8 +251,8 @@ krok("pole textu pohotovosti se ulozila",
 nastaveni.emergency_mode = "hidden"
 env.cr.commit()
 schovana = telo(stahni("/"))
-krok("ve schovanem rezimu neni po pohotovosti stopa",
-     "24/7" not in schovana and "ev-fab247-wrap" not in schovana)
+krok("ve schovanem rezimu stranka pohotovost neslibuje",
+     "ev-fab247-wrap" not in schovana and 'id="ev-coach"' not in schovana)
 nastaveni.emergency_mode = "soon"
 env.cr.commit()
 
