@@ -201,15 +201,20 @@ def _nastav_homepage(env):
         'website_indexed': True,
     }
 
+    Stranka = env['website.page']
     web = _zvol_web(env)
+
+    # 1. Web uz svoji domovskou stranku ma — jen se prepne na nasi sablonu.
     if web:
-        vlastni = env['website.page'].search(
+        vlastni = Stranka.search(
             [('url', '=', '/'), ('website_id', '=', web.id)], limit=1)
         if vlastni:
             vlastni.write(zmena)
             _logger.info("Homepage webu '%s' prepnuta na sablonu modulu.", web.name)
+            _uklidit_obecne_homepage(env, sablona)
             return
 
+    # 2. Jediny web v databazi: obecna stranka je jeho, takze se prepne ta.
     if env['website'].search_count([]) <= 1:
         obecna = env.ref('website.homepage_page', raise_if_not_found=False)
         if obecna:
@@ -217,12 +222,43 @@ def _nastav_homepage(env):
             _logger.info("Obecna homepage prepnuta na sablonu modulu.")
         return
 
-    _logger.warning(
-        "Homepage se neprepnula. V databazi je vic webu a Elite Vet nema vlastni "
-        "stranku na '/'. Prepsat obecnou stranku by zmenilo homepage i ostatnim "
-        "webum, takze to necham na cloveku: Nastaveni -> Technicke -> Web -> "
-        "Stranky, najit '/' webu Elite Vet a v poli Zobrazeni vybrat "
-        "elite_vet_web.homepage.")
+    # 3. Webu je vic. Obecnou stranku Odoo nesmime prepsat, protoze by se
+    #    veterinarni homepage objevila i ostatnim webum. Zalozi se proto
+    #    vlastni stranka jen pro web Elite Vet.
+    if not web:
+        _logger.warning(
+            "Homepage se neprepnula: v databazi je vic webu a nepodarilo se "
+            "urcit, ktery patri Elite Vet.")
+        return
+
+    Stranka.create(dict(zmena, url='/', website_id=web.id))
+    _logger.info("Webu '%s' zalozena vlastni homepage na sablone modulu.", web.name)
+    _uklidit_obecne_homepage(env, sablona)
+
+
+def _uklidit_obecne_homepage(env, sablona):
+    """Prisije k webu obecne stranky "/", ktere ukazuji na nasi sablonu.
+
+    Dve OBECNE stranky na teze adrese znamenaji, ze si obsluha "/" vybere
+    spatnou a misto homepage presmeruje na prvni polozku menu. Prave na tom
+    stalo nasazeni: vedle Odoo vlastni stranky vznikla druha, obecna,
+    ukazujici na nasi sablonu.
+    """
+    from odoo.addons.elite_vet_calendar import _zvol_web
+
+    web = _zvol_web(env)
+    if not web:
+        return
+    zbytecne = env['website.page'].search([
+        ('url', '=', '/'),
+        ('website_id', '=', False),
+        ('view_id', '=', sablona.id),
+    ])
+    if zbytecne:
+        zbytecne.write({'website_id': web.id})
+        _logger.info(
+            "Obecnych homepage na sablone modulu prisito k webu '%s': %s.",
+            web.name, len(zbytecne))
 
 
 def _nastav_seo(env):
