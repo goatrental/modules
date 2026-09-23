@@ -100,16 +100,6 @@
     <template id="sekce_objednat" name="Blok: Tlačítko Objednat se">
             <!-- Ramecek s vysvetlenim priplatku. Obsah se pise v adminu
                  (Nastaveni kontaktu -> Ramecek pod uvodni sekci). -->
-            <style>
-                .ev-hero-note { max-width: 980px; margin: 0 auto; padding: 0 24px; }
-                .ev-hero-note-in { background: #fff; border: 1px solid var(--ev-border); border-left: 4px solid var(--ev-accent); border-radius: 16px; padding: 20px 24px; font-size: 15px; line-height: 1.7; color: var(--ev-text-secondary); }
-                .ev-hero-note-in p:last-child { margin-bottom: 0; }
-                .ev-hero-note-in a { color: var(--ev-accent); font-weight: 700; }
-                @media (max-width: 560px) {
-                    .ev-hero-note { padding: 0 16px; }
-                    .ev-hero-note-in { padding: 16px 18px; font-size: 14.5px; }
-                }
-            </style>
             <div t-if="ev_web and ev_web.hero_note" class="ev-hero-note">
                 <div class="ev-hero-note-in" t-out="ev_web.hero_note"></div>
             </div>

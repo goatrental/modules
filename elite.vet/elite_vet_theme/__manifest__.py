@@ -17,6 +17,7 @@
     "depends": ["website"],
     "data": [
         "views/layout.xml",
+        "views/snippets.xml",
     ],
     "installable": True,
     "application": False,

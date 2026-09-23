@@ -44,6 +44,24 @@
             .ev-burger-sublink { padding: 8px 0; font-size: .95em; color: #1a2744; opacity: .85; }
             .ev-burger-sublink:hover { color: #2b7870; opacity: 1; }
 
+            /* Ramecek s poznamkou. Je tady, a ne u domovske stranky, protoze
+               stejny blok jde pretahnout na kteroukoliv stranku. */
+            .ev-hero-note { max-width: 980px; margin: 0 auto; padding: 0 24px; }
+            .ev-hero-note-in { background: #fff; border: 1px solid var(--ev-border, #e2e8f0); border-left: 4px solid var(--ev-accent, #2b7870); border-radius: 16px; padding: 20px 24px; font-size: 15px; line-height: 1.7; color: var(--ev-text-secondary, #64748b); }
+            .ev-hero-note-in p:last-child { margin-bottom: 0; }
+            .ev-hero-note-in a { color: var(--ev-accent, #2b7870); font-weight: 700; }
+
+            /* Jazykova brana prekryva celou obrazovku, takze by v editoru
+               nebylo videt, co se upravuje. V editoru se proto schova. */
+            body.editor_enable .ev-langgate,
+            body.editor_has_snippets .ev-langgate,
+            body.o_translate_mode .ev-langgate { display: none !important; }
+
+            @media (max-width: 560px) {
+                .ev-hero-note { padding: 0 16px; }
+                .ev-hero-note-in { padding: 16px 18px; font-size: 14.5px; }
+            }
+
             /* Na mobilu se cela horni lista schova do burgeru. Rozbalovaci
                polozka neni odkaz, takze ji pravidlo pro a:not(...) minulo. */
             @media (max-width: 768px) {

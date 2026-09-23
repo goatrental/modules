@@ -1109,9 +1109,17 @@
                                 <!-- Obsahove bloky stranky. Poradi i to, ktery se ukaze, ridi admin
                      (Web kliniky -> Bloky stranky). Kdyz model jeste neexistuje,
                      vykresli se vsechny v zakladnim poradi. -->
+                <!-- Volne misto nad sekcemi. Odoo sem pusti stavebni bloky jen tehdy,
+                     kdyz ma zona v id retezec "oe_structure" — jinak ji nema kam ulozit
+                     a v editoru zesednou vsechny bloky. -->
+                <div id="oe_structure_homepage_nad" class="oe_structure"></div>
+
                 <t t-foreach="ev_bloky" t-as="ev_blok">
                     <t t-call="{{ ev_blok.qweb_template }}"/>
                 </t>
+
+                <!-- Volne misto pod sekcemi. -->
+                <div id="oe_structure_homepage_pod" class="oe_structure"></div>
 
                 <!-- =========================== COACH-MARK OVERLAY (ztmavení po otevření) =========================== -->
                 <div t-if="ev_pohotovost_videt" class="ev-coach" id="ev-coach">
