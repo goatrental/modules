@@ -468,12 +468,18 @@ body.editor_enable details:not(.ev-call):not(.ev-burger):not(.ev-lang)::details-
 }
 
 
+
 /* ---- oznamovaci pruh ---- */
-/* Barva se prepina tridou z bociniho panelu, proto vsechno jede pres
-   promenne — staci prepsat je a prebarvi se cely pruh. */
+/* Vsechno stoji na dvou promennych, aby stacilo v bocnim panelu vybrat jednu
+   barvu a prebarvila se tecka i linky zaroven. Pripravene varianty promenne
+   prepisuji tridou, vlastni vyber je zapise primo do stylu prvku — a ten
+   tridu prebije, takze obe cesty funguji vedle sebe. */
 .ev-oznam { --oznam-pozadi: #e8f1fb; --oznam-text: #1a2744; --oznam-cara: #3b82f6;
             position: relative; background: var(--oznam-pozadi); color: var(--oznam-text);
-            border-top: 1px solid var(--oznam-cara); border-bottom: 1px solid var(--oznam-cara); }
+            border-top: 2px solid var(--oznam-cara);
+            border-bottom: 2px solid var(--oznam-cara); }
+.ev-oznam--bez-car { border-top-color: transparent; border-bottom-color: transparent; }
+
 .ev-oznam-in { max-width: 1200px; margin: 0 auto; padding: 15px 24px;
                display: flex; align-items: center; justify-content: center; gap: 13px; }
 .ev-oznam-text { font-size: 15.5px; line-height: 1.55; text-align: center; }
@@ -481,7 +487,7 @@ body.editor_enable details:not(.ev-call):not(.ev-burger):not(.ev-lang)::details-
 .ev-oznam-text p + p { margin-top: 5px; }
 .ev-oznam-text a { color: var(--oznam-cara); font-weight: 700; }
 
-/* Blikajici tecka — rekne na prvni pohled, ze pruh je aktualni. */
+/* Blikajici tecka bere barvu ze stejne promenne jako linky. */
 .ev-oznam-tecka { flex-shrink: 0; width: 10px; height: 10px; border-radius: 9999px;
                   background: var(--oznam-cara);
                   box-shadow: 0 0 0 0 var(--oznam-cara);

@@ -474,6 +474,15 @@ chybejici_barvy = [b for b in ("ev-oznam--info", "ev-oznam--uspech", "ev-oznam--
                    if b not in arch_voleb]
 krok("pruh nabizi vsechny barvy %s" % (chybejici_barvy or ""), not chybejici_barvy)
 
+# Tecka i linky beru barvu z teze promenne, takze jeden vyber prebarvi oboji.
+krok("pruh ma vyber barvy tecky a linek",
+     "--oznam-cara" in arch_voleb)
+krok("pruh ma vyber barvy pozadi",
+     "--oznam-pozadi" in arch_voleb)
+krok("linky nad a pod pruhem jdou vypnout",
+     "ev-oznam--bez-car" in arch_voleb)
+krok("tecka jde schovat", "ev-oznam--bez-tecky" in arch_voleb)
+
 # Spodni prouzek paticky na webu nikdy nebyl.
 krok("paticka nema spodni prouzek s jazyky",
      "ev-footer-bottom" not in stahni("/"))

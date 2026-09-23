@@ -5,13 +5,14 @@
         Oznamovaci pruh pres celou sirku. Klinika do nej pise, ze se neco deje —
         zmena ordinacnich hodin, dovolena, mimoradna akce.
 
-        Blikajici tecka je tam proto, aby pruh na prvni pohled rekl "tohle je
-        ted aktualni". Kdo ma v systemu vypnute animace, vidi ji staticky.
+        Blikajici tecka rekne na prvni pohled "tohle je ted aktualni". Kdo ma
+        v systemu vypnute animace, vidi ji staticky.
 
-        Text se prepisuje primo v editoru. Barvu resi dve cesty:
-          - prepinac "Barva pruhu" nize (pet pripravenych variant),
-          - a protoze je koren <section> s tridou o_cc, funguje na nem
-            i standardni volba pozadi, kterou Odoo dava kazde sekci.
+        Barvy stoji na dvou promennych, ktere dedi cely pruh:
+            oznam-cara    tecka a linky nad a pod pruhem,
+            oznam-pozadi  pozadi pruhu.
+        Diky tomu staci v bocnim panelu vybrat jednu barvu a prebarvi se
+        tecka i linky zaroven.
     -->
     <template id="s_vet_oznameni" name="Elite Vet: oznamovací pruh">
         <section class="s_vet_oznameni ev-oznam ev-oznam--info o_cc o_cc2">
@@ -24,20 +25,38 @@
         </section>
     </template>
 
-    <!-- Prepinac barvy v bocnim panelu. Meni se jen trida, takze uprava
-         prezije ulozeni i pozdejsi zmenu textu. -->
+    <!--
+        Volby v bocnim panelu. Pripravene varianty meni tridu, vlastni barva
+        zapisuje primo promennou do stylu prvku — a ta prebije tridu, takze
+        obe cesty muzou existovat vedle sebe.
+    -->
     <template id="snippet_options_vet_oznameni" inherit_id="website.snippet_options">
         <xpath expr="//div[@data-js='ContainerWidth']" position="before">
             <div data-selector=".s_vet_oznameni">
-                <we-select string="Barva pruhu">
+                <we-select string="Připravené barvy">
                     <we-button data-select-class="ev-oznam--info">Modrý</we-button>
                     <we-button data-select-class="ev-oznam--uspech">Zelený</we-button>
                     <we-button data-select-class="ev-oznam--pozor">Oranžový</we-button>
                     <we-button data-select-class="ev-oznam--dulezite">Červený</we-button>
                     <we-button data-select-class="ev-oznam--tmavy">Tmavý</we-button>
                 </we-select>
-                <!-- Zaskrtnute = trida se prida, proto je popisek "schovat". -->
-                <we-checkbox string="Schovat tečku" data-select-class="ev-oznam--bez-tecky"
+
+                <!-- Jedna barva pro tecku i linky. Zapisuje se do promenne
+                     oznam-cara, ze ktere obe veci cerpaji. -->
+                <we-colorpicker string="Barva tečky a linek"
+                                data-select-style="true"
+                                data-css-property="--oznam-cara"/>
+
+                <we-colorpicker string="Barva pozadí"
+                                data-select-style="true"
+                                data-css-property="--oznam-pozadi"/>
+
+                <!-- Zaskrtnute = trida se prida, proto jsou popisky "schovat". -->
+                <we-checkbox string="Schovat linky nad a pod"
+                             data-select-class="ev-oznam--bez-car"
+                             data-no-preview="true"/>
+                <we-checkbox string="Schovat tečku"
+                             data-select-class="ev-oznam--bez-tecky"
                              data-no-preview="true"/>
             </div>
         </xpath>
