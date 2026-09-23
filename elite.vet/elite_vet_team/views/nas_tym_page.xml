@@ -503,13 +503,13 @@
                     <h2>The team keeps growing</h2>
                     <p>We keep adding more doctors and specialist staff to the clinic's team. We are looking for colleagues to join our newly forming team — from experienced vets to fresh graduates.</p>
                     <div class="tm-outro-cta">
-                        <a t-attf-href="tel:#{ev_web.hr_phone or ev_web.phone or '+420728549095'}" class="ev-call ev-call--outro">
+                        <a t-attf-href="tel:#{(ev_web.hr_phone if ev_web else False) or (ev_web.phone if ev_web else False) or '+420728549095'}" class="ev-call ev-call--outro">
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
                             </svg>
                             Recruitment contact
                         </a>
-                        <a t-attf-href="mailto:#{ev_web.hr_email or ev_web.email or 'info@elite-vet.cz'}?subject=Zájem o pozici v Elite Vet Karlovy Vary" class="tm-btn-ghost">
+                        <a t-attf-href="mailto:#{(ev_web.hr_email if ev_web else False) or (ev_web.email if ev_web else False) or 'info@elite-vet.cz'}?subject=Zájem o pozici v Elite Vet Karlovy Vary" class="tm-btn-ghost">
                             <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <rect x="2" y="4" width="20" height="16" rx="2"/>
                                 <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>

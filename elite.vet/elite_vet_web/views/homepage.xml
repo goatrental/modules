@@ -1775,19 +1775,19 @@
                             24/7 emergency line
                         </div>
                         <p t-if="not ev_pohotovost" class="ev-coach-text">
-                            <t t-if="ev_web and ev_web.emergency_off_text"><t t-out="ev_web.emergency_off_text"/></t>
+                            <t t-if="ev_web and ev_web.emergency_off_text"><t t-out="(ev_web.emergency_off_text if ev_web else False)"/></t>
                             <t t-else="">If something happens to your pet, you'll always find our emergency line right here. We'll soon launch round-the-clock 24/7 availability for acute cases.</t>
                         </p>
                         <p t-else="" class="ev-coach-text">If something happens to your pet, call us any time. Our emergency line is here round the clock for acute cases.</p>
                         <button type="button" class="ev-coach-btn" id="ev-coach-ok">Got it</button>
                         <button t-if="not ev_pohotovost" type="button" class="ev-coach-call" disabled="disabled" aria-disabled="true">
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                            <t t-if="ev_web and ev_web.emergency_off_button"><t t-out="ev_web.emergency_off_button"/></t>
+                            <t t-if="ev_web and ev_web.emergency_off_button"><t t-out="(ev_web.emergency_off_button if ev_web else False)"/></t>
                             <t t-else="">Call SOON</t>
                         </button>
-                        <a t-else="" t-attf-href="tel:#{ev_web.emergency_phone}" class="ev-coach-call ev-coach-call--zive">
+                        <a t-else="" t-attf-href="tel:#{(ev_web.emergency_phone if ev_web else False)}" class="ev-coach-call ev-coach-call--zive">
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                            <span t-out="ev_web.emergency_phone_display or ev_web.emergency_phone"></span>
+                            <span t-out="(ev_web.emergency_phone_display if ev_web else False) or (ev_web.emergency_phone if ev_web else False)"></span>
                         </a>
                     </div>
                 </div>
@@ -1796,7 +1796,7 @@
                 <!-- Kolecko je bud jen obrazek s bublinou (dokud pohotovost nebezi),
                      nebo primo odkaz na telefon. Prepina se v Nastaveni webu. -->
                 <div t-if="ev_pohotovost_videt" class="ev-fab247-wrap">
-                    <a t-if="ev_pohotovost" t-attf-href="tel:#{ev_web.emergency_phone}" class="ev-fab247" aria-label="24/7 emergency line">
+                    <a t-if="ev_pohotovost" t-attf-href="tel:#{(ev_web.emergency_phone if ev_web else False)}" class="ev-fab247" aria-label="24/7 emergency line">
                         <svg class="ev-fab247-phone" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
                         <span class="ev-fab247-num">24/7</span>
                     </a>

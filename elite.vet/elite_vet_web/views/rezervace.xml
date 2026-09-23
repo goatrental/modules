@@ -954,11 +954,11 @@
                         <h1>Book your appointment</h1>
                         <p class="ev-rezhero-lead">Select a free appointment with our doctors online, whenever it suits you. If you are unsure, call the reception and we will book you in ourselves.</p>
                         <div class="ev-rezhero-meta">
-                            <a t-attf-href="tel:#{ev_web.phone or '+420722599699'}" class="ev-rezhero-chip">
+                            <a t-attf-href="tel:#{(ev_web.phone if ev_web else False) or '+420722599699'}" class="ev-rezhero-chip">
                                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                     <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
                                 </svg>
-                                <t t-out="ev_web.phone_display or ev_web.phone or '+420 722 599 699'"/>
+                                <t t-out="(ev_web.phone_display if ev_web else False) or (ev_web.phone if ev_web else False) or '+420 722 599 699'"/>
                             </a>
                             <span class="ev-rezhero-chip">
                                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -967,7 +967,7 @@
                                 </svg>
                                 <t t-foreach="ev_hodiny" t-as="ev_h"><t t-if="ev_h_index"> · </t><span t-out="ev_h.dny()"></span> <span t-field="ev_h.time_text"></span></t>
                             </span>
-                            <a t-att-href="ev_web.map_url or 'https://www.google.com/maps/place/ELITE+Veterin%C3%A1rn%C3%AD+Klinika/@50.2324691,12.8591764,17z/data=!4m6!3m5!1s0x47a0994d82cd5559:0xe9031539fb1b184c!8m2!3d50.2324692!4d12.8640473!16s%2Fg%2F11zf3w1c3h'" target="_blank" rel="noopener noreferrer" class="ev-rezhero-chip">
+                            <a t-att-href="(ev_web.map_url if ev_web else False) or 'https://www.google.com/maps/place/ELITE+Veterin%C3%A1rn%C3%AD+Klinika/@50.2324691,12.8591764,17z/data=!4m6!3m5!1s0x47a0994d82cd5559:0xe9031539fb1b184c!8m2!3d50.2324692!4d12.8640473!16s%2Fg%2F11zf3w1c3h'" target="_blank" rel="noopener noreferrer" class="ev-rezhero-chip">
                                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                     <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
                                     <circle cx="12" cy="10" r="3"/>
@@ -988,12 +988,12 @@
                            neviditelne a nikdo by se na nej neproklikal. Novy jazyk = novy radek. -->
                       <div class="evrez-nacitani" aria-hidden="true">
                         <span class="evrez-spinner"></span>
-                        <span t-out="ev_web.booking_loading_title or 'Načítáme rezervační systém…'"></span>
-                        <span class="evrez-nacitani-podtext" t-out="ev_web.booking_loading_note or ''"></span>
+                        <span t-out="(ev_web.booking_loading_title if ev_web else False) or 'Načítáme rezervační systém…'"></span>
+                        <span class="evrez-nacitani-podtext" t-out="(ev_web.booking_loading_note if ev_web else False) or ''"></span>
                       </div>
                       <!-- Zamerne BEZ loading="lazy": rezervace je hlavni obsah stranky,
                            nema smysl s ni cekat, az k ni nekdo doscrolluje. -->
-                      <iframe t-att-src="ev_web.booking_url or 'https://reservation.winvet.cz/booking/f5832eae07850edb2b5a1167843ef423'" title="Elite Vet booking system" scrolling="no" loading="eager"></iframe>
+                      <iframe t-att-src="(ev_web.booking_url if ev_web else False) or 'https://reservation.winvet.cz/booking/f5832eae07850edb2b5a1167843ef423'" title="Elite Vet booking system" scrolling="no" loading="eager"></iframe>
                     </div>
                   </div>
                 </div>
@@ -1002,13 +1002,13 @@
                 <!-- Vychozi misto textu je tady, pod rameckem. Skript nize ho na dobu
                      nacitani presune dovnitr a po nacteni WinVetu vrati zpatky. -->
                 <div class="evrez-zprava-misto">
-                    <p t-if="ev_web.booking_loading_middle" class="evrez-zprava" t-out="ev_web.booking_loading_middle"></p>
+                    <p t-if="(ev_web.booking_loading_middle if ev_web else False)" class="evrez-zprava" t-out="(ev_web.booking_loading_middle if ev_web else False)"></p>
                 </div>
                 <!-- Kdo si neni jisty, ke kteremu lekari se objednat, se odsud dostane
                      na rozpis sluzeb. url_for doplni jazykovou predponu, bez ni by klik
                      v in-app prohlizeci Instagramu skoncil zpatky v cestine. -->
                 <section class="evrez-rozpis o_colored_level">
-                    <p class="evrez-rozpis-lead" t-out="ev_web.schedule_link_lead or ''"></p>
+                    <p class="evrez-rozpis-lead" t-out="(ev_web.schedule_link_lead if ev_web else False) or ''"></p>
                     <a t-att-href="url_for('/rozpis-lekaru')" class="evrez-rozpis-btn">
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <rect x="3" y="4" width="18" height="18" rx="2"/>
@@ -1018,7 +1018,7 @@
                             <line x1="8" y1="14" x2="16" y2="14"/>
                             <line x1="8" y1="18" x2="13" y2="18"/>
                         </svg>
-                        <span t-out="ev_web.schedule_link_button or 'Rozpis služeb'"></span>
+                        <span t-out="(ev_web.schedule_link_button if ev_web else False) or 'Rozpis služeb'"></span>
                     </a>
                 </section>
 
