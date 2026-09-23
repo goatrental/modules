@@ -362,6 +362,7 @@ msgstr "Postavili jsme moderní kliniku pro <span class=\"ev-accent-text\">vaše
 #. module: elite_vet_web
 #: model_terms:ir.ui.view,arch_db:elite_vet_web.sekce_o_klinice
 #: model_terms:ir.ui.view,arch_db:elite_vet_web.homepage
+#: model_terms:ir.ui.view,arch_db:elite_vet_web.o_nas
 msgid "We have built a modern veterinary clinic in Karlovy Vary for you — a long-term project with the goal of offering comprehensive veterinary care in the region, all in one place."
 msgstr "Vybudovali jsme pro vás moderní veterinární kliniku v Karlových Varech — dlouhodobý projekt s cílem nabídnout v regionu komplexní veterinární péči na jednom místě."
 
@@ -431,6 +432,7 @@ msgstr "Ošetření mimo ordinační dobu je možné pouze po předchozí telefo
 #. module: elite_vet_web
 #: model_terms:ir.ui.view,arch_db:elite_vet_web.sekce_o_klinice
 #: model_terms:ir.ui.view,arch_db:elite_vet_web.homepage
+#: model_terms:ir.ui.view,arch_db:elite_vet_web.o_nas
 msgid "The clinic is equipped with modern diagnostic and treatment technology and from the outset offers extended opening hours including weekends. We will gradually extend our operation further."
 msgstr "Klinika je vybavena moderními diagnostickými a léčebnými technologiemi a od začátku nabízí rozšířenou provozní dobu včetně víkendů. Provoz budeme dále postupně rozšiřovat."
 
@@ -653,3 +655,13 @@ msgstr "<strong>Právě se něco děje</strong> — sem napište, co mají klien
 #: model_terms:ir.ui.view,arch_db:elite_vet_web.homepage
 msgid "<p><strong>Something is happening</strong> — write here what clients should know.</p>"
 msgstr "<p><strong>Právě se něco děje</strong> — sem napište, co mají klienti vědět.</p>"
+
+#. module: elite_vet_web
+#: model_terms:ir.ui.view,arch_db:elite_vet_web.o_nas
+msgid "<span>ABOUT THE CLINIC</span>"
+msgstr "<span>O KLINICE</span>"
+
+#. module: elite_vet_web
+#: model_terms:ir.ui.view,arch_db:elite_vet_web.o_nas
+msgid "About us"
+msgstr "O nás"

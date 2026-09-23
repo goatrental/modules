@@ -362,6 +362,7 @@ msgstr "Мы построили современную клинику для <sp
 #. module: elite_vet_web
 #: model_terms:ir.ui.view,arch_db:elite_vet_web.sekce_o_klinice
 #: model_terms:ir.ui.view,arch_db:elite_vet_web.homepage
+#: model_terms:ir.ui.view,arch_db:elite_vet_web.o_nas
 msgid "We have built a modern veterinary clinic in Karlovy Vary for you — a long-term project with the goal of offering comprehensive veterinary care in the region, all in one place."
 msgstr "Мы построили для вас современную ветеринарную клинику в Карловых Варах — долгосрочный проект с целью предложить в регионе комплексную ветеринарную помощь в одном месте."
 
@@ -431,6 +432,7 @@ msgstr "Приём вне часов работы возможен только 
 #. module: elite_vet_web
 #: model_terms:ir.ui.view,arch_db:elite_vet_web.sekce_o_klinice
 #: model_terms:ir.ui.view,arch_db:elite_vet_web.homepage
+#: model_terms:ir.ui.view,arch_db:elite_vet_web.o_nas
 msgid "The clinic is equipped with modern diagnostic and treatment technology and from the outset offers extended opening hours including weekends. We will gradually extend our operation further."
 msgstr "Клиника оснащена современными диагностическими и лечебными технологиями и с самого начала предлагает расширенные часы работы, включая выходные. Работу мы будем постепенно расширять."
 
@@ -653,3 +655,13 @@ msgstr "<strong>Сейчас кое-что происходит</strong> — н�
 #: model_terms:ir.ui.view,arch_db:elite_vet_web.homepage
 msgid "<p><strong>Something is happening</strong> — write here what clients should know.</p>"
 msgstr "<p><strong>Сейчас кое-что происходит</strong> — напишите здесь, что нужно знать клиентам.</p>"
+
+#. module: elite_vet_web
+#: model_terms:ir.ui.view,arch_db:elite_vet_web.o_nas
+msgid "<span>ABOUT THE CLINIC</span>"
+msgstr "<span>О КЛИНИКЕ</span>"
+
+#. module: elite_vet_web
+#: model_terms:ir.ui.view,arch_db:elite_vet_web.o_nas
+msgid "About us"
+msgstr "О нас"

@@ -297,32 +297,32 @@
                 <!-- =========================== O NAS =========================== -->
                 <!-- Obsah z adminu (O nas -> Text a video). Co neni vyplnene,
                      se nevykresli — stranka tak nikdy nema prazdne misto. -->
-                <section class="ev-onas o_colored_level">
+                <!-- Obsah lezi v editovatelne zone, takze jde prepisovat primo na
+                     strance a daji se sem pretahovat bloky. Id musi obsahovat
+                     "oe_structure", jinak ho Odoo nema kam ulozit a v panelu zesednou
+                     vsechny bloky. Obsah v zone nesmi vznikat smyckou ani t-call —
+                     takovou zonu Odoo needituje. -->
+                <div id="oe_structure_o_nas" class="oe_structure">
+                    <section class="s_vet_o_nas ev-onas">
                     <div class="ev-container">
-                        <div class="ev-onas-head">
-                            <span t-if="ev_o_nas and ev_o_nas.badge" class="ev-cenhero-badge">
-                                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/>
-                                    <line x1="7" y1="7" x2="7.01" y2="7"/>
-                                </svg>
-                                <span t-field="ev_o_nas.badge"></span>
-                            </span>
-                            <h1 t-if="ev_o_nas" t-field="ev_o_nas.name"></h1>
-                            <h1 t-else="">About us</h1>
-                        </div>
-                        <div t-if="ev_o_nas and ev_o_nas.body" class="ev-onas-text" t-field="ev_o_nas.body"></div>
-                        <img t-if="ev_o_nas and ev_o_nas.image" class="ev-onas-foto"
-                             t-attf-src="/web/image/elite.vet.about/#{ev_o_nas.id}/image/1200x800"
-                             t-att-alt="ev_o_nas.image_alt or ev_o_nas.name" loading="lazy" decoding="async"/>
-                        <!-- youtube-nocookie: prehravac nesbira data, dokud navstevnik video nespusti -->
-                        <div t-if="ev_o_nas and ev_o_nas.video_id" class="ev-onas-video">
-                            <iframe t-attf-src="https://www.youtube-nocookie.com/embed/#{ev_o_nas.video_id}?rel=0"
-                                    t-att-title="ev_o_nas.name" loading="lazy"
-                                    allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                    allowfullscreen="allowfullscreen"></iframe>
-                        </div>
+                    <div class="ev-onas-head">
+                    <span class="ev-cenhero-badge">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
+                    <line x1="7" y1="7" x2="7.01" y2="7"></line>
+                    </svg>
+                    <span>ABOUT THE CLINIC</span>
+                    </span>
+                    <h1>About us</h1>
                     </div>
-                </section>
+                    <div class="ev-onas-text"><p>We have built a modern veterinary clinic in Karlovy Vary for you — a long-term project with the goal of offering comprehensive veterinary care in the region, all in one place.</p><p>The clinic is equipped with modern diagnostic and treatment technology and from the outset offers extended opening hours including weekends. We will gradually extend our operation further.</p></div>
+
+                    <div class="ev-onas-video">
+                    <iframe loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" src="https://www.youtube-nocookie.com/embed/UJBS9oD8Adw?rel=0" title="About us"></iframe>
+                    </div>
+                    </div>
+                    </section>
+                </div>
                 <!-- =========================== AUTORSKY KREDIT =========================== -->
                 <t t-call="elite_vet_theme.vet_footer"/>
 

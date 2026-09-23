@@ -71,9 +71,14 @@
 
         <div class="ev-topbar">
             <div class="ev-container ev-topbar-inner">
-                <!-- Logo vede na domovskou stranku. Drive tu byla kotva #odpocet,
-                     ktera mimo domovskou stranku nevedla nikam. -->
-                <a href="/" class="ev-topbar-logo">
+                <!-- Logo vede na domovskou stranku, a to ve stejnem jazyce, v jakem
+                     je navstevnik. Holy href="/" nestaci: Odoo adresy pri vykresleni
+                     prepisuje a na vychozim jazyce z nej udela prazdny retezec —
+                     na klik se pak nestane nic. data-no-post-process to zakazuje.
+                     Drive tu byla dokonce kotva #odpocet, ktera mimo domovskou
+                     stranku nevedla nikam. -->
+                <t t-set="ev_h_domu" t-value="('%s' % url_for('/')) or '/'"/>
+                <a data-no-post-process="1" t-att-href="ev_h_domu" class="ev-topbar-logo">
                     <img src="/elite_vet_web/static/src/img/logo.jpeg" alt="Elite Vet" class="ev-topbar-img" loading="lazy"/>
                     <span class="ev-logo-brand" style="display: inline-block; white-space: nowrap;"><span style="color: #1a2744 !important;">Elite</span><span style="color: #2b7870 !important;">Vet</span></span>
                 </a>

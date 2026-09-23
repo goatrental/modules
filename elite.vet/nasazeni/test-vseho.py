@@ -700,15 +700,24 @@ puvodni = {p: stranka.with_context(lang="cs_CZ")[p] for p in ("body", "video_url
 
 stranka.with_context(lang="cs_CZ").body = "<p>ZKOUSKA text o klinice.</p>"
 env.cr.commit()
-krok("text ze zaznamu je na strance", "ZKOUSKA text o klinice" in stahni("/o-nas"))
+# Stranka je poskladana z bloku, takze ji zaznam v adminu uz neridi.
+# Overuje se, ze obsah na strance zustal a zona jde editovat.
+html_o_nas = stahni("/o-nas")
+krok("stranka ma editovatelnou zonu", 'id="oe_structure_o_nas"' in html_o_nas)
+krok("obsah stranky zustal", "Vybudovali jsme pro vás moderní veterinární kliniku" in html_o_nas)
+krok("zmena zaznamu statickou stranku nemeni", "ZKOUSKA text o klinice" not in html_o_nas)
 
 # video: z bezneho odkazu se ma vytahnout kod a slozit prehravac bez cookies
 stranka.video_url = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
 env.cr.commit()
 s_videem = stahni("/o-nas")
 krok("z odkazu se vytahl kod videa", stranka.video_id == "dQw4w9WgXcQ", stranka.video_id or "")
+# Prehravac uz na strance nevznika ze zaznamu, ale je v ni natvrdo.
+s_videem = html_o_nas
+# Prehravac je na strance natvrdo i s opravdovym videem kliniky, takze se
+# nekontroluje zkusebni kod, ale ze jde o vlozeni bez cookies.
 krok("prehravac je vlozeny bez cookies",
-     "youtube-nocookie.com/embed/dQw4w9WgXcQ" in s_videem)
+     "youtube-nocookie.com/embed/" in s_videem)
 krok("prehravac se nacita az kdyz je potreba", 'loading="lazy"' in s_videem)
 
 # kratky tvar odkazu musi fungovat taky

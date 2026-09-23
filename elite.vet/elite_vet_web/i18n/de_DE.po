@@ -362,6 +362,7 @@ msgstr "Wir haben eine moderne Klinik für <span class=\"ev-accent-text\">Ihre L
 #. module: elite_vet_web
 #: model_terms:ir.ui.view,arch_db:elite_vet_web.sekce_o_klinice
 #: model_terms:ir.ui.view,arch_db:elite_vet_web.homepage
+#: model_terms:ir.ui.view,arch_db:elite_vet_web.o_nas
 msgid "We have built a modern veterinary clinic in Karlovy Vary for you — a long-term project with the goal of offering comprehensive veterinary care in the region, all in one place."
 msgstr "Wir haben für Sie eine moderne Tierklinik in Karlovy Vary gebaut — ein langfristiges Projekt mit dem Ziel, in der Region umfassende tierärztliche Versorgung an einem Ort anzubieten."
 
@@ -431,6 +432,7 @@ msgstr "Eine Behandlung außerhalb der Öffnungszeiten ist nur nach vorheriger t
 #. module: elite_vet_web
 #: model_terms:ir.ui.view,arch_db:elite_vet_web.sekce_o_klinice
 #: model_terms:ir.ui.view,arch_db:elite_vet_web.homepage
+#: model_terms:ir.ui.view,arch_db:elite_vet_web.o_nas
 msgid "The clinic is equipped with modern diagnostic and treatment technology and from the outset offers extended opening hours including weekends. We will gradually extend our operation further."
 msgstr "Die Klinik ist mit moderner Diagnose- und Behandlungstechnik ausgestattet und bietet von Anfang an erweiterte Öffnungszeiten inklusive Wochenenden. Den Betrieb werden wir schrittweise weiter ausbauen."
 
@@ -653,3 +655,13 @@ msgstr "<strong>Gerade tut sich etwas</strong> — schreiben Sie hier, was Kunde
 #: model_terms:ir.ui.view,arch_db:elite_vet_web.homepage
 msgid "<p><strong>Something is happening</strong> — write here what clients should know.</p>"
 msgstr "<p><strong>Gerade tut sich etwas</strong> — schreiben Sie hier, was Kunden wissen sollen.</p>"
+
+#. module: elite_vet_web
+#: model_terms:ir.ui.view,arch_db:elite_vet_web.o_nas
+msgid "<span>ABOUT THE CLINIC</span>"
+msgstr "<span>ÜBER DIE KLINIK</span>"
+
+#. module: elite_vet_web
+#: model_terms:ir.ui.view,arch_db:elite_vet_web.o_nas
+msgid "About us"
+msgstr "Über uns"
