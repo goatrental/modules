@@ -486,6 +486,16 @@ krok("linky nad a pod pruhem jdou vypnout",
      "ev-oznam--bez-car" in arch_voleb)
 krok("tecka jde schovat", "ev-oznam--bez-tecky" in arch_voleb)
 
+# Blok Nadpis: stitek a nadpis, zarovnani a schovani stitku v bocnim panelu.
+krok("blok Nadpis je zaregistrovany",
+     bool(Pohled.search_count([("key", "=", "elite_vet_theme.s_vet_nadpis")])))
+volby_nadpis = Pohled.search([("key", "=", "elite_vet_theme.snippet_options_vet_nadpis")])
+arch_nadpis = volby_nadpis.arch_db if volby_nadpis else ""
+if isinstance(arch_nadpis, dict):
+    arch_nadpis = arch_nadpis.get("en_US", "")
+krok("Nadpis ma volbu zarovnani", "ev-nadpis--vlevo" in arch_nadpis)
+krok("u Nadpisu jde schovat stitek", "ev-nadpis--bez-stitku" in arch_nadpis)
+
 # Spodni prouzek paticky na webu nikdy nebyl.
 krok("paticka nema spodni prouzek s jazyky",
      "ev-footer-bottom" not in stahni("/"))

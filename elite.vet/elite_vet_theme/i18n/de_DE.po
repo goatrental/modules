@@ -430,3 +430,13 @@ msgstr "<strong>Gerade tut sich etwas</strong> — schreiben Sie hier, was Kunde
 #: model_terms:ir.ui.view,arch_db:elite_vet_theme.s_vet_oznameni
 msgid "<p><strong>Something is happening</strong> — write here what clients should know.</p>"
 msgstr "<p><strong>Gerade tut sich etwas</strong> — schreiben Sie hier, was Kunden wissen sollen.</p>"
+
+#. module: elite_vet_theme
+#: model_terms:ir.ui.view,arch_db:elite_vet_theme.s_vet_nadpis
+msgid "ŠTÍTEK"
+msgstr "ETIKETT"
+
+#. module: elite_vet_theme
+#: model_terms:ir.ui.view,arch_db:elite_vet_theme.s_vet_nadpis
+msgid "Nadpis sekce"
+msgstr "Abschnittstitel"

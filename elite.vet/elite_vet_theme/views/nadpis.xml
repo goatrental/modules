@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!--
+        Nadpis sekce — stitek nad nim a velky nadpis pod nim. Oboji se
+        prepisuje kliknutim primo na strance.
+
+        Koren je <section>, protoze do volnych mist Odoo pousti jen sekce;
+        s korenovym <div> by blok zustal v panelu sedy.
+    -->
+    <template id="s_vet_nadpis" name="Elite Vet: nadpis sekce">
+        <section class="s_vet_nadpis ev-nadpis">
+            <div class="ev-container">
+                <div class="ev-nadpis-in">
+                    <span class="ev-cenhero-badge">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/>
+                            <line x1="7" y1="7" x2="7.01" y2="7"/>
+                        </svg>
+                        <span>ŠTÍTEK</span>
+                    </span>
+                    <h2>Nadpis sekce</h2>
+                </div>
+            </div>
+        </section>
+    </template>
+
+    <!-- Zarovnani se prepina v bocnim panelu; meni se jen trida, takze volba
+         prezije i pozdejsi prepsani textu. -->
+    <template id="snippet_options_vet_nadpis" inherit_id="website.snippet_options">
+        <xpath expr="//div[@data-js='ContainerWidth']" position="before">
+            <div data-selector=".s_vet_nadpis">
+                <we-select string="Zarovnání">
+                    <we-button data-select-class="">Na střed</we-button>
+                    <we-button data-select-class="ev-nadpis--vlevo">Vlevo</we-button>
+                </we-select>
+                <we-checkbox string="Schovat štítek" data-select-class="ev-nadpis--bez-stitku"
+                             data-no-preview="true"/>
+            </div>
+        </xpath>
+    </template>
+
+</odoo>

@@ -430,3 +430,13 @@ msgstr "<strong>Сейчас кое-что происходит</strong> — н�
 #: model_terms:ir.ui.view,arch_db:elite_vet_theme.s_vet_oznameni
 msgid "<p><strong>Something is happening</strong> — write here what clients should know.</p>"
 msgstr "<p><strong>Сейчас кое-что происходит</strong> — напишите здесь, что нужно знать клиентам.</p>"
+
+#. module: elite_vet_theme
+#: model_terms:ir.ui.view,arch_db:elite_vet_theme.s_vet_nadpis
+msgid "ŠTÍTEK"
+msgstr "МЕТКА"
+
+#. module: elite_vet_theme
+#: model_terms:ir.ui.view,arch_db:elite_vet_theme.s_vet_nadpis
+msgid "Nadpis sekce"
+msgstr "Заголовок раздела"

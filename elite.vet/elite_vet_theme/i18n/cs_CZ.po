@@ -430,3 +430,13 @@ msgstr "<strong>Právě se něco děje</strong> — sem napište, co mají klien
 #: model_terms:ir.ui.view,arch_db:elite_vet_theme.s_vet_oznameni
 msgid "<p><strong>Something is happening</strong> — write here what clients should know.</p>"
 msgstr "<p><strong>Právě se něco děje</strong> — sem napište, co mají klienti vědět.</p>"
+
+#. module: elite_vet_theme
+#: model_terms:ir.ui.view,arch_db:elite_vet_theme.s_vet_nadpis
+msgid "ŠTÍTEK"
+msgstr "ŠTÍTEK"
+
+#. module: elite_vet_theme
+#: model_terms:ir.ui.view,arch_db:elite_vet_theme.s_vet_nadpis
+msgid "Nadpis sekce"
+msgstr "Nadpis sekce"
