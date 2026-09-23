@@ -26,16 +26,26 @@ def _nacti_obsah():
         return json.load(soubor)
 
 
+def _nainstalovane_jazyky(env):
+    """Kody jazyku, ktere databaze opravdu zna.
+
+    Zapis prekladu do jazyka, ktery nainstalovany neni, Odoo odmitne
+    hlaskou "Invalid language code" a shodi celou instalaci modulu.
+    """
+    return set(env["res.lang"].search([("active", "=", True)]).mapped("code"))
+
+
 def _zapis_preklady(zaznam, pole, hodnoty):
-    """Zapise anglicky zdroj a pak jednotlive preklady."""
+    """Zapise anglicky zdroj a pak preklady do jazyku, ktere databaze zna."""
     if not hodnoty:
         return
     anglicky = hodnoty.get("en_US")
     if anglicky:
         zaznam.with_context(lang="en_US")[pole] = anglicky
+    jazyky = _nainstalovane_jazyky(zaznam.env)
     for jazyk in JAZYKY:
         text = hodnoty.get(jazyk)
-        if text:
+        if text and jazyk in jazyky:
             zaznam.with_context(lang=jazyk)[pole] = text
 
 
@@ -148,12 +158,14 @@ TEXTY_REZERVACE = {
 
 def seed_texty_rezervace(env):
     zaznam = env["elite.vet.setting"].nastaveni()
+    nainstalovane = _nainstalovane_jazyky(env)
     if zaznam.with_context(lang="en_US").booking_loading_title:
         return
     for pole, jazyky in TEXTY_REZERVACE.items():
         zaznam.with_context(lang="en_US")[pole] = jazyky["en_US"]
         for jazyk in JAZYKY:
-            zaznam.with_context(lang=jazyk)[pole] = jazyky[jazyk]
+            if jazyk in nainstalovane:
+                zaznam.with_context(lang=jazyk)[pole] = jazyky[jazyk]
 
 
 # Koho klinika prijima. Zdroj anglicky, preklady hned u toho.
@@ -168,10 +180,12 @@ def seed_druhy(env):
     Druh = env["elite.vet.species"]
     if Druh.search_count([]):
         return
+    nainstalovane = _nainstalovane_jazyky(env)
     for kod, poradi, en, cs, de, ru in DRUHY:
         zaznam = Druh.create({"name": en, "icon_code": kod, "sequence": poradi})
         for jazyk, text in (("cs_CZ", cs), ("de_DE", de), ("ru_RU", ru)):
-            zaznam.with_context(lang=jazyk).name = text
+            if jazyk in nainstalovane:
+                zaznam.with_context(lang=jazyk).name = text
 
 
 # Obsahove bloky domovske stranky v zakladnim poradi. Kdyz tu nejaky chybi,
@@ -216,5 +230,7 @@ def seed_bloky(env):
             "qweb_template": sablona, "sequence": poradi,
         })
         for jazyk, nazev, popis in (("cs_CZ", cs, pcs), ("de_DE", de, pde), ("ru_RU", ru, pru)):
+            if jazyk not in nainstalovane:
+                continue
             zaznam.with_context(lang=jazyk).name = nazev
             zaznam.with_context(lang=jazyk).note = popis

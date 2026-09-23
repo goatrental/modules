@@ -41,11 +41,23 @@ def _seed_shift_types(env):
         {"name": "Weekend shift",   "sequence": 40, "time_from": 10.0, "time_to": 18.0, "color": "pink"},
         {"name": "Closed",          "sequence": 90, "color": "red", "is_note": True},
     ])
+    # Zapisuji se jen jazyky, ktere databaze zna — jinak Odoo instalaci
+    # shodi hlaskou "Invalid language code".
+    jazyky = _nainstalovane_jazyky(env)
     for zaznam in zaznamy:
         cesky, nemecky, rusky = PREKLADY[zaznam.name]
-        zaznam.with_context(lang="cs_CZ").name = cesky
-        zaznam.with_context(lang="de_DE").name = nemecky
-        zaznam.with_context(lang="ru_RU").name = rusky
+        for kod, text in (("cs_CZ", cesky), ("de_DE", nemecky), ("ru_RU", rusky)):
+            if kod in jazyky:
+                zaznam.with_context(lang=kod).name = text
+
+
+def _nainstalovane_jazyky(env):
+    """Kody jazyku, ktere databaze opravdu zna.
+
+    Zapis prekladu do jazyka, ktery nainstalovany neni, Odoo odmitne
+    hlaskou "Invalid language code" a shodi celou instalaci modulu.
+    """
+    return set(env["res.lang"].search([("active", "=", True)]).mapped("code"))
 
 
 def _seed_doctors(env):

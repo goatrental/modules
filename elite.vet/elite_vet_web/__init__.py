@@ -111,6 +111,7 @@ VYCHOZI_SLUZBY = [
 
 def _seed_sluzby(env):
     """Zalozi vychozi sluzby. Jen pri prvni instalaci — pak uz patri klinice."""
+    jazyky_databaze = _nainstalovane_jazyky(env)
     Sluzba = env["elite.vet.service"]
     if Sluzba.search_count([]):
         return
@@ -123,11 +124,22 @@ def _seed_sluzby(env):
             "icon_code": radek["kod"],
         })
         for jazyk, klic in (("cs_CZ", "cs"), ("de_DE", "de"), ("ru_RU", "ru")):
+            if jazyk not in jazyky_databaze:
+                continue
             nazev_p, popis_p = radek[klic]
             if nazev_p:
                 zaznam.with_context(lang=jazyk).name = nazev_p
             if popis_p:
                 zaznam.with_context(lang=jazyk).description = popis_p
+
+
+def _nainstalovane_jazyky(env):
+    """Kody jazyku, ktere databaze opravdu zna.
+
+    Zapis prekladu do jazyka, ktery nainstalovany neni, Odoo odmitne
+    hlaskou "Invalid language code" a shodi celou instalaci modulu.
+    """
+    return set(env["res.lang"].search([("active", "=", True)]).mapped("code"))
 
 
 def _pri_instalaci(env):
@@ -249,7 +261,7 @@ def _nastav_seo(env):
                 continue                      # klinika uz si to vyplnila
             for jazyk in PORADI:
                 text = hodnoty.get(jazyk)
-                if text:
+                if text and jazyk in _nainstalovane_jazyky(env):
                     stranka.with_context(lang=jazyk)[pole] = text
             zapsano += 1
     _logger.info("SEO: doplneno %s hodnot na strankach.", zapsano)
@@ -278,9 +290,10 @@ def _zapis_jazyky(zaznam, pole, hodnoty):
     """
     if not hodnoty:
         return
+    jazyky_databaze = _nainstalovane_jazyky(zaznam.env)
     for jazyk in ("en_US", "cs_CZ", "de_DE", "ru_RU"):
         text = hodnoty.get(jazyk)
-        if text:
+        if text and (jazyk == "en_US" or jazyk in jazyky_databaze):
             zaznam.with_context(lang=jazyk)[pole] = text
 
 
