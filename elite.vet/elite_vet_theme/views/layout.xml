@@ -176,74 +176,9 @@
     </template>
 
     <!-- =========================== PATICKA =========================== -->
+    <!-- Paticka je jen autorsky kredit. Trisloupcovy blok (znacka, navigace,
+         kontakt) na webu nikdy nebyl a byl na zadost odstranen. -->
     <template id="vet_footer" name="Elite Vet: patička">
-        <t t-set="ev_f_web" t-value="request.env['elite.vet.setting'].sudo().nastaveni() if 'elite.vet.setting' in request.env else False"/>
-        <t t-set="ev_f_kontakty" t-value="request.env['elite.vet.contact'].sudo().search([]) if 'elite.vet.contact' in request.env else []"/>
-
-        <style>
-            .ev-footer { background: linear-gradient(135deg, #1a2744, #111b30); color: #cbd5e1; padding: 54px 0 0; }
-            .ev-footer-inner { max-width: 1180px; margin: 0 auto; padding: 0 24px; display: grid; grid-template-columns: 1.6fr 1fr 1.2fr; gap: 44px; }
-            .ev-footer-brand { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
-            .ev-footer-brand img { width: 42px; height: 42px; border-radius: 10px; object-fit: cover; }
-            .ev-footer-brand span { font-size: 19px; font-weight: 800; color: #fff; letter-spacing: -.01em; }
-            .ev-footer-about { font-size: 14.5px; line-height: 1.75; max-width: 380px; }
-            .ev-footer-h { font-size: 12.5px; font-weight: 800; letter-spacing: .09em; text-transform: uppercase; color: #fff; margin: 0 0 18px; }
-            .ev-footer-col { display: flex; flex-direction: column; gap: 11px; }
-            .ev-footer-col a { color: #cbd5e1; font-size: 14.5px; transition: color .2s; }
-            .ev-footer-col a:hover { color: #5eead4; }
-            .ev-footer-line { display: flex; align-items: flex-start; gap: 11px; font-size: 14.5px; line-height: 1.6; }
-            .ev-footer-line svg { flex-shrink: 0; margin-top: 3px; color: #5eead4; }
-            @media (max-width: 900px) {
-                .ev-footer-inner { grid-template-columns: 1fr 1fr; gap: 34px; }
-                .ev-footer-brand-col { grid-column: 1 / -1; }
-            }
-            @media (max-width: 560px) {
-                .ev-footer { padding-top: 40px; }
-                .ev-footer-inner { grid-template-columns: 1fr; gap: 30px; }
-                .ev-footer-about { max-width: none; }
-            }
-        </style>
-
-        <footer class="ev-footer">
-            <div class="ev-footer-inner">
-                <div class="ev-footer-brand-col">
-                    <div class="ev-footer-brand">
-                        <img src="/elite_vet_web/static/src/img/logo.jpeg" alt="Elite Vet" loading="lazy"/>
-                        <span>Elite Vet</span>
-                    </div>
-                    <p class="ev-footer-about">Modern veterinary clinic in Karlovy Vary. We care for your pets with love, expertise and the latest technology.</p>
-                </div>
-
-                <div>
-                    <p class="ev-footer-h">Navigation</p>
-                    <div class="ev-footer-col">
-                        <!-- Stejne menu jako nahore, jen srovnane do jednoho sloupce. -->
-                        <t t-foreach="website.menu_id.child_id.filtered(lambda m: m.is_visible)" t-as="ev_fm">
-                            <t t-set="ev_fkids" t-value="ev_fm.child_id.filtered(lambda m: m.is_visible)"/>
-                            <a t-if="not ev_fkids" t-att-href="ev_fm.url"><span t-field="ev_fm.name"/></a>
-                            <a t-foreach="ev_fkids" t-as="ev_fs" t-att-href="ev_fs.url"><span t-field="ev_fs.name"/></a>
-                        </t>
-                    </div>
-                </div>
-
-                <div>
-                    <p class="ev-footer-h">Contact</p>
-                    <div class="ev-footer-col">
-                        <t t-foreach="ev_f_kontakty" t-as="ev_fk">
-                            <a t-if="ev_fk.url" t-att-href="ev_fk.url" class="ev-footer-line" t-att-target="'_blank' if '://' in ev_fk.url else False" t-att-rel="'noopener' if '://' in ev_fk.url else False">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/></svg>
-                                <span t-field="ev_fk.value"/>
-                            </a>
-                            <span t-else="" class="ev-footer-line">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/></svg>
-                                <span t-field="ev_fk.value"/>
-                            </span>
-                        </t>
-                    </div>
-                </div>
-            </div>
-
-        </footer>
 
         <div class="ev-footer-credit">Created <a href="https://www.michalvarys.eu/chytil-jste-se-do-site" target="_blank" rel="noopener">Michal Varys</a> · runs on <a href="https://www.varyshop.cz/jak-vypada-nas-system" target="_blank" rel="noopener">Varyshop</a></div>
     </template>

@@ -2,24 +2,23 @@
 <odoo>
 
     <!--
-        Oznamovaci pruh pres celou sirku. Klinika do nej pise aktuality —
-        zmenu ordinacnich hodin, dovolenou, upozorneni.
+        Oznamovaci pruh pres celou sirku. Klinika do nej pise, ze se neco deje —
+        zmena ordinacnich hodin, dovolena, mimoradna akce.
+
+        Blikajici tecka je tam proto, aby pruh na prvni pohled rekl "tohle je
+        ted aktualni". Kdo ma v systemu vypnute animace, vidi ji staticky.
 
         Text se prepisuje primo v editoru. Barvu resi dve cesty:
-          - prepinac "Barva pruhu" nize (ctyri pripravene varianty),
+          - prepinac "Barva pruhu" nize (pet pripravenych variant),
           - a protoze je koren <section> s tridou o_cc, funguje na nem
-            i standardni volba pozadi, kterou Odoo davá kazde sekci.
+            i standardni volba pozadi, kterou Odoo dava kazde sekci.
     -->
     <template id="s_vet_oznameni" name="Elite Vet: oznamovací pruh">
         <section class="s_vet_oznameni ev-oznam ev-oznam--info o_cc o_cc2">
             <div class="ev-oznam-in">
-                <svg class="ev-oznam-ikona" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="12" cy="12" r="10"/>
-                    <line x1="12" y1="8" x2="12" y2="12"/>
-                    <line x1="12" y1="16" x2="12.01" y2="16"/>
-                </svg>
+                <span class="ev-oznam-tecka"></span>
                 <div class="ev-oznam-text">
-                    <p><strong>Důležité oznámení</strong> — sem napište, co mají klienti vědět.</p>
+                    <p><strong>Právě se něco děje</strong> — sem napište, co mají klienti vědět.</p>
                 </div>
             </div>
         </section>
@@ -30,13 +29,16 @@
     <template id="snippet_options_vet_oznameni" inherit_id="website.snippet_options">
         <xpath expr="//div[@data-js='ContainerWidth']" position="before">
             <div data-selector=".s_vet_oznameni">
-                <we-select string="Barva pruhu" data-attribute-name="barvaPruhu">
+                <we-select string="Barva pruhu">
                     <we-button data-select-class="ev-oznam--info">Modrý</we-button>
                     <we-button data-select-class="ev-oznam--uspech">Zelený</we-button>
                     <we-button data-select-class="ev-oznam--pozor">Oranžový</we-button>
                     <we-button data-select-class="ev-oznam--dulezite">Červený</we-button>
                     <we-button data-select-class="ev-oznam--tmavy">Tmavý</we-button>
                 </we-select>
+                <!-- Zaskrtnute = trida se prida, proto je popisek "schovat". -->
+                <we-checkbox string="Schovat tečku" data-select-class="ev-oznam--bez-tecky"
+                             data-no-preview="true"/>
             </div>
         </xpath>
     </template>
