@@ -1,6 +1,6 @@
 {
     "name": "Elite Vet - Web",
-    "version": "18.0.1.7.0",
+    "version": "18.0.1.8.0",
     "category": "Website",
     "summary": "Domovska stranka a stranka rezervace kliniky Elite Vet.",
     "description": """

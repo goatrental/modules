@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!--
+        Spolecna hlavicka a paticka. Obe sablony jsou samostatne: dotahnou si
+        nastaveni i kontakty samy, takze je muze zavolat kterakoliv stranka
+        z kterehokoliv modulu kliniky bez pripravy promennych.
+
+        Vzhled hlavicky (tridy ev-topbar*, ev-nav*, ev-burger*, ev-lang*) je
+        popsany ve stylu kazde stranky. Paticka je nova, proto si svoje CSS
+        veze s sebou.
+    -->
+
+    <!-- =========================== HLAVICKA =========================== -->
+    <template id="vet_header" name="Elite Vet: horní lišta">
+        <!-- Prepinac jazyku: odkazuje se primo na /cs, /de, /en, /ru. Cesta pres
+             /website/lang/ stoji na cookie frontend_lang a ta v prohlizeci uvnitr
+             Instagramu ani Facebooku neprojde — jazyk by se neprepnul.
+             data-no-post-process brani Odoo prepsat adresu na prazdny retezec. -->
+        <t t-set="ev_h_web" t-value="request.env['elite.vet.setting'].sudo().nastaveni() if 'elite.vet.setting' in request.env else False"/>
+        <t t-set="ev_h_cs" t-value="('%s' % url_for(request.httprequest.path, lang_code='cs_CZ')) or '/'"/>
+        <t t-set="ev_h_de" t-value="('%s' % url_for(request.httprequest.path, lang_code='de_DE')) or '/'"/>
+        <t t-set="ev_h_en" t-value="('%s' % url_for(request.httprequest.path, lang_code='en_US')) or '/'"/>
+        <t t-set="ev_h_ru" t-value="('%s' % url_for(request.httprequest.path, lang_code='ru_RU')) or '/'"/>
+
+        <div class="ev-topbar">
+            <div class="ev-container ev-topbar-inner">
+                <!-- Logo vede na domovskou stranku. Drive tu byla kotva #odpocet,
+                     ktera mimo domovskou stranku nevedla nikam. -->
+                <a href="/" class="ev-topbar-logo">
+                    <img src="/elite_vet_web/static/src/img/logo.jpeg" alt="Elite Vet" class="ev-topbar-img" loading="lazy"/>
+                    <span class="ev-logo-brand" style="display: inline-block; white-space: nowrap;"><span style="color: #1a2744 !important;">Elite</span><span style="color: #2b7870 !important;">Vet</span></span>
+                </a>
+                <nav class="ev-topbar-nav">
+                    <!-- Polozky se berou z menu webu (Web -> Upravit -> Menu), takze
+                         se daji prehazovat bez zasahu do kodu. Polozka s podpolozkami
+                         se rozbaluje pres details/summary — bez jedine radky JS. -->
+                    <t t-foreach="website.menu_id.child_id" t-as="ev_m">
+                        <a t-if="not ev_m.child_id" t-att-href="ev_m.url" t-attf-class="#{'ev-nav-active' if ev_m.url == request.httprequest.path else ''}" t-att-target="'_blank' if '://' in ev_m.url else False" t-att-rel="'noopener' if '://' in ev_m.url else False"><span t-field="ev_m.name"></span></a>
+                        <details t-else="" class="ev-nav-sub">
+                            <summary t-attf-class="#{'ev-nav-active' if ev_m.url == request.httprequest.path else ''}">
+                                <span t-field="ev_m.name"></span>
+                                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                            </summary>
+                            <div class="ev-nav-sub-panel">
+                                <a t-foreach="ev_m.child_id" t-as="ev_sub" t-att-href="ev_sub.url" t-attf-class="ev-nav-sub-link#{' ev-nav-active' if ev_sub.url == request.httprequest.path else ''}" t-att-target="'_blank' if '://' in ev_sub.url else False" t-att-rel="'noopener' if '://' in ev_sub.url else False"><span t-field="ev_sub.name"></span></a>
+                            </div>
+                        </details>
+                    </t>
+                    <details class="ev-lang">
+                        <summary>
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M2 12h20"/>
+                                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                            </svg>
+                            <span class="ev-lang-code ev-lang-code-cs">CZ</span><span class="ev-lang-code ev-lang-code-de">DE</span><span class="ev-lang-code ev-lang-code-en">EN</span><span class="ev-lang-code ev-lang-code-ru">RU</span>
+                            <svg class="ev-lang-caret" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="6 9 12 15 18 9"/>
+                            </svg>
+                        </summary>
+                        <div class="ev-lang-panel">
+                            <a data-no-post-process="1" t-att-href="ev_h_cs" t-attf-class="ev-lang-opt{{ ' is-active' if request.env.lang == 'cs_CZ' else '' }}">Čeština</a>
+                            <a data-no-post-process="1" t-att-href="ev_h_de" t-attf-class="ev-lang-opt{{ ' is-active' if request.env.lang == 'de_DE' else '' }}">Deutsch</a>
+                            <a data-no-post-process="1" t-att-href="ev_h_en" t-attf-class="ev-lang-opt{{ ' is-active' if request.env.lang == 'en_US' else '' }}">English</a>
+                            <a data-no-post-process="1" t-att-href="ev_h_ru" t-attf-class="ev-lang-opt{{ ' is-active' if request.env.lang == 'ru_RU' else '' }}">Русский</a>
+                        </div>
+                    </details>
+                    <a t-attf-href="tel:#{ev_h_web.phone if ev_h_web and ev_h_web.phone else '+420722599699'}" class="ev-call ev-call--topbar">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+                        </svg>
+                        Contact
+                    </a>
+                    <details class="ev-burger">
+                        <summary aria-label="Menu">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="3" y1="6" x2="21" y2="6"/>
+                                <line x1="3" y1="12" x2="21" y2="12"/>
+                                <line x1="3" y1="18" x2="21" y2="18"/>
+                            </svg>
+                        </summary>
+                        <div class="ev-burger-panel">
+                            <t t-foreach="website.menu_id.child_id" t-as="ev_m">
+                                <a t-if="not ev_m.child_id" t-att-href="ev_m.url" class="ev-burger-link" t-att-target="'_blank' if '://' in ev_m.url else False" t-att-rel="'noopener' if '://' in ev_m.url else False">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+                                    <span t-field="ev_m.name"></span>
+                                </a>
+                                <!-- Podnabidka se rozbali na miste, pod rodicem. -->
+                                <details t-else="" class="ev-burger-group">
+                                    <summary class="ev-burger-link">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+                                        <span t-field="ev_m.name"></span>
+                                    </summary>
+                                    <div class="ev-burger-sub">
+                                        <a t-foreach="ev_m.child_id" t-as="ev_sub" t-att-href="ev_sub.url" class="ev-burger-sublink" t-att-target="'_blank' if '://' in ev_sub.url else False" t-att-rel="'noopener' if '://' in ev_sub.url else False"><span t-field="ev_sub.name"></span></a>
+                                    </div>
+                                </details>
+                            </t>
+                        </div>
+                    </details>
+                </nav>
+            </div>
+        </div>
+    </template>
+
+    <!-- =========================== PATICKA =========================== -->
+    <template id="vet_footer" name="Elite Vet: patička">
+        <t t-set="ev_f_web" t-value="request.env['elite.vet.setting'].sudo().nastaveni() if 'elite.vet.setting' in request.env else False"/>
+        <t t-set="ev_f_kontakty" t-value="request.env['elite.vet.contact'].sudo().search([]) if 'elite.vet.contact' in request.env else []"/>
+
+        <style>
+            .ev-footer { background: linear-gradient(135deg, #1a2744, #111b30); color: #cbd5e1; padding: 54px 0 0; }
+            .ev-footer-inner { max-width: 1180px; margin: 0 auto; padding: 0 24px; display: grid; grid-template-columns: 1.6fr 1fr 1.2fr; gap: 44px; }
+            .ev-footer-brand { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+            .ev-footer-brand img { width: 42px; height: 42px; border-radius: 10px; object-fit: cover; }
+            .ev-footer-brand span { font-size: 19px; font-weight: 800; color: #fff; letter-spacing: -.01em; }
+            .ev-footer-about { font-size: 14.5px; line-height: 1.75; max-width: 380px; }
+            .ev-footer-h { font-size: 12.5px; font-weight: 800; letter-spacing: .09em; text-transform: uppercase; color: #fff; margin: 0 0 18px; }
+            .ev-footer-col { display: flex; flex-direction: column; gap: 11px; }
+            .ev-footer-col a { color: #cbd5e1; font-size: 14.5px; transition: color .2s; }
+            .ev-footer-col a:hover { color: #5eead4; }
+            .ev-footer-line { display: flex; align-items: flex-start; gap: 11px; font-size: 14.5px; line-height: 1.6; }
+            .ev-footer-line svg { flex-shrink: 0; margin-top: 3px; color: #5eead4; }
+            .ev-footer-bottom { margin-top: 46px; border-top: 1px solid rgba(255,255,255,.12); padding: 18px 24px; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 18px; font-size: 13.5px; }
+            .ev-footer-bottom a { color: #94a3b8; transition: color .2s; }
+            .ev-footer-bottom a:hover { color: #5eead4; }
+            .ev-footer-bottom .is-active { color: #5eead4; font-weight: 700; }
+            @media (max-width: 900px) {
+                .ev-footer-inner { grid-template-columns: 1fr 1fr; gap: 34px; }
+                .ev-footer-brand-col { grid-column: 1 / -1; }
+            }
+            @media (max-width: 560px) {
+                .ev-footer { padding-top: 40px; }
+                .ev-footer-inner { grid-template-columns: 1fr; gap: 30px; }
+                .ev-footer-about { max-width: none; }
+            }
+        </style>
+
+        <footer class="ev-footer">
+            <div class="ev-footer-inner">
+                <div class="ev-footer-brand-col">
+                    <div class="ev-footer-brand">
+                        <img src="/elite_vet_web/static/src/img/logo.jpeg" alt="Elite Vet" loading="lazy"/>
+                        <span>Elite Vet</span>
+                    </div>
+                    <p class="ev-footer-about">Modern veterinary clinic in Karlovy Vary. We care for your pets with love, expertise and the latest technology.</p>
+                </div>
+
+                <div>
+                    <p class="ev-footer-h">Navigation</p>
+                    <div class="ev-footer-col">
+                        <!-- Stejne menu jako nahore, jen srovnane do jednoho sloupce. -->
+                        <t t-foreach="website.menu_id.child_id" t-as="ev_fm">
+                            <a t-if="not ev_fm.child_id" t-att-href="ev_fm.url"><span t-field="ev_fm.name"></span></a>
+                            <a t-foreach="ev_fm.child_id" t-as="ev_fs" t-att-href="ev_fs.url"><span t-field="ev_fs.name"></span></a>
+                        </t>
+                    </div>
+                </div>
+
+                <div>
+                    <p class="ev-footer-h">Contact</p>
+                    <div class="ev-footer-col">
+                        <t t-foreach="ev_f_kontakty" t-as="ev_fk">
+                            <a t-if="ev_fk.url" t-att-href="ev_fk.url" class="ev-footer-line" t-att-target="'_blank' if '://' in ev_fk.url else False" t-att-rel="'noopener' if '://' in ev_fk.url else False">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/></svg>
+                                <span t-field="ev_fk.value"></span>
+                            </a>
+                            <span t-else="" class="ev-footer-line">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/></svg>
+                                <span t-field="ev_fk.value"></span>
+                            </span>
+                        </t>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ev-footer-bottom">
+                <span>Copyright © Elite Vet</span>
+                <a data-no-post-process="1" t-att-href="('%s' % url_for(request.httprequest.path, lang_code='cs_CZ')) or '/'" t-attf-class="{{ 'is-active' if request.env.lang == 'cs_CZ' else '' }}">Čeština</a>
+                <a data-no-post-process="1" t-att-href="('%s' % url_for(request.httprequest.path, lang_code='de_DE')) or '/'" t-attf-class="{{ 'is-active' if request.env.lang == 'de_DE' else '' }}">Deutsch</a>
+                <a data-no-post-process="1" t-att-href="('%s' % url_for(request.httprequest.path, lang_code='en_US')) or '/'" t-attf-class="{{ 'is-active' if request.env.lang == 'en_US' else '' }}">English</a>
+                <a data-no-post-process="1" t-att-href="('%s' % url_for(request.httprequest.path, lang_code='ru_RU')) or '/'" t-attf-class="{{ 'is-active' if request.env.lang == 'ru_RU' else '' }}">Русский</a>
+            </div>
+        </footer>
+
+        <div class="ev-footer-credit">Created <a href="https://www.michalvarys.eu/chytil-jste-se-do-site" target="_blank" rel="noopener">Michal Varys</a> · runs on <a href="https://www.varyshop.cz/jak-vypada-nas-system" target="_blank" rel="noopener">Varyshop</a></div>
+    </template>
+
+</odoo>

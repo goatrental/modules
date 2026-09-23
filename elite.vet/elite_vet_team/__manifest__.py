@@ -22,7 +22,7 @@ rezim Odoo, takze nemecka, anglicka a ruska verze stranky se resi na miste.
     "author": "Michal Varys",
     "website": "https://www.michalvarys.eu",
     "license": "LGPL-3",
-    "depends": ["website"],
+    "depends": ["website", "elite_vet_theme"],
     "data": [
         "security/groups.xml",
         "security/ir.model.access.csv",

@@ -389,3 +389,13 @@ msgstr "ab"
 #: model_terms:ir.ui.view,arch_db:elite_vet_web.rezervace
 msgid "· runs on"
 msgstr "· läuft auf"
+
+#. module: elite_vet_web
+#: model_terms:ir.ui.view,arch_db:elite_vet_web.sekce_kontakt
+msgid "Treatment outside opening hours is possible only by prior telephone arrangement and confirmation that the team is available. This is not a round-the-clock service."
+msgstr "Eine Behandlung außerhalb der Öffnungszeiten ist nur nach vorheriger telefonischer Absprache und Bestätigung der Verfügbarkeit des Teams möglich. Es handelt sich nicht um einen durchgehenden Betrieb."
+
+#. module: elite_vet_web
+#: model_terms:ir.ui.view,arch_db:elite_vet_web.sekce_o_klinice
+msgid "The clinic is equipped with modern diagnostic and treatment technology and from the outset offers extended opening hours including weekends. We will gradually extend our operation further."
+msgstr "Die Klinik ist mit moderner Diagnose- und Behandlungstechnik ausgestattet und bietet von Anfang an erweiterte Öffnungszeiten inklusive Wochenenden. Den Betrieb werden wir schrittweise weiter ausbauen."

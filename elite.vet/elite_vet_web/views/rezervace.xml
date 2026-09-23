@@ -105,6 +105,23 @@
                 .ev-burger-link { display: flex; align-items: center; gap: 14px; padding: 16px 18px; border-radius: 14px; color: var(--ev-primary); font-size: 16px; font-weight: 600; transition: background-color .15s; }
                 .ev-burger-link:hover { background: var(--ev-muted); color: var(--ev-primary); }
                 .ev-burger-link svg { color: var(--ev-accent); flex-shrink: 0; }
+                /* ---- dvouurovnove menu ---- */
+                .ev-nav-sub { position: relative; }
+                .ev-nav-sub > summary { display: inline-flex; align-items: center; gap: 6px; cursor: pointer; list-style: none; font-size: 14px; font-weight: 500; color: var(--ev-text-secondary); transition: color .2s; }
+                .ev-nav-sub > summary::-webkit-details-marker { display: none; }
+                .ev-nav-sub > summary:hover { color: var(--ev-accent); }
+                .ev-nav-sub > summary svg { transition: transform .18s; }
+                .ev-nav-sub[open] > summary svg { transform: rotate(180deg); }
+                .ev-nav-sub-panel { position: absolute; top: calc(100% + 12px); left: 50%; transform: translateX(-50%); min-width: 210px; background: #fff; border: 1px solid var(--ev-border); border-radius: 14px; padding: 8px; box-shadow: 0 18px 40px -12px rgba(17,27,48,.28); z-index: 999; display: flex; flex-direction: column; gap: 2px; }
+                .ev-nav-sub-link { padding: 10px 14px; border-radius: 10px; font-size: 14px; font-weight: 500; color: var(--ev-primary); white-space: nowrap; }
+                .ev-nav-sub-link:hover { background: var(--ev-muted); }
+                .ev-burger-group > summary { list-style: none; cursor: pointer; }
+                .ev-burger-group > summary::-webkit-details-marker { display: none; }
+                .ev-burger-group > summary svg { transition: transform .18s; }
+                .ev-burger-group[open] > summary svg { transform: rotate(90deg); }
+                .ev-burger-sub { display: flex; flex-direction: column; margin: 2px 0 6px 30px; padding-left: 14px; border-left: 2px solid #bcdcd7; }
+                .ev-burger-sublink { padding: 11px 6px; font-size: 15px; font-weight: 500; color: var(--ev-text-secondary); }
+                .ev-burger-sublink:hover { color: var(--ev-accent); }
                 .ev-burger-divider { height: 1px; background: var(--ev-border); margin: 6px 4px; }
                 .ev-burger-tel { display: flex; align-items: center; gap: 12px; padding: 11px 14px; border-radius: 12px; transition: background-color .15s; color: var(--ev-primary); }
                 .ev-burger-tel:hover { background: var(--ev-accent-light); color: var(--ev-primary); }
@@ -561,6 +578,7 @@
                     .ev-topbar-inner { height: 60px; }
                     .ev-topbar-nav { gap: 10px; }
                     .ev-topbar-nav a:not(.ev-topbar-cta):not(.ev-burger-link):not(.ev-burger-tel):not(.ev-lang-opt) { display: none; }
+                    .ev-topbar-nav > .ev-nav-sub { display: none; }
                     .ev-topbar-nav > .ev-call--topbar { display: none; }
                     .ev-lang > summary { padding: 7px 11px; font-size: 12.5px; gap: 6px; }
                     .ev-lang-panel { min-width: 158px; }
@@ -935,66 +953,8 @@
             <div id="wrap" class="oe_structure vet-page">
 
                 <!-- =========================== TOPBAR =========================== -->
-                <div class="ev-topbar">
-                    <div class="ev-container ev-topbar-inner">
-                        <a href="#odpocet" class="ev-topbar-logo">
-                            <img src="/elite_vet_web/static/src/img/logo.jpeg" alt="Elite Vet" class="ev-topbar-img" loading="lazy"/>
-                            <span class="ev-logo-brand" style="display: inline-block; white-space: nowrap;"><span style="color: #1a2744 !important;">Elite</span><span style="color: #2b7870 !important;">Vet</span></span>
-                        </a>
-                        <nav class="ev-topbar-nav">
-                            <!-- Polozky navigace se berou z menu webu (Odoo: Web -> Upravit -> Menu),
-                                 takze se daji menit bez zasahu do kodu stranky. -->
-                            <t t-foreach="website.menu_id.child_id" t-as="ev_m">
-                                <a t-att-href="ev_m.url" t-attf-class="#{'ev-nav-active' if ev_m.url == request.httprequest.path else ''}" t-att-target="'_blank' if '://' in ev_m.url else False" t-att-rel="'noopener' if '://' in ev_m.url else False"><span t-field="ev_m.name"/></a>
-                            </t>
-                            <details class="ev-lang">
-                                <summary>
-                                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
-                                        <circle cx="12" cy="12" r="10"/>
-                                        <path d="M2 12h20"/>
-                                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
-                                    </svg>
-                                    <span class="ev-lang-code ev-lang-code-cs">CZ</span><span class="ev-lang-code ev-lang-code-de">DE</span><span class="ev-lang-code ev-lang-code-en">EN</span><span class="ev-lang-code ev-lang-code-ru">RU</span>
-                                    <svg class="ev-lang-caret" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
-                                        <polyline points="6 9 12 15 18 9"/>
-                                    </svg>
-                                </summary>
-                                <div class="ev-lang-panel">
-                                    <a data-no-post-process="1" t-att-href="ev_jazyk_cs" t-attf-class="ev-lang-opt{{ ' is-active' if request.env.lang == 'cs_CZ' else '' }}">Čeština</a>
-                                    <a data-no-post-process="1" t-att-href="ev_jazyk_de" t-attf-class="ev-lang-opt{{ ' is-active' if request.env.lang == 'de_DE' else '' }}">Deutsch</a>
-                                    <a data-no-post-process="1" t-att-href="ev_jazyk_en" t-attf-class="ev-lang-opt{{ ' is-active' if request.env.lang == 'en_US' else '' }}">English</a>
-                                    <a data-no-post-process="1" t-att-href="ev_jazyk_ru" t-attf-class="ev-lang-opt{{ ' is-active' if request.env.lang == 'ru_RU' else '' }}">Русский</a>
-                                </div>
-                            </details>
-                            <a t-attf-href="tel:#{ev_web.phone or '+420722599699'}" class="ev-call ev-call--topbar">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
-                                </svg>
-                                Contact<br/>
-                            </a>
-                            <details class="ev-burger">
-                                <summary aria-label="Menu">
-                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                                        <line x1="3" y1="6" x2="21" y2="6"/>
-                                        <line x1="3" y1="12" x2="21" y2="12"/>
-                                        <line x1="3" y1="18" x2="21" y2="18"/>
-                                    </svg>
-                                </summary>
-                                <div class="ev-burger-panel">
-                                    <!-- stejne menu webu jako v horni liste -->
-                                    <t t-foreach="website.menu_id.child_id" t-as="ev_m">
-                                        <a t-att-href="ev_m.url" class="ev-burger-link" t-att-target="'_blank' if '://' in ev_m.url else False" t-att-rel="'noopener' if '://' in ev_m.url else False">
-                                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                                <polyline points="9 18 15 12 9 6"/>
-                                            </svg>
-                                            <span t-field="ev_m.name"/>
-                                        </a>
-                                    </t>
-                                </div>
-                            </details>
-                        </nav>
-                    </div>
-                </div>
+                <!-- Horni lista je spolecna pro cely web, viz elite_vet_theme. -->
+                <t t-call="elite_vet_theme.vet_header"/>
 
                 <!-- =========================== HERO =========================== -->
                 <section class="ev-rezhero o_colored_level">
@@ -1102,7 +1062,7 @@
                 </section>
 
                 <!-- =========================== AUTORSKY KREDIT =========================== -->
-                <div class="ev-footer-credit">Created <a href="https://www.michalvarys.eu/chytil-jste-se-do-site" target="_blank" rel="noopener">Michal Varys</a> · runs on <a href="https://www.varyshop.cz/jak-vypada-nas-system" target="_blank" rel="noopener">Varyshop</a></div>
+                <t t-call="elite_vet_theme.vet_footer"/>
 
             </div>
         <script>(function(){

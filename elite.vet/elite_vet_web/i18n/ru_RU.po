@@ -389,3 +389,13 @@ msgstr "от"
 #: model_terms:ir.ui.view,arch_db:elite_vet_web.rezervace
 msgid "· runs on"
 msgstr "· работает на"
+
+#. module: elite_vet_web
+#: model_terms:ir.ui.view,arch_db:elite_vet_web.sekce_kontakt
+msgid "Treatment outside opening hours is possible only by prior telephone arrangement and confirmation that the team is available. This is not a round-the-clock service."
+msgstr "Приём вне часов работы возможен только по предварительной телефонной договорённости и подтверждению доступности команды. Это не круглосуточный режим работы."
+
+#. module: elite_vet_web
+#: model_terms:ir.ui.view,arch_db:elite_vet_web.sekce_o_klinice
+msgid "The clinic is equipped with modern diagnostic and treatment technology and from the outset offers extended opening hours including weekends. We will gradually extend our operation further."
+msgstr "Клиника оснащена современными диагностическими и лечебными технологиями и с самого начала предлагает расширенные часы работы, включая выходные. Работу мы будем постепенно расширять."

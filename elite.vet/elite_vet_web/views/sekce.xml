@@ -122,7 +122,10 @@
                             <div class="ev-badge">About the clinic</div>
                             <h2>We have built a modern clinic for <span class="ev-accent-text">your pets</span></h2>
                             <p class="ev-about-lead">We have built a modern veterinary clinic in Karlovy Vary for you — a long-term project with the goal of offering comprehensive veterinary care in the region, all in one place.</p>
-                            <p class="ev-about-lead">The clinic is equipped with modern diagnostic and treatment technology and from the outset offers extended opening hours including weekends. We will gradually extend our operation further and in the near future also plan 24/7 availability for acute cases.</p>
+                            <!-- Dokud pohotovost nebezi a neni ani ohlasena, nesmi o ni byt
+                                 ani zminka — jinak ji lide ctou jako uz fungujici. -->
+                            <p t-if="ev_web and ev_web.emergency_mode == 'hidden'" class="ev-about-lead">The clinic is equipped with modern diagnostic and treatment technology and from the outset offers extended opening hours including weekends. We will gradually extend our operation further.</p>
+                            <p t-else="" class="ev-about-lead">The clinic is equipped with modern diagnostic and treatment technology and from the outset offers extended opening hours including weekends. We will gradually extend our operation further and in the near future also plan 24/7 availability for acute cases.</p>
                             <div class="ev-about-feats">
                                 <div class="ev-about-feat-item">
                                     <div class="ev-check-circle">
@@ -392,7 +395,15 @@
                                     </div>
                                 </t>
                             </div>
-                            <p t-if="not ev_pohotovost" class="ev-hours-note">
+                            <!-- Veta pod hodinami se ridi rezimem pohotovosti (Nastaveni kontaktu).
+                                 Ve skrytem rezimu se o lince nesmi objevit ani zminka, jinak si ji
+                                 klienti vylozi jako bezici pohotovost. -->
+                            <t t-set="ev_rezim" t-value="ev_web.emergency_mode if ev_web else 'hidden'"/>
+                            <p t-if="ev_rezim == 'hidden'" class="ev-hours-note">
+                                <t t-if="ev_web and ev_web.emergency_off_note"><t t-out="ev_web.emergency_off_note"/></t>
+                                <t t-else="">Treatment outside opening hours is possible only by prior telephone arrangement and confirmation that the team is available. This is not a round-the-clock service.</t>
+                            </p>
+                            <p t-elif="not ev_pohotovost" class="ev-hours-note">
                                 <t t-if="ev_web and ev_web.emergency_off_note"><t t-out="ev_web.emergency_off_note"/></t>
                                 <t t-else="">We plan to extend our opening hours further in the near future. We will also soon launch <span class="ev-hours-emergency">a 24/7 emergency line</span> for acute cases — we will publish the number as soon as it is ready.</t>
                             </p>

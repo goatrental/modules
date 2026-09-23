@@ -1,0 +1,51 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* elite_vet_theme
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: cs_CZ\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: elite_vet_theme
+#: model_terms:ir.ui.view,arch_db:elite_vet_theme.vet_header
+#: model_terms:ir.ui.view,arch_db:elite_vet_theme.vet_footer
+msgid "Contact"
+msgstr "Kontakt"
+
+#. module: elite_vet_theme
+#: model_terms:ir.ui.view,arch_db:elite_vet_theme.vet_header
+msgid "Menu"
+msgstr "Menu"
+
+#. module: elite_vet_theme
+#: model_terms:ir.ui.view,arch_db:elite_vet_theme.vet_footer
+msgid "Modern veterinary clinic in Karlovy Vary. We care for your pets with love, expertise and the latest technology."
+msgstr "Moderní veterinární klinika v Karlových Varech. Pečujeme o vaše mazlíčky s láskou, odborností a nejnovějšími technologiemi."
+
+#. module: elite_vet_theme
+#: model_terms:ir.ui.view,arch_db:elite_vet_theme.vet_footer
+msgid "Navigation"
+msgstr "Navigace"
+
+#. module: elite_vet_theme
+#: model_terms:ir.ui.view,arch_db:elite_vet_theme.vet_footer
+msgid "<span>Copyright © Elite Vet</span>"
+msgstr "<span>Autorská práva © Elite Vet</span>"
+
+#. module: elite_vet_theme
+#: model_terms:ir.ui.view,arch_db:elite_vet_theme.vet_footer
+msgid "Created"
+msgstr "Vytvořil"
+
+#. module: elite_vet_theme
+#: model_terms:ir.ui.view,arch_db:elite_vet_theme.vet_footer
+msgid "· runs on"
+msgstr "· běží na"

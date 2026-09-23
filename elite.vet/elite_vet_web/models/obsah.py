@@ -258,12 +258,19 @@ class EliteVetSetting(models.Model):
     instagram_url = fields.Char("Instagram")
     facebook_url = fields.Char("Facebook")
 
-    # Pohotovost 24/7. Dokud neni zapnuta, drzi web variantu "uz brzy": sede
-    # neklikaci tlacitko a text, ze cislo teprve zverejnime. Po zapnuti se ze
-    # stejnych mist stane zelene tlacitko s odkazem na telefon.
-    emergency_active = fields.Boolean(
-        "Pohotovost 24/7 spuštěna",
-        help="Dokud je vypnuta, ukazuje web „již brzy“ a tlačítko Volat je šedé a neklikací.")
+    # Pohotovost 24/7 ma tri stavy, ne dva. Puvodni "vypnuto" totiz porad
+    # slibovalo — sede tlacitko "Volat jiz brzy", blikajici kolecko vpravo dole
+    # a veta, ze linku brzy spustime. Klienti to cetli tak, ze pohotovost uz
+    # bezi, a volali mimo ordinacni dobu. Stav "hidden" proto linku z webu
+    # odstrani uplne a je vychozi.
+    emergency_mode = fields.Selection(
+        [("hidden", "Vůbec neukazovat"),
+         ("soon", "Ukazovat jako „již brzy“"),
+         ("live", "Linka běží — ukázat číslo")],
+        string="Pohotovostní linka 24/7", required=True, default="hidden",
+        help="Vůbec neukazovat = na webu po lince nezůstane ani stopa. "
+             "Již brzy = šedé neklikací tlačítko a věta, že ji teprve spustíme. "
+             "Linka běží = zelené tlačítko s telefonním číslem.")
     emergency_phone = fields.Char(
         "Pohotovostní telefon",
         help="Ve tvaru +420722599699, bez mezer. Bez něj se pohotovost nezapne ani zaškrtnutím.")
@@ -288,14 +295,24 @@ class EliteVetSetting(models.Model):
         help="Poznámka pod tabulkou ordinačních hodin v sekci Kontakt. "
              "Prázdné = původní věta ze šablony.")
 
-    @api.depends("emergency_active", "emergency_phone")
+    @api.depends("emergency_mode", "emergency_phone")
     def _compute_emergency_live(self):
         for zaznam in self:
-            zaznam.emergency_live = bool(zaznam.emergency_active and zaznam.emergency_phone)
+            zaznam.emergency_live = bool(
+                zaznam.emergency_mode == "live" and zaznam.emergency_phone)
 
     emergency_live = fields.Boolean(
         "Pohotovost je na webu aktivní", compute="_compute_emergency_live",
-        help="Zapnuto i s vyplněným číslem. Web se tímhle polem řídí.")
+        help="Režim „linka běží“ a k tomu vyplněné číslo. Web se tímhle polem řídí.")
+
+    @api.depends("emergency_mode")
+    def _compute_emergency_show(self):
+        for zaznam in self:
+            zaznam.emergency_show = zaznam.emergency_mode != "hidden"
+
+    emergency_show = fields.Boolean(
+        "Linka je na webu vidět", compute="_compute_emergency_show",
+        help="Vypnuté znamená, že se o pohotovosti nikde nepíše.")
 
     @api.model
     def nastaveni(self):

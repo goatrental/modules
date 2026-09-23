@@ -327,29 +327,41 @@
                             <field name="facebook_url"/>
                         </group>
                         <group string="Pohotovost 24/7">
-                            <field name="emergency_active"/>
+                            <field name="emergency_mode" widget="radio"/>
                             <field name="emergency_phone" placeholder="+420722599699"
-                                   required="emergency_active"/>
-                            <field name="emergency_phone_display" placeholder="+420 722 599 699"/>
+                                   required="emergency_mode == 'live'"
+                                   invisible="emergency_mode == 'hidden'"/>
+                            <field name="emergency_phone_display" placeholder="+420 722 599 699"
+                                   invisible="emergency_mode == 'hidden'"/>
                             <field name="emergency_live" invisible="1"/>
-                            <div colspan="2" class="text-muted" invisible="emergency_active">
-                                Vypnuto: na webu svítí „již brzy“, tlačítko Volat je šedé
-                                a kolečko 24/7 vpravo dole se nedá zmáčknout.
+                            <field name="emergency_show" invisible="1"/>
+                            <div colspan="2" class="alert alert-info mb-0" role="status"
+                                 invisible="emergency_mode != 'hidden'">
+                                Na webu není po lince ani stopa: žádné kolečko 24/7 vpravo dole,
+                                žádná bublina, žádná zmínka v ordinačních hodinách.
+                            </div>
+                            <div colspan="2" class="alert alert-warning mb-0" role="status"
+                                 invisible="emergency_mode != 'soon'">
+                                Web slibuje, že linku teprve spustíte: kolečko 24/7 bliká vpravo dole,
+                                tlačítko Volat je šedé a neklikací. Pozor, klienti si to pletou
+                                s tím, že pohotovost už běží.
                             </div>
                             <div colspan="2" class="alert alert-success mb-0" role="status"
-                                 invisible="not emergency_active">
-                                Zapnuto: z tlačítka Volat se stane zelené s odkazem na číslo
+                                 invisible="emergency_mode != 'live'">
+                                Z tlačítka Volat se stane zelené s odkazem na číslo
                                 a kolečko 24/7 začne volat. Texty se přepnou samy, ve všech jazycích.
                             </div>
                         </group>
                         <!-- Texty vypnute pohotovosti se daji prepsat. Prazdne pole nechava
                              puvodni vetu ze sablony, ktera je prelozena do vsech ctyr jazyku. -->
-                        <group string="Texty, když pohotovost neběží" invisible="emergency_active">
-                            <field name="emergency_off_button" placeholder="Volat již brzy"/>
+                        <group string="Texty, když pohotovost neběží" invisible="emergency_mode == 'live'">
+                            <field name="emergency_off_button" placeholder="Volat již brzy"
+                                   invisible="emergency_mode == 'hidden'"/>
                             <field name="emergency_off_text"
-                                   placeholder="Když se mazlíčkovi něco stane, pohotovostní linku najdete vždycky tady. Brzy ji spustíme nepřetržitě."/>
+                                   placeholder="Když se mazlíčkovi něco stane, pohotovostní linku najdete vždycky tady. Brzy ji spustíme nepřetržitě."
+                                   invisible="emergency_mode == 'hidden'"/>
                             <field name="emergency_off_note"
-                                   placeholder="V blízké době plánujeme další rozšíření provozní doby…"/>
+                                   placeholder="Ošetření mimo ordinační dobu je možné pouze po předchozí telefonické domluvě…"/>
                             <div colspan="2" class="text-muted">
                                 Prázdné pole = zůstane původní věta ze šablony,
                                 a ta je přeložená do všech čtyř jazyků.

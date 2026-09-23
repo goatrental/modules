@@ -250,10 +250,10 @@
     "ru_RU": "Вы также занимаетесь острыми состояниями?"
    },
    "odpoved": {
-    "en_US": "Yes, we treat acute cases during office hours — please call in advance so we can be prepared for you. We operate a <strong>24/7</strong> emergency service, and we will publish the number as soon as it is ready.",
-    "cs_CZ": "Ano, akutní případy ošetřujeme v rámci ordinačních hodin — zavolejte předem, ať na vás můžeme být připravení. Na nepřetržité pohotovosti 24/7 pracujeme, číslo zveřejníme, jakmile bude připravené.",
-    "de_DE": "Ja, akute Fälle behandeln wir während der Sprechzeiten – rufen Sie vorher an, damit wir auf Sie vorbereitet sein können. Wir arbeiten rund um die Uhr, <strong>24/7</strong>, die Nummer werden wir veröffentlichen, sobald sie bereit ist.",
-    "ru_RU": "Да, мы лечим острые случаи в рабочие часы — пожалуйста, звоните заранее, чтобы мы могли подготовиться к вашему визиту. Мы работаем круглосуточно и без выходных, и мы опубликуем номер, как только он будет готов."
+    "en_US": "Yes, we treat acute cases during office hours — please call in advance so we can be prepared for you. Treatment outside opening hours is possible only by prior telephone arrangement and confirmation that the team is available. This is not a round-the-clock service.",
+    "cs_CZ": "Ano, akutní případy ošetřujeme v rámci ordinačních hodin — zavolejte předem, ať na vás můžeme být připravení. Ošetření mimo ordinační dobu je možné pouze po předchozí telefonické domluvě a potvrzení dostupnosti týmu. Nejedná se o nepřetržitý provoz.",
+    "de_DE": "Ja, akute Fälle behandeln wir während der Sprechzeiten – rufen Sie vorher an, damit wir auf Sie vorbereitet sein können. Eine Behandlung außerhalb der Öffnungszeiten ist nur nach vorheriger telefonischer Absprache und Bestätigung der Verfügbarkeit des Teams möglich. Es handelt sich nicht um einen durchgehenden Betrieb.",
+    "ru_RU": "Да, мы лечим острые случаи в рабочие часы — пожалуйста, звоните заранее, чтобы мы могли подготовиться к вашему визиту. Приём вне часов работы возможен только по предварительной телефонной договорённости и подтверждению доступности команды. Это не круглосуточный режим работы."
    }
   },
   {

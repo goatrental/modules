@@ -12,6 +12,18 @@ Pousti se v kontejneru s Odoo:
 """
 
 import urllib.request
+import re
+
+
+def telo(html):
+    """Stranka bez <style> a <script>, aby nazev tridy v kodu neplatil jako vyskyt.
+
+    Drive se delilo podle posledniho </style>. Jakmile si vlastni styl
+    zacala vozit i paticka, vracel helper pouze ji. Skripty se vyhazuji
+    taky — tridy a komentare v JS na strance nikdo necte.
+    """
+    bez_stylu = re.sub(r"<style[\s\S]*?</style>", " ", html)
+    return re.sub(r"<script[\s\S]*?</script>", " ", bez_stylu)
 
 ZAKLAD = "http://localhost:8069"
 JAZYKY = [("cs", "", "cs-CZ,cs", "cs-CZ"), ("de", "/de", "de-DE,de", "de-DE"),
@@ -161,32 +173,44 @@ env.cr.commit()
 krok("telefon se vratil", "+420111222333" not in stahni("/"))
 
 print("\n===== 8. POHOTOVOST 24/7 =====")
-puvodni_stav = nastaveni.emergency_active
-nastaveni.emergency_active = False
+puvodni_stav = nastaveni.emergency_mode
+
+# Rezim "hidden" je ten, kvuli kteremu reklamace vznikla: po lince nesmi na
+# strance zustat ani stopa, jinak si ji klienti prectou jako uz bezici.
+# telo() je tu nutne — nazvy trid zustavaji v CSS i kdyz se nic nevykresli.
+nastaveni.emergency_mode = "hidden"
+env.cr.commit()
+viditelne = telo(stahni("/"))
+krok("schovana: kolecko 24/7 na strance neni", "ev-fab247-wrap" not in viditelne)
+krok("schovana: bublina 24/7 na strance neni", 'id="ev-coach"' not in viditelne)
+krok("schovana: v hodinach neni zminka o lince", "ev-hours-emergency" not in viditelne)
+krok("schovana: nikde nezustalo 24/7", "24/7" not in viditelne)
+
+nastaveni.emergency_mode = "soon"
 env.cr.commit()
 html = stahni("/")
-krok("vypnuta: tlacitko Volat je sede a neklikaci",
+krok("uz brzy: tlacitko Volat je sede a neklikaci",
      'class="ev-coach-call" disabled=' in html and 'ev-coach-call ev-coach-call--zive' not in html)
-krok("vypnuta: kolecko 24/7 nevola", 'class="ev-fab247" role="img"' in html)
-nastaveni.write({"emergency_active": True, "emergency_phone": "+420999888777"})
+krok("uz brzy: kolecko 24/7 nevola", 'class="ev-fab247" role="img"' in html)
+nastaveni.write({"emergency_mode": "live", "emergency_phone": "+420999888777"})
 env.cr.commit()
 html = stahni("/")
 krok("zapnuta: tlacitko je zelene s odkazem", "ev-coach-call--zive" in html
      and "tel:+420999888777" in html)
 krok("zapnuta: kolecko 24/7 vola", html.count("tel:+420999888777") >= 2)
-nastaveni.write({"emergency_active": puvodni_stav, "emergency_phone": puvodni_telefon})
+nastaveni.write({"emergency_mode": puvodni_stav, "emergency_phone": puvodni_telefon})
 env.cr.commit()
 krok("pohotovost vracena do puvodniho stavu",
-     env["elite.vet.setting"].nastaveni().emergency_active == puvodni_stav)
+     env["elite.vet.setting"].nastaveni().emergency_mode == puvodni_stav)
 
 
 print("\n===== 8b. TEXTY VYPNUTE POHOTOVOSTI =====")
 # Dokud jsou pole prazdna, plati puvodni veta ze sablony — a ta je prelozena.
 # Jakmile klinika neco napise, prebije ji to.
 puvodni_texty = {p: nastaveni[p] for p in
-                 ("emergency_active", "emergency_off_button",
+                 ("emergency_mode", "emergency_off_button",
                   "emergency_off_text", "emergency_off_note")}
-nastaveni.write({"emergency_active": False, "emergency_off_button": False,
+nastaveni.write({"emergency_mode": "soon", "emergency_off_button": False,
                  "emergency_off_text": False, "emergency_off_note": False})
 env.cr.commit()
 
@@ -213,7 +237,7 @@ krok("napis na tlacitku se prepsal",
 krok("text v bubline se prepsal", "ZKOUSKA bublina" in html)
 krok("veta pod ordinacnimi hodinami se prepsala", "ZKOUSKA poznamka" in html)
 
-nastaveni.emergency_active = True
+nastaveni.emergency_mode = "live"
 env.cr.commit()
 krok("po zapnuti pohotovosti texty vypnute varianty zmizely", "ZKOUSKA" not in stahni("/"))
 
@@ -305,9 +329,6 @@ print("\n===== 10b. SEKCE CENIKU =====")
 Sekce = env["elite.vet.price.category"]
 Ukon = env["elite.vet.price.item"]
 
-def telo(html):
-    """Stranka bez <style>, aby nazev tridy v CSS neplatil jako vyskyt na strance."""
-    return html.split("</style>")[-1]
 
 cenik = stahni("/cenik")
 prvni = Sekce.search([], limit=1)
@@ -538,8 +559,10 @@ import re
 
 for cesta in ("/", "/de", "/en", "/ru", "/de/cenik", "/ru/rozpis-lekaru", "/en/nas-tym"):
     html = stahni(cesta)
+    # Panel se useka na svem </div>. Pevnych 600 znaku zasahovalo i odkazy
+    # za nim, takze test hlasil o jeden jazyk navic.
     zacatek = html.find('class="ev-lang-panel"')
-    panel = html[zacatek:zacatek + 600] if zacatek > -1 else ""
+    panel = html[zacatek:html.find("</div>", zacatek)] if zacatek > -1 else ""
     odkazy = re.findall(r'href="([^"]*)"', panel)
     krok("%s: prepinac ma vsechny ctyri jazyky" % cesta, len(odkazy) == 4,
          "nalezeno %s" % len(odkazy))
@@ -550,6 +573,16 @@ for cesta in ("/", "/de", "/en", "/ru", "/de/cenik", "/ru/rozpis-lekaru", "/en/n
 
 # Klik na jazyk opravdu prepne, i kdyz prohlizec neposila Accept-Language.
 import urllib.request
+import re
+
+
+def telo(html):
+    """Stranka bez vsech <style>, aby nazev tridy v CSS neplatil jako vyskyt.
+
+    Drive se delilo podle posledniho </style>. Jakmile si vlastni styl
+    zacala vozit i paticka, vracel helper pouze ji.
+    """
+    return re.sub(r"<style[\s\S]*?</style>", " ", html)
 import http.cookiejar
 
 def prejdi(kroky):
