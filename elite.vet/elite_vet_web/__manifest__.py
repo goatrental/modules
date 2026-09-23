@@ -1,6 +1,6 @@
 {
     "name": "Elite Vet - Web",
-    "version": "18.0.1.8.0",
+    "version": "18.0.1.9.0",
     "category": "Website",
     "summary": "Domovska stranka a stranka rezervace kliniky Elite Vet.",
     "description": """
@@ -34,7 +34,6 @@ lisi. Vymena fotky = vymena souboru v modulu.
         "views/homepage.xml",
         "views/rezervace.xml",
         "views/cenik.xml",
-        "views/o_nas_views.xml",
         "views/o_nas.xml",
     ],
     "post_init_hook": "_pri_instalaci",

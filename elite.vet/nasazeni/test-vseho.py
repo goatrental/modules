@@ -680,73 +680,31 @@ for cesta, jazyk, znacka in (("/", "cs-CZ,cs", "cs"), ("/de/", "de-DE,de", "de")
              "služb" not in popis.lower() and "lékař" not in popis.lower(), popis[:60])
 
 print("\n===== 17. STRANKA O NAS =====")
-# Cela stranka je jeden zaznam: stitek, nadpis, text, obrazek a video.
-# Zamerne to neni seznam sekci jako cenik — stranka je jeden text o klinice.
-Onas = env["elite.vet.about"]
-stranka = Onas.stranka()
-
+# Stranka je poskladana z bloku a prepisuje se primo v editoru. Zaznam
+# v adminu byl zrusen, protoze uz nic neridil — testuje se tedy stranka,
+# ne model.
 o_nas = stahni("/o-nas")
 krok("stranka /o-nas existuje", "<h1" in o_nas)
-krok("nadpis je ze zaznamu",
-     (stranka.with_context(lang="cs_CZ").name or "") in o_nas)
-krok("nadpis je prelozeny do nemciny",
-     (stranka.with_context(lang="de_DE").name or "") in stahni("/o-nas", "de-DE,de"))
-krok("stitek je na strance",
-     not stranka.badge or (stranka.with_context(lang="cs_CZ").badge or "") in o_nas)
-krok("lista je prelozena, ne anglicka",
-     "Kontakt" in o_nas.split("</style>")[-1])
+krok("ma editovatelnou zonu", 'id="oe_structure_o_nas"' in o_nas)
+krok("zona je uloziteľna (id obsahuje oe_structure)",
+     'id="oe_structure_o_nas" class="oe_structure"' in o_nas)
+krok("obsah stranky zustal",
+     "Vybudovali jsme pro vás moderní veterinární kliniku" in o_nas)
+krok("lista je prelozena, ne anglicka", "Kontakt" in telo(o_nas))
 
-puvodni = {p: stranka.with_context(lang="cs_CZ")[p] for p in ("body", "video_url", "image_alt")}
+# Video je blok Odoo, takze se adresa meni v bocnim panelu editoru.
+krok("video je blok Odoo", "media_iframe_video" in o_nas)
+krok("blok videa ma adresu", "youtube.com/embed/" in o_nas)
 
-stranka.with_context(lang="cs_CZ").body = "<p>ZKOUSKA text o klinice.</p>"
-env.cr.commit()
-# Stranka je poskladana z bloku, takze ji zaznam v adminu uz neridi.
-# Overuje se, ze obsah na strance zustal a zona jde editovat.
-html_o_nas = stahni("/o-nas")
-krok("stranka ma editovatelnou zonu", 'id="oe_structure_o_nas"' in html_o_nas)
-krok("obsah stranky zustal", "Vybudovali jsme pro vás moderní veterinární kliniku" in html_o_nas)
-krok("zmena zaznamu statickou stranku nemeni", "ZKOUSKA text o klinice" not in html_o_nas)
+# Preklady: stranka musi chodit ve vsech ctyrech jazycich.
+for zkratka, hlavicka, cekany in (("de", "de-DE,de", "Über uns"),
+                                  ("en", "en-US,en", "About us"),
+                                  ("ru", "ru-RU,ru", "О нас")):
+    html = stahni("/o-nas", hlavicka)
+    krok("/%s/o-nas ma prelozeny nadpis" % zkratka, cekany in html, cekany)
 
-# video: z bezneho odkazu se ma vytahnout kod a slozit prehravac bez cookies
-stranka.video_url = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-env.cr.commit()
-s_videem = stahni("/o-nas")
-krok("z odkazu se vytahl kod videa", stranka.video_id == "dQw4w9WgXcQ", stranka.video_id or "")
-# Prehravac uz na strance nevznika ze zaznamu, ale je v ni natvrdo.
-s_videem = html_o_nas
-# Prehravac je na strance natvrdo i s opravdovym videem kliniky, takze se
-# nekontroluje zkusebni kod, ale ze jde o vlozeni bez cookies.
-krok("prehravac je vlozeny bez cookies",
-     "youtube-nocookie.com/embed/" in s_videem)
-krok("prehravac se nacita az kdyz je potreba", 'loading="lazy"' in s_videem)
-
-# kratky tvar odkazu musi fungovat taky
-stranka.video_url = "https://youtu.be/abcdefghijk"
-env.cr.commit()
-krok("kratky odkaz youtu.be funguje", stranka.video_id == "abcdefghijk", stranka.video_id or "")
-
-# nesmysl se ma odmitnout hned, ne az na strance
-from odoo.exceptions import ValidationError
-odmitnuto = False
-try:
-    stranka.video_url = "tohle neni odkaz"
-    env.cr.flush()
-except ValidationError:
-    odmitnuto = True
-    env.cr.rollback()
-krok("nesmyslny odkaz se odmitne", odmitnuto)
-
-stranka = Onas.stranka()
-stranka.video_url = puvodni["video_url"] or False
-stranka.with_context(lang="cs_CZ").body = puvodni["body"] or False
-env.cr.commit()
-po = stahni("/o-nas")
-# Po uklidu smi zustat jen to, co si klinika nastavila sama — treba vlastni
-# video. Kontroluje se proto zkusebni obsah, ne pritomnost prehravace.
-krok("zkusebni obsah uklizen", "ZKOUSKA" not in po)
-krok("video vraceno do puvodniho stavu",
-     (stranka.video_url or "") == (puvodni["video_url"] or ""),
-     stranka.video_url or "prazdne")
+# model po zruseni nesmi zustat viset
+krok("zaznam v adminu uz neexistuje", "elite.vet.about" not in env)
 
 # stranka nesmi viset na cizich webech
 krok("stranka patri jednomu webu", bool(env.ref("elite_vet_web.o_nas_page").website_id))
@@ -754,6 +712,7 @@ polozka = env["website.menu"].search([("url", "=", "/o-nas")], limit=1)
 krok("odkaz v menu je prelozeny",
      bool(polozka) and polozka.with_context(lang="de_DE").name == "Über uns",
      polozka.with_context(lang="de_DE").name if polozka else "chybi")
+
 print("\n===== SHRNUTI =====")
 prosle = sum(1 for ok, _, _ in vysledky if ok)
 print("proslo %s z %s kontrol" % (prosle, len(vysledky)))

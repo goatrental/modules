@@ -1,6 +1,6 @@
 from odoo import SUPERUSER_ID, api
 
-from odoo.addons.elite_vet_web import _nastav_o_nas, _nastav_seo, _priradit_stranky_k_webu
+from odoo.addons.elite_vet_web import _nastav_seo, _priradit_stranky_k_webu
 
 
 def migrate(cr, version):
@@ -11,5 +11,4 @@ def migrate(cr, version):
     """
     env = api.Environment(cr, SUPERUSER_ID, {})
     _priradit_stranky_k_webu(env)
-    _nastav_o_nas(env)
     _nastav_seo(env)

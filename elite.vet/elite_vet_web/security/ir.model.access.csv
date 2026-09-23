@@ -19,5 +19,3 @@ access_section_public,elite.vet.page.section.public,model_elite_vet_page_section
 access_section_manager,elite.vet.page.section.manager,model_elite_vet_page_section,elite_vet_calendar.group_calendar_manager,1,1,1,1
 access_species_public,elite.vet.species.public,model_elite_vet_species,,1,0,0,0
 access_species_manager,elite.vet.species.manager,model_elite_vet_species,elite_vet_calendar.group_calendar_manager,1,1,1,1
-access_about_block_public,elite.vet.about.public,model_elite_vet_about,,1,0,0,0
-access_about_block_manager,elite.vet.about.manager,model_elite_vet_about,elite_vet_calendar.group_calendar_manager,1,1,1,1

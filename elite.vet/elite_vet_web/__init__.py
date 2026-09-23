@@ -137,7 +137,6 @@ def _pri_instalaci(env):
     _nastav_homepage(env)
     _nastav_seo(env)
     _nastav_cenik(env)
-    _nastav_o_nas(env)
     _seed_sluzby(env)
     seed_galerie(env)
     seed_obsah(env)
@@ -356,42 +355,3 @@ def _nastav_cenik(env):
         stavajici.write({"category_id": prvni_s_ukony.id})
 
     _logger.info("Ceník: zalozeno %s bloku.", len(sekce_data))
-
-def _nastav_o_nas(env):
-    """Nalije stranku /o-nas obsahem a povesi ji do menu webu.
-
-    Text se nebere z hlavy: je to tentyz text o klinice, ktery uz je na
-    domovske strance, i s preklady z i18n/*.po. Vytazeny lezi v data/o-nas.json.
-
-    Zaklada se jen jednou. Kdyz uz klinika neco napsala, nedela se nic.
-    """
-    import json
-    import os
-
-    from odoo.addons.elite_vet_calendar import _uklidit_cizi_polozky_menu, _zalozit_polozku_menu
-
-    Stranka = env["elite.vet.about"].sudo()
-    zaznam = Stranka.stranka()
-    if not zaznam.body:
-        cesta = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data", "o-nas.json")
-        if os.path.exists(cesta):
-            with open(cesta, encoding="utf-8") as soubor:
-                data = json.load(soubor)
-            for pole, klic in (("name", "nadpis"), ("badge", "stitek"), ("body", "text")):
-                hodnoty = data.get(klic) or {}
-                # en_US je zdroj, zapisuje se prvni; u Html pole prekladaneho
-                # po terminech musi zdroj existovat drive nez preklady
-                for jazyk in ("en_US", "cs_CZ", "de_DE", "ru_RU"):
-                    if hodnoty.get(jazyk):
-                        zaznam.with_context(lang=jazyk)[pole] = hodnoty[jazyk]
-            _logger.info("O nás: stránka naplněna výchozím textem.")
-
-    _uklidit_cizi_polozky_menu(env, "/o-nas")
-    # Polozka menu vznika s ceskym nazvem, ktery by sedel i v ostatnich jazycich —
-    # nazev je prekladatelne pole a bez tohohle by nemecky navstevnik cetl cesky.
-    _zalozit_polozku_menu(env, "About us", "/o-nas")
-    NAZVY_MENU = {"en_US": "About us", "cs_CZ": "O nás",
-                  "de_DE": "Über uns", "ru_RU": "О нас"}
-    for polozka in env["website.menu"].sudo().search([("url", "=", "/o-nas")]):
-        for jazyk, nazev in NAZVY_MENU.items():
-            polozka.with_context(lang=jazyk).name = nazev
