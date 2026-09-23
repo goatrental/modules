@@ -26,6 +26,7 @@
     "assets": {
         "web.assets_frontend": [
             "elite_vet_theme/static/src/css/bloky.css",
+            "elite_vet_theme/static/src/css/banner.css",
         ],
     },
     "installable": True,

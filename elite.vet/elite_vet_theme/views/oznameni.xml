@@ -14,12 +14,12 @@
         Diky tomu staci v bocnim panelu vybrat jednu barvu a prebarvi se
         tecka i linky zaroven.
     -->
-    <template id="s_vet_oznameni" name="Elite Vet: oznamovací pruh">
+    <template id="s_vet_oznameni" name="Elite Vet: banner">
         <section class="s_vet_oznameni ev-oznam ev-oznam--info o_cc o_cc2">
             <div class="ev-oznam-in">
                 <span class="ev-oznam-tecka"></span>
                 <div class="ev-oznam-text">
-                    <p><strong>Právě se něco děje</strong> — sem napište, co mají klienti vědět.</p>
+                    <p><strong>Something is happening</strong> — write here what clients should know.</p>
                 </div>
             </div>
         </section>

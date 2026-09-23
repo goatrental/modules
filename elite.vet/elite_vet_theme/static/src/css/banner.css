@@ -1,0 +1,77 @@
+/* Banner — pruh pres celou sirku, do ktereho klinika pise, ze se neco deje.
+ *
+ * Ma vlastni soubor zamerne: bloky.css se generuje z vykreslene stranky
+ * a pri prvni takove regeneraci styl banneru zmizel, protoze jeho tridy
+ * v blocich nejsou. Tady uz ho nic nepretrida.
+ *
+ * Barvy stoji na dvou promennych, aby stacilo v bocnim panelu vybrat jednu
+ * barvu a prebarvila se tecka i linky zaroven. Pripravene varianty promenne
+ * prepisuji tridou, vlastni vyber je zapise primo do stylu prvku — a ten
+ * tridu prebije, takze obe cesty funguji vedle sebe. */
+
+.ev-oznam {
+    --oznam-pozadi: #e8f1fb;
+    --oznam-text: #1a2744;
+    --oznam-cara: #3b82f6;
+    position: relative;
+    background: var(--oznam-pozadi) !important;
+    color: var(--oznam-text);
+    border-top: 2px solid var(--oznam-cara);
+    border-bottom: 2px solid var(--oznam-cara);
+}
+.ev-oznam--bez-car { border-top-color: transparent; border-bottom-color: transparent; }
+
+.ev-oznam .ev-oznam-in {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 13px;
+}
+.ev-oznam .ev-oznam-text { font-size: 15.5px; line-height: 1.55; text-align: center; color: var(--oznam-text); }
+.ev-oznam .ev-oznam-text p { margin: 0; }
+.ev-oznam .ev-oznam-text p + p { margin-top: 5px; }
+.ev-oznam .ev-oznam-text a { color: var(--oznam-cara); font-weight: 700; }
+
+/* Blikajici tecka bere barvu ze stejne promenne jako linky. */
+.ev-oznam .ev-oznam-tecka {
+    flex-shrink: 0;
+    width: 10px;
+    height: 10px;
+    border-radius: 9999px;
+    background: var(--oznam-cara);
+    box-shadow: 0 0 0 0 var(--oznam-cara);
+    animation: evOznamTep 1.8s ease-out infinite;
+}
+.ev-oznam--bez-tecky .ev-oznam-tecka { display: none; }
+
+@keyframes evOznamTep {
+    0% { box-shadow: 0 0 0 0 var(--oznam-cara); opacity: 1; }
+    70% { box-shadow: 0 0 0 9px rgba(0, 0, 0, 0); opacity: .75; }
+    100% { box-shadow: 0 0 0 0 rgba(0, 0, 0, 0); opacity: 1; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .ev-oznam .ev-oznam-tecka { animation: none; }
+}
+
+.ev-oznam--info { --oznam-pozadi: #e8f1fb; --oznam-cara: #3b82f6; }
+.ev-oznam--uspech { --oznam-pozadi: #e0f2f0; --oznam-cara: #2b7870; }
+.ev-oznam--pozor { --oznam-pozadi: #fef3e2; --oznam-cara: #d97706; }
+.ev-oznam--dulezite { --oznam-pozadi: #fdeaea; --oznam-cara: #dc2626; }
+.ev-oznam--tmavy { --oznam-pozadi: #1a2744; --oznam-text: #e2e8f0; --oznam-cara: #5eead4; }
+
+@media (max-width: 560px) {
+    .ev-oznam .ev-oznam-in { padding: 13px 16px; gap: 10px; }
+    .ev-oznam .ev-oznam-text { font-size: 14.5px; }
+}
+
+/* Horni lista je fixed, takze prvni blok na strance by se schoval pod ni.
+ * Sekce, ktere tam stoji bezne (letak), si to resi vlastnim padding-top;
+ * banner je prilis nizky na to, aby mu to slo udelat stejne, tak dostane
+ * odsazeni jen v pripade, ze je opravdu prvni. Jinde ho nepotrebuje. */
+.oe_structure > .s_vet_oznameni:first-child { margin-top: 69px; }
+@media (max-width: 768px) {
+    .oe_structure > .s_vet_oznameni:first-child { margin-top: 61px; }
+}

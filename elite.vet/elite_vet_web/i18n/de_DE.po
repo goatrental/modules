@@ -618,3 +618,38 @@ msgstr "E-Mail"
 #: model_terms:ir.ui.view,arch_db:elite_vet_web.homepage
 msgid "<span class=\"ev-hours-day\">Sat – Sun</span>\n                                            <span class=\"ev-hours-time\">10:00 – 18:00</span>"
 msgstr "<span class=\"ev-hours-day\">Sa – So</span>\n                                        <span class=\"ev-hours-time\">10:00 – 18:00</span>"
+
+#. module: elite_vet_web
+#: model_terms:ir.ui.view,arch_db:elite_vet_web.homepage
+msgid "<span class=\"ev-hours-day\">Mon – Fri</span>\n                                <span class=\"ev-hours-time\">8:00 – 20:00</span>"
+msgstr "<span class=\"ev-hours-day\">Mo – Fr</span>\n                                <span class=\"ev-hours-time\">8:00 – 20:00</span>"
+
+#. module: elite_vet_web
+#: model_terms:ir.ui.view,arch_db:elite_vet_web.homepage
+msgid "<span class=\"ev-hours-day\">Mon – Fri</span>\n                                            <span class=\"ev-hours-time\">8:00 – 20:00</span>"
+msgstr "<span class=\"ev-hours-day\">Mo – Fr</span>\n                                            <span class=\"ev-hours-time\">8:00 – 20:00</span>"
+
+#. module: elite_vet_web
+#: model_terms:ir.ui.view,arch_db:elite_vet_web.homepage
+msgid "<span class=\"ev-flyer2-date\">Mon – Fri 8:00 – 20:00</span>"
+msgstr "<span class=\"ev-flyer2-date\">Mo – Fr 8:00 – 20:00</span>"
+
+#. module: elite_vet_web
+#: model_terms:ir.ui.view,arch_db:elite_vet_web.homepage
+msgid "<span class=\"ev-flyer2-time\">Sat – Sun 10:00 – 18:00</span>"
+msgstr "<span class=\"ev-flyer2-time\">Sa – So 10:00 – 18:00</span>"
+
+#. module: elite_vet_web
+#: model_terms:ir.ui.view,arch_db:elite_vet_web.homepage
+msgid "We are in full operation — <span>mon – fri</span> <span>8:00 – 20:00</span>, <span>sat – sun</span> <span>10:00 – 18:00</span>. Book online or by phone at the reception."
+msgstr "Wir sind im vollen Betrieb — <span>mo – fr</span> <span>8:00 – 20:00</span>, <span>sa – so</span> <span>10:00 – 18:00</span>. Termine online oder telefonisch an der Rezeption."
+
+#. module: elite_vet_web
+#: model_terms:ir.ui.view,arch_db:elite_vet_web.homepage
+msgid "<strong>Something is happening</strong> — write here what clients should know."
+msgstr "<strong>Gerade tut sich etwas</strong> — schreiben Sie hier, was Kunden wissen sollen."
+
+#. module: elite_vet_web
+#: model_terms:ir.ui.view,arch_db:elite_vet_web.homepage
+msgid "<p><strong>Something is happening</strong> — write here what clients should know.</p>"
+msgstr "<p><strong>Gerade tut sich etwas</strong> — schreiben Sie hier, was Kunden wissen sollen.</p>"

@@ -395,3 +395,38 @@ msgstr "Ošetření mimo ordinační dobu je možné pouze po předchozí telefo
 #: model_terms:ir.ui.view,arch_db:elite_vet_theme.s_vet_kontakt
 msgid "Open in maps"
 msgstr "Otevřít v mapách"
+
+#. module: elite_vet_theme
+#: model_terms:ir.ui.view,arch_db:elite_vet_theme.s_vet_kontakt
+msgid "<span class=\"ev-hours-day\">Mon – Fri</span>\n                                <span class=\"ev-hours-time\">8:00 – 20:00</span>"
+msgstr "<span class=\"ev-hours-day\">Po – Pá</span>\n                                <span class=\"ev-hours-time\">8:00 – 20:00</span>"
+
+#. module: elite_vet_theme
+#: model_terms:ir.ui.view,arch_db:elite_vet_theme.s_vet_kontakt
+msgid "<span class=\"ev-hours-day\">Mon – Fri</span>\n                                            <span class=\"ev-hours-time\">8:00 – 20:00</span>"
+msgstr "<span class=\"ev-hours-day\">Po – Pá</span>\n                                            <span class=\"ev-hours-time\">8:00 – 20:00</span>"
+
+#. module: elite_vet_theme
+#: model_terms:ir.ui.view,arch_db:elite_vet_theme.s_vet_letak
+msgid "<span class=\"ev-flyer2-date\">Mon – Fri 8:00 – 20:00</span>"
+msgstr "<span class=\"ev-flyer2-date\">Po – Pá 8:00 – 20:00</span>"
+
+#. module: elite_vet_theme
+#: model_terms:ir.ui.view,arch_db:elite_vet_theme.s_vet_letak
+msgid "<span class=\"ev-flyer2-time\">Sat – Sun 10:00 – 18:00</span>"
+msgstr "<span class=\"ev-flyer2-time\">So – Ne 10:00 – 18:00</span>"
+
+#. module: elite_vet_theme
+#: model_terms:ir.ui.view,arch_db:elite_vet_theme.s_vet_o_klinice
+msgid "We are in full operation — <span>mon – fri</span> <span>8:00 – 20:00</span>, <span>sat – sun</span> <span>10:00 – 18:00</span>. Book online or by phone at the reception."
+msgstr "Plný provoz už běží — <span>po – pá</span> <span>8:00 – 20:00</span>, <span>so – ne</span> <span>10:00 – 18:00</span>. Objednat se můžete online nebo telefonicky na recepci."
+
+#. module: elite_vet_theme
+#: model_terms:ir.ui.view,arch_db:elite_vet_theme.s_vet_oznameni
+msgid "<strong>Something is happening</strong> — write here what clients should know."
+msgstr "<strong>Právě se něco děje</strong> — sem napište, co mají klienti vědět."
+
+#. module: elite_vet_theme
+#: model_terms:ir.ui.view,arch_db:elite_vet_theme.s_vet_oznameni
+msgid "<p><strong>Something is happening</strong> — write here what clients should know.</p>"
+msgstr "<p><strong>Právě se něco děje</strong> — sem napište, co mají klienti vědět.</p>"
