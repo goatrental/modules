@@ -37,3 +37,17 @@
 @media (max-width: 768px) {
     .ev-nadpis { padding-top: 40px; }
 }
+
+/* Horni lista je fixed, takze prvni blok na strance by se schoval pod ni.
+ * Velke sekce (letak, kontakt) si to resi vlastnim padding-top; tyhle male
+ * bloky jsou na to prilis nizke, tak dostanou odsazeni jen tehdy, kdyz jsou
+ * opravdu prvni. Jinde ho nepotrebuji. */
+.oe_structure > .s_vet_nadpis:first-child,
+.oe_structure > .s_vet_text:first-child,
+.oe_structure > .ev-video-blok:first-child { margin-top: 69px; }
+
+@media (max-width: 768px) {
+    .oe_structure > .s_vet_nadpis:first-child,
+    .oe_structure > .s_vet_text:first-child,
+    .oe_structure > .ev-video-blok:first-child { margin-top: 61px; }
+}

@@ -1,0 +1,26 @@
+/* Blok Text — odstavce v ctecí sirce.
+ *
+ * Vlastni soubor zamerne: bloky.css se generuje z vykreslene stranky a bere
+ * jen pravidla, jejichz tridy jsou v blocich, takze by styl odsud zmizel. */
+
+.ev-text { padding: 20px 0; }
+.ev-text .ev-text-in {
+    max-width: 780px;
+    margin: 0 auto;
+    font-size: 16.5px;
+    line-height: 1.8;
+    color: var(--ev-text-secondary, #64748b);
+}
+.ev-text .ev-text-in p { margin: 0 0 16px; }
+.ev-text .ev-text-in p:last-child { margin-bottom: 0; }
+.ev-text .ev-text-in a { color: var(--ev-accent, #2b7870); font-weight: 700; }
+
+.ev-text--stred .ev-text-in { text-align: center; }
+
+/* Blok Video z Odoo potrebuje jen odsazeni; o pomer stran se stara samo. */
+.ev-video-blok { padding: 20px 0; }
+.ev-video-blok .ev-container { max-width: 980px; }
+
+@media (max-width: 768px) {
+    .ev-text .ev-text-in { font-size: 15.5px; line-height: 1.7; }
+}

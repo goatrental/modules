@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!--
+        Odstavce textu. Sirka je omezena na ctecí miru, aby se radky nelamaly
+        pres celou obrazovku.
+
+        Koren je <section>, protoze do volnych mist Odoo pousti jen sekce.
+    -->
+    <template id="s_vet_text" name="Elite Vet: text">
+        <section class="s_vet_text ev-text">
+            <div class="ev-container">
+                <div class="ev-text-in">
+                    <p>Sem napište text. Odstavec přidáte klávesou Enter.</p>
+                </div>
+            </div>
+        </section>
+    </template>
+
+    <template id="snippet_options_vet_text" inherit_id="website.snippet_options">
+        <xpath expr="//div[@data-js='ContainerWidth']" position="before">
+            <div data-selector=".s_vet_text">
+                <we-select string="Zarovnání">
+                    <we-button data-select-class="">Vlevo</we-button>
+                    <we-button data-select-class="ev-text--stred">Na střed</we-button>
+                </we-select>
+            </div>
+        </xpath>
+    </template>
+
+</odoo>

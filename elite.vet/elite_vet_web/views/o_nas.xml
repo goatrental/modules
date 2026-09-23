@@ -301,28 +301,42 @@
                      vsechny bloky. Obsah v zone nesmi vznikat smyckou ani t-call —
                      takovou zonu Odoo needituje. -->
                 <div id="oe_structure_o_nas" class="oe_structure">
-                    <section class="s_vet_o_nas ev-onas">
-                    <div class="ev-container">
-                    <div class="ev-onas-head">
-                    <span class="ev-cenhero-badge">
-                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
-                    <line x1="7" y1="7" x2="7.01" y2="7"></line>
-                    </svg>
-                    <span>ABOUT THE CLINIC</span>
-                    </span>
-                    <h1>About us</h1>
-                    </div>
-                    <div class="ev-onas-text"><p>We have built a modern veterinary clinic in Karlovy Vary for you — a long-term project with the goal of offering comprehensive veterinary care in the region, all in one place.</p><p>The clinic is equipped with modern diagnostic and treatment technology and from the outset offers extended opening hours including weekends. We will gradually extend our operation further.</p></div>
+                    <!-- Nadpis sekce. Stitek i nadpis se prepisuji kliknutim. -->
+                    <section class="s_vet_nadpis ev-nadpis">
+                        <div class="ev-container">
+                            <div class="ev-nadpis-in">
+                                <span class="ev-cenhero-badge">
+                                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/>
+                                        <line x1="7" y1="7" x2="7.01" y2="7"/>
+                                    </svg>
+                                    <span>ABOUT THE CLINIC</span>
+                                </span>
+                                <h1>About us</h1>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Text stranky. -->
+                    <section class="s_vet_text ev-text">
+                        <div class="ev-container">
+                            <div class="ev-text-in">
+                                <p>We have built a modern veterinary clinic in Karlovy Vary for you — a long-term project with the goal of offering comprehensive veterinary care in the region, all in one place.</p>
+                                <p>The clinic is equipped with modern diagnostic and treatment technology and from the outset offers extended opening hours including weekends. We will gradually extend our operation further.</p>
+                            </div>
+                        </div>
+                    </section>
 
                     <!-- Blok Video z Odoo. Adresa se prepisuje v bocnim panelu editoru,
                          takze na zmenu videa neni potreba sahat do kodu. -->
-                    <div class="media_iframe_video" data-oe-expression="//www.youtube.com/embed/UJBS9oD8Adw?rel=0&amp;autoplay=0">
-                        <div class="css_editable_mode_display"></div>
-                        <div class="media_iframe_video_size"></div>
-                        <iframe src="//www.youtube.com/embed/UJBS9oD8Adw?rel=0&amp;autoplay=0" frameborder="0" allowfullscreen="allowfullscreen" aria-label="Video"></iframe>
-                    </div>
-                    </div>
+                    <section class="ev-video-blok">
+                        <div class="ev-container">
+                            <div class="media_iframe_video" data-oe-expression="//www.youtube.com/embed/UJBS9oD8Adw?rel=0&amp;autoplay=0">
+                                <div class="css_editable_mode_display"></div>
+                                <div class="media_iframe_video_size"></div>
+                                <iframe src="//www.youtube.com/embed/UJBS9oD8Adw?rel=0&amp;autoplay=0" frameborder="0" allowfullscreen="allowfullscreen" aria-label="Video"></iframe>
+                            </div>
+                        </div>
                     </section>
                 </div>
                 <!-- =========================== AUTORSKY KREDIT =========================== -->

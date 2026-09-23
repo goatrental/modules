@@ -20,6 +20,7 @@
         "views/bloky.xml",
         "views/oznameni.xml",
         "views/nadpis.xml",
+        "views/text.xml",
         "views/snippets.xml",
     ],
     # Styl bloku se nacita na vsech strankach. Inline <style> uvnitr
@@ -29,6 +30,7 @@
             "elite_vet_theme/static/src/css/bloky.css",
             "elite_vet_theme/static/src/css/banner.css",
             "elite_vet_theme/static/src/css/nadpis.css",
+            "elite_vet_theme/static/src/css/text.css",
         ],
     },
     "installable": True,
