@@ -237,6 +237,13 @@ class EliteVetSetting(models.Model):
     address_line1 = fields.Char("Adresa – první řádek")
     address_line2 = fields.Char("Adresa – druhý řádek")
     map_url = fields.Char("Odkaz na mapu")
+    # Ramecek pod uvodni sekci domovske stranky. Klinika v nem vysvetluje
+    # priplatky mimo ordinacni dobu, vcetne odkazu na cenik — proto Html,
+    # ne prosty text. Prazdne pole znamena, ze se ramecek nevykresli.
+    hero_note = fields.Html(
+        "Rámeček pod úvodní sekcí", translate=True, sanitize=False,
+        help="Ukáže se na domovské stránce pod úvodním blokem, nad tlačítkem "
+             "Objednat se. Prázdné pole znamená, že tam nic nebude.")
     booking_url = fields.Char("Odkaz na rezervační systém",
                               help="Adresa formulare WinVet, ktera se vklada do stranky.")
     # Hlaseni lezi POD iframem, takze se na nej v prekladovem rezimu Odoo neda

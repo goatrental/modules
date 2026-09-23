@@ -108,7 +108,16 @@ def seed_obsah(env):
     # do kterych patri. Tady uz by vznikly podruhe, a jeste bez sekce.
     Nastaveni = env["elite.vet.setting"]
     if not Nastaveni.search_count([]):
-        Nastaveni.create(obsah["nastaveni"])
+        hodnoty = dict(obsah["nastaveni"])
+        # Ramecek pod uvodni sekci je Html s translate=True. Takove pole se
+        # preklada po terminech, takze zdroj musi byt uz v create() — jinak
+        # ho prvni zapis v cizim jazyce prepise.
+        ramecek = obsah.get("hero_note") or {}
+        if ramecek.get("en_US"):
+            hodnoty["hero_note"] = ramecek["en_US"]
+        zaznam = Nastaveni.create(hodnoty)
+        if ramecek:
+            _zapis_preklady(zaznam, "hero_note", ramecek)
 
     seed_druhy(env)
     seed_bloky(env)

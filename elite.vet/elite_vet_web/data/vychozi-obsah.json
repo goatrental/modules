@@ -3,10 +3,10 @@
   {
    "poradi": 10,
    "dny": {
-    "en_US": "Monday – Friday",
-    "cs_CZ": "Pondělí – Pátek",
-    "de_DE": "Montag – Freitag",
-    "ru_RU": "Понедельник – Пятница"
+    "en_US": "Mon – Fri",
+    "cs_CZ": "Po – Pá",
+    "de_DE": "Mo – Fr",
+    "ru_RU": "Пн – Пт"
    },
    "cas": {
     "en_US": "8:00 – 20:00",
@@ -18,10 +18,10 @@
   {
    "poradi": 20,
    "dny": {
-    "en_US": "Saturday – Sunday",
-    "cs_CZ": "Sobota – Neděle",
-    "de_DE": "Samstag – Sonntage",
-    "ru_RU": "Суббота – Воскресенье"
+    "en_US": "Sat – Sun",
+    "cs_CZ": "So – Ne",
+    "de_DE": "Sa – So",
+    "ru_RU": "Сб – Вс"
    },
    "cas": {
     "en_US": "10:00 – 18:00",
@@ -350,5 +350,11 @@
   "booking_url": "https://reservation.winvet.cz/booking/f5832eae07850edb2b5a1167843ef423",
   "instagram_url": "",
   "facebook_url": ""
+ },
+ "hero_note": {
+  "cs_CZ": "<div style=\"text-align:center;\"> <p style=\"margin-bottom: 0px;\"><strong>Mimo ordinační dobu se k pohotovostnímu poplatku připočítává čas práce lékaře a sestry</strong> podle jejich skutečného zapojení do péče. Uvedené příplatky se účtují nad rámec ceny vyšetření, zákroků, léčiv a použitého materiálu.</p><p style=\"margin-bottom: 0px;\"><a href=\"/cenik\"><u><font style=\"color: rgb(74, 123, 140);\"><strong>Tyto příplatky</strong></font></u></a> nám umožňují zajistit a odpovídajícím způsobem odměnit odborný tým při víkendové a mimořádné péči o vaše mazlíčky.&nbsp;</p></div>",
+  "de_DE": "<div style=\"text-align:center;\"> <p style=\"margin-bottom: 0px;\">Außerhalb der Sprechzeiten wird die Arbeitszeit des Arztes und der Schwester entsprechend ihrem tatsächlichen Engagement in der Versorgung zum Bereitschaftsgebühr hinzugerechnet. Die genannten Zuschläge werden zusätzlich zu den Kosten für Untersuchungen, Eingriffe, Medikamente und verwendetes Material berechnet..</p><p style=\"margin-bottom: 0px;\"><a href=\"/de/cenik\"><u><font style=\"color: rgb(74, 123, 140);\"><strong>Diese Zuschläge</strong></font></u></a> ermöglichen es uns, ein Fachteam angemessen zu sichern und zu belohnen, wenn es um die Wochenend- und Notfallpflege Ihrer Tiere geht.</p></div>",
+  "en_US": "<div style=\"text-align:center;\"> <p style=\"margin-bottom: 0px;\">Outside of office hours, the emergency fee includes the working time of the doctor and nurse based on their actual involvement in care. The mentioned surcharges are charged in addition to the cost of examinations, procedures, medications, and materials used.</p><p style=\"margin-bottom: 0px;\"><a href=\"/en/cenik\"><u><font style=\"color: rgb(74, 123, 140);\"><strong>These supplements</strong></font></u></a> allow us to ensure and appropriately reward the professional team during weekend and emergency care for your animals.</p></div>",
+  "ru_RU": "<div style=\"text-align:center;\"> <p style=\"margin-bottom: 0px;\">Вне рабочего времени к плате за неотложную помощь добавляется время работы врача и медсестры в зависимости от их фактического участия в уходе. Указанные надбавки взимаются сверх стоимости обследования, процедур, лекарств и использованных материалов.</p><p style=\"margin-bottom: 0px;\"><a href=\"/ru/cenik\"><u><font style=\"color: rgb(74, 123, 140);\"><strong>Эти надбавки</strong></font></u></a> они позволяют нам обеспечить и соответствующим образом вознаградить профессиональную команду за уход за вашими животными в выходные и в экстренных ситуациях.</p></div>"
  }
 }

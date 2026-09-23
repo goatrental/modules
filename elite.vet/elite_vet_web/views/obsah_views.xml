@@ -319,6 +319,14 @@
                             <field name="address_line2" placeholder="360 05 Karlovy Vary"/>
                             <field name="map_url" placeholder="https://maps.google.com/?q=…"/>
                         </group>
+                        <group string="Rámeček pod úvodní sekcí">
+                            <field name="hero_note" nolabel="1"/>
+                            <div colspan="2" class="text-muted">
+                                Ukáže se na domovské stránce pod úvodním blokem.
+                                Prázdné pole = rámeček se nevykreslí.
+                                Text se píše v každém jazyce zvlášť — přepni jazyk vpravo nahoře.
+                            </div>
+                        </group>
                         <group string="Rezervace">
                             <field name="booking_url" placeholder="https://reservation.winvet.cz/booking/…"/>
                         </group>

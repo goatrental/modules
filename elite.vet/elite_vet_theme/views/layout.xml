@@ -6,14 +6,14 @@
         nastaveni i kontakty samy, takze je muze zavolat kterakoliv stranka
         z kterehokoliv modulu kliniky bez pripravy promennych.
 
-        Vzhled hlavicky (tridy ev-topbar*, ev-nav*, ev-burger*, ev-lang*) je
-        popsany ve stylu kazde stranky. Paticka je nova, proto si svoje CSS
-        veze s sebou.
+        Zbytek vzhledu hlavicky (tridy ev-topbar*, ev-burger*, ev-lang*) je
+        popsany ve stylu kazde stranky; tady je jen to, co k hlavicce pribylo
+        s dvouurovnovym menu.
     -->
 
     <!-- =========================== HLAVICKA =========================== -->
     <template id="vet_header" name="Elite Vet: horní lišta">
-        <!-- Prepinac jazyku: odkazuje se primo na /cs, /de, /en, /ru. Cesta pres
+        <!-- Prepinac jazyku odkazuje primo na /cs, /de, /en, /ru. Cesta pres
              /website/lang/ stoji na cookie frontend_lang a ta v prohlizeci uvnitr
              Instagramu ani Facebooku neprojde — jazyk by se neprepnul.
              data-no-post-process brani Odoo prepsat adresu na prazdny retezec. -->
@@ -22,6 +22,34 @@
         <t t-set="ev_h_de" t-value="('%s' % url_for(request.httprequest.path, lang_code='de_DE')) or '/'"/>
         <t t-set="ev_h_en" t-value="('%s' % url_for(request.httprequest.path, lang_code='en_US')) or '/'"/>
         <t t-set="ev_h_ru" t-value="('%s' % url_for(request.httprequest.path, lang_code='ru_RU')) or '/'"/>
+
+        <style>
+            /* Rozbalovaci nabidka v horni liste. Atribut name="ev-nav" zaridi,
+               ze je otevrena vzdy jen jedna — resi to prohlizec, ne skript. */
+            .ev-nav-drop { position: relative; }
+            .ev-nav-drop > summary { display: inline-flex; align-items: center; gap: 5px; cursor: pointer; list-style: none; }
+            .ev-nav-drop > summary::-webkit-details-marker { display: none; }
+            .ev-nav-caret { transition: transform .2s ease; }
+            .ev-nav-drop[open] .ev-nav-caret { transform: rotate(180deg); }
+            .ev-nav-panel { position: absolute; top: calc(100% + 10px); left: 50%; transform: translateX(-50%); min-width: 220px; padding: 8px; background: #fff; border-radius: 12px; box-shadow: 0 12px 32px rgba(26, 39, 68, .14); display: flex; flex-direction: column; z-index: 1050; }
+            .ev-nav-opt { padding: 10px 14px; border-radius: 8px; white-space: nowrap; color: #1a2744; }
+            .ev-nav-opt:hover, .ev-nav-opt.is-active { background: rgba(43, 120, 112, .1); color: #2b7870; }
+
+            /* Skupiny v burger menu — harmonika odsazena svislou linkou. */
+            .ev-burger-group > summary { cursor: pointer; list-style: none; }
+            .ev-burger-group > summary::-webkit-details-marker { display: none; }
+            .ev-burger-caret { transition: transform .2s ease; }
+            .ev-burger-group[open] .ev-burger-caret { transform: rotate(90deg); }
+            .ev-burger-sub { display: flex; flex-direction: column; margin: 2px 0 8px 26px; padding-left: 12px; border-left: 2px solid rgba(43, 120, 112, .25); }
+            .ev-burger-sublink { padding: 8px 0; font-size: .95em; color: #1a2744; opacity: .85; }
+            .ev-burger-sublink:hover { color: #2b7870; opacity: 1; }
+
+            /* Na mobilu se cela horni lista schova do burgeru. Rozbalovaci
+               polozka neni odkaz, takze ji pravidlo pro a:not(...) minulo. */
+            @media (max-width: 768px) {
+                .ev-topbar-nav > .ev-nav-drop { display: none; }
+            }
+        </style>
 
         <div class="ev-topbar">
             <div class="ev-container ev-topbar-inner">
@@ -32,20 +60,33 @@
                     <span class="ev-logo-brand" style="display: inline-block; white-space: nowrap;"><span style="color: #1a2744 !important;">Elite</span><span style="color: #2b7870 !important;">Vet</span></span>
                 </a>
                 <nav class="ev-topbar-nav">
-                    <!-- Polozky se berou z menu webu (Web -> Upravit -> Menu), takze
-                         se daji prehazovat bez zasahu do kodu. Polozka s podpolozkami
-                         se rozbaluje pres details/summary — bez jedine radky JS. -->
-                    <t t-foreach="website.menu_id.child_id" t-as="ev_m">
-                        <a t-if="not ev_m.child_id" t-att-href="ev_m.url" t-attf-class="#{'ev-nav-active' if ev_m.url == request.httprequest.path else ''}" t-att-target="'_blank' if '://' in ev_m.url else False" t-att-rel="'noopener' if '://' in ev_m.url else False"><span t-field="ev_m.name"></span></a>
-                        <details t-else="" class="ev-nav-sub">
-                            <summary t-attf-class="#{'ev-nav-active' if ev_m.url == request.httprequest.path else ''}">
-                                <span t-field="ev_m.name"></span>
-                                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    <!-- Polozky navigace se berou z menu webu (Odoo: Web -> Upravit -> Menu),
+                         takze se daji menit bez zasahu do kodu stranky. -->
+
+                    <t t-set="ev_path" t-value="request.httprequest.path"/>
+                    <t t-foreach="website.menu_id.child_id.filtered(lambda m: m.is_visible)" t-as="ev_m">
+                        <t t-set="ev_kids" t-value="ev_m.child_id.filtered(lambda m: m.is_visible)"/>
+
+                        <!-- Polozka se submenu -->
+                        <details t-if="ev_kids" name="ev-nav" t-attf-class="ev-nav-drop #{'ev-nav-active' if ev_path in ev_kids.mapped('url') + [ev_m.url] else ''}">
+                            <summary>
+                                <span t-field="ev_m.name"/>
+                                <svg class="ev-nav-caret" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="6 9 12 15 18 9"/>
+                                </svg>
                             </summary>
-                            <div class="ev-nav-sub-panel">
-                                <a t-foreach="ev_m.child_id" t-as="ev_sub" t-att-href="ev_sub.url" t-attf-class="ev-nav-sub-link#{' ev-nav-active' if ev_sub.url == request.httprequest.path else ''}" t-att-target="'_blank' if '://' in ev_sub.url else False" t-att-rel="'noopener' if '://' in ev_sub.url else False"><span t-field="ev_sub.name"></span></a>
+                            <div class="ev-nav-panel">
+                                <a t-if="ev_m.url and ev_m.url not in ('#', '/#')" t-att-href="ev_m.url" t-attf-class="ev-nav-opt #{'is-active' if ev_m.url == ev_path else ''}">
+                                    <span t-field="ev_m.name"/>
+                                </a>
+                                <t t-foreach="ev_kids" t-as="ev_k">
+                                    <a t-att-href="ev_k.url" t-attf-class="ev-nav-opt #{'is-active' if ev_k.url == ev_path else ''}" t-att-target="'_blank' if '://' in ev_k.url else False" t-att-rel="'noopener' if '://' in ev_k.url else False"><span t-field="ev_k.name"/></a>
+                                </t>
                             </div>
                         </details>
+
+                        <!-- Bezna polozka -->
+                        <a t-else="" t-att-href="ev_m.url" t-attf-class="#{'ev-nav-active' if ev_m.url == ev_path else ''}" t-att-target="'_blank' if '://' in ev_m.url else False" t-att-rel="'noopener' if '://' in ev_m.url else False"><span t-field="ev_m.name"/></a>
                     </t>
                     <details class="ev-lang">
                         <summary>
@@ -81,21 +122,33 @@
                             </svg>
                         </summary>
                         <div class="ev-burger-panel">
-                            <t t-foreach="website.menu_id.child_id" t-as="ev_m">
-                                <a t-if="not ev_m.child_id" t-att-href="ev_m.url" class="ev-burger-link" t-att-target="'_blank' if '://' in ev_m.url else False" t-att-rel="'noopener' if '://' in ev_m.url else False">
-                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-                                    <span t-field="ev_m.name"></span>
-                                </a>
-                                <!-- Podnabidka se rozbali na miste, pod rodicem. -->
-                                <details t-else="" class="ev-burger-group">
+                            <t t-foreach="website.menu_id.child_id.filtered(lambda m: m.is_visible)" t-as="ev_m">
+                                <t t-set="ev_kids" t-value="ev_m.child_id.filtered(lambda m: m.is_visible)"/>
+
+                                <!-- Skupina se sama otevre, kdyz jsi na nektere z jejich stranek. -->
+                                <details t-if="ev_kids" class="ev-burger-group" t-att-open="'open' if ev_path in ev_kids.mapped('url') + [ev_m.url] else None">
                                     <summary class="ev-burger-link">
-                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-                                        <span t-field="ev_m.name"></span>
+                                        <svg class="ev-burger-caret" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <polyline points="9 18 15 12 9 6"/>
+                                        </svg>
+                                        <span t-field="ev_m.name"/>
                                     </summary>
                                     <div class="ev-burger-sub">
-                                        <a t-foreach="ev_m.child_id" t-as="ev_sub" t-att-href="ev_sub.url" class="ev-burger-sublink" t-att-target="'_blank' if '://' in ev_sub.url else False" t-att-rel="'noopener' if '://' in ev_sub.url else False"><span t-field="ev_sub.name"></span></a>
+                                        <a t-if="ev_m.url and ev_m.url not in ('#', '/#')" t-att-href="ev_m.url" class="ev-burger-sublink">
+                                            <span t-field="ev_m.name"/>
+                                        </a>
+                                        <t t-foreach="ev_kids" t-as="ev_k">
+                                            <a t-att-href="ev_k.url" class="ev-burger-sublink" t-att-target="'_blank' if '://' in ev_k.url else False" t-att-rel="'noopener' if '://' in ev_k.url else False"><span t-field="ev_k.name"/></a>
+                                        </t>
                                     </div>
                                 </details>
+
+                                <a t-else="" t-att-href="ev_m.url" class="ev-burger-link" t-att-target="'_blank' if '://' in ev_m.url else False" t-att-rel="'noopener' if '://' in ev_m.url else False">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <polyline points="9 18 15 12 9 6"/>
+                                    </svg>
+                                    <span t-field="ev_m.name"/>
+                                </a>
                             </t>
                         </div>
                     </details>
@@ -151,9 +204,10 @@
                     <p class="ev-footer-h">Navigation</p>
                     <div class="ev-footer-col">
                         <!-- Stejne menu jako nahore, jen srovnane do jednoho sloupce. -->
-                        <t t-foreach="website.menu_id.child_id" t-as="ev_fm">
-                            <a t-if="not ev_fm.child_id" t-att-href="ev_fm.url"><span t-field="ev_fm.name"></span></a>
-                            <a t-foreach="ev_fm.child_id" t-as="ev_fs" t-att-href="ev_fs.url"><span t-field="ev_fs.name"></span></a>
+                        <t t-foreach="website.menu_id.child_id.filtered(lambda m: m.is_visible)" t-as="ev_fm">
+                            <t t-set="ev_fkids" t-value="ev_fm.child_id.filtered(lambda m: m.is_visible)"/>
+                            <a t-if="not ev_fkids" t-att-href="ev_fm.url"><span t-field="ev_fm.name"/></a>
+                            <a t-foreach="ev_fkids" t-as="ev_fs" t-att-href="ev_fs.url"><span t-field="ev_fs.name"/></a>
                         </t>
                     </div>
                 </div>
@@ -164,11 +218,11 @@
                         <t t-foreach="ev_f_kontakty" t-as="ev_fk">
                             <a t-if="ev_fk.url" t-att-href="ev_fk.url" class="ev-footer-line" t-att-target="'_blank' if '://' in ev_fk.url else False" t-att-rel="'noopener' if '://' in ev_fk.url else False">
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/></svg>
-                                <span t-field="ev_fk.value"></span>
+                                <span t-field="ev_fk.value"/>
                             </a>
                             <span t-else="" class="ev-footer-line">
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/></svg>
-                                <span t-field="ev_fk.value"></span>
+                                <span t-field="ev_fk.value"/>
                             </span>
                         </t>
                     </div>

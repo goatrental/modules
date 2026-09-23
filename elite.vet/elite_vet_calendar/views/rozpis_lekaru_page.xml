@@ -88,23 +88,6 @@
             .ev-burger-link { display: flex; align-items: center; gap: 14px; padding: 15px 18px; border-radius: 14px; color: var(--ev-primary); font-size: 16px; font-weight: 600; transition: background-color .15s; }
             .ev-burger-link:hover { background: var(--ev-muted); color: var(--ev-primary); }
             .ev-burger-link svg { color: var(--ev-accent); flex-shrink: 0; }
-            /* ---- dvouurovnove menu ---- */
-            .ev-nav-sub { position: relative; }
-            .ev-nav-sub > summary { display: inline-flex; align-items: center; gap: 6px; cursor: pointer; list-style: none; font-size: 14px; font-weight: 500; color: var(--ev-text-secondary); transition: color .2s; }
-            .ev-nav-sub > summary::-webkit-details-marker { display: none; }
-            .ev-nav-sub > summary:hover { color: var(--ev-accent); }
-            .ev-nav-sub > summary svg { transition: transform .18s; }
-            .ev-nav-sub[open] > summary svg { transform: rotate(180deg); }
-            .ev-nav-sub-panel { position: absolute; top: calc(100% + 12px); left: 50%; transform: translateX(-50%); min-width: 210px; background: #fff; border: 1px solid var(--ev-border); border-radius: 14px; padding: 8px; box-shadow: 0 18px 40px -12px rgba(17,27,48,.28); z-index: 999; display: flex; flex-direction: column; gap: 2px; }
-            .ev-nav-sub-link { padding: 10px 14px; border-radius: 10px; font-size: 14px; font-weight: 500; color: var(--ev-primary); white-space: nowrap; }
-            .ev-nav-sub-link:hover { background: var(--ev-muted); }
-            .ev-burger-group > summary { list-style: none; cursor: pointer; }
-            .ev-burger-group > summary::-webkit-details-marker { display: none; }
-            .ev-burger-group > summary svg { transition: transform .18s; }
-            .ev-burger-group[open] > summary svg { transform: rotate(90deg); }
-            .ev-burger-sub { display: flex; flex-direction: column; margin: 2px 0 6px 30px; padding-left: 14px; border-left: 2px solid #bcdcd7; }
-            .ev-burger-sublink { padding: 11px 6px; font-size: 15px; font-weight: 500; color: var(--ev-text-secondary); }
-            .ev-burger-sublink:hover { color: var(--ev-accent); }
 
             /* ============ PŘEPÍNAČ JAZYKŮ (odkazy rovnou na /cs, /de, /en, /ru) ============ */
             .ev-lang { position: relative; display: inline-flex; }
