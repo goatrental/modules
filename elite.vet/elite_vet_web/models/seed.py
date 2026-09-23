@@ -219,6 +219,7 @@ BLOKY = [
 
 
 def seed_bloky(env):
+    nainstalovane = _nainstalovane_jazyky(env)
     Blok = env["elite.vet.page.section"]
     if Blok.with_context(active_test=False).search_count([]):
         return
