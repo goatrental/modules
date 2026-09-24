@@ -419,7 +419,7 @@
 
                     <h1>Who is on duty on which day</h1>
 
-                    <p class="rs-lead">On weekdays we alternate morning and afternoon shifts; at the weekend one doctor covers the whole opening time. Hover over a name to see the hours she is seeing patients that day.</p>
+                    <p class="rs-lead">Based on the schedule you can choose a specific doctor or specialisation. Please write your choice in the note when booking your appointment.<br/>If you are not sure which doctor or specialisation to choose, call us or send us an email.</p>
 
                     <div class="rs-open">
                         <!-- Oteviraci doba z adminu (Web kliniky -> Ordinacni hodiny),
@@ -434,13 +434,10 @@
                             </div>
                         </t>
                     </div>
-                    <!-- Text pod rezervaci. Zamerne NENI v hlasce o nacitani: ta lezi
-                         pod iframem a zmizi, jakmile se WinVet vykresli. -->
-                    <!-- Vychozi misto textu je tady, pod rameckem. Skript nize ho na
-                         dobu nacitani presune dovnitr a po nacteni vrati zpatky. -->
-                    <div class="rs-rez-zprava-misto">
-                        <p t-if="(ev_web.booking_loading_middle if ev_web else False)" class="rs-rez-zprava" t-out="(ev_web.booking_loading_middle if ev_web else False)"></p>
-                    </div>
+                    <!-- Pod hodinami uz nic nenasleduje. Pole "Text pod rezervaci"
+                         z adminu sem drive omylem zasahovalo, takze se hned pod
+                         nadpisem rozpisu ukazovala poznamka o pohotovostnich
+                         priplatcich. Patri dolu pod rezervacni ramecek. -->
                 </div>
             </section>
 
@@ -637,6 +634,13 @@
                         </div>
                         <iframe t-att-src="(ev_web.booking_url if ev_web else False) or 'https://reservation.winvet.cz/booking/f5832eae07850edb2b5a1167843ef423'"
                                 title="Elite Vet booking system" scrolling="no" loading="eager"></iframe>
+                    </div>
+                    <!-- Text pod rezervaci. Zamerne NENI v hlasce o nacitani: ta lezi
+                         pod iframem a zmizi, jakmile se WinVet vykresli. -->
+                    <!-- Vychozi misto textu je tady, pod rameckem. Skript nize ho na
+                         dobu nacitani presune dovnitr a po nacteni vrati zpatky. -->
+                    <div class="rs-rez-zprava-misto">
+                        <p t-if="(ev_web.booking_loading_middle if ev_web else False)" class="rs-rez-zprava" t-out="(ev_web.booking_loading_middle if ev_web else False)"></p>
                     </div>
                 </div>
             </section>

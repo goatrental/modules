@@ -81,8 +81,8 @@ msgstr "Pondělí – Pátek · 8:00–20:00"
 
 #. module: elite_vet_calendar
 #: model_terms:ir.ui.view,arch_db:elite_vet_calendar.rozpis_lekaru
-msgid "On weekdays we alternate morning and afternoon shifts; at the weekend one doctor covers the whole opening time. Hover over a name to see the hours she is seeing patients that day."
-msgstr "Ve všední dny se u nás střídá ranní a odpolední služba, o víkendu slouží jedna lékařka po celou provozní dobu. Najeďte na jméno a ukáže se vám, v jakých hodinách ten den ordinuje."
+msgid "Based on the schedule you can choose a specific doctor or specialisation. Please write your choice in the note when booking your appointment.<br/>If you are not sure which doctor or specialisation to choose, call us or send us an email."
+msgstr "Na základě rozpisu si můžete vybrat konkrétního lékaře nebo specializaci. Váš výběr prosím specifikujte do poznámky při rezervaci termínu.<br/>Pokud si nevíte rady, kterého lékaře či specializaci vybrat, můžete se na nás obrátit telefonicky nebo e-mailem."
 
 #. module: elite_vet_calendar
 #: model_terms:ir.ui.view,arch_db:elite_vet_calendar.rozpis_lekaru

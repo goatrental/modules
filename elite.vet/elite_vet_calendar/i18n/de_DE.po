@@ -81,8 +81,8 @@ msgstr "Montag – Freitag · 8:00–20:00"
 
 #. module: elite_vet_calendar
 #: model_terms:ir.ui.view,arch_db:elite_vet_calendar.rozpis_lekaru
-msgid "On weekdays we alternate morning and afternoon shifts; at the weekend one doctor covers the whole opening time. Hover over a name to see the hours she is seeing patients that day."
-msgstr "An Werktagen wechseln sich bei uns Vormittags- und Nachmittagsdienst ab, am Wochenende hat eine Ärztin während der gesamten Öffnungszeit Dienst. Fahren Sie über einen Namen und Sie sehen, zu welchen Zeiten an dem Tag Sprechstunde ist."
+msgid "Based on the schedule you can choose a specific doctor or specialisation. Please write your choice in the note when booking your appointment.<br/>If you are not sure which doctor or specialisation to choose, call us or send us an email."
+msgstr "Anhand des Dienstplans können Sie eine bestimmte Ärztin oder Fachrichtung auswählen. Bitte geben Sie Ihre Wahl bei der Terminbuchung in der Anmerkung an.<br/>Wenn Sie nicht sicher sind, welche Ärztin oder Fachrichtung die richtige ist, rufen Sie uns an oder schreiben Sie uns eine E-Mail."
 
 #. module: elite_vet_calendar
 #: model_terms:ir.ui.view,arch_db:elite_vet_calendar.rozpis_lekaru

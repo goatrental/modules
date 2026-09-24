@@ -81,8 +81,8 @@ msgstr "Понедельник – Пятница · 8:00–20:00"
 
 #. module: elite_vet_calendar
 #: model_terms:ir.ui.view,arch_db:elite_vet_calendar.rozpis_lekaru
-msgid "On weekdays we alternate morning and afternoon shifts; at the weekend one doctor covers the whole opening time. Hover over a name to see the hours she is seeing patients that day."
-msgstr "В будние дни у нас чередуются утренняя и дневная смены, в выходные один врач работает всю смену. Наведите на имя и увидите, в какие часы врач принимает в этот день."
+msgid "Based on the schedule you can choose a specific doctor or specialisation. Please write your choice in the note when booking your appointment.<br/>If you are not sure which doctor or specialisation to choose, call us or send us an email."
+msgstr "По графику вы можете выбрать конкретного врача или специализацию. Пожалуйста, укажите свой выбор в примечании при бронировании визита.<br/>Если вы не знаете, какого врача или специализацию выбрать, позвоните нам или напишите на электронную почту."
 
 #. module: elite_vet_calendar
 #: model_terms:ir.ui.view,arch_db:elite_vet_calendar.rozpis_lekaru
