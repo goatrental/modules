@@ -358,45 +358,7 @@ def _nastav_cenik(env):
 
     prvni_s_ukony = False
     for radek in sekce_data:
-        nazev = radek.get("nazev") or {}
-        sekce = Sekce.with_context(lang="en_US").create({
-            "typ": radek.get("typ") or "sekce",
-            "name": nazev.get("en_US") or nazev.get("cs_CZ") or "Ceník",
-            "sequence": radek.get("poradi") or 10,
-            # komentar musi byt uz tady, je to Html prekladane po terminech
-            "comment": (radek.get("komentar") or {}).get("en_US") or False,
-        })
-        _zapis_jazyky(sekce, "name", nazev)
-        _zapis_jazyky(sekce, "badge", radek.get("stitek"))
-        _zapis_jazyky(sekce, "description", radek.get("popisek"))
-        _zapis_jazyky(sekce, "comment", radek.get("komentar"))
-
-        for polozka in radek.get("ukony") or []:
-            jmeno = polozka.get("nazev") or {}
-            cena = polozka.get("cena") or {}
-            hodnoty = {
-                "category_id": sekce.id,
-                "name": jmeno.get("en_US") or jmeno.get("cs_CZ") or "",
-                "price": cena.get("en_US") or cena.get("cs_CZ") or "",
-                "price_from": bool(polozka.get("cena_od")),
-                "sequence": polozka.get("poradi") or 10,
-            }
-            if polozka.get("ikona_kod"):
-                hodnoty["icon_code"] = polozka["ikona_kod"]
-            # ikona se hleda podle externiho ID: cislo zaznamu je na kazde
-            # instalaci jine, xmlid je vsude stejne
-            if polozka.get("ikona_xmlid"):
-                ikona = env.ref(polozka["ikona_xmlid"], raise_if_not_found=False)
-                if ikona:
-                    hodnoty["icon_id"] = ikona.id
-                else:
-                    _logger.warning("Ceník: ikona %s nenalezena, úkon zůstane bez ní.",
-                                    polozka["ikona_xmlid"])
-            ukon = Ukon.with_context(lang="en_US").create(hodnoty)
-            _zapis_jazyky(ukon, "name", jmeno)
-            _zapis_jazyky(ukon, "price", cena)
-            _zapis_jazyky(ukon, "note", polozka.get("poznamka"))
-
+        sekce = _zaloz_sekci_ceniku(env, radek)
         if radek.get("ukony") and not prvni_s_ukony:
             prvni_s_ukony = sekce
 
@@ -404,3 +366,87 @@ def _nastav_cenik(env):
         stavajici.write({"category_id": prvni_s_ukony.id})
 
     _logger.info("Ceník: zalozeno %s bloku.", len(sekce_data))
+
+
+def _doplnit_chybejici_sekce_ceniku(env):
+    """Doplni sekce z cenik.json, ktere v databazi jeste nejsou.
+
+    Cenik se zaklada jen pri prvni instalaci, aby upgrade nikdy neprepsal to,
+    co si klinika zmenila. Kdyz ale do modulu pribude cela nova sekce --
+    treba vikendove a pohotovostni priplatky -- na uz bezici databazi by se
+    neobjevila nikdy. Doplni se proto jen ty sekce, jejichz nazev v databazi
+    neni v zadnem jazyce; co uz tam je, se nechava presne tak, jak to je.
+
+    Hlavicka stranky se nedoplnuje nikdy: kazdy cenik uz nejakou ma a druha
+    by na strance jen prekazela.
+    """
+    Sekce = env["elite.vet.price.category"].sudo().with_context(active_test=False)
+
+    zname = set()
+    for jazyk in ("en_US", "cs_CZ", "de_DE", "ru_RU"):
+        for nazev in Sekce.with_context(lang=jazyk).search([]).mapped("name"):
+            if nazev:
+                zname.add(nazev.strip().lower())
+
+    pridano = []
+    for radek in (_nacti_cenik().get("sekce") or []):
+        if (radek.get("typ") or "sekce") == "hlavicka":
+            continue
+        nazvy = {(h or "").strip().lower() for h in (radek.get("nazev") or {}).values()}
+        nazvy.discard("")
+        if not nazvy or (nazvy & zname):
+            continue
+        sekce = _zaloz_sekci_ceniku(env, radek)
+        pridano.append(sekce.with_context(lang="en_US").name)
+
+    if pridano:
+        _logger.warning("Ceník: doplneny chybejici sekce: %s.", ", ".join(pridano))
+    else:
+        _logger.info("Ceník: vsechny sekce z modulu uz v databazi jsou.")
+
+
+def _zaloz_sekci_ceniku(env, radek):
+    """Zalozi jednu sekci ceniku vcetne ukonu a vsech jazyku."""
+    Sekce = env["elite.vet.price.category"].sudo()
+    Ukon = env["elite.vet.price.item"].sudo()
+
+    nazev = radek.get("nazev") or {}
+    sekce = Sekce.with_context(lang="en_US").create({
+        "typ": radek.get("typ") or "sekce",
+        "name": nazev.get("en_US") or nazev.get("cs_CZ") or "Ceník",
+        "sequence": radek.get("poradi") or 10,
+        # komentar musi byt uz tady, je to Html prekladane po terminech
+        "comment": (radek.get("komentar") or {}).get("en_US") or False,
+    })
+    _zapis_jazyky(sekce, "name", nazev)
+    _zapis_jazyky(sekce, "badge", radek.get("stitek"))
+    _zapis_jazyky(sekce, "description", radek.get("popisek"))
+    _zapis_jazyky(sekce, "comment", radek.get("komentar"))
+
+    for polozka in radek.get("ukony") or []:
+        jmeno = polozka.get("nazev") or {}
+        cena = polozka.get("cena") or {}
+        hodnoty = {
+            "category_id": sekce.id,
+            "name": jmeno.get("en_US") or jmeno.get("cs_CZ") or "",
+            "price": cena.get("en_US") or cena.get("cs_CZ") or "",
+            "price_from": bool(polozka.get("cena_od")),
+            "sequence": polozka.get("poradi") or 10,
+        }
+        if polozka.get("ikona_kod"):
+            hodnoty["icon_code"] = polozka["ikona_kod"]
+        # ikona se hleda podle externiho ID: cislo zaznamu je na kazde
+        # instalaci jine, xmlid je vsude stejne
+        if polozka.get("ikona_xmlid"):
+            ikona = env.ref(polozka["ikona_xmlid"], raise_if_not_found=False)
+            if ikona:
+                hodnoty["icon_id"] = ikona.id
+            else:
+                _logger.warning("Ceník: ikona %s nenalezena, úkon zůstane bez ní.",
+                                polozka["ikona_xmlid"])
+        ukon = Ukon.with_context(lang="en_US").create(hodnoty)
+        _zapis_jazyky(ukon, "name", jmeno)
+        _zapis_jazyky(ukon, "price", cena)
+        _zapis_jazyky(ukon, "note", polozka.get("poznamka"))
+
+    return sekce
