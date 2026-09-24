@@ -1684,13 +1684,6 @@
                                     </div>
                             </div>
 
-                        <div class="ev-mapa">
-                            <iframe class="ev-mapa-ramec" title="Elite Veterinární Klinika na mapě"
-                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2552.183902462235!2d12.861472376912198!3d50.23246917155136!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a0994d82cd5559%3A0xe9031539fb1b184c!2sELITE%20Veterin%C3%A1rn%C3%AD%20Klinika!5e0!3m2!1scs!2scz!4v1790188390983!5m2!1scs!2scz"
-                                    height="350" loading="lazy" allowfullscreen="allowfullscreen"
-                                    referrerpolicy="strict-origin-when-cross-origin"></iframe>
-                        </div>
-
                         <div class="ev-contact-bottom">
                             <div class="ev-hours">
                                 <h3 class="ev-hours-h3-desk">
@@ -1734,13 +1727,9 @@
                             </div>
 
                             <a target="_blank" rel="noopener noreferrer" class="ev-map" id="mapa" href="https://www.google.com/maps/place/ELITE+Veterin%C3%A1rn%C3%AD+Klinika/@50.2324691,12.8591764,17z/data=!4m6!3m5!1s0x47a0994d82cd5559:0xe9031539fb1b184c!8m2!3d50.2324692!4d12.8640473!16s%2Fg%2F11zf3w1c3h">
-                                <div class="ev-map-static"></div>
-                                <div class="ev-map-pin">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                                        <circle cx="12" cy="10" r="3"></circle>
-                                    </svg>
-                                </div>
+                                <iframe class="ev-map-embed" title="Elite Veterinární Klinika na mapě"
+                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2552.183902462235!2d12.861472376912198!3d50.23246917155136!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a0994d82cd5559%3A0xe9031539fb1b184c!2sELITE%20Veterin%C3%A1rn%C3%AD%20Klinika!5e0!3m2!1scs!2scz!4v1790188390983!5m2!1scs!2scz"
+                                        loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
                                 <div class="ev-map-overlay">
                                     <p class="ev-map-addr">Hybešova 167/18</p>
                                     <p>Rybáře, 360 05 Karlovy Vary</p>
