@@ -1,0 +1,10 @@
+/* Odskok pod pevnou hlavickou.
+   Bez nej by po skoku na kotvu nadpis sekce zmizel pod listou nahore.
+   Vlastni soubor ma proto, ze bloky.css se generuje ze stranky a pri
+   pristim generovani by se rucne dopsana pravidla ztratila. */
+
+.s_vet_o_klinice,
+.s_vet_sluzby,
+.s_vet_kontakt {
+    scroll-margin-top: 80px;
+}

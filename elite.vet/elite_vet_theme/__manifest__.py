@@ -32,6 +32,7 @@
             "elite_vet_theme/static/src/css/nadpis.css",
             "elite_vet_theme/static/src/css/text.css",
             "elite_vet_theme/static/src/css/mapa.css",
+            "elite_vet_theme/static/src/css/kotvy.css",
         ],
     },
     "installable": True,

@@ -120,7 +120,7 @@
 
     <!-- Elite Vet: o klinice -->
     <template id="s_vet_o_klinice" name="Elite Vet: o klinice">
-        <section class="s_vet_o_klinice ev-about">
+        <section id="o-nas" class="s_vet_o_klinice ev-about">
         <div class="ev-container">
             <div class="ev-about-grid">
                 <div>
@@ -265,7 +265,7 @@
 
     <!-- Elite Vet: služby -->
     <template id="s_vet_sluzby" name="Elite Vet: služby">
-        <section class="s_vet_sluzby ev-services">
+        <section id="sluzby" class="s_vet_sluzby ev-services">
         <div class="ev-container">
             <div class="ev-section-head">
                 <div class="ev-badge">Our services</div>
@@ -505,7 +505,7 @@
 
     <!-- Elite Vet: kontakt a hodiny -->
     <template id="s_vet_kontakt" name="Elite Vet: kontakt a hodiny">
-        <section class="s_vet_kontakt ev-contact">
+        <section id="kontakt" class="s_vet_kontakt ev-contact">
         <div class="ev-container">
             <div class="ev-section-head">
                 <div class="ev-badge">Contact</div>
