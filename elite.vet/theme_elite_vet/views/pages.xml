@@ -17,11 +17,19 @@
     </t>
 </template>
 
-<record id="vet_homepage_page" model="theme.website.page">
-    <field name="url">/</field>
-    <field name="view_id" ref="vet_homepage"/>
-    <field name="is_published" eval="True"/>
-</record>
+<!-- Sablona vyse zustava, ale uz si NENAROKUJE adresu "/".
+
+     Drive tu byl zaznam theme.website.page na "/". Podle nej Odoo pri kazde
+     aktualizaci tematu zalozilo na domovske adrese dalsi stranku se starou
+     podobou webu. Vedle stranky z modulu elite_vet_web tak na "/" vznikaly
+     dve az tri stranky a Odoo si mezi nimi vybira nahodne:
+
+         search(domain, order='website_id asc', limit=1)
+
+     Mezi strankami tehoz webu uz zadne dalsi razeni neni, takze se
+     navstevnikum jednou ukazal novy web a podruhe stary -- a po kazdem
+     kliknuti na "Aktualizovat tema" se stary vratil. Domovskou stranku
+     dodava modul elite_vet_web. -->
 
 </data>
 </odoo>
