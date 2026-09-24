@@ -97,18 +97,28 @@ v Nastavení → Technické → Web → Stránky.
 Domovská stránka se přejmenovat nedá, tam to modul řeší opačně — všechny záznamy
 na `/` dostanou šablonu modulu, takže je jedno, který si Odoo vybere.
 
-## Když „Aktualizovat téma" hodí chybu
+## Pořadí: nejdřív moduly, potom téma
 
-```
-duplicate key value violates unique constraint "ir_config_parameter_key_uniq"
-DETAIL:  Key (key)=(<nazev.parametru>) already exists
-```
+Na ostrém webu jsou tři věci, které samy o sobě hází 500 nebo shodí
+aktualizaci tématu. Všechny tři opraví **instalace nebo upgrade našich
+modulů**:
 
-Ten parametr v databázi je, ale vznikl za běhu, takže mu chybí záznam, podle
-kterého ho Odoo pozná jako svůj — a tak ho zkusí založit znovu. Blokuje to
-aktualizaci tématu komukoliv v té databázi. Klíč je vždy vypsaný za `Key (key)=`.
-Doplní se chybějící záznam, `noupdate` zajistí, že aktualizace nepřepíše
-současnou hodnotu:
+| chyba | co ji dělá |
+|---|---|
+| `object has no attribute 'emergency_active'` | stará kopie domovské stránky v databázi |
+| `Prvek <xpath expr="//div[@class='ev-lang-panel']..."> nelze najít` | zbytky starého přepínače jazyků |
+| `duplicate key ... theme_elite_arena.mobile_intro_enabled` | osiřelý systémový parametr cizího modulu |
+
+**Proto se nejdřív nasadí moduly a teprve potom se případně klikne na
+„Aktualizovat téma".** Obráceně to spadne stejně jako dosud, protože
+oprava ještě neproběhla.
+
+Ověřeno na devu na reálných datech: bez opravy aktualizace tématu spadla
+přesně tou hláškou z ostrého webu, po upgradu našeho modulu prošla a hodnota
+parametru zůstala nezměněná.
+
+Kdyby se přesto objevila hláška o duplicitním klíči u jiného parametru, dá se
+to spravit ručně — klíč je vždy vypsaný za `Key (key)=`:
 
 ```sql
 INSERT INTO ir_model_data (module, name, model, res_id, noupdate)
@@ -117,7 +127,7 @@ FROM ir_config_parameter WHERE key = '<nazev.parametru>';
 ```
 
 `<modul>` a `<nazev_zaznamu>` jsou na konci hlášky v cestě k souboru
-(`.../<modul>/data/ir_config_parameter.xml`) a v `<record id="...">`.
+a v `<record id="...">`.
 
 ## Když se něco nepovede
 
