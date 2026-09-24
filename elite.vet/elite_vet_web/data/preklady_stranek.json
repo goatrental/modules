@@ -1,0 +1,782 @@
+{
+ ". Objednat se můžete online nebo telefonicky na recepci.": {
+  "en_US": ". Book online or by phone at the reception.",
+  "de_DE": ". Termine online oder telefonisch an der Rezeption.",
+  "ru_RU": ". Записаться можно онлайн или по телефону на ресепшене."
+ },
+ "Pohotovostní linka 24/7": {
+  "en_US": "24/7 emergency line",
+  "de_DE": "24/7-Notfalllinie",
+  "ru_RU": "Экстренная линия 24/7"
+ },
+ "Pohotovostní linka 24/7 — již brzy": {
+  "en_US": "24/7 emergency line — coming soon",
+  "de_DE": "Notfallnummer 24/7 — demnächst",
+  "ru_RU": "Круглосуточная линия — скоро"
+ },
+ "<span class=\"ev-flyer2-open\">Otevřeno</span>": {
+  "en_US": "<span class=\"ev-flyer2-open\">Open</span>",
+  "de_DE": "<span class=\"ev-flyer2-open\">Geöffnet</span>",
+  "ru_RU": "<span class=\"ev-flyer2-open\">Открыто</span>"
+ },
+ "O klinice": {
+  "en_US": "About the clinic",
+  "de_DE": "Über die Klinik",
+  "ru_RU": "О клинике"
+ },
+ "Za Elite Vet stojí tým zkušených veterinářů a specialistů. Poznejte lidi, kteří otevírají naši kliniku v Karlových Varech.": {
+  "en_US": "Behind Elite Vet is a team of experienced veterinarians and specialists. Get to know the people who are opening our clinic in Karlovy Vary.",
+  "de_DE": "Hinter Elite Vet steht ein Team erfahrener Tierärzte und Spezialisten. Lernen Sie die Menschen kennen, die unsere Klinik in Karlovy Vary eröffnen.",
+  "ru_RU": "За Elite Vet стоит команда опытных ветеринаров и специалистов. Познакомьтесь с людьми, которые открывают нашу клинику в Карловых Варах."
+ },
+ "Rezervace termínu": {
+  "en_US": "Book an appointment",
+  "de_DE": "Terminbuchung",
+  "ru_RU": "Запись на приём"
+ },
+ "Rezervace termínu | Elite Vet Karlovy Vary": {
+  "en_US": "Book an appointment | Elite Vet Karlovy Vary",
+  "de_DE": "Termin buchen | Elite Vet Karlovy Vary",
+  "ru_RU": "Запись на приём | Elite Vet Карловы Вары"
+ },
+ "Objednejte se telefonicky nebo e-mailem.": {
+  "en_US": "Book by phone or email.",
+  "de_DE": "Vereinbaren Sie einen Termin telefonisch oder per E-Mail.",
+  "ru_RU": "Запишитесь по телефону или по электронной почте."
+ },
+ "Objednejte se online do veterinární kliniky Elite Vet v Karlových Varech. Vyberte si volný termín u našich lékařů, nebo zavolejte na recepci. Odpovědi na nejčastější otázky před návštěvou.": {
+  "en_US": "Book online at the Elite Vet veterinary clinic in Karlovy Vary. Choose a free appointment with our doctors, or call the reception. Answers to the most common questions before your visit.",
+  "de_DE": "Buchen Sie online in der Tierklinik Elite Vet in Karlovy Vary. Wählen Sie einen freien Termin bei unseren Ärzten oder rufen Sie die Rezeption an. Antworten auf die häufigsten Fragen vor Ihrem Besuch.",
+  "ru_RU": "Запишитесь онлайн в ветеринарную клинику Elite Vet в Карловых Варах. Выберите свободное время у наших врачей или позвоните на ресепшн. Ответы на частые вопросы перед визитом."
+ },
+ "Rezervujte si termín": {
+  "en_US": "Book your appointment",
+  "de_DE": "Vereinbaren Sie einen Termin",
+  "ru_RU": "Запишитесь на прием"
+ },
+ "Volat již brzy": {
+  "en_US": "Call SOON",
+  "de_DE": "Anrufen demnächst",
+  "ru_RU": "Позвонить скоро"
+ },
+ "Zavolat recepci<br/>": {
+  "en_US": "Call the reception<br/>",
+  "de_DE": "Rezeption anrufen<br/>",
+  "ru_RU": "Позвонить на ресепшн<br/>"
+ },
+ "Komplexní péče": {
+  "en_US": "Complex care",
+  "de_DE": "Komplexe Versorgung",
+  "ru_RU": "Комплексный уход"
+ },
+ "Komplexní péče o vaše&amp;nbsp;mazlíčky": {
+  "en_US": "Comprehensive care for your pets",
+  "de_DE": "Umfassende Pflege für Ihre Haustiere",
+  "ru_RU": "Комплексный уход за вашими питомцами"
+ },
+ "Kontakt": {
+  "en_US": "Contact",
+  "de_DE": "Kontakt",
+  "ru_RU": "Контакты"
+ },
+ "Kontakt<br/>": {
+  "en_US": "Contact<br/>",
+  "de_DE": "Kontakt<br/>",
+  "ru_RU": "Контакты<br/>"
+ },
+ "Vytvořil": {
+  "en_US": "Created",
+  "de_DE": "Erstellt von",
+  "ru_RU": "Создал"
+ },
+ "Psi a kočka": {
+  "en_US": "Dogs and cat",
+  "de_DE": "Hunde und Katze",
+  "ru_RU": "Собаки и кошка"
+ },
+ "Psi, kočky a drobní savci — komplexní veterinární péče na jednom místě, s vybavením na velmi vysoké technologické úrovni. Naším cílem je poskytovat co nejširší péči pod jednou střechou.": {
+  "en_US": "Dogs, cats and small mammals — comprehensive veterinary care in one place, with technology at a very high level. Our goal is to provide the widest possible range of care under one roof.",
+  "de_DE": "Hunde, Katzen und Kleinsäuger — umfassende tierärztliche Versorgung an einem Ort, mit Technik auf sehr hohem Niveau. Unser Ziel ist es, ein möglichst breites Leistungsspektrum unter einem Dach anzubieten.",
+  "ru_RU": "Собаки, кошки и мелкие млекопитающие — комплексная ветеринарная помощь в одном месте, с оборудованием очень высокого уровня. Наша цель — предоставлять максимально широкий спектр помощи под одной крышей."
+ },
+ "Rezervační systém Elite Vet": {
+  "en_US": "Elite Vet booking system",
+  "de_DE": "Reservierungssystem Elite Vet",
+  "ru_RU": "Система бронирования Elite Vet"
+ },
+ "Veterinární klinika Elite Vet Karlovy Vary — moderní péče o psy, kočky a drobné savce: prevence, chirurgie, interní medicína, diagnostika, stomatologie i oftalmologie. Rozšířená provozní doba včetně víkendů.": {
+  "en_US": "Elite Vet veterinary clinic, Karlovy Vary — modern care for dogs, cats and small mammals: prevention, surgery, internal medicine, diagnostics, dentistry and ophthalmology. Extended opening hours including weekends.",
+  "de_DE": "Tierklinik Elite Vet in Karlovy Vary — moderne Versorgung für Hunde, Katzen, Kleinsäuger: Chirurgie, innere Medizin, Diagnostik, Zahnheilkunde, Ophthalmologie.",
+  "ru_RU": "Ветеринарная клиника Elite Vet в Карловых Варах — помощь собакам, кошкам и мелким млекопитающим: хирургия, терапия, диагностика, стоматология, офтальмология."
+ },
+ "Elite veterinární klinika": {
+  "en_US": "Elite Veterinary Clinic",
+  "de_DE": "Elite Tierklinik",
+  "ru_RU": "Elite ветеринарная клиника"
+ },
+ "Každý den!": {
+  "en_US": "Every day!",
+  "de_DE": "Jeden Tag!",
+  "ru_RU": "Каждый день!"
+ },
+ "Odborný tým pro zdraví vašich mazlíčků": {
+  "en_US": "Expert team for the health of your pets",
+  "de_DE": "Expertenteam für die Gesundheit Ihrer Lieblinge",
+  "ru_RU": "Команда специалистов для здоровья ваших питомцев"
+ },
+ "Časté dotazy": {
+  "en_US": "Frequently Asked Questions",
+  "de_DE": "Häufig gestellte Fragen",
+  "ru_RU": "Часто задаваемые вопросы"
+ },
+ "Šetrné zacházení": {
+  "en_US": "Gentle handling",
+  "de_DE": "Schonender Umgang",
+  "ru_RU": "Бережное обращение"
+ },
+ "Rozumím": {
+  "en_US": "Got it",
+  "de_DE": "Verstanden",
+  "ru_RU": "Понятно"
+ },
+ "Kdyby se vašemu mazlíčkovi něco stalo, volejte kdykoliv. Pohotovostní linka je tu nepřetržitě pro akutní případy.": {
+  "en_US": "If something happens to your pet, call us any time. Our emergency line is here round the clock for acute cases.",
+  "de_DE": "Wenn Ihrem Liebling etwas passiert, rufen Sie jederzeit an. Unsere Notfallnummer ist rund um die Uhr für akute Fälle da.",
+  "ru_RU": "Если с вашим питомцем что-то случится, звоните в любое время. Круглосуточная линия работает для экстренных случаев."
+ },
+ "Kdyby se vašemu mazlíčkovi něco stalo, pohotovostní linku najdete vždy tady. Brzy spustíme nepřetržitou dostupnost 24/7 pro akutní případy.": {
+  "en_US": "If something happens to your pet, you'll always find our emergency line right here. We'll soon launch round-the-clock 24/7 availability for acute cases.",
+  "de_DE": "Falls mit Ihrem Liebling etwas passiert, finden Sie unsere Notfalllinie immer genau hier. Bald starten wir die durchgehende 24/7-Erreichbarkeit für akute Fälle.",
+  "ru_RU": "Если с вашим питомцем что-то случится, экстренную линию вы всегда найдёте именно здесь. Скоро запустим круглосуточную доступность 24/7 для острых случаев."
+ },
+ "Individuální přístup": {
+  "en_US": "Individual approach",
+  "de_DE": "Individueller Ansatz",
+  "ru_RU": "Индивидуальный подход"
+ },
+ "Výběr jazyka / Language": {
+  "en_US": "Language selection",
+  "de_DE": "Sprachauswahl",
+  "ru_RU": "Выбор языка / Language"
+ },
+ "Poznejte náš tým<br/>": {
+  "en_US": "Meet our team<br/>",
+  "de_DE": "Lernen Sie unser Team kennen<br/>",
+  "ru_RU": "Познакомьтесь с командой<br/>"
+ },
+ "Moderní vybavení": {
+  "en_US": "Modern equipment",
+  "de_DE": "Moderne Ausstattung",
+  "ru_RU": "Современное оборудование"
+ },
+ "Další fotky": {
+  "en_US": "Next photos",
+  "de_DE": "Weitere Fotos",
+  "ru_RU": "Следующие фото"
+ },
+ "Náš tým": {
+  "en_US": "Our team",
+  "de_DE": "Unser Team",
+  "ru_RU": "Наша команда"
+ },
+ "Otevřít v mapách": {
+  "en_US": "Open in maps",
+  "de_DE": "In Karten öffnen",
+  "ru_RU": "Открыть на карте"
+ },
+ "Ordinační hodiny": {
+  "en_US": "Opening hours",
+  "de_DE": "Öffnungszeiten",
+  "ru_RU": "Часы работы"
+ },
+ "Otevíráme brzy": {
+  "en_US": "Opening soon",
+  "de_DE": "Wir eröffnen bald",
+  "ru_RU": "Скоро открываемся"
+ },
+ "Naše služby": {
+  "en_US": "Our services",
+  "de_DE": "Unsere Leistungen",
+  "ru_RU": "Наши услуги"
+ },
+ "Přehled nejčastějších úkonů. Ceny jsou orientační — konečnou částku vám vždy řekneme předem, ještě před ošetřením.": {
+  "en_US": "Overview of the most common procedures. Prices are indicative — we will always inform you of the final amount in advance, before the treatment.",
+  "de_DE": "Überblick über die häufigsten Eingriffe. Die Preise sind Richtwerte — den endgültigen Betrag nennen wir Ihnen immer vorab, noch vor der Behandlung.",
+  "ru_RU": "Обзор самых частых процедур. Цены ориентировочные — окончательную сумму мы всегда сообщим заранее, до начала лечения."
+ },
+ "Ceník": {
+  "en_US": "PRICE LIST",
+  "de_DE": "PREISLISTE",
+  "ru_RU": "ПРАЙС-ЛИСТ"
+ },
+ "Vyberte si prosím jazyk · Please select your language": {
+  "en_US": "Please select your language",
+  "de_DE": "Bitte wählen Sie Ihre Sprache",
+  "ru_RU": "Пожалуйста, выберите язык"
+ },
+ "Předchozí fotky": {
+  "en_US": "Previous photos",
+  "de_DE": "Vorherige Fotos",
+  "ru_RU": "Предыдущие фото"
+ },
+ "Ceník veterinární kliniky Elite Vet Karlovy Vary — vakcinace psů, koček a králíků, klinické vyšetření, stříhání drápků a vymačkání análních žlázek. Konečnou cenu vždy sdělíme před ošetřením.": {
+  "en_US": "Price list of the Elite Vet veterinary clinic in Karlovy Vary — vaccination of dogs, cats and rabbits, clinical examination, nail trimming and expression of anal glands. We always tell you the final price before the treatment.",
+  "de_DE": "Preisliste der Tierklinik Elite Vet Karlovy Vary — Impfung von Hunden, Katzen und Kaninchen, klinische Untersuchung, Krallenschneiden und Ausdrücken der Analdrüsen. Den Endpreis nennen wir immer vor der Behandlung.",
+  "ru_RU": "Прайс-лист ветеринарной клиники Elite Vet в Карловых Варах — вакцинация собак, кошек и кроликов, клинический осмотр, стрижка когтей и чистка параанальных желёз. Итоговую цену мы всегда сообщаем до лечения."
+ },
+ "Ceník ošetření": {
+  "en_US": "Price list of treatments",
+  "de_DE": "Preisliste der Behandlungen",
+  "ru_RU": "Прайс-лист процедур"
+ },
+ "Ceník | Elite Vet Karlovy Vary": {
+  "en_US": "Price list | Elite Vet Karlovy Vary",
+  "de_DE": "Preisliste | Elite Vet Karlovy Vary",
+  "ru_RU": "Прайс-лист | Elite Vet Карловы Вары"
+ },
+ "Rezervační systém": {
+  "en_US": "RESERVATION SYSTEM",
+  "de_DE": "RESERVIERUNGSSYSTEM",
+  "ru_RU": "СИСТЕМА РЕЗЕРВАЦИИ"
+ },
+ "Recepce veterinární kliniky Elite Vet v Karlových Varech": {
+  "en_US": "Reception of the Elite Vet veterinary clinic in Karlovy Vary",
+  "de_DE": "Rezeption der Tierklinik Elite Vet in Karlovy Vary",
+  "ru_RU": "Ресепшн ветеринарной клиники Elite Vet в Карловых Варах"
+ },
+ "Vyberte si volný termín u našich lékařů online, kdykoliv se vám to hodí. Pokud si nebudete jistí, zavolejte na recepci a objednáme vás sami.": {
+  "en_US": "Select a free appointment with our doctors online, whenever it suits you. If you are unsure, call the reception and we will book you in ourselves.",
+  "de_DE": "Wählen Sie online einen freien Termin bei unseren Ärzten, wann immer es Ihnen passt. Wenn Sie sich unsicher sind, rufen Sie an der Rezeption an und wir buchen Sie selbst.",
+  "ru_RU": "Выберите бесплатную запись к нашим врачам онлайн, когда вам удобно. Если вы не уверены, позвоните на ресепшен, и мы запишем вас сами."
+ },
+ "Fotky posunete prstem do strany": {
+  "en_US": "Swipe sideways to browse the photos",
+  "de_DE": "Wischen Sie zur Seite, um die Fotos anzusehen",
+  "ru_RU": "Листайте фотографии пальцем в сторону"
+ },
+ "Klinika je vybavena moderními diagnostickými a léčebnými technologiemi a od začátku nabízí rozšířenou provozní dobu včetně víkendů. Provoz budeme dále postupně rozšiřovat a v blízké době počítáme také s dostupností pro akutní případy 24/7.": {
+  "en_US": "The clinic is equipped with modern diagnostic and treatment technology and from the outset offers extended opening hours including weekends. We will gradually extend our operation further and in the near future also plan 24/7 availability for acute cases.",
+  "de_DE": "Die Klinik ist mit moderner Diagnose- und Behandlungstechnik ausgestattet und bietet von Anfang an erweiterte Öffnungszeiten inklusive Wochenenden. Den Betrieb werden wir schrittweise weiter ausbauen und planen in naher Zukunft auch eine 24/7-Erreichbarkeit für akute Fälle.",
+  "ru_RU": "Клиника оснащена современными диагностическими и лечебными технологиями и с самого начала предлагает расширенные часы работы, включая выходные. Работу мы будем постепенно расширять и в ближайшее время планируем также доступность 24/7 для острых случаев."
+ },
+ "V uvedených cenách je zahrnuto základní ošetření a běžně použitý materiál. Konečná cena se může lišit podle použité vakcíny, léků, dalšího materiálu nebo nutných zákroků.": {
+  "en_US": "The stated prices include basic treatment and commonly used materials. The final price may vary depending on the vaccine used, medications, additional materials, or necessary procedures.",
+  "de_DE": "In den genannten Preisen sind die Grundbehandlung und üblicherweise verwendetes Material enthalten. Der Endpreis kann sich je nach verwendetem Impfstoff, Medikamenten, weiterem Material oder notwendigen Eingriffen unterscheiden.",
+  "ru_RU": "В указанные цены включены базовое лечение и обычно используемые материалы. Итоговая цена может отличаться в зависимости от применённой вакцины, лекарств, дополнительных материалов или необходимых процедур."
+ },
+ "Zeptat se na cenu": {
+  "en_US": "To ask about the price",
+  "de_DE": "Nach dem Preis fragen",
+  "ru_RU": "Спросить о цене"
+ },
+ "Objednat se": {
+  "en_US": "To make an appointment",
+  "de_DE": "Termin vereinbaren",
+  "ru_RU": "Записаться"
+ },
+ "Veterinární klinika Karlovy Vary — Elite Vet": {
+  "en_US": "Veterinary clinic Karlovy Vary — Elite Vet",
+  "de_DE": "Tierklinik Karlovy Vary — Elite Vet",
+  "ru_RU": "Ветеринарная клиника Карловы Вары — Elite Vet"
+ },
+ "Navštivte nás": {
+  "en_US": "Visit us",
+  "de_DE": "Besuchen Sie uns",
+  "ru_RU": "Посетите нас"
+ },
+ "Jsme tu pro vás každý den": {
+  "en_US": "We are here for you every day",
+  "de_DE": "Wir sind jeden Tag für Sie da",
+  "ru_RU": "Мы работаем для вас каждый день"
+ },
+ "Plný provoz už běží —": {
+  "en_US": "We are in full operation —",
+  "de_DE": "Wir sind im vollen Betrieb —",
+  "ru_RU": "Клиника работает в полном режиме —"
+ },
+ "Postavili jsme moderní kliniku pro <span class=\"ev-accent-text\">vaše mazlíčky</span>": {
+  "en_US": "We have built a modern clinic for <span class=\"ev-accent-text\">your pets</span>",
+  "de_DE": "Wir haben eine moderne Klinik für <span class=\"ev-accent-text\">Ihre Lieblinge</span> gebaut",
+  "ru_RU": "Мы построили современную клинику для <span class=\"ev-accent-text\">ваших питомцев</span>"
+ },
+ "Vybudovali jsme pro vás moderní veterinární kliniku v Karlových Varech — dlouhodobý projekt s cílem nabídnout v regionu komplexní veterinární péči na jednom místě.": {
+  "en_US": "We have built a modern veterinary clinic in Karlovy Vary for you — a long-term project with the goal of offering comprehensive veterinary care in the region, all in one place.",
+  "de_DE": "Wir haben für Sie eine moderne Tierklinik in Karlovy Vary gebaut — ein langfristiges Projekt mit dem Ziel, in der Region umfassende tierärztliche Versorgung an einem Ort anzubieten.",
+  "ru_RU": "Мы построили для вас современную ветеринарную клинику в Карловых Варах — долгосрочный проект с целью предложить в регионе комплексную ветеринарную помощь в одном месте."
+ },
+ "Těšíme se na vás!": {
+  "en_US": "We look forward to seeing you!",
+  "de_DE": "Wir freuen uns auf Sie!",
+  "ru_RU": "Будем рады вас видеть!"
+ },
+ "V nejbližší době plánujeme provozní dobu dále rozšiřovat. Pro akutní případy mimo ordinační hodiny jsme vám k dispozici na <span class=\"ev-hours-emergency\">pohotovostní lince 24/7</span>.": {
+  "en_US": "We plan to extend our opening hours further in the near future. For acute cases outside opening hours we are available on <span class=\"ev-hours-emergency\">the 24/7 emergency line</span>.",
+  "de_DE": "In nächster Zeit planen wir, die Öffnungszeiten weiter auszubauen. Für akute Fälle außerhalb der Sprechzeiten sind wir für Sie unter <span class=\"ev-hours-emergency\">der Notfallnummer 24/7</span> erreichbar.",
+  "ru_RU": "В ближайшее время планируем и дальше расширять часы работы. В экстренных случаях вне приёмных часов мы на связи по <span class=\"ev-hours-emergency\">круглосуточной линии 24/7</span>."
+ },
+ "V blízké době plánujeme další rozšíření provozní doby. Brzy také spustíme <span class=\"ev-hours-emergency\">pohotovostní linku s dostupností 24/7</span> pro akutní případy — konkrétní číslo zveřejníme, jakmile bude připravené.": {
+  "en_US": "We plan to extend our opening hours further in the near future. We will also soon launch <span class=\"ev-hours-emergency\">a 24/7 emergency line</span> for acute cases — we will publish the number as soon as it is ready.",
+  "de_DE": "In naher Zukunft planen wir eine weitere Erweiterung der Öffnungszeiten. Außerdem starten wir bald <span class=\"ev-hours-emergency\">eine Notfalllinie mit 24/7-Erreichbarkeit</span> für akute Fälle — die Nummer veröffentlichen wir, sobald sie bereit ist.",
+  "ru_RU": "В ближайшее время мы планируем дальнейшее расширение часов работы. Также скоро запустим <span class=\"ev-hours-emergency\">экстренную линию с доступностью 24/7</span> для острых случаев — номер опубликуем, как только он будет готов."
+ },
+ "Další ceny Vám rádi sdělíme před ošetřením nebo Vám je poskytneme telefonicky či e-mailem.": {
+  "en_US": "We will be happy to provide you with additional prices before the treatment or we can provide them to you by phone or email.",
+  "de_DE": "Weitere Preise nennen wir Ihnen gerne vor der Behandlung oder teilen sie Ihnen telefonisch bzw. per E-Mail mit.",
+  "ru_RU": "Остальные цены мы с радостью сообщим перед лечением или передадим по телефону либо электронной почте."
+ },
+ "Vítejte v Elite Vet": {
+  "en_US": "Welcome to Elite Vet",
+  "de_DE": "Willkommen bei Elite Vet",
+  "ru_RU": "Добро пожаловать в Elite Vet"
+ },
+ "Na co se ptáte nejčastěji": {
+  "en_US": "What do you ask most often",
+  "de_DE": "Worüber fragen Sie am häufigsten?",
+  "ru_RU": "Что вы спрашиваете чаще всего"
+ },
+ "Napsat e-mail": {
+  "en_US": "Write an email",
+  "de_DE": "E-Mail schreiben",
+  "ru_RU": "Написать письмо"
+ },
+ "Vaši mazlíčci v těch nejlepších rukou!": {
+  "en_US": "Your pets in the best hands!",
+  "de_DE": "Ihre Lieblinge in den besten Händen!",
+  "ru_RU": "Ваши питомцы в лучших руках!"
+ },
+ "od": {
+  "en_US": "from",
+  "de_DE": "ab",
+  "ru_RU": "от"
+ },
+ "· běží na": {
+  "en_US": "· runs on",
+  "de_DE": "· läuft auf",
+  "ru_RU": "· работает на"
+ },
+ "Ošetření mimo ordinační dobu je možné pouze po předchozí telefonické domluvě a potvrzení dostupnosti týmu. Nejedná se o nepřetržitý provoz.": {
+  "en_US": "Treatment outside opening hours is possible only by prior telephone arrangement and confirmation that the team is available. This is not a round-the-clock service.",
+  "de_DE": "Eine Behandlung außerhalb der Öffnungszeiten ist nur nach vorheriger telefonischer Absprache und Bestätigung der Verfügbarkeit des Teams möglich. Es handelt sich nicht um einen durchgehenden Betrieb.",
+  "ru_RU": "Приём вне часов работы возможен только по предварительной телефонной договорённости и подтверждению доступности команды. Это не круглосуточный режим работы."
+ },
+ "Klinika je vybavena moderními diagnostickými a léčebnými technologiemi a od začátku nabízí rozšířenou provozní dobu včetně víkendů. Provoz budeme dále postupně rozšiřovat.": {
+  "en_US": "The clinic is equipped with modern diagnostic and treatment technology and from the outset offers extended opening hours including weekends. We will gradually extend our operation further.",
+  "de_DE": "Die Klinik ist mit moderner Diagnose- und Behandlungstechnik ausgestattet und bietet von Anfang an erweiterte Öffnungszeiten inklusive Wochenenden. Den Betrieb werden wir schrittweise weiter ausbauen.",
+  "ru_RU": "Клиника оснащена современными диагностическими и лечебными технологиями и с самого начала предлагает расширенные часы работы, включая выходные. Работу мы будем постепенно расширять."
+ },
+ "<span class=\"ev-flyer2-date\">So – Ne 10:00 – 18:00</span>": {
+  "en_US": "<span class=\"ev-flyer2-date\">Sat – Sun 10–18</span>",
+  "de_DE": "<span class=\"ev-flyer2-date\">Sa – So 10–18</span>",
+  "ru_RU": "<span class=\"ev-flyer2-date\">Сб – Вс 10–18</span>"
+ },
+ "<strong>Mimo ordinační dobu se k pohotovostnímu poplatku připočítává čas práce lékaře a sestry</strong> podle jejich skutečného zapojení do péče. Uvedené příplatky se účtují nad rámec ceny vyšetření, zákroků, léčiv a použitého materiálu.": {
+  "en_US": "Outside of office hours, the emergency fee includes the working time of the doctor and nurse based on their actual involvement in care. The mentioned surcharges are charged in addition to the cost of examinations, procedures, medications, and materials used.",
+  "de_DE": "Außerhalb der Sprechzeiten wird die Arbeitszeit des Arztes und der Schwester entsprechend ihrem tatsächlichen Engagement in der Versorgung zum Bereitschaftsgebühr hinzugerechnet. Die genannten Zuschläge werden zusätzlich zu den Kosten für Untersuchungen, Eingriffe, Medikamente und verwendetes Material berechnet..",
+  "ru_RU": "Вне рабочего времени к плате за неотложную помощь добавляется время работы врача и медсестры в зависимости от их фактического участия в уходе. Указанные надбавки взимаются сверх стоимости обследования, процедур, лекарств и использованных материалов."
+ },
+ "<u><font style=\"color: rgb(74, 123, 140);\"><strong>Tyto příplatky</strong></font></u>": {
+  "en_US": "<u><font style=\"color: rgb(74, 123, 140);\"><strong>These supplements</strong></font></u>",
+  "de_DE": "<u><font style=\"color: rgb(74, 123, 140);\"><strong>Diese Zuschläge</strong></font></u>",
+  "ru_RU": "<u><font style=\"color: rgb(74, 123, 140);\"><strong>Эти надбавки</strong></font></u>"
+ },
+ "nám umožňují zajistit a odpovídajícím způsobem odměnit odborný tým při víkendové a mimořádné péči o vaše mazlíčky.": {
+  "en_US": "allow us to ensure and appropriately reward the professional team during weekend and emergency care for your animals.",
+  "de_DE": "ermöglichen es uns, ein Fachteam angemessen zu sichern und zu belohnen, wenn es um die Wochenend- und Notfallpflege Ihrer Tiere geht.",
+  "ru_RU": "они позволяют нам обеспечить и соответствующим образом вознаградить профессиональную команду за уход за вашими животными в выходные и в экстренных ситуациях."
+ },
+ "Plný provoz už běží — <span>so – ne</span> <span>10:00 – 18:00</span>. Objednat se můžete online nebo telefonicky na recepci.": {
+  "en_US": "We are in full operation — <span>sat – sun</span> <span>10:00 – 18:00</span>. Book online or by phone at the reception.",
+  "de_DE": "Wir sind im vollen Betrieb — <span>sa – so</span> <span>10:00 – 18:00</span>. Termine online oder telefonisch an der Rezeption.",
+  "ru_RU": "Клиника работает в полном режиме — <span>сб – вс</span> <span>10:00 – 18:00</span>. Записаться можно онлайн или по телефону на ресепшене."
+ },
+ "<span>Psi</span>": {
+  "en_US": "<span>Dogs</span>",
+  "de_DE": "<span>Hunde</span>",
+  "ru_RU": "<span>Собаки</span>"
+ },
+ "<span>Kočky</span>": {
+  "en_US": "<span>Cats</span>",
+  "de_DE": "<span>Katzen</span>",
+  "ru_RU": "<span>Кошки</span>"
+ },
+ "<span>Drobní savci</span>": {
+  "en_US": "<span>Small mammals</span>",
+  "de_DE": "<span>Kleinsäuger</span>",
+  "ru_RU": "<span>Мелкие млекопитающие</span>"
+ },
+ "Preventivní péče": {
+  "en_US": "Preventive care",
+  "de_DE": "Präventivpflege",
+  "ru_RU": "Профилактический уход"
+ },
+ "Pravidelné prohlídky, vakcinace a odčervení. Prevence je základ zdraví vašeho mazlíčka.": {
+  "en_US": "Regular check-ups, vaccinations and deworming. Prevention is the foundation of your pet's health.",
+  "de_DE": "Regelmäßige Untersuchungen, Impfungen und Entwurmung. Vorsorge ist die Grundlage der Gesundheit Ihres Tieres.",
+  "ru_RU": "Регулярные осмотры, вакцинация и дегельминтизация. Профилактика — основа здоровья вашего питомца."
+ },
+ "Chirurgie": {
+  "en_US": "Surgery",
+  "de_DE": "Chirurgie",
+  "ru_RU": "Хирургия"
+ },
+ "Kastrační a abdominální zákroky. Moderní operační sál s anesteziologickým monitoringem.": {
+  "en_US": "Neutering and abdominal procedures. A modern operating theatre with anaesthesia monitoring.",
+  "de_DE": "Kastrationen und abdominale Eingriffe. Moderner Operationssaal mit Anästhesie-Monitoring.",
+  "ru_RU": "Кастрация и абдоминальные вмешательства. Современная операционная с анестезиологическим мониторингом."
+ },
+ "Interní medicína": {
+  "en_US": "Internal medicine",
+  "de_DE": "Innere Medizin",
+  "ru_RU": "Внутренние болезни"
+ },
+ "Diagnostika a léčba vnitřních onemocnění, kardiologie, endokrinologie a gastroenterologie.": {
+  "en_US": "Diagnosis and treatment of internal diseases, cardiology, endocrinology and gastroenterology.",
+  "de_DE": "Diagnose und Behandlung innerer Erkrankungen, Kardiologie, Endokrinologie und Gastroenterologie.",
+  "ru_RU": "Диагностика и лечение внутренних заболеваний, кардиология, эндокринология и гастроэнтерология."
+ },
+ "Diagnostika": {
+  "en_US": "Diagnostics",
+  "de_DE": "Diagnostik",
+  "ru_RU": "Диагностика"
+ },
+ "RTG, ultrazvuk, laboratorní vyšetření krve a moči. Rychlá a přesná diagnostika pro správnou léčbu.​": {
+  "en_US": "RTG, ultrasound, laboratory blood and urine tests. Fast and accurate diagnostics for proper treatment.​",
+  "de_DE": "Röntgen, Ultraschall, Labortests von Blut und Urin. Schnelle und genaue Diagnostik für die richtige Behandlung.​",
+  "ru_RU": "Рентген, УЗИ, лабораторные анализы крови и мочи. Быстрая и точная диагностика для правильного лечения.​"
+ },
+ "Stomatologie": {
+  "en_US": "Dentistry",
+  "de_DE": "Zahnheilkunde",
+  "ru_RU": "Стоматология"
+ },
+ "Ošetření zubů, extrakce, ultrazvukové čištění. Péče o dutinu ústní pro zdravý chrup vašeho mazlíčka.": {
+  "en_US": "Dental treatment, extractions, ultrasonic cleaning. Oral care for your pet's healthy teeth.",
+  "de_DE": "Zahnbehandlung, Extraktionen, Ultraschallreinigung. Mundpflege für gesunde Zähne Ihres Tieres.",
+  "ru_RU": "Лечение зубов, удаления, ультразвуковая чистка. Уход за полостью рта для здоровых зубов вашего питомца."
+ },
+ "Oftalmologie": {
+  "en_US": "Ophthalmology",
+  "de_DE": "Ophthalmologie",
+  "ru_RU": "Офтальмология"
+ },
+ "Vyšetření a léčba očních onemocnění u malých zvířat, včetně diagnostiky a chirurgických zákroků.": {
+  "en_US": "Examination and treatment of eye diseases in small animals, including diagnostics and surgical procedures.",
+  "de_DE": "Untersuchung und Behandlung von Augenerkrankungen bei Kleintieren, einschließlich Diagnostik und chirurgischer Eingriffe.",
+  "ru_RU": "Обследование и лечение глазных заболеваний у мелких животных, включая диагностику и хирургические вмешательства."
+ },
+ "Dermatologie": {
+  "en_US": "Dermatology",
+  "de_DE": "Dermatologie",
+  "ru_RU": "Дерматология"
+ },
+ "Léčba kožních problémů, alergií a parazitárních onemocnění. Komplexní péče o kůži a srst.": {
+  "en_US": "Treatment of skin problems, allergies and parasitic diseases. Comprehensive care for skin and coat.",
+  "de_DE": "Behandlung von Hautproblemen, Allergien und Parasitenerkrankungen. Umfassende Pflege von Haut und Fell.",
+  "ru_RU": "Лечение кожных проблем, аллергий и паразитарных заболеваний. Комплексный уход за кожей и шерстью."
+ },
+ "Sonografie": {
+  "en_US": "Ultrasonography",
+  "de_DE": "Ultrasonografie",
+  "ru_RU": "Ультрасонография"
+ },
+ "Máme lékaře odborně zaměřené na ultrazvukovou diagnostiku. Tuto oblast dále rozvíjíme, a to i směrem ke kardiologickým vyšetřením.": {
+  "en_US": "We have doctors specialising in ultrasound diagnostics. We are developing this area further, including towards cardiology examinations.",
+  "de_DE": "Wir haben Ärzte mit Spezialisierung auf Ultraschalldiagnostik. Diesen Bereich bauen wir weiter aus, auch in Richtung kardiologischer Untersuchungen.",
+  "ru_RU": "У нас есть врачи, специализирующиеся на ультразвуковой диагностике. Мы развиваем это направление дальше, в том числе в сторону кардиологических исследований."
+ },
+ "<span class=\"ev-srv-title\">Preventivní péče</span>": {
+  "en_US": "<span class=\"ev-srv-title\">Preventive care</span>",
+  "de_DE": "<span class=\"ev-srv-title\">Präventivpflege</span>",
+  "ru_RU": "<span class=\"ev-srv-title\">Профилактический уход</span>"
+ },
+ "<span class=\"ev-srv-title\">Chirurgie</span>": {
+  "en_US": "<span class=\"ev-srv-title\">Surgery</span>",
+  "de_DE": "<span class=\"ev-srv-title\">Chirurgie</span>",
+  "ru_RU": "<span class=\"ev-srv-title\">Хирургия</span>"
+ },
+ "<span class=\"ev-srv-title\">Interní medicína</span>": {
+  "en_US": "<span class=\"ev-srv-title\">Internal medicine</span>",
+  "de_DE": "<span class=\"ev-srv-title\">Innere Medizin</span>",
+  "ru_RU": "<span class=\"ev-srv-title\">Внутренние болезни</span>"
+ },
+ "<span class=\"ev-srv-title\">Diagnostika</span>": {
+  "en_US": "<span class=\"ev-srv-title\">Diagnostics</span>",
+  "de_DE": "<span class=\"ev-srv-title\">Diagnostik</span>",
+  "ru_RU": "<span class=\"ev-srv-title\">Диагностика</span>"
+ },
+ "<span class=\"ev-srv-title\">Stomatologie</span>": {
+  "en_US": "<span class=\"ev-srv-title\">Dentistry</span>",
+  "de_DE": "<span class=\"ev-srv-title\">Zahnheilkunde</span>",
+  "ru_RU": "<span class=\"ev-srv-title\">Стоматология</span>"
+ },
+ "<span class=\"ev-srv-title\">Oftalmologie</span>": {
+  "en_US": "<span class=\"ev-srv-title\">Ophthalmology</span>",
+  "de_DE": "<span class=\"ev-srv-title\">Ophthalmologie</span>",
+  "ru_RU": "<span class=\"ev-srv-title\">Офтальмология</span>"
+ },
+ "<span class=\"ev-srv-title\">Dermatologie</span>": {
+  "en_US": "<span class=\"ev-srv-title\">Dermatology</span>",
+  "de_DE": "<span class=\"ev-srv-title\">Dermatologie</span>",
+  "ru_RU": "<span class=\"ev-srv-title\">Дерматология</span>"
+ },
+ "<span class=\"ev-srv-title\">Ultrasonografie</span>": {
+  "en_US": "<span class=\"ev-srv-title\">Ultrasonography</span>",
+  "de_DE": "<span class=\"ev-srv-title\">Ultraschall</span>",
+  "ru_RU": "<span class=\"ev-srv-title\">Ультрасонография</span>"
+ },
+ "Adresa": {
+  "en_US": "ADDRESS",
+  "de_DE": "ADRESSE",
+  "ru_RU": "АДРЕС"
+ },
+ "Telefon – Recepce": {
+  "en_US": "Phone – Reception",
+  "de_DE": "Telefon – Rezeption",
+  "ru_RU": "Телефон – Ресепшн"
+ },
+ "Objednávání, informace a běžné dotazy": {
+  "en_US": "Ordering, information, and frequently asked questions",
+  "de_DE": "Terminvereinbarung, Auskünfte und häufige Fragen",
+  "ru_RU": "Запись, информация и частые вопросы"
+ },
+ "E-mail": {
+  "en_US": "Email",
+  "de_DE": "E-Mail",
+  "ru_RU": "Эл. почта"
+ },
+ "<span class=\"ev-hours-day\">So – Ne</span>\n                                        <span class=\"ev-hours-time\">10:00 – 18:00</span>": {
+  "en_US": "<span class=\"ev-hours-day\">Sat – Sun</span>\n                                <span class=\"ev-hours-time\">10:00 – 18:00</span>",
+  "de_DE": "<span class=\"ev-hours-day\">Sa – So</span>\n                                        <span class=\"ev-hours-time\">10:00 – 18:00</span>",
+  "ru_RU": "<span class=\"ev-hours-day\">Сб – Вс</span>\n                                        <span class=\"ev-hours-time\">10:00 – 18:00</span>"
+ },
+ "<span class=\"ev-hours-day\">Po – Pá</span>\n                                <span class=\"ev-hours-time\">8:00 – 20:00</span>": {
+  "en_US": "<span class=\"ev-hours-day\">Mon – Fri</span>\n                                <span class=\"ev-hours-time\">8:00 – 20:00</span>",
+  "de_DE": "<span class=\"ev-hours-day\">Mo – Fr</span>\n                                <span class=\"ev-hours-time\">8:00 – 20:00</span>",
+  "ru_RU": "<span class=\"ev-hours-day\">Пн – Пт</span>\n                                <span class=\"ev-hours-time\">8:00 – 20:00</span>"
+ },
+ "<span class=\"ev-hours-day\">Po – Pá</span>\n                                            <span class=\"ev-hours-time\">8:00 – 20:00</span>": {
+  "en_US": "<span class=\"ev-hours-day\">Mon – Fri</span>\n                                            <span class=\"ev-hours-time\">8:00 – 20:00</span>",
+  "de_DE": "<span class=\"ev-hours-day\">Mo – Fr</span>\n                                            <span class=\"ev-hours-time\">8:00 – 20:00</span>",
+  "ru_RU": "<span class=\"ev-hours-day\">Пн – Пт</span>\n                                            <span class=\"ev-hours-time\">8:00 – 20:00</span>"
+ },
+ "<span class=\"ev-flyer2-date\">Po – Pá 8:00 – 20:00</span>": {
+  "en_US": "<span class=\"ev-flyer2-date\">Mon – Fri 8:00 – 20:00</span>",
+  "de_DE": "<span class=\"ev-flyer2-date\">Mo – Fr 8:00 – 20:00</span>",
+  "ru_RU": "<span class=\"ev-flyer2-date\">Пн – Пт 8:00 – 20:00</span>"
+ },
+ "<span class=\"ev-flyer2-time\">So – Ne 10:00 – 18:00</span>": {
+  "en_US": "<span class=\"ev-flyer2-time\">Sat – Sun 10:00 – 18:00</span>",
+  "de_DE": "<span class=\"ev-flyer2-time\">Sa – So 10:00 – 18:00</span>",
+  "ru_RU": "<span class=\"ev-flyer2-time\">Сб – Вс 10:00 – 18:00</span>"
+ },
+ "Plný provoz už běží — <span>po – pá</span> <span>8:00 – 20:00</span>, <span>so – ne</span> <span>10:00 – 18:00</span>. Objednat se můžete online nebo telefonicky na recepci.": {
+  "en_US": "We are in full operation — <span>mon – fri</span> <span>8:00 – 20:00</span>, <span>sat – sun</span> <span>10:00 – 18:00</span>. Book online or by phone at the reception.",
+  "de_DE": "Wir sind im vollen Betrieb — <span>mo – fr</span> <span>8:00 – 20:00</span>, <span>sa – so</span> <span>10:00 – 18:00</span>. Termine online oder telefonisch an der Rezeption.",
+  "ru_RU": "Клиника работает в полном режиме — <span>пн – пт</span> <span>8:00 – 20:00</span>, <span>сб – вс</span> <span>10:00 – 18:00</span>. Записаться можно онлайн или по телефону на ресепшене."
+ },
+ "<strong>Právě se něco děje</strong> — sem napište, co mají klienti vědět.": {
+  "en_US": "<strong>Something is happening</strong> — write here what clients should know.",
+  "de_DE": "<strong>Gerade tut sich etwas</strong> — schreiben Sie hier, was Kunden wissen sollen.",
+  "ru_RU": "<strong>Сейчас кое-что происходит</strong> — напишите здесь, что нужно знать клиентам."
+ },
+ "<p><strong>Právě se něco děje</strong> — sem napište, co mají klienti vědět.</p>": {
+  "en_US": "<p><strong>Something is happening</strong> — write here what clients should know.</p>",
+  "de_DE": "<p><strong>Gerade tut sich etwas</strong> — schreiben Sie hier, was Kunden wissen sollen.</p>",
+  "ru_RU": "<p><strong>Сейчас кое-что происходит</strong> — напишите здесь, что нужно знать клиентам.</p>"
+ },
+ "<span>O KLINICE</span>": {
+  "en_US": "<span>ABOUT THE CLINIC</span>",
+  "de_DE": "<span>ÜBER DIE KLINIK</span>",
+  "ru_RU": "<span>О КЛИНИКЕ</span>"
+ },
+ "O nás": {
+  "en_US": "About us",
+  "de_DE": "Über uns",
+  "ru_RU": "О нас"
+ },
+ "<strong><span class=\"h3-fs\"><font class=\"text-white\">Naše veterinární klinika zatím nenabízí <s>24/7</s> pohotovost.</font></span></strong>": {
+  "en_US": "<strong><span class=\"h3-fs\"><font class=\"text-white\">Our veterinary clinic does not offer <s>24/7</s> emergency care yet.</font></span></strong>",
+  "de_DE": "<strong><span class=\"h3-fs\"><font class=\"text-white\">Unsere Tierklinik bietet noch keinen <s>24/7</s> Notdienst an.</font></span></strong>",
+  "ru_RU": "<strong><span class=\"h3-fs\"><font class=\"text-white\">Наша ветеринарная клиника пока не предлагает <s>24/7</s> неотложную помощь.</font></span></strong>"
+ },
+ "Moderní veterinární klinika v Karlových Varech. Pečujeme o vaše mazlíčky s láskou, odborností a nejnovějšími technologiemi.": {
+  "en_US": "Modern veterinary clinic in Karlovy Vary. We care for your pets with love, expertise and the latest technology.",
+  "de_DE": "Moderne Tierklinik in Karlovy Vary. Wir kümmern uns um Ihre Lieblinge mit Liebe, Fachwissen und modernster Technik.",
+  "ru_RU": "Современная ветеринарная клиника в Карловых Варах. Мы заботимся о ваших питомцах с любовью, профессионализмом и новейшими технологиями."
+ },
+ "Navigace": {
+  "en_US": "Navigation",
+  "de_DE": "Navigation",
+  "ru_RU": "Навигация"
+ },
+ "<span>Autorská práva © Elite Vet</span>": {
+  "en_US": "<span>Copyright © Elite Vet</span>",
+  "de_DE": "<span>Urheberrecht © Elite Vet</span>",
+  "ru_RU": "<span>Авторские права © Elite Vet</span>"
+ },
+ "Kromě lékařů a personálu přímo na naší pobočce s klinikou spolupracuje také řada externích specialistů a lékařů. Lidé níže tvoří <strong>hlavní odpovědný tým, který se postará o vaše mazlíčky</strong> — a tým se stále rozrůstá.": {
+  "en_US": "Besides the doctors and staff at our own branch, a number of external specialists and doctors also work with the clinic. The people below make up the <strong>core team responsible for looking after your pets</strong> — and the team keeps growing.",
+  "de_DE": "Neben den Ärztinnen und dem Personal direkt in unserer Praxis arbeitet mit der Klinik auch eine Reihe externer Spezialisten und Ärzte zusammen. Die Menschen unten bilden das <strong>verantwortliche Kernteam, das sich um Ihre Lieblinge kümmert</strong> — und das Team wächst weiter.",
+  "ru_RU": "Кроме врачей и персонала непосредственно в нашем филиале с клиникой сотрудничает и ряд внешних специалистов и врачей. Люди ниже составляют <strong>основную команду, которая позаботится о ваших питомцах</strong> — и команда продолжает расти."
+ },
+ "Volat": {
+  "en_US": "Call",
+  "de_DE": "Anrufen",
+  "ru_RU": "Позвонить"
+ },
+ "Zavřít": {
+  "en_US": "Close",
+  "de_DE": "Schließen",
+  "ru_RU": "Закрыть"
+ },
+ "ELITE VET vzniká jako moderní veterinární pracoviště, jehož odborný základ tvoří propojení klinické praxe, specializovaného vzdělávání, týmové spolupráce a důsledného přístupu ke každému pacientovi. Tým při otevření kliniky zahrnuje veterinární lékařky se zkušenostmi v chirurgii, interní a urgentní medicíně, oftalmologii, ultrasonografii, stomatologii a péči o kritické pacienty; veterinární sestry se zkušenostmi z každodenního klinického provozu; klientský servis s odborným veterinárním přesahem; a management s přímou zkušeností z veterinárních pracovišť i řízení provozu.": {
+  "en_US": "ELITE VET is being built as a modern veterinary facility whose professional foundation combines clinical practice, specialised training, teamwork and a thorough approach to every patient. At the opening of the clinic the team includes veterinarians experienced in surgery, internal and emergency medicine, ophthalmology, ultrasonography, dentistry and critical patient care; veterinary nurses experienced in everyday clinical operations; client service with a professional veterinary background; and management with direct experience of veterinary practices and running operations.",
+  "de_DE": "ELITE VET entsteht als moderne tiermedizinische Einrichtung, deren fachliche Grundlage die Verbindung von klinischer Praxis, spezialisierter Weiterbildung, Teamarbeit und einem konsequenten Umgang mit jedem Patienten bildet. Das Team umfasst zur Eröffnung der Klinik Tierärztinnen mit Erfahrung in Chirurgie, innerer und Notfallmedizin, Ophthalmologie, Ultrasonografie, Zahnheilkunde und der Versorgung kritischer Patienten; tiermedizinische Fachangestellte mit Erfahrung aus dem täglichen Klinikbetrieb; einen Kundenservice mit fachlichem tiermedizinischem Hintergrund; und ein Management mit direkter Erfahrung aus Tierarztpraxen und der Betriebsführung.",
+  "ru_RU": "ELITE VET создаётся как современная ветеринарная клиника, профессиональную основу которой составляет сочетание клинической практики, специализированного обучения, командной работы и внимательного подхода к каждому пациенту. На момент открытия в команду входят ветеринарные врачи с опытом в хирургии, терапии и неотложной медицине, офтальмологии, ультрасонографии, стоматологии и уходе за пациентами в тяжёлом состоянии; ветеринарные медсёстры с опытом ежедневной клинической работы; клиентский сервис с ветеринарной подготовкой; и менеджмент с прямым опытом работы в ветеринарных клиниках и управления."
+ },
+ "Vzdělání, praxe a specializace": {
+  "en_US": "Education, experience and specialisation",
+  "de_DE": "Ausbildung, Praxis und Spezialisierung",
+  "ru_RU": "Образование, опыт и специализация"
+ },
+ "Zvětšit fotku: #{tm_m.name}": {
+  "en_US": "Enlarge photo: #{tm_m.name}",
+  "de_DE": "Foto vergrößern: #{tm_m.name}",
+  "ru_RU": "Увеличить фото: #{tm_m.name}"
+ },
+ "Náš tým | Elite Vet Karlovy Vary": {
+  "en_US": "Our team | Elite Vet Karlovy Vary",
+  "de_DE": "Unser Team | Elite Vet Karlovy Vary",
+  "ru_RU": "Наша команда | Elite Vet Карловы Вары"
+ },
+ "Prevence a vakcinace": {
+  "en_US": "Prevention and vaccination",
+  "de_DE": "Vorsorge und Impfung",
+  "ru_RU": "Профилактика и вакцинация"
+ },
+ "Kontakt pro nábor": {
+  "en_US": "Recruitment contact",
+  "de_DE": "Kontakt für Bewerbungen",
+  "ru_RU": "Контакт для соискателей"
+ },
+ "Poslat životopis": {
+  "en_US": "Send your CV",
+  "de_DE": "Lebenslauf senden",
+  "ru_RU": "Отправить резюме"
+ },
+ "Drobní savci": {
+  "en_US": "Small mammals",
+  "de_DE": "Kleinsäuger",
+  "ru_RU": "Мелкие млекопитающие"
+ },
+ "Tým stále roste": {
+  "en_US": "The team keeps growing",
+  "de_DE": "Das Team wächst weiter",
+  "ru_RU": "Команда продолжает расти"
+ },
+ "Tým, který otevírá naši kliniku": {
+  "en_US": "The team opening our clinic",
+  "de_DE": "Das Team, das unsere Klinik eröffnet",
+  "ru_RU": "Команда, которая открывает нашу клинику"
+ },
+ "Tým, který otevírá veterinární kliniku Elite Vet v Karlových Varech — veterinární lékařky, veterinární sestry, klientský servis a management. Vzdělání, praxe, specializace a jazyky celého týmu.": {
+  "en_US": "The team opening the Elite Vet veterinary clinic in Karlovy Vary — veterinarians, veterinary nurses, client service and management. Education, experience, specialisation and languages of the whole team.",
+  "de_DE": "Das Team, das die Tierklinik Elite Vet in Karlovy Vary eröffnet — Tierärztinnen, tiermedizinische Fachangestellte, Kundenservice und Management. Ausbildung, Praxis, Spezialisierung und Sprachen des gesamten Teams.",
+  "ru_RU": "Команда, которая открывает ветеринарную клинику Elite Vet в Карловых Варах — ветеринарные врачи, медсёстры, клиентский сервис и менеджмент. Образование, опыт, специализация и языки всей команды."
+ },
+ "Tým kliniky průběžně doplňujeme o další lékaře a odborný personál. Hledáme kolegy do nově vznikajícího týmu — od zkušených veterinářů až po čerstvé absolventy.": {
+  "en_US": "We keep adding more doctors and specialist staff to the clinic's team. We are looking for colleagues to join our newly forming team — from experienced vets to fresh graduates.",
+  "de_DE": "Wir ergänzen das Team der Klinik laufend um weitere Ärztinnen und Fachpersonal. Wir suchen Kolleginnen und Kollegen für das neu entstehende Team — von erfahrenen Tierärzten bis zu frischen Absolventen.",
+  "ru_RU": "Мы постоянно пополняем команду клиники новыми врачами и специалистами. Ищем коллег в формирующуюся команду — от опытных ветеринаров до недавних выпускников."
+ },
+ "<span class=\"rs-cta-text\">Objednat online</span>": {
+  "en_US": "<span class=\"rs-cta-text\">Book online</span>",
+  "de_DE": "<span class=\"rs-cta-text\">Online buchen</span>",
+  "ru_RU": "<span class=\"rs-cta-text\">Записаться онлайн</span>"
+ },
+ "Vyberte důvod návštěvy a volný termín. Potvrzení vám přijde e-mailem.": {
+  "en_US": "Choose the reason for your visit and a free appointment. You will receive a confirmation by email.",
+  "de_DE": "Wählen Sie den Grund des Besuchs und einen freien Termin. Die Bestätigung erhalten Sie per E-Mail.",
+  "ru_RU": "Выберите причину визита и свободное время. Подтверждение придёт по электронной почте."
+ },
+ "Rozpis služeb": {
+  "en_US": "Duty schedule",
+  "de_DE": "Dienstplan",
+  "ru_RU": "График работы"
+ },
+ "Rozpis ordinačních služeb veterinární kliniky Elite Vet Karlovy Vary — měsíční kalendář s ranní a odpolední službou a s víkendovými službami našich lékařek.": {
+  "en_US": "Duty schedule of the Elite Vet veterinary clinic in Karlovy Vary — a monthly calendar with morning and afternoon shifts and the weekend shifts of our doctors.",
+  "de_DE": "Dienstplan der Tierklinik Elite Vet Karlovy Vary — Monatskalender mit Vormittags- und Nachmittagsdienst sowie den Wochenenddiensten unserer Ärztinnen.",
+  "ru_RU": "График работы ветеринарной клиники Elite Vet в Карловых Варах — месячный календарь с утренними и дневными сменами и с выходными сменами наших врачей."
+ },
+ "Rozpis služeb | Elite Vet Karlovy Vary": {
+  "en_US": "Duty schedule | Elite Vet Karlovy Vary",
+  "de_DE": "Dienstplan | Elite Vet Karlovy Vary",
+  "ru_RU": "График работы | Elite Vet Карловы Вары"
+ },
+ "Pátek": {
+  "en_US": "Friday",
+  "de_DE": "Freitag",
+  "ru_RU": "Пятница"
+ },
+ "Pondělí": {
+  "en_US": "Monday",
+  "de_DE": "Montag",
+  "ru_RU": "Понедельник"
+ },
+ "Pondělí – Pátek · 8:00–20:00": {
+  "en_US": "Monday – Friday · 8:00–20:00",
+  "de_DE": "Montag – Freitag · 8:00–20:00",
+  "ru_RU": "Понедельник – Пятница · 8:00–20:00"
+ },
+ "Na základě rozpisu si můžete vybrat konkrétního lékaře nebo specializaci. Váš výběr prosím specifikujte do poznámky při rezervaci termínu.<br/>Pokud si nevíte rady, kterého lékaře či specializaci vybrat, můžete se na nás obrátit telefonicky nebo e-mailem.": {
+  "en_US": "Based on the schedule you can choose a specific doctor or specialisation. Please write your choice in the note when booking your appointment.<br/>If you are not sure which doctor or specialisation to choose, call us or send us an email.",
+  "de_DE": "Anhand des Dienstplans können Sie eine bestimmte Ärztin oder Fachrichtung auswählen. Bitte geben Sie Ihre Wahl bei der Terminbuchung in der Anmerkung an.<br/>Wenn Sie nicht sicher sind, welche Ärztin oder Fachrichtung die richtige ist, rufen Sie uns an oder schreiben Sie uns eine E-Mail.",
+  "ru_RU": "По графику вы можете выбрать конкретного врача или специализацию. Пожалуйста, укажите свой выбор в примечании при бронировании визита.<br/>Если вы не знаете, какого врача или специализацию выбрать, позвоните нам или напишите на электронную почту."
+ },
+ "Sobota": {
+  "en_US": "Saturday",
+  "de_DE": "Samstag",
+  "ru_RU": "Суббота"
+ },
+ "Sobota – Neděle · 10:00–18:00": {
+  "en_US": "Saturday – Sunday · 10:00–18:00",
+  "de_DE": "Samstag – Sonntag · 10:00–18:00",
+  "ru_RU": "Суббота – Воскресенье · 10:00–18:00"
+ },
+ "Neděle": {
+  "en_US": "Sunday",
+  "de_DE": "Sonntag",
+  "ru_RU": "Воскресенье"
+ },
+ "Kalendář posuňte prstem do strany": {
+  "en_US": "Swipe sideways to browse the calendar",
+  "de_DE": "Kalender zum Blättern zur Seite wischen",
+  "ru_RU": "Листайте календарь пальцем в сторону"
+ },
+ "Čtvrtek": {
+  "en_US": "Thursday",
+  "de_DE": "Donnerstag",
+  "ru_RU": "Четверг"
+ },
+ "Úterý": {
+  "en_US": "Tuesday",
+  "de_DE": "Dienstag",
+  "ru_RU": "Вторник"
+ },
+ "Středa": {
+  "en_US": "Wednesday",
+  "de_DE": "Mittwoch",
+  "ru_RU": "Среда"
+ },
+ "Kdo u nás který den slouží": {
+  "en_US": "Who is on duty on which day",
+  "de_DE": "Wer bei uns an welchem Tag Dienst hat",
+  "ru_RU": "Кто у нас дежурит в какой день"
+ },
+ "Plný provoz už běží — po – pá 8:00 – 20:00, so – ne 10:00 – 18:00. Objednat se můžete online nebo telefonicky na recepci.": {
+  "en_US": "We are now fully open — Mon–Fri 8:00–20:00, Sat–Sun 10:00–18:00. You can book online or by phone at the reception.",
+  "de_DE": "Wir haben bereits voll geöffnet — Mo–Fr 8:00–20:00, Sa–So 10:00–18:00. Sie können online oder telefonisch an der Rezeption einen Termin vereinbaren.",
+  "ru_RU": "Мы уже работаем в полном режиме — пн–пт 8:00–20:00, сб–вс 10:00–18:00. Записаться можно онлайн или по телефону на ресепшене."
+ }
+}

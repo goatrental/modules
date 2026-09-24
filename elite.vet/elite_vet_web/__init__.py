@@ -155,6 +155,17 @@ def _pri_instalaci(env):
     _srovnej_menu(env)
     _uklid_starych_stranek(env)
     _uklid_zbytku_rucniho_webu(env)
+    _doplnit_preklady_stranek(env)
+
+
+def _doplnit_preklady_stranek(env):
+    """Doplni preklady do stranek upravovanych v editoru.
+
+    Editor zapise cesky text do vsech jazyku najednou, takze na /de a /ru
+    zustane cestina. Podrobnosti: elite_vet_web/preklad_stranek.py.
+    """
+    from .preklad_stranek import prelozit
+    prelozit(env)
 
 
 def _uklid_zbytku_rucniho_webu(env):
