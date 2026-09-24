@@ -86,43 +86,45 @@ def prelozit(env, slovnik=None):
     dotcene = []
 
     for pohled in pohledy:
-        # Zdroj se precte JEDNOU a dopredu. Vsechny jazyky se pocitaji z nej,
-        # protoze prepsani zdroje by tem dalsim podtrhlo zem pod nohama.
+        # Zdroj se precte JEDNOU a dopredu. Terminy se berou z nej, protoze
+        # prepsani zdroje by tem dalsim jazykum podtrhlo zem pod nohama.
         zdroj = pohled.with_context(lang="en_US").arch_db
         if not zdroj:
             continue
 
-        hotove = {}
+        # Seznam terminu tak, jak je deli samo Odoo.
+        terminy = []
+        xml_translate(lambda t: terminy.append(t) or t, zdroj)
+
+        po_jazycich = {}
         zmeneno_v_pohledu = 0
 
         for jazyk in JAZYKY:
             if jazyk not in jazyky_databaze:
                 continue
 
-            zmeneno = []
-
-            def preloz(termin, _jazyk=jazyk, _zmeneno=zmeneno):
+            dvojice = {}
+            for termin in terminy:
                 zaznam = slovnik.get(termin)
                 if not zaznam:
-                    return termin
-                novy = zaznam.get(_jazyk)
-                if not novy or novy == termin:
-                    return termin
-                _zmeneno.append(termin)
-                return novy
+                    continue
+                novy = zaznam.get(jazyk)
+                if novy and novy != termin:
+                    dvojice[termin] = novy
 
-            hotove[jazyk] = xml_translate(preloz, zdroj)
-            if zmeneno:
-                zmeneno_v_pohledu += len(zmeneno)
-                dotcene.append("%s/%s (%s)" % (pohled.key, jazyk, len(zmeneno)))
+            if dvojice:
+                po_jazycich[jazyk] = dvojice
+                zmeneno_v_pohledu += len(dvojice)
+                dotcene.append("%s/%s (%s)" % (pohled.key, jazyk, len(dvojice)))
 
-        if not zmeneno_v_pohledu:
+        if not po_jazycich:
             continue
 
-        # Zapisuje se az ted a do VSECH jazyku, cestinu nevyjimaje. Jazyk bez
-        # vlastni hodnoty pada zpatky na zdroj, a v tom uz bude anglictina.
-        for jazyk, arch in hotove.items():
-            pohled.with_context(lang=jazyk).arch_db = arch
+        # Zapisuje se podporovanym rozhranim po terminech, ne celym archem.
+        # Primy zapis `arch_db` Odoo bere jako zmenu zdroje a ostatni jazyky
+        # pritom zahodi -- kazdy dalsi zapis by tak smazal ten predchozi
+        # a zustal by jen posledni. Presne to se pri prvnim pokusu stalo.
+        pohled.update_field_translations("arch_db", po_jazycich)
         zmeneno_celkem += zmeneno_v_pohledu
 
     if dotcene:
