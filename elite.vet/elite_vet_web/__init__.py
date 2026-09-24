@@ -153,6 +153,80 @@ def _pri_instalaci(env):
     seed_galerie(env)
     seed_obsah(env)
     _srovnej_menu(env)
+    _uklid_starych_stranek(env)
+
+
+# Adresy, na kterych stranku dodava tenhle projekt. Domovska stranka v seznamu
+# zamerne NENI: tu prepina _nastav_homepage a odpublikovat na "/" cizi zaznam
+# znamena, ze web prestane mit domovskou stranku a "/" zacne vracet 404.
+ADRESY_PROJEKTU = (
+    "/o-nas",
+    "/cenik",
+    "/rezervacni-system",
+    "/nas-tym",
+    "/rozpis-lekaru",
+)
+
+
+def _uklid_starych_stranek(env):
+    """Schova rucne delane stranky na adresach, ktere prebiraji moduly.
+
+    Na webu, ktery se drive psal rucne, uz na techto adresach stranka je.
+    Instalace modulu vedle ni zalozi svoji a vzniknou dve zverejnene stranky
+    na jedne adrese -- prave na tom padal dev: `/rozpis-lekaru` vracelo 500
+    a editor hlasil "Expected singleton".
+
+    Stara stranka se proto **odpublikuje, ne smaze**. Obsah zustava v databazi
+    a da se jednim kliknutim vratit, kdyby se na nove neco nezdalo.
+
+    Sahne se jen na adresy tohohle projektu a jen na webu Elite Vet. Stranky,
+    ktere moduly nedodavaji -- `/aktualni-informace` a kariera -- zustavaji
+    presne takove, jake jsou.
+    """
+    from odoo.addons.elite_vet_calendar import _zvol_web
+
+    web = _zvol_web(env)
+    if not web:
+        _logger.warning("Uklid stranek se nekonal: neznam web Elite Vet.")
+        return
+
+    Stranka = env["website.page"].sudo()
+
+    # V databazi s jedinym webem nemaji stranky prirazeny web vubec; tam jsou
+    # "obecne" stranky jeho. Kdyz je webu vic, obecna stranka patri vsem
+    # a sahat na ni nesmime.
+    if env["website"].search_count([]) <= 1:
+        kde = ["|", ("website_id", "=", web.id), ("website_id", "=", False)]
+    else:
+        kde = [("website_id", "=", web.id)]
+
+    schovano = []
+    for adresa in ADRESY_PROJEKTU:
+        stranky = Stranka.search(
+            kde + [("url", "=", adresa), ("is_published", "=", True)])
+        if len(stranky) < 2:
+            continue
+
+        nase = stranky.filtered(
+            lambda s: (s.view_id.key or "").startswith("elite_vet"))
+        if not nase:
+            # Zadna z nich neni nase, tak do toho nemame co mluvit.
+            _logger.warning(
+                "Na adrese %s je vic stranek, ale zadna z modulu. Nechavam byt.",
+                adresa)
+            continue
+
+        ostatni = stranky - nase[0]
+        ostatni.is_published = False
+        schovano.append("%s (%s)" % (adresa, len(ostatni)))
+
+    if schovano:
+        _logger.warning(
+            "Odpublikovany starsi stranky, ktere prebiraji moduly: %s. "
+            "Obsah zustava v databazi, da se vratit zaskrtnutim Zverejneno.",
+            ", ".join(schovano))
+    else:
+        _logger.info("Uklid stranek: zadna adresa nema dve zverejnene stranky.")
 
 
 # Nazvy polozky nabidky, ktera sjede ke kontaktni sekci na domovske strance.
