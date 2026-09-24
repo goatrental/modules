@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 {
     "name": "Elite Vet - vzhled webu",
-    "version": "18.0.1.1.0",
+    "version": "18.0.1.2.0",
+    "post_init_hook": "_pri_instalaci",
     "summary": "Spolecna hlavicka a paticka webu kliniky",
     # Hlavicka a paticka byly drive v sesti kopiich, na kazde strance jedna.
     # Zmena menu se tak musela delat sestkrat a pokazde se na neco zapomnelo.

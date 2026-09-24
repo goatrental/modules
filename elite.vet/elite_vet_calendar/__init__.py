@@ -77,37 +77,14 @@ def _seed_doctors(env):
 
 
 def _zvol_web(env):
-    """Vybere web, kteremu stranka patri.
+    """Vybere web, kteremu stranky projektu patri.
 
-    V databazi bezi vic webu vedle sebe (Elite Vet, Elite Arena, trafika,
-    Jack, IMI). Stranka bez prirazeneho webu se v Odoo zobrazi na VSECH
-    domenach, coz je presne to, co nechceme.
-
-    Poradi hledani: domena obsahujici elite-vet, pak cokoli s "vet"
-    v nazvu nebo domene, jinak jediny existujici web. Kdyz nic nesedi,
-    vrati prvni a zapise to do logu - administrator to pak prepise
-    v Web -> Konfigurace -> Stranky.
+    Telo se presunulo do elite_vet_theme/web.py, protoze ho potrebuje uz
+    nastaveni jazyku, ktere bezi driv nez tenhle modul. Tady zustava,
+    aby volajici nemuseli menit import.
     """
-    weby = env["website"].search([])
-    if not weby:
-        return False
-    if len(weby) == 1:
-        return weby
-
-    for web in weby:
-        if "elite-vet" in (web.domain or "").lower():
-            return web
-    for web in weby:
-        popis = ((web.name or "") + " " + (web.domain or "")).lower()
-        if "vet" in popis and "arena" not in popis:
-            return web
-
-    _logger.warning(
-        "Nepodarilo se poznat, ktery web je Elite Vet. Stranka byla prirazena "
-        "k webu '%s'. Zmenit ji jde v Web -> Konfigurace -> Stranky.",
-        weby[0].name,
-    )
-    return weby[0]
+    from odoo.addons.elite_vet_theme.web import zvol_web
+    return zvol_web(env)
 
 
 def _priradit_k_webu(env, xml_id_stranky, xml_id_menu=None):
