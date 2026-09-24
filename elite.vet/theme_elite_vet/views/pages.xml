@@ -27,7 +27,7 @@
          search(domain, order='website_id asc', limit=1)
 
      Mezi strankami tehoz webu uz zadne dalsi razeni neni, takze se
-     navstevnikum jednou ukazal novy web a podruhe stary -- a po kazdem
+     navstevnikum jednou ukazal novy web a podruhe stary — a po kazdem
      kliknuti na "Aktualizovat tema" se stary vratil. Domovskou stranku
      dodava modul elite_vet_web. -->
 
