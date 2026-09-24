@@ -778,5 +778,10 @@
   "en_US": "We are now fully open — Mon–Fri 8:00–20:00, Sat–Sun 10:00–18:00. You can book online or by phone at the reception.",
   "de_DE": "Wir haben bereits voll geöffnet — Mo–Fr 8:00–20:00, Sa–So 10:00–18:00. Sie können online oder telefonisch an der Rezeption einen Termin vereinbaren.",
   "ru_RU": "Мы уже работаем в полном режиме — пн–пт 8:00–20:00, сб–вс 10:00–18:00. Записаться можно онлайн или по телефону на ресепшене."
+ },
+ "<strong><span class=\"h3-fs\"><font class=\"text-white\">\n🚫\n\nNaše veterinární klinika zatím nenabízí 24/7 pohotovost.</font></span></strong><br/>": {
+  "en_US": "<strong><span class=\"h3-fs\"><font class=\"text-white\">Our veterinary clinic does not offer 24/7 emergency care yet.</font></span></strong><br/>",
+  "de_DE": "<strong><span class=\"h3-fs\"><font class=\"text-white\">Unsere Tierklinik bietet noch keinen 24/7 Notdienst an.</font></span></strong><br/>",
+  "ru_RU": "<strong><span class=\"h3-fs\"><font class=\"text-white\">Наша ветеринарная клиника пока не предлагает круглосуточную помощь.</font></span></strong><br/>"
  }
 }
