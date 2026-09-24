@@ -154,6 +154,22 @@ def _pri_instalaci(env):
     seed_obsah(env)
     _srovnej_menu(env)
     _uklid_starych_stranek(env)
+    _uklid_zbytku_rucniho_webu(env)
+
+
+def _uklid_zbytku_rucniho_webu(env):
+    """Uklid po webu, ktery se drive psal rucne.
+
+    Musi bezet i pri INSTALACI, nejen pri upgradu. Migrace se spousti pouze
+    pri zvyseni verze modulu, takze pri cerste instalaci do databaze, ktera
+    uz rucni web ma, by uklid neprobehl nikdy -- a prave na tom spadl ostry
+    web: `nas-tym` vracel 500 na dedicim pohledu `gen_key.*`, ktery miri
+    na prvek, jaky novy header nema.
+    """
+    from .uklid import smaz_dvojniky_pohledu, vypni_zbytky_s_mrtvym_xpath
+    vypni_zbytky_s_mrtvym_xpath(env)
+    smaz_dvojniky_pohledu(env)
+    _doplnit_chybejici_sekce_ceniku(env)
 
 
 # Adresy, na kterych stranku dodava tenhle projekt. Domovska stranka v seznamu
@@ -172,12 +188,22 @@ def _uklid_starych_stranek(env):
     """Schova rucne delane stranky na adresach, ktere prebiraji moduly.
 
     Na webu, ktery se drive psal rucne, uz na techto adresach stranka je.
-    Instalace modulu vedle ni zalozi svoji a vzniknou dve zverejnene stranky
-    na jedne adrese -- prave na tom padal dev: `/rozpis-lekaru` vracelo 500
-    a editor hlasil "Expected singleton".
+    Instalace modulu vedle ni zalozi svoji a vzniknou dve stranky na jedne
+    adrese -- prave na tom padal dev: `/rozpis-lekaru` vracelo 500 a editor
+    hlasil "Expected singleton".
 
-    Stara stranka se proto **odpublikuje, ne smaze**. Obsah zustava v databazi
-    a da se jednim kliknutim vratit, kdyby se na nove neco nezdalo.
+    Odpublikovat starou stranku NESTACI. Odoo si pro adresu vybere jedinou
+    stranku:
+
+        search(domain, order='website_id asc', limit=1)
+
+    Mezi strankami tehoz webu uz zadne dalsi razeni neni, takze si databaze
+    muze vybrat kteroukoliv -- a kdyz padne na tu nezverejnenou, stranka
+    vrati 404. Overeno: po pouhem odpublikovani zacaly ctyri stranky vracet
+    404, prestoze modulova byla zverejnena.
+
+    Stara stranka se proto **prejmenuje na `<adresa>-puvodni` a odpublikuje**.
+    Nic se nemaze: obsah zustava v databazi a da se najit i otevrit.
 
     Sahne se jen na adresy tohohle projektu a jen na webu Elite Vet. Stranky,
     ktere moduly nedodavaji -- `/aktualni-informace` a kariera -- zustavaji
@@ -200,10 +226,11 @@ def _uklid_starych_stranek(env):
     else:
         kde = [("website_id", "=", web.id)]
 
-    schovano = []
+    _srovnej_domovskou_stranku(env, Stranka, kde)
+
+    uklizeno = []
     for adresa in ADRESY_PROJEKTU:
-        stranky = Stranka.search(
-            kde + [("url", "=", adresa), ("is_published", "=", True)])
+        stranky = Stranka.search(kde + [("url", "=", adresa)])
         if len(stranky) < 2:
             continue
 
@@ -216,17 +243,55 @@ def _uklid_starych_stranek(env):
                 adresa)
             continue
 
-        ostatni = stranky - nase[0]
-        ostatni.is_published = False
-        schovano.append("%s (%s)" % (adresa, len(ostatni)))
+        zustava = nase[0]
+        zustava.is_published = True
+        for poradi, stara in enumerate(stranky - zustava):
+            nova_adresa = adresa + "-puvodni"
+            if poradi:
+                nova_adresa += "-%s" % (poradi + 1)
+            stara.write({"url": nova_adresa, "is_published": False})
+            uklizeno.append("%s -> %s" % (adresa, nova_adresa))
 
-    if schovano:
+    if uklizeno:
         _logger.warning(
-            "Odpublikovany starsi stranky, ktere prebiraji moduly: %s. "
-            "Obsah zustava v databazi, da se vratit zaskrtnutim Zverejneno.",
-            ", ".join(schovano))
+            "Starsi stranky na adresach projektu odsunuty: %s. Nic se nesmazalo, "
+            "obsah je porad v databazi pod novou adresou.", ", ".join(uklizeno))
     else:
-        _logger.info("Uklid stranek: zadna adresa nema dve zverejnene stranky.")
+        _logger.info("Uklid stranek: zadna adresa projektu nema dve stranky.")
+
+
+def _srovnej_domovskou_stranku(env, Stranka, kde):
+    """Zaridi, aby "/" ukazovalo nasi homepage, at si Odoo vybere kterou chce.
+
+    Na "/" nejde pouzit stejny trik jako u ostatnich adres -- prejmenovat
+    domovskou stranku nelze. Kdyz jich je ale vic, Odoo si jednu vybere
+    nahodne (razeni je jen podle website_id) a kdyz padne na tu starou nebo
+    nezverejnenou, navstevnik dostane bud stary web, nebo 404.
+
+    Reseni je proto opacne nez jinde: vsechny stranky na "/" dostanou nasi
+    sablonu a zverejni se. Pak uz je jedno, kterou si Odoo vezme. Zadna se
+    nemaze a stara sablona zustava v databazi.
+    """
+    sablona = env.ref("elite_vet_web.homepage", raise_if_not_found=False)
+    if not sablona:
+        return
+
+    domovske = Stranka.search(kde + [("url", "=", "/")])
+    if len(domovske) < 2:
+        return
+
+    jina_sablona = domovske.filtered(lambda s: s.view_id != sablona)
+    nezverejnene = domovske.filtered(lambda s: not s.is_published)
+    if not jina_sablona and not nezverejnene:
+        return
+
+    # Obe veci najednou: nezverejnena stranka by pri nahodnem vyberu dala 404,
+    # cizi sablona zase stary web.
+    domovske.write({"view_id": sablona.id, "is_published": True})
+    _logger.warning(
+        "Na '/' je %s stranek a Odoo si mezi nimi vybira nahodne, takze vsechny "
+        "dostaly sablonu modulu (prepsano %s, zverejneno %s).",
+        len(domovske), len(jina_sablona), len(nezverejnene))
 
 
 # Nazvy polozky nabidky, ktera sjede ke kontaktni sekci na domovske strance.
@@ -527,8 +592,13 @@ def _doplnit_chybejici_sekce_ceniku(env):
     """
     Sekce = env["elite.vet.price.category"].sudo().with_context(active_test=False)
 
+    # Ctou se jen jazyky, ktere databaze opravdu zna. Cteni v jazyce, ktery
+    # nainstalovany neni, Odoo odmitne hlaskou "Invalid language code"
+    # a shodi celou instalaci modulu.
+    jazyky = {"en_US"} | _nainstalovane_jazyky(env)
+
     zname = set()
-    for jazyk in ("en_US", "cs_CZ", "de_DE", "ru_RU"):
+    for jazyk in jazyky:
         for nazev in Sekce.with_context(lang=jazyk).search([]).mapped("name"):
             if nazev:
                 zname.add(nazev.strip().lower())
