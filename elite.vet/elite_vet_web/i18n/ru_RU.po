@@ -665,3 +665,8 @@ msgstr "<span>О КЛИНИКЕ</span>"
 #: model_terms:ir.ui.view,arch_db:elite_vet_web.o_nas
 msgid "About us"
 msgstr "О нас"
+
+#. module: elite_vet_web
+#: model_terms:ir.ui.view,arch_db:elite_vet_web.homepage
+msgid "<strong><span class=\"h3-fs\"><font class=\"text-white\">Our veterinary clinic does not offer <s>24/7</s> emergency care yet.</font></span></strong>"
+msgstr "<strong><span class=\"h3-fs\"><font class=\"text-white\">Наша ветеринарная клиника пока не предлагает <s>24/7</s> неотложную помощь.</font></span></strong>"

@@ -75,3 +75,16 @@
 @media (max-width: 768px) {
     .oe_structure > .s_vet_oznameni:first-child { margin-top: 61px; }
 }
+
+/* Ikona vedle textu banneru. Nahrazuje emoji: to se na kazdem zarizeni
+   kresli jinak a v barevnem pruhu casto uplne zanikne. */
+.ev-oznam .ev-oznam-ikona {
+    display: inline-flex;
+    align-items: center;
+    flex: 0 0 auto;
+    color: var(--oznam-text);
+}
+
+.ev-oznam .ev-oznam-ikona svg {
+    display: block;
+}

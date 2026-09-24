@@ -1,4 +1,5 @@
 from . import jazyky
+from . import parametry
 from . import stranky
 from . import web
 
@@ -6,8 +7,14 @@ from . import web
 def _pri_instalaci(env):
     """Bezi po instalaci zakladniho modulu projektu.
 
-    Jazyky se nastavuji tady, protoze tenhle modul se z celeho projektu
-    instaluje jako prvni. Ostatni moduly pri instalaci zapisuji preklady
-    a do jazyka, ktery jeste neni zapnuty, zapsat nejdou.
+    Poradi neni nahodne:
+
+    1. Osirele systemove parametry se spravi jako prvni. Kdyz se nechaji
+       byt, shodi pozdeji instalaci nebo tlacitko "Aktualizovat tema"
+       hlaskou o duplicitnim klici -- i kdyz jde o modul cizi projektu.
+    2. Teprve pak jazyky. Tenhle modul se z celeho projektu instaluje
+       jako prvni, takze ostatni uz zapisuji preklady do zapnutych jazyku;
+       do nezapnuteho jazyka zapsat nejde a preklad by se tise ztratil.
     """
+    parametry.sprav(env)
     jazyky.nastav(env)

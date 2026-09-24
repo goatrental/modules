@@ -1118,13 +1118,26 @@
                      needita nic. Sekce rizene seznamem v adminu zustavaji v modulu
                      jako druha varianta a v panelu bloku, aby slo smazane vratit. -->
                 <div id="oe_structure_homepage" class="oe_structure">
-                    <!-- Banner. Klinika do nej pise, ze se neco deje; barvu i blikajici
-                         tecku prepina v bocnim panelu. -->
-                    <section class="s_vet_oznameni ev-oznam ev-oznam--info o_cc o_cc2" data-snippet="s_vet_oznameni" data-name="Banner">
+                    <!-- Banner. Klinika do nej pise, ze se neco deje; barvu, cary
+                         i blikajici tecku prepina v bocnim panelu.
+
+                         Cerveny pruh o pohotovosti tu je proto, ze si klienti
+                         mysleli, ze klinika uz 24/7 pohotovost ma. Text i barva
+                         se daji prepsat primo na strance. -->
+                    <section class="s_vet_oznameni ev-oznam ev-oznam--info o_cc o_cc2 ev-oznam--bez-car ev-oznam--bez-tecky" data-snippet="s_vet_oznameni" data-name="Banner" style="--oznam-cara: #CE0000; --oznam-pozadi: #CE0000;">
                         <div class="ev-oznam-in">
                             <span class="ev-oznam-tecka"></span>
+                            <!-- Ikona je zamerne MIMO odstavec: uvnitr by se stala
+                                 soucasti prekladaneho terminu a kazda zmena znacky
+                                 by rozbila preklady do vsech jazyku. -->
+                            <span class="ev-oznam-ikona">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+                                    <circle cx="12" cy="12" r="9"></circle>
+                                    <line x1="5.6" y1="5.6" x2="18.4" y2="18.4"></line>
+                                </svg>
+                            </span>
                             <div class="ev-oznam-text">
-                                <p><strong>Something is happening</strong> — write here what clients should know.</p>
+                                <p><strong><span class="h3-fs"><font class="text-white">Our veterinary clinic does not offer <s>24/7</s> emergency care yet.</font></span></strong></p>
                             </div>
                         </div>
                     </section>

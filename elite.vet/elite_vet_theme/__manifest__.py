@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     "name": "Elite Vet - vzhled webu",
-    "version": "18.0.1.2.0",
+    "version": "18.0.1.3.0",
     "post_init_hook": "_pri_instalaci",
     "summary": "Spolecna hlavicka a paticka webu kliniky",
     # Hlavicka a paticka byly drive v sesti kopiich, na kazde strance jedna.
