@@ -30,16 +30,35 @@ import os
 
 _logger = logging.getLogger(__name__)
 
-JAZYKY = ("en_US", "de_DE", "ru_RU")
+# Cestina tu MUSI byt taky. Ulozena stranka ma cestinu jen ve zdrojovem
+# slotu en_US a ostatni jazyky na nej padaji zpatky. Kdyz se do zdroje zapise
+# anglictina a cestina nedostane vlastni hodnotu, spadne na anglictinu cely
+# web -- coz se pri prvnim pokusu presne stalo.
+JAZYKY = ("cs_CZ", "de_DE", "ru_RU", "en_US")
 SLOVNIK = os.path.join(os.path.dirname(__file__), "data", "preklady_stranek.json")
 
 
 def _nacti_slovnik():
+    """Vrati mapu termin -> preklady, hledatelnou cesky i anglicky.
+
+    Zdroj byva cesky (stranka ulozena z editoru), ale kdyz uz se jednou
+    prelozil, je anglicky. Aby se dal pustit i podruhe, zna slovnik obe
+    podoby terminu.
+    """
     if not os.path.exists(SLOVNIK):
         _logger.warning("Slovnik prekladu stranek nenalezen: %s", SLOVNIK)
         return {}
     with open(SLOVNIK, encoding="utf-8") as soubor:
-        return json.load(soubor)
+        cesky = json.load(soubor)
+
+    slovnik = {}
+    for termin, preklady in cesky.items():
+        zaznam = dict(preklady, cs_CZ=termin)
+        slovnik[termin] = zaznam
+        anglicky = preklady.get("en_US")
+        if anglicky and anglicky not in slovnik:
+            slovnik[anglicky] = zaznam
+    return slovnik
 
 
 def _nase_pohledy(env):
@@ -67,13 +86,17 @@ def prelozit(env, slovnik=None):
     dotcene = []
 
     for pohled in pohledy:
+        # Zdroj se precte JEDNOU a dopredu. Vsechny jazyky se pocitaji z nej,
+        # protoze prepsani zdroje by tem dalsim podtrhlo zem pod nohama.
+        zdroj = pohled.with_context(lang="en_US").arch_db
+        if not zdroj:
+            continue
+
+        hotove = {}
+        zmeneno_v_pohledu = 0
+
         for jazyk in JAZYKY:
             if jazyk not in jazyky_databaze:
-                continue
-
-            v_jazyce = pohled.with_context(lang=jazyk)
-            arch = v_jazyce.arch_db
-            if not arch:
                 continue
 
             zmeneno = []
@@ -88,13 +111,19 @@ def prelozit(env, slovnik=None):
                 _zmeneno.append(termin)
                 return novy
 
-            novy_arch = xml_translate(preloz, arch)
-            if not zmeneno:
-                continue
+            hotove[jazyk] = xml_translate(preloz, zdroj)
+            if zmeneno:
+                zmeneno_v_pohledu += len(zmeneno)
+                dotcene.append("%s/%s (%s)" % (pohled.key, jazyk, len(zmeneno)))
 
-            v_jazyce.arch_db = novy_arch
-            zmeneno_celkem += len(zmeneno)
-            dotcene.append("%s/%s (%s)" % (pohled.key, jazyk, len(zmeneno)))
+        if not zmeneno_v_pohledu:
+            continue
+
+        # Zapisuje se az ted a do VSECH jazyku, cestinu nevyjimaje. Jazyk bez
+        # vlastni hodnoty pada zpatky na zdroj, a v tom uz bude anglictina.
+        for jazyk, arch in hotove.items():
+            pohled.with_context(lang=jazyk).arch_db = arch
+        zmeneno_celkem += zmeneno_v_pohledu
 
     if dotcene:
         _logger.warning(
