@@ -1222,13 +1222,13 @@
                  v editoru, v kazdem jazyce zvlast. -->
             <section class="s_vet_note">
                 <div class="ev-hero-note">
-                    <div class="ev-hero-note-in"><div style="text-align:center;"> <p style="margin-bottom: 0px;">Outside of office hours, the emergency fee includes the working time of the doctor and nurse based on their actual involvement in care. The mentioned surcharges are charged in addition to the cost of examinations, procedures, medications, and materials used.</p><p style="margin-bottom: 0px;"><a href="/en/cenik"><u><font style="color: rgb(74, 123, 140);"><strong>These supplements</strong></font></u></a> allow us to ensure and appropriately reward the professional team during weekend and emergency care for your animals.</p></div></div>
+                    <div class="ev-hero-note-in"><div style="text-align:center;"> <p style="margin-bottom: 0px;">Outside of office hours, the emergency fee includes the working time of the doctor and nurse based on their actual involvement in care. The mentioned surcharges are charged in addition to the cost of examinations, procedures, medications, and materials used.</p><p style="margin-bottom: 0px;"><a href="/cenik"><u><font style="color: rgb(74, 123, 140);"><strong>These supplements</strong></font></u></a> allow us to ensure and appropriately reward the professional team during weekend and emergency care for your animals.</p></div></div>
                 </div>
             </section>
 
                     <section class="s_vet_objednat ev-where-sec">
                     <div class="ev-container ev-where-row">
-                        <a href="/en/rezervacni-system" class="ev-cd-where">
+                        <a href="/rezervacni-system" class="ev-cd-where">
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <rect x="3" y="4" width="18" height="18" rx="2"></rect>
                                 <line x1="16" y1="2" x2="16" y2="6"></line>
@@ -1607,7 +1607,7 @@
                             <div class="ev-teamcta-badge">OUR TEAM</div>
                             <h2>Expert team for the health of your pets</h2>
                             <p class="ev-teamcta-text">Behind Elite Vet is a team of experienced veterinarians and specialists. Get to know the people who are opening our clinic in Karlovy Vary.</p>
-                            <a href="/en/nas-tym" class="ev-teamcta-btn">
+                            <a href="/nas-tym" class="ev-teamcta-btn">
                                 Meet our team<br/>
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
                                     <line x1="5" y1="12" x2="19" y2="12"></line>
@@ -1722,7 +1722,7 @@
                                 <p class="ev-hours-note">
                                     Treatment outside opening hours is possible only by prior telephone arrangement and confirmation that the team is available. This is not a round-the-clock service.
                                 </p>
-                                <a href="/en/rezervacni-system" class="ev-call ev-call--full" style="margin-top: 22px;">
+                                <a href="/rezervacni-system" class="ev-call ev-call--full" style="margin-top: 22px;">
                                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                         <rect x="3" y="4" width="18" height="18" rx="2"></rect>
                                         <line x1="16" y1="2" x2="16" y2="6"></line>
