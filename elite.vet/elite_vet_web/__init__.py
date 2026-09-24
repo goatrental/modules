@@ -152,6 +152,77 @@ def _pri_instalaci(env):
     _seed_sluzby(env)
     seed_galerie(env)
     seed_obsah(env)
+    _srovnej_menu(env)
+
+
+# Nazvy polozky nabidky, ktera sjede ke kontaktni sekci na domovske strance.
+KONTAKT_V_MENU = {
+    "en_US": "Contact",
+    "cs_CZ": "Kontakt",
+    "de_DE": "Kontakt",
+    "ru_RU": "Контакты",
+}
+
+
+def _srovnej_menu(env):
+    """Dve opravy nabidky, ktere by se jinak musely delat rucne v databazi.
+
+    1. Polozka mirici na "/#odpocet" vede na kotvu odpoctu z predstartovni
+       stranky. Ta uz na webu neni, takze klik nikam nevede — prepne se na "/".
+    2. Pod domovskou strankou pribyva "Kontakt", ktery sjede ke kontaktni
+       sekci. Zaklada se anglicky a ostatni jazyky se dopisuji jako preklad;
+       kdyby se zakladal cesky, cestina by se stala zdrojem a ukazala by se
+       ve vsech jazycich.
+
+    Sahne se jen na nabidku webu Elite Vet. Ostatni weby v databazi
+    (Arena, trafika, Jack, IMI) maji svoji vlastni a ty se to netyka.
+    """
+    from odoo.addons.elite_vet_calendar import _zvol_web
+
+    web = _zvol_web(env)
+    if not web:
+        _logger.warning("Nabidka se nesrovnala: nepodarilo se urcit web Elite Vet.")
+        return
+
+    Menu = env["website.menu"]
+
+    zastarale = Menu.search([
+        ("website_id", "=", web.id),
+        ("url", "=like", "%#odpocet"),
+    ])
+    if zastarale:
+        zastarale.url = "/"
+        _logger.warning(
+            "Polozek nabidky prepnutych z odpoctu na domovskou stranku: %s.",
+            len(zastarale))
+
+    # Domovska stranka v nabidce: polozka na "/", ktera nekde visi.
+    domu = Menu.search([
+        ("website_id", "=", web.id),
+        ("url", "=", "/"),
+        ("parent_id", "!=", False),
+    ], limit=1)
+    if not domu:
+        _logger.info("Nabidka nema polozku domovske stranky, Kontakt se nepridava.")
+        return
+
+    if Menu.search_count([("parent_id", "=", domu.id), ("url", "=", "/#kontakt")]):
+        return
+
+    posledni = Menu.search(
+        [("parent_id", "=", domu.id)], order="sequence desc", limit=1)
+    polozka = Menu.with_context(lang="en_US").create({
+        "name": KONTAKT_V_MENU["en_US"],
+        "url": "/#kontakt",
+        "parent_id": domu.id,
+        "website_id": web.id,
+        "sequence": (posledni.sequence if posledni else 0) + 1,
+    })
+    jazyky = _nainstalovane_jazyky(env)
+    for jazyk, text in KONTAKT_V_MENU.items():
+        if jazyk != "en_US" and jazyk in jazyky:
+            polozka.with_context(lang=jazyk).name = text
+    _logger.info("Do nabidky pribyl Kontakt (id %s).", polozka.id)
 
 
 def _priradit_stranky_k_webu(env):
