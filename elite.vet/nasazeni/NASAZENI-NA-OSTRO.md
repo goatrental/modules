@@ -56,7 +56,18 @@ done
 Všechno má vrátit `200`. Na domovské stránce má být mapa v kontaktech a v nabídce
 položka **Kontakt**, která sjede ke kontaktní sekci.
 
-## 5. Čeho se nasazení nedotkne
+## 5. Co musí být na webu nastavené předem
+
+Moduly **nenastavují jazyky webu**. Musí být v Nastavení → Weby → *Jazyky*
+přiřazené `cs_CZ`, `de_DE`, `en_US`, `ru_RU` a výchozí jazyk `cs_CZ`.
+
+Na ostrém webu už to nastavené je (běží na něm `/de`, `/en`, `/ru`), takže tam
+netřeba nic dělat. Kdyby ale jazyk webu přiřazený nebyl, moduly se nainstalují
+bez chyby a čeština bude fungovat, jen `/de` a `/ru` budou vracet **404** —
+vypadá to jako rozbité nasazení, ale je to jen tohle nastavení. Ověřeno při
+generálce, kde jazyky byly nainstalované, ale webu nepřiřazené.
+
+## 6. Čeho se nasazení nedotkne
 
 `/aktualni-informace`, `/kariera-pro-lekare` a `/kariera-pro-absolventy` moduly
 nedodávají, takže zůstanou přesně takové, jaké jsou.
